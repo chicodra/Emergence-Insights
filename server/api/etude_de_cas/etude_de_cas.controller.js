@@ -94,6 +94,14 @@ export function getEtudeDeCasByTheme(req, res){
     .catch(handleError(res));
 }
 
+//getEtudeDeCasByPartie
+export function getEtudeDeCasByPartie(req, res){
+   return EtudeDeCas.find({id_partie:req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Upserts the given EtudeDeCas in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {

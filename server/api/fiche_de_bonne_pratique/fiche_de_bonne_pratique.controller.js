@@ -87,6 +87,13 @@ export function getFicheDeBonnePratiqueByTheme(req, res){
     .catch(handleError(res));
 }
 
+//getFicheDeBonnePratiqueByPartie
+export function getFicheDeBonnePratiqueByPartie(req, res){
+   return FicheDeBonnePratique.find({id_partie:req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
 // Creates a new FicheDeBonnePratique in the DB
 export function create(req, res) {
   return FicheDeBonnePratique.create(req.body)

@@ -13,7 +13,6 @@ import Actualite from '../api/actualite/actualite.model';
 import FicheActualite from '../api/fiche_actualite/fiche_actualite.model';
 
 
-
 Theme.find({}).remove()
   .then(() => {
     Theme.create({
