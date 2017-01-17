@@ -78,6 +78,15 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+//getPartieThemeByTheme
+
+export function getPartieThemesByTheme(req, res){
+   return PartieTheme.find({id_theme:req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Creates a new PartieTheme in the DB
 export function create(req, res) {
   return PartieTheme.create(req.body)

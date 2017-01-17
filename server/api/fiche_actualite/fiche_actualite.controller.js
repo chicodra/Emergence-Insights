@@ -79,7 +79,7 @@ export function show(req, res) {
 }
 //get an actuality by country
 export function getActByPays(req, res) {
-  return FicheActualite.find({id_pays : req.params.id}).populate('Actualite')
+  FicheActualite.find({id_pays : req.params.id}).populate('id_actualite')
   .exec(function(err,actualites){
     if(err) { return handleError(res, err); }
      var lesActus = [];

@@ -11,30 +11,108 @@ import Interview from '../api/interview/interview.model';
 import Pays from '../api/pays/pays.model';
 import Actualite from '../api/actualite/actualite.model';
 import FicheActualite from '../api/fiche_actualite/fiche_actualite.model';
-
+import Fiche from '../api/fiche_de_bonne_pratique/fiche_de_bonne_pratique.model';
+import Partie from '../api/partie_theme/partie_theme.model';
+import EtudeDeCas from '../api/etude_de_cas/etude_de_cas.model';
 
 Theme.find({}).remove()
   .then(() => {
     Theme.create({
     _id: 1,
-    libelle: 'Leadership, Gouvernance et Culture de l’Emergence'
+    libelle: 'Leadership, Gouvernance et Culture de l’Emergence',
+    mot_introduction: 'Section d’introduction VGN'
     },{
     _id: 2,
-    libelle: 'Action et Coordination du Gouvernement'
+    libelle: 'Action et Coordination du Gouvernement',
+    mot_introduction: 'Section d’introduction EL'
     },{
     _id: 3,
-    libelle: 'Moteurs de croissance'
+    libelle: 'Moteurs de croissance',
+    mot_introduction: 'Section d’introduction '
     },{
     _id: 4,
-    libelle: 'Secteurs Supports'
+    libelle: 'Secteurs Supports',
+    mot_introduction: 'Section d’introduction ND'
     },{
     _id: 5,
-    libelle: 'Développement des Entreprises'
+    libelle: 'Développement des Entreprises',
+    mot_introduction: 'Section d’introduction MF'
     }
     ).then(() => {
       console.log('finished populating Themes');
     });
   });
+
+
+Partie.find({}).remove()
+  .then(() => {
+    Partie.create({
+  _id : 1,
+  libelle : 'Planification, priorisation et implémentation',
+  section_dintro : 'Section d’introduction ND',
+  id_theme :2
+},{
+  _id : 2,
+  libelle : 'Financement',
+  section_dintro : 'Section d’introduction Babacar',
+  id_theme :2
+},{
+  _id : 3,
+  libelle : 'Suivi  et Evaluation de Projet',
+  section_dintro : 'Section d’introduction ND',
+  id_theme :2
+},{
+  _id : 4,
+  libelle : 'Secteurs de services',
+  section_dintro : 'Section d’introduction BABACAR',
+  id_theme :4
+},{
+  _id : 5,
+  libelle : 'Secteurs Sociaux',
+  section_dintro : 'Section d’introduction PAUL GINIES',
+  id_theme :4
+}
+).then(() => {
+      console.log('finished populating Parties');
+    });
+  });
+
+EtudeDeCas.find({}).remove()
+  .then(() => {
+    EtudeDeCas.create({
+  contenu: 'Rwanda – Programmation & mise en œuvre du plan d’émergence > AJM/MF',
+  id_partie :1
+},{
+  contenu: '- Senegal : Filière riz > ND',
+   id_theme:3,
+},{
+  contenu: 'Gabon : Gestion Capital Naturel  > DSK / EL',
+   id_theme:1,
+}).then(() => {
+      console.log('finished populating Etudes de Cas');
+    });
+  });
+
+
+Fiche.find({}).remove()
+  .then(() => {
+    Fiche.create({
+  contenu: 'Plans d’Emergence de la vision à l’action',
+  id_theme:1
+},{
+  contenu: 'Fiche Bonne Pratique : Tourisme > AK/HB',
+  id_theme:3
+}).then(() => {
+      console.log('finished populating Fiche');
+    });
+  });
+
+
+
+
+
+
+
 
   Article.find({}).remove()
   .then(() => {
@@ -71,7 +149,7 @@ Theme.find({}).remove()
     {
       _id : 2,
   id_pays :1,
-  id_actualite :1,
+  id_actualite :2,
   date : '2017-01-01'
     });
   });
