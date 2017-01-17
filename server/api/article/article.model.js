@@ -4,7 +4,10 @@ import mongoose from 'mongoose';
 
 var ArticleSchema = new mongoose.Schema({
   contenu: String,
-  id_theme: Number,
+  id_theme: {
+    type : Number,
+    ref : 'Theme'
+  },
   active: Boolean
 });
 

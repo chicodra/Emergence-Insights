@@ -16,6 +16,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/partie_theme/partie_theme.socket').register(socket);
   require('../api/article/article.socket').register(socket);
   require('../api/fiche_de_bonne_pratique/fiche_de_bonne_pratique.socket').register(socket);
   require('../api/etude_de_cas/etude_de_cas.socket').register(socket);

@@ -4,9 +4,12 @@ import mongoose from 'mongoose';
 
 var InterviewSchema = new mongoose.Schema({
   libelle: String,
-  auteur: Number,
+  intervenant: String,
   contenu:String,
-  id_theme: Number,
+   id_theme:{
+    type : Number,
+    ref : 'Theme'
+  },
   active: Boolean
 });
 
