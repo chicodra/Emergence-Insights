@@ -20,7 +20,6 @@ export default function(app) {
   app.use('/api/etude_de_cass', require('./api/etude_de_cas'));
   app.use('/api/interviews', require('./api/interview'));
   app.use('/api/themes', require('./api/theme'));
-  app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
 
   app.use('/auth', require('./auth').default);

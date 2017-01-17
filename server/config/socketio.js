@@ -27,7 +27,6 @@ function onConnect(socket) {
   require('../api/etude_de_cas/etude_de_cas.socket').register(socket);
   require('../api/interview/interview.socket').register(socket);
   require('../api/theme/theme.socket').register(socket);
-  require('../api/thing/thing.socket').register(socket);
 }
 
 export default function(socketio) {
