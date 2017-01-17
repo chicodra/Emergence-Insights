@@ -8,6 +8,10 @@ import Theme from '../api/theme/theme.model';
 import User from '../api/user/user.model';
 import Article from '../api/article/article.model';
 import Interview from '../api/interview/interview.model';
+import Pays from '../api/pays/pays.model';
+import Actualite from '../api/actualite/actualite.model';
+import FicheActualite from '../api/fiche_actualite/fiche_actualite.model';
+
 
 
 Theme.find({}).remove()
@@ -36,10 +40,84 @@ Theme.find({}).remove()
   Article.find({}).remove()
   .then(() => {
     Article.create({
-     contenu: 'fhodfhmfffffffff',
+     contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`,
   id_theme: 1,
     });
   });
+
+  Actualite.find({}).remove()
+  .then(() => {
+    Actualite.create({
+     _id : 1,
+  libelle : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`,
+  sujet : 'Crise de Gambie'
+    },{
+     _id : 2,
+  libelle : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`,
+  sujet : 'Crise de Mali'
+    });
+  });
+
+  FicheActualite.find({}).remove()
+  .then(() => {
+    FicheActualite.create({
+      _id : 1,
+  id_pays :1,
+  id_actualite :1,
+  date : '2017-01-01'
+    },
+    {
+      _id : 2,
+  id_pays :1,
+  id_actualite :1,
+  date : '2017-01-01'
+    });
+  });
+
+  Pays.find({}).remove()
+  .then(() => {
+    Pays.create({
+      _id : 1,
+     nom : 'BOTSWANA'
+    },{
+      _id : 2,
+     nom : 'CAP-VERT'
+    },{
+      _id : 3,
+     nom : 'CÔTE D\'IVOIRE'
+    },{
+      _id : 4,
+     nom : 'ETHIOPIE'
+    },{
+      _id : 5,
+     nom : 'GABON'
+    },{
+      _id : 6,
+     nom : 'GUINEE EQUATORIAL'
+    },{
+      _id : 7,
+     nom : 'KENYA'
+    },{
+      _id : 8,
+     nom : 'MAUDICE'
+    },{
+      _id : 9,
+     nom : 'RWANDA'
+    },{
+      _id : 10,
+     nom : 'SENEGAL'
+    },{
+      _id : 11,
+     nom : 'SOUTH AFRICA'
+    },{
+      _id : 12,
+     nom : 'TANZANIE'
+    },);
+  });
+
 
   Interview.find({}).remove()
   .then(() => {
