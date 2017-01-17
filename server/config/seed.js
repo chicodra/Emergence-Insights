@@ -6,7 +6,7 @@
 'use strict';
 import Theme from '../api/theme/theme.model';
 import User from '../api/user/user.model';
-
+import Article from '../api/article/article.model';
 Theme.find({}).remove()
   .then(() => {
     Theme.create({
