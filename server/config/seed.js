@@ -4,38 +4,29 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
+import Theme from '../api/theme/theme.model';
 import User from '../api/user/user.model';
 
-Thing.find({}).remove()
+Theme.find({}).remove()
   .then(() => {
-    Thing.create({
-      name: 'Development Tools',
-      info: 'Integration with popular tools such as Webpack, Gulp, Babel, TypeScript, Karma, '
-            + 'Mocha, ESLint, Node Inspector, Livereload, Protractor, Pug, '
-            + 'Stylus, Sass, and Less.'
-    }, {
-      name: 'Server and Client integration',
-      info: 'Built with a powerful and fun stack: MongoDB, Express, '
-            + 'AngularJS, and Node.'
-    }, {
-      name: 'Smart Build System',
-      info: 'Build system ignores `spec` files, allowing you to keep '
-            + 'tests alongside code. Automatic injection of scripts and '
-            + 'styles into your index.html'
-    }, {
-      name: 'Modular Structure',
-      info: 'Best practice client and server structures allow for more '
-            + 'code reusability and maximum scalability'
-    }, {
-      name: 'Optimized Build',
-      info: 'Build process packs up your templates as a single JavaScript '
-            + 'payload, minifies your scripts/css/images, and rewrites asset '
-            + 'names for caching.'
-    }, {
-      name: 'Deployment Ready',
-      info: 'Easily deploy your app to Heroku or Openshift with the heroku '
-            + 'and openshift subgenerators'
+    Theme.create({
+    _id: 1,
+    libelle: 'Leadership, Gouvernance et Culture de l’Emergence'
+    },{
+    _id: 2,
+    libelle: 'Action et Coordination du Gouvernement'
+    },{
+    _id: 3,
+    libelle: 'Moteurs de croissance'
+    },{
+    _id: 4,
+    libelle: 'Secteurs Supports'
+    },{
+    _id: 5,
+    libelle: 'Développement des Entreprises'
+    }
+    ).then(() => {
+      console.log('finished populating Themes');
     });
   });
 

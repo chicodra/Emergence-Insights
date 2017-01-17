@@ -85,6 +85,15 @@ export function create(req, res) {
     .catch(handleError(res));
 }
 
+//getArticleByTheme
+
+export function getArticleByTheme(req, res){
+   return Article.find({id_theme:req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Upserts the given Article in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {

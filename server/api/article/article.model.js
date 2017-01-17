@@ -3,8 +3,8 @@
 import mongoose from 'mongoose';
 
 var ArticleSchema = new mongoose.Schema({
-  name: String,
-  info: String,
+  contenu: String,
+  id_theme: Number,
   active: Boolean
 });
 

@@ -3,8 +3,9 @@
 import mongoose from 'mongoose';
 
 var ThemeSchema = new mongoose.Schema({
-  name: String,
-  info: String,
+  _id:  Number,
+  libelle: String,
+  mot_introduction: String,
   active: Boolean
 });
 

@@ -3,8 +3,10 @@
 import mongoose from 'mongoose';
 
 var InterviewSchema = new mongoose.Schema({
-  name: String,
-  info: String,
+  libelle: String,
+  auteur: Number,
+  contenu:String,
+  id_theme: Number,
   active: Boolean
 });
 
