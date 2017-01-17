@@ -8,6 +8,7 @@ var router = express.Router();
 router.get('/', controller.index);
 router.get('/:id', controller.show);
 router.get('/theme/:id',controller.getFicheDeBonnePratiqueByTheme);
+router.get('/partie/:id',controller.getFicheDeBonnePratiqueByPartie);
 router.post('/', controller.create);
 router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);
