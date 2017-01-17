@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top">
+<!--<div class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="$ctrl.isCollapsed = !$ctrl.isCollapsed">
@@ -26,4 +26,109 @@
       </ul>
     </div>
   </div>
-</div>
+</div>-->
+<header class="header type-3">
+  <div class="logo-block">
+    <a class="logo" href="#"><img src="/assets/images/logo2.png" alt=""></a>
+  </div>
+  <div class="container">
+    <div class="top-line clearfix">
+    </div>
+    <nav class="main-nav">
+      <div class="top-line-left">
+        <div class="top-contact"><i class="fa fa-envelope-o"></i><a href="mailto:emergenceinsight@pnud.com">emergenceinsight@pnud.com</a></div>
+        <div class="top-contact"><i class="fa fa-phone"></i><a href="tal:61402186411">+221 33 555 1234</a>, <a href="tal:6166650">+221 33 555 4567</a></div>
+      </div>
+      <div class="menu-container">
+        <div class="menu">
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li ng-mouseenter="nbCtrl.classSecteur()" ng-mouseleave="nbCtrl.delclassSecteur()" class="nbCtrl.dropSecteur"><a href="pays.html">Piliers de l'emergence</a>
+              <ul ng-style="nbCtrl.styleSecteur">
+                <li> <a href="">Leadership Gouvernance et Culture de l'emergence </a> </li>
+                <li> <a href="">Action et Coordonnation du Gouvernement</a> </li>
+                <li> <a href="">Moteur de Croissance</a> </li>
+                <li><a href="">Secteurs Supports</a> </li>
+                <li><a href="">Developpement des Entreprises</a> </li>
+              </ul>
+            </li>
+            <li ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" class="cl1"><a href="pays.html"> Info Pays</a>
+              <ul class="nbCtrl.cl2" ng-style="nbCtrl.myStyle">
+                <li><a href="pays.html">Bostwana</a></li>
+                <li><a href="#">Cap-Vert</a></li>
+                <li><a href="#">Côte d'Ivoire</a></li>
+                <li><a href="pays.html">Ethiopie</a></li>
+                <li><a href="#">Gabon</a></li>
+                <li><a href="#">Guinée Equatoriale</a></li>
+                <li><a href="pays.html">Kenya</a></li>
+                <li><a href="#">Maurice</a></li>
+                <li><a href="#">Rwanda</a></li>
+                <li><a href="pays.html">Sénégal</a></li>
+                <li><a href="#">South Afica</a></li>
+                <li><a href="#">Tanzania</a></li>
+              </ul>
+            </li>
+            <li ng-mouseenter="nbCtrl.classEmergence()" ng-mouseleave="nbCtrl.delclassEmergence()" class="nbCtrl.dropEmergence"><a href="#">INDICE DE L'EMERGENCE</a>
+              <ul ng-style="nbCtrl.styleEmergence">
+                <li> <a href="">composante de l'indice' </a> </li>
+                <li> <a href="">focus pays</a> </li>
+              </ul>
+            </li>
+            <li><a href="#">A propos</a></li>
+            <!--<li><a href="pays.html">Contact</a>-->
+            <li><a href="#">Partenaires</a></li>
+            <!-- <ul>
+										<li><a href="#">School</a>
+												<ul>
+														<li><a href="#">Lidership</a></li>
+														<li><a href="#">History</a></li>
+														<li><a href="#">Locations</a></li>
+														<li><a href="#">Careers</a></li>
+												</ul>
+										</li>
+										<li><a href="#">Study</a>
+												<ul>
+														<li><a href="#">Undergraduate</a></li>
+														<li><a href="#">Masters</a></li>
+														<li><a href="#">International</a></li>
+														<li><a href="#">Online</a></li>
+												</ul>
+										</li>
+										<li><a href="#">Study</a>
+												<ul>
+														<li><a href="#">Undergraduate</a></li>
+														<li><a href="#">Masters</a></li>
+														<li><a href="#">International</a></li>
+														<li><a href="#">Online</a></li>
+												</ul>
+										</li>
+										<li><a href="#">Empty sub</a></li>
+								</ul> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="top-line-right">
+        <div class="top-social">
+          <a href="#"><i class="fa fa-skype"></i></a>
+          <a href="#"><i class="fa fa-google-plus"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <a class="search-link top-search" href="#"><i class="fa fa-search"></i></a>
+        <div class="search-popup custom-popup">
+          <form>
+            <div class="popup-close"><i class="fa fa-times"></i></div>
+            <h3 class="popup-title text-center">Search</h3>
+            <div class="c-form-group">
+              <div class="c-form-label">Enter search text</div>
+              <input type="text" required="" value="">
+            </div>
+            <input class="c-btn b-50 black hv-blue-o" type="submit" value="Search">
+          </form>
+        </div>
+      </div>
+    </nav>
+    <button class="cmn-toggle-switch"><span></span></button>
+  </div>
+</header>

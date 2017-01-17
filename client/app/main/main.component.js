@@ -39,44 +39,13 @@ export class MainController {
     this.$http.delete(`/api/things/${thing._id}`);
   }
 
-  classPays() {
-    console.log('okk');
-    this.cl = "menu-dropdown-icon";
-    this.myStyle = {
-      'display': 'block', 'opacity': '1'
-    }
-  }
 
-   delclassPays() {
-    console.log('okk');
-    this.cl = "";
-    this.myStyle = {
-      'display': 'none', 'opacity': '1'
-    }
-  }
-
-  classSecteur() {
-     console.log('okkgfjkggfj');
-    this.dropSecteur = "menu-dropdown-icon";
-    this.styleSecteur = {
-      'display': 'block', 'opacity': '1'
-    }
-  }
-
-  delclassSecteur() {
-    console.log('okk');
-    this.dropSecteur = "";
-    this.styleSecteur = {
-      'display': 'none', 'opacity': '1'
-    }
-  }
 }
 
 export default angular.module('emergenceApp.main', [uiRouter])
   .config(routing)
   .component('main', {
     template: require('./main.html'),
-    controller: MainController,
-    controllerAs: 'MainCtrl'
+    controller: MainController
   })
   .name;
