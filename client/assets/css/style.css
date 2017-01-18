@@ -760,7 +760,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 .contact-block { position: relative; padding-top: 112px; padding-bottom: 90px; }
 .map-block { position: absolute; top: 0px; left: 50%; right: 0px; bottom: 0px; }
+<<<<<<< HEAD
+.slogan-block { background: center center url('/assets/images/perfstock/people_insights.jpg');}
+=======
 .slogan-block { background: center center url('../img/perfstock/people_insights.jpg');}
+>>>>>>> origin/develop
 .slogan-block { background-size: cover;}
 .contact-catagory { font-size: 16px; line-height: 20px; font-weight: 400; color: #feca16; letter-spacing: 3px; margin-bottom: 20px; }
 .contact-catagory.style-2 { letter-spacing: 2px; }

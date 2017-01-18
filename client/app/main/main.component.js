@@ -38,6 +38,8 @@ export class MainController {
   deleteThing(thing) {
     this.$http.delete(`/api/things/${thing._id}`);
   }
+
+
 }
 
 export default angular.module('emergenceApp.main', [uiRouter])
