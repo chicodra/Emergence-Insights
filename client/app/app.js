@@ -31,11 +31,15 @@ import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
 import theme from './factory/themeProvider/themeProvider.service'
 import paysProvider from './factory/paysProvider/paysProvider.service'
+import articleComponent from './article/article.component';
+import articleProvider from './factory/articleProvider/articleProvider.service'
+
 
 import './app.css';
 
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-  uiBootstrap, _Auth, account, admin, pilier, pays, indice, navbar, footer, main, constants, socket, util,theme,paysProvider
+  uiBootstrap, _Auth, account, admin, pilier, pays, indice, articleComponent, navbar, footer,
+  main, constants, socket, util,theme,paysProvider,articleProvider
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
