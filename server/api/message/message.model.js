@@ -11,6 +11,9 @@ var MessageSchema = new mongoose.Schema({
   id_sujet : {
     type : Number,
     ref :'Sujet'
+  }, id_createur : {
+    type : mongoose.Schema.ObjectId,
+    ref :'User'
   },
   contenu: String,
   date_creation: Date
