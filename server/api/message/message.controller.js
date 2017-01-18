@@ -54,6 +54,15 @@ function verifys(tab, element) {
 
 }
 
+function verif(tab, element) {
+    if (tab == element) {
+      return true;
+    }
+  
+  return false;
+
+}
+
 
 function removeEntity(res) {
   return function(entity) {
@@ -147,14 +156,17 @@ export function getCreatorBysujet(req, res) {
     .exec(function (err, messages) {
       if (err) { return handleError(res, err); }
      messages.forEach(function(element) {
-       if(!verifys(element.id_createur,element.id_user)){
-         console.log(false);
-         return res(false);
-       }else{
-          console.log(true);
-         return res(true);
+       if(element.id_createur.toString() == element.id_user.toString()){
+         console.log(false+","+element.id_createur+","+element.id_user);
+        //  return res(false);
+       }
+       if(element.id_createur != element.id_user){
+          console.log(true+","+element.id_createur+","+element.id_user);
+        //  return res(true);
        }
      });
+           return res.json(messages);
+
     })
 }
 
