@@ -37,10 +37,19 @@ function patchUpdates(patches) {
 
 function verify(tab, element) {
   for (var i in tab) {
-    if (tab[i].id == element.id) {
+    if (tab[i].id == element.id ) {
       return true;
     }
   }
+  return false;
+
+}
+
+function verifys(tab, element) {
+    if (tab == element.id ) {
+      return true;
+    }
+  
   return false;
 
 }
@@ -120,12 +129,14 @@ export function getUserBySujet(req, res) {
       if (err) { return handleError(res, err); }
       var lesusers = [];
       users.forEach(function (userss) {
-        if (lesusers.length != 0) {
+        if(!verifys(req.params.us,userss.id_user)){
+          if (lesusers.length != 0) {
           if (!verify(lesusers, userss.id_user))
             lesusers.push(userss.id_user);
         }
         else {
           lesusers.push(userss.id_user);
+        }
         }
 
 

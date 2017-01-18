@@ -14,6 +14,9 @@ import FicheActualite from '../api/fiche_actualite/fiche_actualite.model';
 import Fiche from '../api/fiche_de_bonne_pratique/fiche_de_bonne_pratique.model';
 import Partie from '../api/partie_theme/partie_theme.model';
 import EtudeDeCas from '../api/etude_de_cas/etude_de_cas.model';
+import Sujet from '../api/sujet/sujet.model';
+import Message from '../api/message/message.model';
+
 
 Theme.find({}).remove()
   .then(() => {
@@ -106,13 +109,6 @@ Fiche.find({}).remove()
       console.log('finished populating Fiche');
     });
   });
-
-
-
-
-
-
-
 
   Article.find({}).remove()
   .then(() => {
@@ -230,18 +226,113 @@ Mais selon moi, ce qu'il reste à faire est encore plus important car nous évol
 User.find({}).remove()
   .then(() => {
     User.create({
+      _id : '587f54a347ea262b686ecc5f',
       provider: 'local',
       name: 'Test User',
       email: 'test@example.com',
       password: 'test'
     }, {
+      _id : '587f54a347ea262b686ecc5e',
       provider: 'local',
       role: 'admin',
       name: 'Admin',
       email: 'admin@example.com',
+      password: 'admin'
+    },{
+      _id : '587f5a2908c8482cf40bb351',
+      provider: 'local',
+      name: 'pach',
+      email: 'adfmin@exmple.com',
       password: 'admin'
     })
     .then(() => {
       console.log('finished populating users');
     });
   });
+
+  Sujet.find({}).remove()
+  .then(() => {
+    Sujet.create({
+      _id : 1,
+  titre : 'La fonte des glaciers',
+  id_user : '587f54a347ea262b686ecc5f',
+  date_creation : '2017-04-01'
+    });
+  });
+
+ Message.find({}).remove()
+  .then(() => {
+    Message.create({
+      _id: 1,
+  id_user : '587f54a347ea262b686ecc5e',
+  id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 2,
+  id_user : '587f54a347ea262b686ecc5e',
+  id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 3,
+  id_user : '587f54a347ea262b686ecc5e',
+  id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 4,
+  id_user : '587f54a347ea262b686ecc5f',
+  id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 5,
+  id_user : '587f54a347ea262b686ecc5f',
+  id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 6,
+  id_user : '587f54a347ea262b686ecc5f',
+  id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 7,
+  id_user : '587f54a347ea262b686ecc5f',
+  id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 8,
+  id_user : '587f54a347ea262b686ecc5f',
+  id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 9,
+  id_user : '587f5a2908c8482cf40bb351',
+  id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    });
+  }); 
