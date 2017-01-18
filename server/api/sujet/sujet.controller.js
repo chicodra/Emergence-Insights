@@ -15,8 +15,8 @@ import Sujet from './sujet.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
-  return function(entity) {
-    if(entity) {
+  return function (entity) {
+    if (entity) {
       return res.status(statusCode).json(entity);
     }
     return null;
@@ -24,10 +24,10 @@ function respondWithResult(res, statusCode) {
 }
 
 function patchUpdates(patches) {
-  return function(entity) {
+  return function (entity) {
     try {
       jsonpatch.apply(entity, patches, /*validate*/ true);
-    } catch(err) {
+    } catch (err) {
       return Promise.reject(err);
     }
 
@@ -36,8 +36,8 @@ function patchUpdates(patches) {
 }
 
 function removeEntity(res) {
-  return function(entity) {
-    if(entity) {
+  return function (entity) {
+    if (entity) {
       return entity.remove()
         .then(() => {
           res.status(204).end();
@@ -47,8 +47,8 @@ function removeEntity(res) {
 }
 
 function handleEntityNotFound(res) {
-  return function(entity) {
-    if(!entity) {
+  return function (entity) {
+    if (!entity) {
       res.status(404).end();
       return null;
     }
@@ -58,7 +58,7 @@ function handleEntityNotFound(res) {
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
-  return function(err) {
+  return function (err) {
     res.status(statusCode).send(err);
   };
 }
@@ -80,12 +80,11 @@ export function show(req, res) {
 
 // Get subjects by one user
 export function getSujetByUser(req, res) {
-  return Sujet.find({id_user : req.params.id}).exec()
+  return Sujet.find({ id_user: req.params.id }).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
-
 
 
 // Creates a new Sujet in the DB
@@ -97,10 +96,10 @@ export function create(req, res) {
 
 // Upserts the given Sujet in the DB at the specified ID
 export function upsert(req, res) {
-  if(req.body._id) {
+  if (req.body._id) {
     delete req.body._id;
   }
-  return Sujet.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+  return Sujet.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true }).exec()
 
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -108,7 +107,7 @@ export function upsert(req, res) {
 
 // Updates an existing Sujet in the DB
 export function patch(req, res) {
-  if(req.body._id) {
+  if (req.body._id) {
     delete req.body._id;
   }
   return Sujet.findById(req.params.id).exec()

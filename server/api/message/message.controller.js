@@ -35,6 +35,17 @@ function patchUpdates(patches) {
   };
 }
 
+function verify(tab, element) {
+  for (var i in tab) {
+    if (tab[i].id == element.id) {
+      return true;
+    }
+  }
+  return false;
+
+}
+
+
 function removeEntity(res) {
   return function(entity) {
     if(entity) {
@@ -100,6 +111,27 @@ export function create(req, res) {
   return Message.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
+}
+
+//get User By Sujet
+export function getUserBySujet(req, res) {
+  Message.find({ id_sujet: req.params.id }).populate('id_user')
+    .exec(function (err, users) {
+      if (err) { return handleError(res, err); }
+      var lesusers = [];
+      users.forEach(function (userss) {
+        if (lesusers.length != 0) {
+          if (!verify(lesusers, userss.id_user))
+            lesusers.push(userss.id_user);
+        }
+        else {
+          lesusers.push(userss.id_user);
+        }
+
+
+      });
+      return res.json(lesusers);
+    })
 }
 
 // Upserts the given Message in the DB at the specified ID
