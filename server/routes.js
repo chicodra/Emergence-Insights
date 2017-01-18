@@ -9,6 +9,8 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/notifications', require('./api/notification'));
+  app.use('/api/messages', require('./api/message'));
   app.use('/api/fiche_actualites', require('./api/fiche_actualite'));
   app.use('/api/agendas', require('./api/agenda'));
   app.use('/api/documentations', require('./api/documentation'));
