@@ -257,6 +257,11 @@ User.find({}).remove()
   titre : 'La fonte des glaciers',
   id_user : '587f54a347ea262b686ecc5f',
   date_creation : '2017-04-01'
+    },{
+      _id : 2,
+  titre : 'La fonte des neiges',
+  id_user : '587f54a347ea262b686ecc5f',
+  date_creation : '2017-04-01'
     });
   });
 
@@ -330,6 +335,22 @@ User.find({}).remove()
       _id: 9,
   id_user : '587f5a2908c8482cf40bb351',
   id_sujet :1,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 10,
+  id_user : '587f5a2908c8482cf40bb351',
+  id_sujet :2,
+  id_createur : '587f54a347ea262b686ecc5f',
+  contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+`,
+  date_creation: '2017-01-01'
+    },{
+      _id: 11,
+  id_user : '587f5a2908c8482cf40bb351',
+  id_sujet :2,
   id_createur : '587f54a347ea262b686ecc5f',
   contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
 `,

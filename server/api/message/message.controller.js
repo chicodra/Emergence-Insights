@@ -138,12 +138,26 @@ export function getUserBySujet(req, res) {
           lesusers.push(userss.id_user);
         }
         }
-
-
       });
       return res.json(lesusers);
     })
 }
+export function getCreatorBysujet(req, res) {
+  Message.find({ id_sujet: req.params.id })
+    .exec(function (err, messages) {
+      if (err) { return handleError(res, err); }
+     messages.forEach(function(element) {
+       if(!verifys(element.id_createur,element.id_user)){
+         console.log(false);
+         return res(false);
+       }else{
+          console.log(true);
+         return res(true);
+       }
+     });
+    })
+}
+
 
 // Upserts the given Message in the DB at the specified ID
 export function upsert(req, res) {
