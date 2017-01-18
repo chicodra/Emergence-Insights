@@ -16,7 +16,17 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
-  require('../api/thing/thing.socket').register(socket);
+  require('../api/fiche_actualite/fiche_actualite.socket').register(socket);
+  require('../api/agenda/agenda.socket').register(socket);
+  require('../api/documentation/documentation.socket').register(socket);
+  require('../api/actualite/actualite.socket').register(socket);
+  require('../api/pays/pays.socket').register(socket);
+  require('../api/partie_theme/partie_theme.socket').register(socket);
+  require('../api/article/article.socket').register(socket);
+  require('../api/fiche_de_bonne_pratique/fiche_de_bonne_pratique.socket').register(socket);
+  require('../api/etude_de_cas/etude_de_cas.socket').register(socket);
+  require('../api/interview/interview.socket').register(socket);
+  require('../api/theme/theme.socket').register(socket);
 }
 
 export default function(socketio) {
