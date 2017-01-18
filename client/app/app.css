@@ -45,12 +45,9 @@
 /* Component styles are injected through gulp */
 /* inject:css */
 @import 'admin/admin.css';
-
 @import 'article/article.css';
-@import 'indice/indice.css';
-
 @import 'emergences.css';
-
+@import 'indice/indice.css';
 @import 'main/main.css';
 @import 'pays/pays.css';
 @import 'pilier/pilier.css';
