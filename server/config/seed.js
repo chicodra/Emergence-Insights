@@ -4,40 +4,41 @@
  */
 
 'use strict';
-import Theme from '../api/theme/theme.model';
-import User from '../api/user/user.model';
-import Article from '../api/article/article.model';
-import Interview from '../api/interview/interview.model';
-import Pays from '../api/pays/pays.model';
-import Actualite from '../api/actualite/actualite.model';
-import FicheActualite from '../api/fiche_actualite/fiche_actualite.model';
-import Fiche from '../api/fiche_de_bonne_pratique/fiche_de_bonne_pratique.model';
-import Partie from '../api/partie_theme/partie_theme.model';
-import EtudeDeCas from '../api/etude_de_cas/etude_de_cas.model';
+import Theme from "../api/theme/theme.model";
+import User from "../api/user/user.model";
+import Article from "../api/article/article.model";
+import Interview from "../api/interview/interview.model";
+import Pays from "../api/pays/pays.model";
+import Actualite from "../api/actualite/actualite.model";
+import FicheActualite from "../api/fiche_actualite/fiche_actualite.model";
+import Fiche from "../api/fiche_de_bonne_pratique/fiche_de_bonne_pratique.model";
+import Partie from "../api/partie_theme/partie_theme.model";
+import EtudeDeCas from "../api/etude_de_cas/etude_de_cas.model";
 
 Theme.find({}).remove()
   .then(() => {
-    Theme.create({
-    _id: 1,
-    libelle: 'Leadership, Gouvernance et Culture de l’Emergence',
-    mot_introduction: 'Section d’introduction VGN'
-    },{
-    _id: 2,
-    libelle: 'Action et Coordination du Gouvernement',
-    mot_introduction: 'Section d’introduction EL'
-    },{
-    _id: 3,
-    libelle: 'Moteurs de croissance',
-    mot_introduction: 'Section d’introduction '
-    },{
-    _id: 4,
-    libelle: 'Secteurs Supports',
-    mot_introduction: 'Section d’introduction ND'
-    },{
-    _id: 5,
-    libelle: 'Développement des Entreprises',
-    mot_introduction: 'Section d’introduction MF'
-    }
+    Theme.create(
+      {
+        _id: 1,
+        libelle: 'Leadership, Gouvernance et Culture de l’Emergence',
+        mot_introduction: 'Section d’introduction VGN'
+      }, {
+        _id: 2,
+        libelle: 'Action et Coordination du Gouvernement',
+        mot_introduction: 'Section d’introduction EL'
+      }, {
+        _id: 3,
+        libelle: 'Moteurs de croissance',
+        mot_introduction: 'Section d’introduction '
+      }, {
+        _id: 4,
+        libelle: 'Secteurs Supports',
+        mot_introduction: 'Section d’introduction ND'
+      }, {
+        _id: 5,
+        libelle: 'Développement des Entreprises',
+        mot_introduction: 'Section d’introduction MF'
+      }
     ).then(() => {
       console.log('finished populating Themes');
     });
@@ -47,32 +48,32 @@ Theme.find({}).remove()
 Partie.find({}).remove()
   .then(() => {
     Partie.create({
-  _id : 1,
-  libelle : 'Planification, priorisation et implémentation',
-  section_dintro : 'Section d’introduction ND',
-  id_theme :2
-},{
-  _id : 2,
-  libelle : 'Financement',
-  section_dintro : 'Section d’introduction Babacar',
-  id_theme :2
-},{
-  _id : 3,
-  libelle : 'Suivi  et Evaluation de Projet',
-  section_dintro : 'Section d’introduction ND',
-  id_theme :2
-},{
-  _id : 4,
-  libelle : 'Secteurs de services',
-  section_dintro : 'Section d’introduction BABACAR',
-  id_theme :4
-},{
-  _id : 5,
-  libelle : 'Secteurs Sociaux',
-  section_dintro : 'Section d’introduction PAUL GINIES',
-  id_theme :4
-}
-).then(() => {
+        _id: 1,
+        libelle: 'Planification, priorisation et implémentation',
+        section_dintro: 'Section d’introduction ND',
+        id_theme: 2
+      }, {
+        _id: 2,
+        libelle: 'Financement',
+        section_dintro: 'Section d’introduction Babacar',
+        id_theme: 2
+      }, {
+        _id: 3,
+        libelle: 'Suivi  et Evaluation de Projet',
+        section_dintro: 'Section d’introduction ND',
+        id_theme: 2
+      }, {
+        _id: 4,
+        libelle: 'Secteurs de services',
+        section_dintro: 'Section d’introduction BABACAR',
+        id_theme: 4
+      }, {
+        _id: 5,
+        libelle: 'Secteurs Sociaux',
+        section_dintro: 'Section d’introduction PAUL GINIES',
+        id_theme: 4
+      }
+    ).then(() => {
       console.log('finished populating Parties');
     });
   });
@@ -80,15 +81,15 @@ Partie.find({}).remove()
 EtudeDeCas.find({}).remove()
   .then(() => {
     EtudeDeCas.create({
-  contenu: 'Rwanda – Programmation & mise en œuvre du plan d’émergence > AJM/MF',
-  id_partie :1
-},{
-  contenu: '- Senegal : Filière riz > ND',
-   id_theme:3,
-},{
-  contenu: 'Gabon : Gestion Capital Naturel  > DSK / EL',
-   id_theme:1,
-}).then(() => {
+      contenu: 'Rwanda – Programmation & mise en œuvre du plan d’émergence > AJM/MF',
+      id_partie: 1
+    }, {
+      contenu: '- Senegal : Filière riz > ND',
+      id_theme: 3,
+    }, {
+      contenu: 'Gabon : Gestion Capital Naturel  > DSK / EL',
+      id_theme: 1,
+    }).then(() => {
       console.log('finished populating Etudes de Cas');
     });
   });
@@ -97,111 +98,126 @@ EtudeDeCas.find({}).remove()
 Fiche.find({}).remove()
   .then(() => {
     Fiche.create({
-  contenu: 'Plans d’Emergence de la vision à l’action',
-  id_theme:1
-},{
-  contenu: 'Fiche Bonne Pratique : Tourisme > AK/HB',
-  id_theme:3
-}).then(() => {
+      contenu: 'Plans d’Emergence de la vision à l’action',
+      id_theme: 1
+    }, {
+      contenu: 'Fiche Bonne Pratique : Tourisme > AK/HB',
+      id_theme: 3
+    }).then(() => {
       console.log('finished populating Fiche');
     });
   });
 
 
-
-
-
-
-
-
-  Article.find({}).remove()
+Article.find({}).remove()
   .then(() => {
-    Article.create({
-     contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+    Article.create(
+      {
+        contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
-  id_theme: 1,
-    });
+        id_theme: 1,
+      },
+      {
+        contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`,
+        id_theme: 1,
+      },
+      {
+        contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`,
+        id_theme: 1,
+      },
+      {
+        contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`,
+        id_theme: 1,
+      },
+      {
+        contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`,
+        id_theme: 1,
+      });
   });
 
-  Actualite.find({}).remove()
+Actualite.find({}).remove()
   .then(() => {
     Actualite.create({
-     _id : 1,
-  libelle : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      _id: 1,
+      libelle: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
-  sujet : 'Crise de Gambie'
-    },{
-     _id : 2,
-  libelle : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      sujet: 'Crise de Gambie'
+    }, {
+      _id: 2,
+      libelle: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
-  sujet : 'Crise de Mali'
+      sujet: 'Crise de Mali'
     });
   });
 
-  FicheActualite.find({}).remove()
+FicheActualite.find({}).remove()
   .then(() => {
     FicheActualite.create({
-      _id : 1,
-  id_pays :1,
-  id_actualite :1,
-  date : '2017-01-01'
-    },
-    {
-      _id : 2,
-  id_pays :1,
-  id_actualite :2,
-  date : '2017-01-01'
-    });
+        _id: 1,
+        id_pays: 1,
+        id_actualite: 1,
+        date: '2017-01-01'
+      },
+      {
+        _id: 2,
+        id_pays: 1,
+        id_actualite: 2,
+        date: '2017-01-01'
+      });
   });
 
-  Pays.find({}).remove()
+Pays.find({}).remove()
   .then(() => {
     Pays.create({
-      _id : 1,
-     nom : 'BOTSWANA'
-    },{
-      _id : 2,
-     nom : 'CAP-VERT'
-    },{
-      _id : 3,
-     nom : 'CÔTE D\'IVOIRE'
-    },{
-      _id : 4,
-     nom : 'ETHIOPIE'
-    },{
-      _id : 5,
-     nom : 'GABON'
-    },{
-      _id : 6,
-     nom : 'GUINEE EQUATORIAL'
-    },{
-      _id : 7,
-     nom : 'KENYA'
-    },{
-      _id : 8,
-     nom : 'MAUDICE'
-    },{
-      _id : 9,
-     nom : 'RWANDA'
-    },{
-      _id : 10,
-     nom : 'SENEGAL'
-    },{
-      _id : 11,
-     nom : 'SOUTH AFRICA'
-    },{
-      _id : 12,
-     nom : 'TANZANIE'
+      _id: 1,
+      nom: 'BOTSWANA'
+    }, {
+      _id: 2,
+      nom: 'CAP-VERT'
+    }, {
+      _id: 3,
+      nom: 'CÔTE D\'IVOIRE'
+    }, {
+      _id: 4,
+      nom: 'ETHIOPIE'
+    }, {
+      _id: 5,
+      nom: 'GABON'
+    }, {
+      _id: 6,
+      nom: 'GUINEE EQUATORIAL'
+    }, {
+      _id: 7,
+      nom: 'KENYA'
+    }, {
+      _id: 8,
+      nom: 'MAUDICE'
+    }, {
+      _id: 9,
+      nom: 'RWANDA'
+    }, {
+      _id: 10,
+      nom: 'SENEGAL'
+    }, {
+      _id: 11,
+      nom: 'SOUTH AFRICA'
+    }, {
+      _id: 12,
+      nom: 'TANZANIE'
     },);
   });
 
 
-  Interview.find({}).remove()
+Interview.find({}).remove()
   .then(() => {
     Interview.create({
-     libelle: 'Emergence Insights Interview de M. Thierno Seydou Nourou Sy ',
-  intervenant: 'M. Thierno Seydou Nourou Sy',
-  contenu:`PG : Le développement d'un secteur privé fort passe par de bons canaux de financement des entreprises. Votre partenariat avec le FONSIS et le FONGIP constitue un modèle innovant d'accompagnement des entreprises ; pouvez-vous présenter le contexte sénégalais en la matière et le contexte de création de la BNDE ?
+      libelle: 'Emergence Insights Interview de M. Thierno Seydou Nourou Sy ',
+      intervenant: 'M. Thierno Seydou Nourou Sy',
+      contenu: `PG : Le développement d'un secteur privé fort passe par de bons canaux de financement des entreprises. Votre partenariat avec le FONSIS et le FONGIP constitue un modèle innovant d'accompagnement des entreprises ; pouvez-vous présenter le contexte sénégalais en la matière et le contexte de création de la BNDE ?
 
 TSNS : La Banque Nationale pour le Développement Economique (BNDE) a été créée officiellement en 2010 mais il s’agit d’un projet en germe depuis 2006. L’idée à l’époque était de transformer le Fonds de Promotion Economique (FPE) en banque. Entre 2010 à 2012, le projet a peiné à démarrer du fait de tiraillements entre la conservation de la FPE (qui allait au-delà de ses prérogatives en proposant des crédits directs) ou la création de la BNDE.
 
@@ -241,7 +257,7 @@ User.find({}).remove()
       email: 'admin@example.com',
       password: 'admin'
     })
-    .then(() => {
-      console.log('finished populating users');
-    });
+      .then(() => {
+        console.log('finished populating users');
+      });
   });

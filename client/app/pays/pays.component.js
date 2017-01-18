@@ -38,23 +38,24 @@ export class InfoPaysController{
     this.message = 'Hello';
     this.paysProvider=paysProvider;
     this.params=$stateParams
+
     console.log('this',this);
   }
 
-  Init(){
-    //this.listTheme=[];
-
-
-    this.paysProvider.listPays().then(list => {
-      this.listPays=list;
-
-      console.log('pays', this.listPays)
-
-
-
-
-    });
-  }
+  // Init(){
+  //   //this.listTheme=[];
+  //
+  //
+  //   this.paysProvider.listPays().then(list => {
+  //     this.listPays=list;
+  //
+  //     console.log('pays', this.listPays)
+  //
+  //
+  //
+  //
+  //   });
+  // }
 }
 
 PaysComponent.$inject = ["paysProvider"];
