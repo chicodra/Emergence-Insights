@@ -1,15 +1,15 @@
 /**
- * Thing model events
+ * Theme model events
  */
 
 'use strict';
 
 import {EventEmitter} from 'events';
-import Thing from './thing.model';
-var ThingEvents = new EventEmitter();
+import Theme from './theme.model';
+var ThemeEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
-ThingEvents.setMaxListeners(0);
+ThemeEvents.setMaxListeners(0);
 
 // Model events
 var events = {
@@ -20,14 +20,14 @@ var events = {
 // Register the event emitter to the model events
 for(var e in events) {
   let event = events[e];
-  Thing.schema.post(e, emitEvent(event));
+  Theme.schema.post(e, emitEvent(event));
 }
 
 function emitEvent(event) {
   return function(doc) {
-    ThingEvents.emit(`${event}:${doc._id}`, doc);
-    ThingEvents.emit(event, doc);
+    ThemeEvents.emit(event + ':' + doc._id, doc);
+    ThemeEvents.emit(event, doc);
   };
 }
 
-export default ThingEvents;
+export default ThemeEvents;

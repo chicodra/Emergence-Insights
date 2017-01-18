@@ -1,12 +1,14 @@
 'use strict';
 
 var express = require('express');
-var controller = require('./thing.controller');
+var controller = require('./fiche_de_bonne_pratique.controller');
 
 var router = express.Router();
 
 router.get('/', controller.index);
 router.get('/:id', controller.show);
+router.get('/theme/:id',controller.getFicheDeBonnePratiqueByTheme);
+router.get('/partie/:id',controller.getFicheDeBonnePratiqueByPartie);
 router.post('/', controller.create);
 router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);
