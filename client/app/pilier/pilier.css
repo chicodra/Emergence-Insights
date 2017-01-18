@@ -1,0 +1,41 @@
+.pilierEm {
+  margin-top: 200px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.section {
+  border: 2px solid;
+  margin-bottom: 10px;
+  height: 80px;
+}
+
+
+
+.interview {
+  border: 2px solid;
+  margin-bottom: 10px;
+  height: 100px;
+}
+
+.etude {
+  border: 2px solid;
+  height: 100px;
+}
+
+.fiche {
+  border: 2px solid;
+  height: 100px;
+}
+p {
+  text-align: center;
+  margin-left: 20px;
+  padding: 10px;
+}
+li{
+    margin-left: 10px;
+}

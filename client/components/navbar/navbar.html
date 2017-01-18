@@ -45,11 +45,15 @@
             <li><a href="#">Accueil</a></li>
             <li ng-mouseenter="nbCtrl.classSecteur()" ng-mouseleave="nbCtrl.delclassSecteur()" class="nbCtrl.dropSecteur"><a href="pays.html">Piliers de l'emergence</a>
               <ul ng-style="nbCtrl.styleSecteur">
-                <li> <a href="">Leadership Gouvernance et Culture de l'emergence </a> </li>
-                <li> <a href="">Action et Coordonnation du Gouvernement</a> </li>
-                <li> <a href="">Moteur de Croissance</a> </li>
-                <li><a href="">Secteurs Supports</a> </li>
-                <li><a href="">Developpement des Entreprises</a> </li>
+                <li>
+                  <a ui-sref="leadership"> <i class="fa fa-arrow-right" aria-hidden="true"></i> Leadership Gouvernance et Culture de l'emergence </a>
+                </li>
+                <li>
+                  <a ui-sref="action"> <i class="fa fa-arrow-right" aria-hidden="true"></i>Action et Coordonnation du Gouvernement</a>
+                </li>
+                <li> <a ui-sref="moteur"><i class="fa fa-arrow-right" aria-hidden="true"></i>Moteur de Croissance</a> </li>
+                <li><a ui-sref="secteur"><i class="fa fa-arrow-right" aria-hidden="true"></i>Secteurs Supports</a> </li>
+                <li><a ui-sref="developpement"><i class="fa fa-arrow-right" aria-hidden="true"></i>Developpement des Entreprises</a> </li>
               </ul>
             </li>
             <li ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" class="cl1"><a href="pays.html"> Info Pays</a>
