@@ -78,6 +78,23 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Get messages by one subject
+export function getMessageBySujet(req, res) {
+  return Message.find({id_sujet : req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+// Get messages by one user
+export function getMessageByUser(req, res) {
+  return Message.find({id_user : req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+
 // Creates a new Message in the DB
 export function create(req, res) {
   return Message.create(req.body)

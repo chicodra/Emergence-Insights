@@ -7,6 +7,10 @@ var router = express.Router();
 
 router.get('/', controller.index);
 router.get('/:id', controller.show);
+router.get('/sujet/:id', controller.getMessageBySujet);
+router.get('/user/:id', controller.getMessageByUser);
+router.get('/user/:id/:suj', controller.getUserBySujet);
+
 router.post('/', controller.create);
 router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);

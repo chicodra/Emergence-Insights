@@ -78,6 +78,15 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Get notifications by a message
+export function getNotifByMessage(req, res) {
+  return Notification.findById({id_message : req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+
 // Creates a new Notification in the DB
 export function create(req, res) {
   return Notification.create(req.body)
