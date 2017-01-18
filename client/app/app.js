@@ -30,11 +30,12 @@ import constants from './app.constants';
 import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
 import theme from './factory/themeProvider/themeProvider.service'
+import paysProvider from './factory/paysProvider/paysProvider.service'
 
 import './app.css';
 
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-  uiBootstrap, _Auth, account, admin, pilier, pays, indice, navbar, footer, main, constants, socket, util,theme
+  uiBootstrap, _Auth, account, admin, pilier, pays, indice, navbar, footer, main, constants, socket, util,theme,paysProvider
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
