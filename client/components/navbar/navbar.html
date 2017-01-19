@@ -44,38 +44,39 @@
           <ul>
             <li><a ng-click="nbCtrl.goHome()">Accueil</a></li>
             <li ng-mouseenter="nbCtrl.classSecteur()" ng-mouseleave="nbCtrl.delclassSecteur()" class="nbCtrl.dropSecteur"><a href="pays.html">Piliers de l'emergence</a>
+
               <ul ng-style="nbCtrl.styleSecteur">
                 <li>
-                  <a ui-sref="leadership"> <i class="fa fa-arrow-right" aria-hidden="true"></i> Leadership Gouvernance et Culture de l'emergence </a>
+                  <a ui-sref="leadership" ng-click="nbCtrl.delclassSecteur()"> <i class="fa fa-arrow-right" aria-hidden="true"></i> Leadership Gouvernance et Culture de l'emergence </a>
                 </li>
                 <li>
-                  <a ui-sref="action"> <i class="fa fa-arrow-right" aria-hidden="true"></i>Action et Coordonnation du Gouvernement</a>
+                  <a ui-sref="action" ng-click="nbCtrl.delclassSecteur()"> <i class="fa fa-arrow-right" aria-hidden="true"></i>Action et Coordonnation du Gouvernement</a>
                 </li>
-                <li> <a ui-sref="moteur"><i class="fa fa-arrow-right" aria-hidden="true"></i>Moteur de Croissance</a> </li>
-                <li><a ui-sref="secteur"><i class="fa fa-arrow-right" aria-hidden="true"></i>Secteurs Supports</a> </li>
-                <li><a ui-sref="developpement"><i class="fa fa-arrow-right" aria-hidden="true"></i>Developpement des Entreprises</a> </li>
+                <li> <a ui-sref="moteur" ng-click="nbCtrl.delclassSecteur()"><i class="fa fa-arrow-right" aria-hidden="true"></i>Moteur de Croissance</a>                  </li>
+                <li><a ui-sref="secteur" ng-click="nbCtrl.delclassSecteur()"><i class="fa fa-arrow-right" aria-hidden="true"></i>Secteurs Supports</a>                  </li>
+                <li><a ui-sref="developpement" ng-click="nbCtrl.delclassSecteur()"><i class="fa fa-arrow-right" aria-hidden="true"></i>Developpement des Entreprises</a>                  </li>
               </ul>
             </li>
-            <li ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" class="cl1"><a href="pays.html"> Info Pays</a>
+            <li ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" ng-click="nbCtrl.delclassPays()" class="cl1"><a href="pays.html"> Info Pays</a>
               <ul class="nbCtrl.cl2" ng-style="nbCtrl.myStyle">
-                <li><a href="pays.html">Bostwana</a></li>
-                <li><a href="#">Cap-Vert</a></li>
-                <li><a href="#">Côte d'Ivoire</a></li>
-                <li><a href="pays.html">Ethiopie</a></li>
-                <li><a href="#">Gabon</a></li>
-                <li><a href="#">Guinée Equatoriale</a></li>
-                <li><a href="pays.html">Kenya</a></li>
-                <li><a href="#">Maurice</a></li>
-                <li><a href="#">Rwanda</a></li>
-                <li><a href="pays.html">Sénégal</a></li>
-                <li><a href="#">South Afica</a></li>
-                <li><a href="#">Tanzania</a></li>
+                <li><a href="pays.html" ng-click="nbCtrl.delclassPays()">Bostwana</a></li>
+                <li><a href="#" ng-click="nbCtrl.delclassPays()">Cap-Vert</a></li>
+                <li><a href="#" ng-click="nbCtrl.delclassPays()">Côte d'Ivoire</a></li>
+                <li><a href="pays.html" ng-click="nbCtrl.delclassPays()">Ethiopie</a></li>
+                <li><a href="#" ng-click="nbCtrl.delclassPays()">Gabon</a></li>
+                <li><a href="#" ng-click="nbCtrl.delclassPays()">Guinée Equatoriale</a></li>
+                <li><a href="pays.html" ng-click="nbCtrl.delclassPays()">Kenya</a></li>
+                <li><a href="#" ng-click="nbCtrl.delclassPays()">Maurice</a></li>
+                <li><a href="#" ng-click="nbCtrl.delclassPays()">Rwanda</a></li>
+                <li><a href="pays.html" ng-click="nbCtrl.delclassPays()">Sénégal</a></li>
+                <li><a href="#" ng-click="nbCtrl.delclassPays()">South Afica</a></li>
+                <li><a href="#" ng-click="nbCtrl.delclassPays()">Tanzania</a></li>
               </ul>
             </li>
-            <li ng-mouseenter="nbCtrl.classEmergence()" ng-mouseleave="nbCtrl.delclassEmergence()" class="nbCtrl.dropEmergence"><a href="#">INDICE DE L'EMERGENCE</a>
+            <li ng-mouseenter="nbCtrl.classEmergence()" ng-mouseleave="nbCtrl.delclassEmergence()" ng-click="nbCtrl.delclassEmergence()" class="nbCtrl.dropEmergence"><a href="#">INDICE DE L'EMERGENCE</a>
               <ul ng-style="nbCtrl.styleEmergence">
-                <li> <a href="">composante de l'indice' </a> </li>
-                <li> <a href="">focus pays</a> </li>
+                <li> <a href="" ng-click="nbCtrl.delclassEmergence()">composante de l'indice' </a> </li>
+                <li> <a href="" ng-click="nbCtrl.delclassEmergence()">focus pays</a> </li>
               </ul>
             </li>
             <li><a href="#">A propos</a></li>
@@ -108,7 +109,7 @@
 										</li>
 										<li><a href="#">Empty sub</a></li>
 								</ul> -->
-            </li>
+          
           </ul>
         </div>
       </div>
@@ -119,7 +120,7 @@
           <!--<a href="#"><i class="fa fa-linkedin"></i></a>
           <a href="#"><i class="fa fa-facebook"></i></a>-->
           <a href=""><i class="fa fa-sign-in" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se connecter"></i></a>
-          <a href=""><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i></a>
+          <a href=""style="color: red;"><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i> <span> (3) </span> </a>
         </div>
         <a class="search-link top-search" href="#"><i class="fa fa-search"></i></a>
         <div class="search-popup custom-popup">

@@ -1,41 +1,23 @@
 .pilierEm {
-  margin-top: 200px;
+  margin-top: 170px;
 }
 
 h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-.section {
-  border: 2px solid;
-  margin-bottom: 10px;
-  height: 80px;
+.img-texte{
+    float: left;
+    width: 50%;
+    
 }
 
-
-
-.interview {
-  border: 2px solid;
-  margin-bottom: 10px;
-  height: 100px;
+.pas{
+margin-left: 10px;
 }
-
-.etude {
-  border: 2px solid;
-  height: 100px;
-}
-
-.fiche {
-  border: 2px solid;
-  height: 100px;
-}
-p {
-  text-align: center;
-  margin-left: 20px;
-  padding: 10px;
-}
-li{
-    margin-left: 10px;
+.premier{
+    margin-top: 100px;
 }
