@@ -78,6 +78,14 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+//get responses by a questions
+export function getResByQuest(req, res) {
+  return Reponse.find({id_question : req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Creates a new Reponse in the DB
 export function create(req, res) {
   return Reponse.create(req.body)
