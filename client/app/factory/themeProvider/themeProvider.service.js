@@ -5,6 +5,7 @@ const angular = require('angular');
 export function themeProviderService($http,$q) {
 	// AngularJS will instantiate a singleton by calling "new" on this function
   'ngInject';
+  this.listTheme=null;
   this.listThemes=function()
   {
     var deferred=$q.defer();

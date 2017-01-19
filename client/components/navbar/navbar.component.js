@@ -14,20 +14,47 @@ export class NavbarComponent {
   getCurrentUser: Function;
   isCollapsed = true;
   state;
+  themeProvider;
+  listTheme;
 
-  constructor(Auth,$state) {
+  constructor(Auth,themeProvider,$state) {
     'ngInject';
 
     this.isLoggedIn = Auth.isLoggedInSync;
     this.isAdmin = Auth.isAdminSync;
     this.getCurrentUser = Auth.getCurrentUserSync;
     this.state=$state;
+    this.themeProvider=themeProvider;
+    //console.log('init',themeProvider)
     console.log('init',this);
   }
   goHome(){
     this.state.go('pays');
-  }
 
+  }
+  Init(){
+    //this.listTheme=[];
+    if(this.themeProvider.listTheme==null){
+      this.themeProvider.listThemes().then(list => {
+        this.listTheme=list;
+        this.themeProvider.listTheme=list;
+
+        console.log('themes vide', this.listTheme)
+
+
+
+
+      });
+    }
+    else{
+      this.listTheme=this.themeProvider.listTheme
+      console.log('themes non vide', this.listTheme)
+    }
+
+
+
+  }
+  //Init();
   classPays() {
     console.log('okk');
     this.cl = "menu-dropdown-icon";
