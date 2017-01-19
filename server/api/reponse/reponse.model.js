@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 var ReponseSchema = new mongoose.Schema({
   _id : Number,
-  libelle : Text,
+  libelle : String,
   id_question : {
     type : Number,
     ref : 'Question'
