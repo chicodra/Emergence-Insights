@@ -2,6 +2,7 @@
 /* eslint no-sync: 0 */
 
 import angular from 'angular';
+const uiRouter = require('angular-ui-router');
 
 export class NavbarComponent {
   menu = [{
@@ -12,13 +13,19 @@ export class NavbarComponent {
   isAdmin: Function;
   getCurrentUser: Function;
   isCollapsed = true;
+  state;
 
-  constructor(Auth) {
+  constructor(Auth,$state) {
     'ngInject';
 
     this.isLoggedIn = Auth.isLoggedInSync;
     this.isAdmin = Auth.isAdminSync;
     this.getCurrentUser = Auth.getCurrentUserSync;
+    this.state=$state;
+    console.log('init',this);
+  }
+  goHome(){
+    this.state.go('pays');
   }
 
   classPays() {
