@@ -15,8 +15,8 @@ import Message from './message.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
-  return function(entity) {
-    if(entity) {
+  return function (entity) {
+    if (entity) {
       return res.status(statusCode).json(entity);
     }
     return null;
@@ -24,10 +24,10 @@ function respondWithResult(res, statusCode) {
 }
 
 function patchUpdates(patches) {
-  return function(entity) {
+  return function (entity) {
     try {
       jsonpatch.apply(entity, patches, /*validate*/ true);
-    } catch(err) {
+    } catch (err) {
       return Promise.reject(err);
     }
 
@@ -37,7 +37,7 @@ function patchUpdates(patches) {
 
 function verify(tab, element) {
   for (var i in tab) {
-    if (tab[i].id == element.id ) {
+    if (tab[i].id == element.id) {
       return true;
     }
   }
@@ -46,27 +46,28 @@ function verify(tab, element) {
 }
 
 function verifys(tab, element) {
-    if (tab == element.id ) {
-      return true;
-    }
-  
+  if (tab == element.id) {
+    return true;
+  }
+
   return false;
 
 }
 
 function verif(tab, element) {
-    if (tab == element) {
+  for (var i in tab) {
+    if (tab[i].toString() == element.toString()) {
       return true;
     }
-  
+  }
   return false;
 
 }
 
 
 function removeEntity(res) {
-  return function(entity) {
-    if(entity) {
+  return function (entity) {
+    if (entity) {
       return entity.remove()
         .then(() => {
           res.status(204).end();
@@ -76,8 +77,8 @@ function removeEntity(res) {
 }
 
 function handleEntityNotFound(res) {
-  return function(entity) {
-    if(!entity) {
+  return function (entity) {
+    if (!entity) {
       res.status(404).end();
       return null;
     }
@@ -87,7 +88,7 @@ function handleEntityNotFound(res) {
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
-  return function(err) {
+  return function (err) {
     res.status(statusCode).send(err);
   };
 }
@@ -109,7 +110,7 @@ export function show(req, res) {
 
 // Get messages by one subject
 export function getMessageBySujet(req, res) {
-  return Message.find({id_sujet : req.params.id}).exec()
+  return Message.find({ id_sujet: req.params.id }).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -117,7 +118,7 @@ export function getMessageBySujet(req, res) {
 
 // Get messages by one user
 export function getMessageByUser(req, res) {
-  return Message.find({id_user : req.params.id}).exec()
+  return Message.find({ id_user: req.params.id }).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -138,14 +139,14 @@ export function getUserBySujet(req, res) {
       if (err) { return handleError(res, err); }
       var lesusers = [];
       users.forEach(function (userss) {
-        if(!verifys(req.params.us,userss.id_user)){
+        if (!verifys(req.params.us, userss.id_user)) {
           if (lesusers.length != 0) {
-          if (!verify(lesusers, userss.id_user))
+            if (!verify(lesusers, userss.id_user))
+              lesusers.push(userss.id_user);
+          }
+          else {
             lesusers.push(userss.id_user);
-        }
-        else {
-          lesusers.push(userss.id_user);
-        }
+          }
         }
       });
       return res.json(lesusers);
@@ -157,6 +158,7 @@ export function getCreatorBysujet(req, res) {
   Message.find({ id_sujet: req.params.id })
     .exec(function (err, messages) {
       if (err) { return handleError(res, err); }
+<<<<<<< HEAD
     
      for (var i = 0; i < messages.length; i++) {
        var element = messages[i];
@@ -166,16 +168,38 @@ export function getCreatorBysujet(req, res) {
       
      }
          return res.json('1').end();
+=======
+      var lesus = [];
+      var test;
+      messages.forEach(function (element) {
+        if (element.id_createur.toString() == element.id_user.toString()) {
+          //console.log(false+","+element.id_createur+","+element.id_user);
+          lesus.push(element.id_user);
+        }
+        else {
+          //console.log(true+","+element.id_createur+","+element.id_user);
+          lesus.push(element.id_user);
+        }
+        test = element.id_createur;
+      });
+    
+      if (!verif(lesus, test)) {
+        return res.json('0').end();
+      } else {
+        return res.json('1').end();
+      }
+      
+>>>>>>> 77a3333fb57920973383018bef37e0e82c45dd1c
     })
 }
 
 
 // Upserts the given Message in the DB at the specified ID
 export function upsert(req, res) {
-  if(req.body._id) {
+  if (req.body._id) {
     delete req.body._id;
   }
-  return Message.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+  return Message.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true }).exec()
 
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -183,7 +207,7 @@ export function upsert(req, res) {
 
 // Updates an existing Message in the DB
 export function patch(req, res) {
-  if(req.body._id) {
+  if (req.body._id) {
     delete req.body._id;
   }
   return Message.findById(req.params.id).exec()
