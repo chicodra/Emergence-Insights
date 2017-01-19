@@ -5,30 +5,34 @@ const uiRouter = require('angular-ui-router');
 
 import routes from './pilier.routes';
 export class PilierComponent {
+
+
   /*@ngInject*/
   themeprovider;
   listTheme;
 
   constructor(themeProvider) {
     this.message = 'Hello';
-    this.themeprovider=themeProvider;
-
+    this.themeprovider = themeProvider;
+    this.index = false;
 
   }
-  Init(){
+  Init() {
     //this.listTheme=[];
 
 
-     this.themeprovider.listThemes().then(list => {
-       this.listTheme=list;
+    this.themeprovider.listThemes().then(list => {
+      this.listTheme = list;
 
       console.log('themes', this.listTheme)
 
 
 
 
-     });
+    });
   }
+
+
 
 }
 PilierComponent.$inject = ["themeProvider"];
