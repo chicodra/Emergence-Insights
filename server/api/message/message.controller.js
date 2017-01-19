@@ -169,14 +169,11 @@ export function getCreatorBysujet(req, res) {
         }
         test = element.id_createur;
       });
-      console.log(test);
-      console.log(lesus);
+    
       if (!verif(lesus, test)) {
-        console.log(false);
-        return res.status(200).json('1').end();
+        return res.json('0').end();
       } else {
-        console.log(true);
-        return res.status(200).json('0').end();
+        return res.json('1').end();
       }
       
     })
