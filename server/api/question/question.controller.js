@@ -78,6 +78,14 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Get all questions by a interview
+export function getQuesByInter(req, res) {
+  return Question.find({id_interview : req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Creates a new Question in the DB
 export function create(req, res) {
   return Question.create(req.body)
