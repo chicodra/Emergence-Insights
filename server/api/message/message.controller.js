@@ -151,22 +151,21 @@ export function getUserBySujet(req, res) {
       return res.json(lesusers);
     })
 }
+
+
 export function getCreatorBysujet(req, res) {
   Message.find({ id_sujet: req.params.id })
     .exec(function (err, messages) {
       if (err) { return handleError(res, err); }
-     messages.forEach(function(element) {
-       if(element.id_createur.toString() == element.id_user.toString()){
-         console.log(false+","+element.id_createur+","+element.id_user);
-        //  return res(false);
+    
+     for (var i = 0; i < messages.length; i++) {
+       var element = messages[i];
+        if(element.id_createur.toString() == element.id_user.toString()){
+         return res.json('0').end();
        }
-       if(element.id_createur != element.id_user){
-          console.log(true+","+element.id_createur+","+element.id_user);
-        //  return res(true);
-       }
-     });
-           return res.json(messages);
-
+      
+     }
+         return res.json('1').end();
     })
 }
 
