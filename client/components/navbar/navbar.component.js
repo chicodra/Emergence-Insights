@@ -15,9 +15,11 @@ export class NavbarComponent {
   isCollapsed = true;
   state;
   themeProvider;
+  paysProvider;
   listTheme;
+  listPays;
 
-  constructor(Auth,themeProvider,$state) {
+  constructor(Auth,themeProvider,$state,paysProvider) {
     'ngInject';
 
     this.isLoggedIn = Auth.isLoggedInSync;
@@ -25,8 +27,9 @@ export class NavbarComponent {
     this.getCurrentUser = Auth.getCurrentUserSync;
     this.state=$state;
     this.themeProvider=themeProvider;
+    this.paysProvider=paysProvider;
     //console.log('init',themeProvider)
-    console.log('init',this);
+    console.log('inttitit',this);
   }
   goHome(){
     this.state.go('pays');
@@ -49,6 +52,21 @@ export class NavbarComponent {
     else{
       this.listTheme=this.themeProvider.listTheme
       console.log('themes non vide', this.listTheme)
+    }
+    if(this.paysProvider.listpays==null){
+      this.paysProvider.listPays().then(list => {
+        this.listPays=list;
+
+        console.log('pays vide', this.listPays)
+
+
+
+
+      });
+    }
+    else{
+      this.listPays=this.paysProvider.listpays
+      console.log('pays non vide', this.listPays)
     }
 
 
