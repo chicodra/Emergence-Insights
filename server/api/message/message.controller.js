@@ -158,17 +158,7 @@ export function getCreatorBysujet(req, res) {
   Message.find({ id_sujet: req.params.id })
     .exec(function (err, messages) {
       if (err) { return handleError(res, err); }
-<<<<<<< HEAD
-    
-     for (var i = 0; i < messages.length; i++) {
-       var element = messages[i];
-        if(element.id_createur.toString() == element.id_user.toString()){
-         return res.json('0').end();
-       }
-      
-     }
-         return res.json('1').end();
-=======
+
       var lesus = [];
       var test;
       messages.forEach(function (element) {
@@ -188,8 +178,6 @@ export function getCreatorBysujet(req, res) {
       } else {
         return res.json('1').end();
       }
-      
->>>>>>> 77a3333fb57920973383018bef37e0e82c45dd1c
     })
 }
 

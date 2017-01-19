@@ -3,6 +3,7 @@
 import mongoose from 'mongoose';
 
 var InterviewSchema = new mongoose.Schema({
+  _id : Number,
   libelle: String,
   intervenant: String,
   contenu:String,
