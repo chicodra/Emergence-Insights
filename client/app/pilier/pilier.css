@@ -11,13 +11,9 @@ h1 {
 
 .img-texte{
     float: left;
-    width: 50%;
+    width: 30%;
+    margin-right:15px;
     
 }
 
-.pas{
-margin-left: 10px;
-}
-.premier{
-    margin-top: 100px;
-}
+
