@@ -27,7 +27,7 @@
     </div>
   </div>
 </div>-->
-<header class="header type-3">
+<header class="header type-3" ng-init="nbCtrl.Init()">
   <div class="logo-block">
     <a class="logo" href="#"><img src="/assets/images/logo2.png" alt=""></a>
   </div>
@@ -42,8 +42,9 @@
       <div class="menu-container">
         <div class="menu">
           <ul>
-            <li><a href="#">Accueil</a></li>
-            <li ng-mouseenter="nbCtrl.classSecteur()" ng-mouseleave="nbCtrl.delclassSecteur()" ng-click="nbCtrl.delclassSecteur()" class="nbCtrl.dropSecteur"><a href="pays.html">Piliers de l'emergence</a>
+            <li><a ng-click="nbCtrl.goHome()">Accueil</a></li>
+            <li ng-mouseenter="nbCtrl.classSecteur()" ng-mouseleave="nbCtrl.delclassSecteur()" class="nbCtrl.dropSecteur"><a href="pays.html">Piliers de l'emergence</a>
+
               <ul ng-style="nbCtrl.styleSecteur">
                 <li>
                   <a ui-sref="leadership" ng-click="nbCtrl.delclassSecteur()"> <i class="fa fa-arrow-right" aria-hidden="true"></i>  &nbsp; Leadership Gouvernance et Culture de l'emergence </a>
@@ -108,7 +109,7 @@
 										</li>
 										<li><a href="#">Empty sub</a></li>
 								</ul> -->
-            </li>
+
           </ul>
         </div>
       </div>

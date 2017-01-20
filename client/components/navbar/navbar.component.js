@@ -2,6 +2,7 @@
 /* eslint no-sync: 0 */
 
 import angular from 'angular';
+const uiRouter = require('angular-ui-router');
 
 export class NavbarComponent {
   menu = [{
@@ -12,15 +13,66 @@ export class NavbarComponent {
   isAdmin: Function;
   getCurrentUser: Function;
   isCollapsed = true;
+  state;
+  themeProvider;
+  paysProvider;
+  listTheme;
+  listPays;
 
-  constructor(Auth) {
+  constructor(Auth,themeProvider,$state,paysProvider) {
     'ngInject';
 
     this.isLoggedIn = Auth.isLoggedInSync;
     this.isAdmin = Auth.isAdminSync;
     this.getCurrentUser = Auth.getCurrentUserSync;
+    this.state=$state;
+    this.themeProvider=themeProvider;
+    this.paysProvider=paysProvider;
+    //console.log('init',themeProvider)
+    console.log('inttitit',this);
   }
+  goHome(){
+    this.state.go('pays');
 
+  }
+  Init(){
+    //this.listTheme=[];
+    if(this.themeProvider.listTheme==null){
+      this.themeProvider.listThemes().then(list => {
+        this.listTheme=list;
+        this.themeProvider.listTheme=list;
+
+        console.log('themes vide', this.listTheme)
+
+
+
+
+      });
+    }
+    else{
+      this.listTheme=this.themeProvider.listTheme
+      console.log('themes non vide', this.listTheme)
+    }
+    if(this.paysProvider.listpays==null){
+      this.paysProvider.listPays().then(list => {
+        this.listPays=list;
+
+        console.log('pays vide', this.listPays)
+
+
+
+
+      });
+    }
+    else{
+      this.listPays=this.paysProvider.listpays
+      console.log('pays non vide', this.listPays)
+    }
+
+
+
+  }
+  //Init();
   classPays() {
     console.log('okk');
     this.cl = "menu-dropdown-icon";

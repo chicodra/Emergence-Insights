@@ -38,7 +38,7 @@ import articleProvider from './factory/articleProvider/articleProvider.service'
 //import './app.css';
 
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-  uiBootstrap, _Auth, account, admin, pilier, pays, indice, articleComponent, navbar, footer,
+  uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
   main, constants, socket, util,theme,paysProvider,articleProvider
 ])
   .config(routeConfig)
@@ -95,7 +95,7 @@ angular.element(document)
     	$(document).ready(function() {
 
     		"use strict";
-    		
+
     		/*================*/
     		/* 01 - VARIABLES */
     		/*================*/
