@@ -29,10 +29,10 @@ export class NavbarComponent {
     this.themeProvider=themeProvider;
     this.paysProvider=paysProvider;
     //console.log('init',themeProvider)
-    console.log('inttitit',this);
+    console.log('navbar',this);
   }
   goHome(){
-    this.state.go('pays');
+    this.state.go('main');
 
   }
   Init(){
@@ -56,6 +56,7 @@ export class NavbarComponent {
     if(this.paysProvider.listpays==null){
       this.paysProvider.listPays().then(list => {
         this.listPays=list;
+        this.paysProvider.listpays=list;
 
         console.log('pays vide', this.listPays)
 
