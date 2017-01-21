@@ -162,14 +162,13 @@ export function getCreatorBysujet(req, res) {
       var lesus = [];
       var test;
       messages.forEach(function (element) {
-        if (element.id_createur.toString() == element.id_user.toString()) {
-          //console.log(false+","+element.id_createur+","+element.id_user);
-          lesus.push(element.id_user);
-        }
-        else {
-          //console.log(true+","+element.id_createur+","+element.id_user);
-          lesus.push(element.id_user);
-        }
+        if (lesus.length != 0) {
+            if (!verify(lesus, element.id_user))
+              lesus.push(element.id_user);
+          }
+          else {
+            lesus.push(element.id_user);
+          }
         test = element.id_createur;
       });
     
