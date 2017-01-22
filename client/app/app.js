@@ -25,6 +25,11 @@ import pays from './pays/pays.component';
 import indice from './indice/indice.component'
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
+import si from '../components/sectionInformation/sectionInformation.component';
+import revue from '../components/revueArticles/revueArticles.component';
+import interviews from '../components/interviews/interviews.component';
+import etudedecas from '../components/etudeDeCas/etudeDeCas.component';
+import fichedebonnepratiques from '../components/ficheDeBonnePratiques/ficheDeBonnePratiques.component';
 import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
@@ -39,7 +44,7 @@ import articleProvider from './factory/articleProvider/articleProvider.service'
 
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
   uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
-  main, constants, socket, util,theme,paysProvider,articleProvider
+  main, constants, socket, util,theme,paysProvider,articleProvider, si, revue, interviews, etudedecas, fichedebonnepratiques
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
