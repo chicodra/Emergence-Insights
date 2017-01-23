@@ -11,6 +11,7 @@ var InterviewSchema = new mongoose.Schema({
     type : Number,
     ref : 'Theme'
   },
+  imag: String,
   active: Boolean
 });
 
