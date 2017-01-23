@@ -62,7 +62,7 @@ export class PiliersComponent {
   }
 
   Init(){
-
+    document.querySelector('header').style.backgroundColor= '#222';
     angular.element(document)
       .ready(() => {
 
