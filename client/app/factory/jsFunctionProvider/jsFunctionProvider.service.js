@@ -464,6 +464,54 @@ export function jsFunctionProviderService() {
       onLoadEnd:	 	function() {$('.imagelightbox-arrow').css('display', 'block');captionOn(); activityIndicatorOff(); }
     });
   }
+  /*==================================================*/
+  /* 11 - STYLE BAR */
+  /*==================================================*/
+
+  /* conf button */
+
+  this.confButton=function () {
+    $('.conf-button').on('click', function(){
+      if ($('.style-page').hasClass('slide-right')){
+        $('.style-page').removeClass('slide-right');
+        $('.conf-button span').removeClass('act');
+      }else{
+        $('.style-page').addClass('slide-right');
+        $('.conf-button span').addClass('act');
+      }return false;
+    });
+  }
+  this.entryButton=function () {
+    $('.entry').on('click', function(){
+      var prevTheme = $('body').attr('data-color');
+      var newTheme = $(this).attr('data-color');
+      if($(this).hasClass('active')) return false;
+      $(this).parent().find('.active').removeClass('active');
+      $(this).addClass('active');
+      $('body').attr('data-color', newTheme);
+      $('img').each(function() {
+        $(this).attr("src", $(this).attr("src").replace('_'+prevTheme, '_'+newTheme));
+      });
+      $('#map-canvas').attr('data-marker', $('#map-canvas').attr('data-marker').replace('_'+prevTheme, '_'+newTheme));
+
+      $('.c-btn.'+prevTheme).removeClass(prevTheme).addClass(newTheme);
+      $('.c-btn.'+prevTheme+'-2').removeClass(prevTheme+'-2').addClass(newTheme+'-2');
+      $('.c-btn.hv-'+prevTheme).removeClass('hv-'+prevTheme).addClass('hv-'+newTheme);
+      $('.c-btn.hv-'+prevTheme+'-t').removeClass('hv-'+prevTheme+'-t').addClass('hv-'+newTheme+'-t');
+
+      if(newTheme=="dark"){
+        $('.price.style-2.center .c-btn').attr('class', 'register-link c-btn b-50 hv-dark-o red dark');
+      }
+      if(prevTheme=="dark"){
+        $('.c-btn.black').removeClass('black').addClass(newTheme);
+        $('.c-btn.black-2').removeClass('black-2').addClass(newTheme+'-2');
+        $('.custom-popup .c-btn').attr('class', 'c-btn b-50 black hv-yellow-o');
+      }
+
+      $('.message-line .c-btn').attr('class', 'register-link c-btn b-50 black hv-black-o');
+      localStorage.setItem("color", newTheme);
+    });
+  }
 }
 
 export default angular.module('emergenceInsightsApp.jsFunctionProvider', [])

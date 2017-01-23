@@ -64,6 +64,12 @@ export class MainController {
         this.jsFunctionProvider.overLay();
         this.jsFunctionProvider.capTion();
         this.jsFunctionProvider.arrOws();
+        /*==================================================*/
+        /* 11 - STYLE BAR */
+        /*==================================================*/
+        this.jsFunctionProvider.confButton();
+        this.jsFunctionProvider.entryButton();
+
 
 
 
