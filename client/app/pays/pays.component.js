@@ -16,12 +16,17 @@ export class PaysComponent {
   }
 
   Init(){
+
+    //this.listTheme=[];
+    document.querySelector('header').style.backgroundColor = '#222'
+
     //this.listPays=[];
     if(this.paysProvider.listpays==null){
       this.paysProvider.listPays().then(list => {
         this.listPays=list;
 
         console.log('pays vide', this.listPays)
+
 
 
 
