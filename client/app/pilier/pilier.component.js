@@ -47,12 +47,78 @@ export class PilierComponent {
 
 
 }
-export class ActionComponent {
-  init() {
-    document.querySelector('header').style.backgroundColor = '#222';
+export class PiliersComponent {
+  jsFunctionProvider;
+
+  /*@ngInject*/
+  constructor( jsFunctionProvider) {
+    //this.socket = socket;
+
+    this.jsFunctionProvider=jsFunctionProvider;
+
+    console.log('pilier',this);
+
+
+  }
+
+  Init(){
+
+    angular.element(document)
+      .ready(() => {
+
+        console.log('document pilier',document);
+        /* Document REady */
+        this.jsFunctionProvider.onDocumentReady();
+
+
+        /* on Page Load */
+        this.jsFunctionProvider.onPageLoad();
+        this.jsFunctionProvider.onPageResize();
+        this.jsFunctionProvider.onSliderArrowClick();
+        this.jsFunctionProvider.onPageScroll();
+        /*==============================*/
+        /* 08 - BUTTONS, CLICKS, HOVERS */
+        /*==============================*/
+        this.jsFunctionProvider.topMenu();
+        this.jsFunctionProvider.videoPlayBtn();
+        this.jsFunctionProvider.videoPlayBtnBig();
+        this.jsFunctionProvider.Popup();
+        this.jsFunctionProvider.hoverAnimation();
+        this.jsFunctionProvider.changeImageOnSpeaker();
+        this.jsFunctionProvider.hoverAnimationOnConference();
+        /*==================================================*/
+        /* 09 - TIMES, TABS */
+        /*==================================================*/
+        this.jsFunctionProvider.Timers();
+        this.jsFunctionProvider.CountDown();
+        this.jsFunctionProvider.Tabs();
+        /*=====================*/
+        /* 10 - LIGHT-BOX */
+        /*=====================*/
+        this.jsFunctionProvider.activityIndicatorFunctions();
+        this.jsFunctionProvider.closeButtonFunctions();
+        this.jsFunctionProvider.overLay();
+        this.jsFunctionProvider.capTion();
+        this.jsFunctionProvider.arrOws();
+        /*==================================================*/
+        /* 11 - STYLE BAR */
+        /*==================================================*/
+        this.jsFunctionProvider.confButton();
+        this.jsFunctionProvider.entryButton();
+
+        /*==================================================*/
+        /* 13 - AJAX CONTACT FORM */
+        /*==================================================*/
+        this.jsFunctionProvider.ajaxContactForm();
+
+
+
+
+      });
   }
 }
 PilierComponent.$inject = ["themeProvider"];
+PiliersComponent.$inject = [ "jsFunctionProvider"];
 
 export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
   .config(routes)
@@ -64,9 +130,34 @@ export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
   // })
   .component('action', {
     template: require('./templates/action.html'),
-    controller: ActionComponent,
+    controller: PiliersComponent,
     controllerAs: 'vm'
 
   })
+  .component('leadership', {
+    template: require('./templates/leadership.html'),
+    controller: PiliersComponent,
+    controllerAs: 'vm'
+
+  })
+  .component('secteur', {
+    template: require('./templates/secteur_support.html'),
+    controller: PiliersComponent,
+    controllerAs: 'vm'
+
+  })
+  .component('moteurs', {
+    template: require('./templates/moteur.html'),
+    controller: PiliersComponent,
+    controllerAs: 'vm'
+
+  })
+  .component('developpement', {
+    template: require('./templates/developpement.html'),
+    controller: PiliersComponent,
+    controllerAs: 'vm'
+
+  })
+
   .name;
-  
+
