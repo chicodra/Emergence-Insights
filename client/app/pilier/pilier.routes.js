@@ -17,7 +17,7 @@ export default function($stateProvider) {
   })
     .state('action', {
       url: '/pilier/action',
-      template: require('./templates/action.html'),
+      template: '<action></action>',
       // controller: 'LoginController',
       // controllerAs: 'vm'
     })

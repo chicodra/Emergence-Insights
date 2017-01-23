@@ -20,6 +20,7 @@ export class PilierComponent {
   }
   Init() {
     //this.listTheme=[];
+    document.querySelector('header').style.backgroundColor = '#222'
     if(this.themeprovider.listTheme==null){
       this.themeprovider.listThemes().then(list => {
         this.listTheme=list;
@@ -45,6 +46,11 @@ export class PilierComponent {
 
 
 }
+export class ActionComponent {
+  init() {
+    document.querySelector('header').style.backgroundColor = '#222';
+  }
+}
 PilierComponent.$inject = ["themeProvider"];
 
 export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
@@ -55,4 +61,11 @@ export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
     controllerAs: 'vm'
 
   })
+  .component('action', {
+    template: require('./templates/action.html'),
+    controller: ActionComponent,
+    controllerAs: 'vm'
+
+  })
   .name;
+  

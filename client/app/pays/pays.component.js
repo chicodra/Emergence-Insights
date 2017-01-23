@@ -17,7 +17,7 @@ export class PaysComponent {
 
   Init(){
     //this.listTheme=[];
-
+    document.querySelector('header').style.backgroundColor = '#222'
 
     this.paysProvider.listPays().then(list => {
       this.listPays=list;
