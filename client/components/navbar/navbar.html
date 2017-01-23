@@ -19,15 +19,9 @@
 
 
               <ul ng-style="nbCtrl.styleSecteur">
-                <li>
-                  <a ui-sref="leadership"> <i class="fa fa-arrow-right" aria-hidden="true"></i> Leadership Gouvernance et Culture de l'emergence </a>
+                <li ng-repeat="theme in nbCtrl.listTheme">
+                  <a ui-sref="{{theme.link}}"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; {{theme.libelle}} </a>
                 </li>
-                <li>
-                  <a ui-sref="action"> <i class="fa fa-arrow-right" aria-hidden="true"></i>Action et Coordonnation du Gouvernement</a>
-                </li>
-                <li> <a ui-sref="moteur"><i class="fa fa-arrow-right" aria-hidden="true"></i>Moteur de Croissance</a> </li>
-                <li><a ui-sref="secteur"><i class="fa fa-arrow-right" aria-hidden="true"></i>Secteurs Supports</a> </li>
-                <li><a ui-sref="developpement"><i class="fa fa-arrow-right" aria-hidden="true"></i>Developpement des Entreprises</a> </li>
               </ul>
             </li>
             <li ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" ng-click="nbCtrl.delclassPays()" class="cl1"><a ui-sref="pays"> Info Pays</a>
