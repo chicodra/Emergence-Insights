@@ -40,8 +40,18 @@ export class MainController {
       this.jsFunctionProvider.onPageResize();
       this.jsFunctionProvider.onSliderArrowClick();
       this.jsFunctionProvider.onPageScroll();
+        /*==============================*/
+        /* 08 - BUTTONS, CLICKS, HOVERS */
+        /*==============================*/
+      this.jsFunctionProvider.topMenu();
+      this.jsFunctionProvider.videoPlayBtn();
+      this.jsFunctionProvider.videoPlayBtnBig();
+      this.jsFunctionProvider.Popup();
+      this.jsFunctionProvider.hoverAnimation();
+      this.jsFunctionProvider.changeImageOnSpeaker();
+      this.jsFunctionProvider.hoverAnimationOnConference();
 
-   
+
 
       });
   }

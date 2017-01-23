@@ -190,7 +190,94 @@ export function jsFunctionProviderService() {
       swipers['swiper-'+$(this).parent().attr('id')].swipeNext();
     });
   }
+  /*==============================*/
+  /* 08 - BUTTONS, CLICKS, HOVERS */
+  /*==============================*/
+  // top menu
+  this.topMenu=function () {
+    $(".cmn-toggle-switch").on("click", function(){
+      $(this).toggleClass("active");
+      $('.header').toggleClass("active");
+      $('.main-nav').slideToggle();
+      return false;
+    });
+  }
+  //video-play
+  this.videoPlayBtn=function () {
+    $('.play-btn').on("click", function(){
+      var video = $(this).data('video');
+      $(this).siblings('.movie').show();
+      $(this).siblings('.movie').find('iframe').attr('src',video);
+      return false;
+    });
+    $('.movie .close-button').on("click", function(){
+      $(this).parent('.movie').hide();
+      $(this).siblings('iframe').attr('src','about:blank');
+      return false;
+    });
+  }
+  //video-play big
+  this.videoPlayBtnBig=function () {
+    $('.video-bg').on("click", function(){
+      var video = $(this).data('video');
+      $(this).parents('.fullheight').find('iframe').attr('src',video).show();
+      $(this).addClass('.active');
+      return false;
+    });
+  }
+  //popup
+  this.Popup=function () {
+    $(document).on("click", '.register-link', function(){
+      $('.register-popup').show('slow');
+      return false;
+    });
+    $('.search-link').on("click", function(){
+      $(this).siblings('.search-popup').show('slow');
+      return false;
+    });
+    $('.popup-close').on("click", function(){
+      $(this).parents('.custom-popup').hide('slow');
+      return false;
+    });
 
+  }
+  //hover animation on conference
+  this.hoverAnimation=function () {
+    $(".conf-item").on({
+      mouseenter: function () {
+        $(this).find('.conf-autors').stop().slideToggle('slow');
+      },
+      mouseleave: function () {
+        $(this).find('.conf-autors').stop().slideToggle('slow');
+      }
+    });
+  }
+  //change image on speaker
+  this.changeImageOnSpeaker=function () {
+    $(document).on({
+      mouseenter: function () {
+        var img = $(this).data("image");
+        var $img_block = $(this).parents('.swiper-slide').find('.speaker-img');
+        $img_block.css({'background-image':'url('+img+')'});
+      },
+      mouseleave: function () {
+        var $img_block = $(this).parents('.swiper-slide').find('.speaker-img');
+        var img_orig = $img_block.find('img').attr('src');
+        $img_block.css({'background-image':'url('+img_orig+')'});
+      }
+    }, ".speaker-change img");
+  }
+  //hover animation on conference
+  this.hoverAnimationOnConference=function () {
+    $(".shedule-entry, .shedule-user").on({
+      mouseenter: function () {
+        $(this).parent('.shedule-block').addClass('active');
+      },
+      mouseleave: function () {
+        $(this).parent('.shedule-block').removeClass('active');
+      }
+    });
+  }
 }
 
 export default angular.module('emergenceInsightsApp.jsFunctionProvider', [])

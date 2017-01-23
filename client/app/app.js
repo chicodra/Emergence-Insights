@@ -45,7 +45,7 @@ import jsFunctionSlider from './factory/jsFunctionProvider/jsFunctionProvider.se
 
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
   uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
-  main, constants, socket, util,theme,paysProvider,articleProvider, si, revue, interviews, etudedecas, fichedebonnepratiques
+  main, constants, socket, util,theme,paysProvider,articleProvider, si, revue, interviews, etudedecas, fichedebonnepratiques,jsFunctionSlider
 
 ])
   .config(routeConfig)
@@ -118,100 +118,12 @@ angular.element(document)
     			else _isresponsive = false;
     		}
 
-    		
 
-    		/*==============================*/
-    		/* 06 - FUNCTION ON PAGE SCROLL */
-    		/*==============================*/
-    		$(window).scroll(function(){
-    			if($(window).scrollTop()>0){
-    				$('.header').addClass('scrolled');
-    			} else {
-    				$('.header').removeClass('scrolled');
-    			}
-    		});
 
-    		
 
-    		/*==============================*/
-    		/* 08 - BUTTONS, CLICKS, HOVERS */
-    		/*==============================*/
-    		// top menu
-    		$(".cmn-toggle-switch").on("click", function(){
-    			$(this).toggleClass("active");
-    			$('.header').toggleClass("active");
-    			$('.main-nav').slideToggle();
-    			return false;
-    		});
 
-    		//video-play
-    		$('.play-btn').on("click", function(){
-    			var video = $(this).data('video');
-    			$(this).siblings('.movie').show();
-    			$(this).siblings('.movie').find('iframe').attr('src',video);
-    			return false;
-    		});
-    		$('.movie .close-button').on("click", function(){
-    			$(this).parent('.movie').hide();
-    			$(this).siblings('iframe').attr('src','about:blank');
-    			return false;
-    		});
 
-    		//video-play
-    		$('.video-bg').on("click", function(){
-    			var video = $(this).data('video');
-    			$(this).parents('.fullheight').find('iframe').attr('src',video).show();
-    			$(this).addClass('.active');
-    			return false;
-    		});
 
-    		//popup
-    		$(document).on("click", '.register-link', function(){
-    			$('.register-popup').show('slow');
-    			return false;
-    		});
-    		$('.search-link').on("click", function(){
-    			$(this).siblings('.search-popup').show('slow');
-    			return false;
-    		});
-    		$('.popup-close').on("click", function(){
-    			$(this).parents('.custom-popup').hide('slow');
-    			return false;
-    		});
-
-    		//hover animation on conference
-    		$(".conf-item").on({
-    		    mouseenter: function () {
-    		    	$(this).find('.conf-autors').stop().slideToggle('slow');
-    		    },
-    		    mouseleave: function () {
-    		    	$(this).find('.conf-autors').stop().slideToggle('slow');
-    		    }
-    		});
-
-    		//change image on speaker
-    		$(document).on({
-    		    mouseenter: function () {
-    		    	var img = $(this).data("image");
-    		    	var $img_block = $(this).parents('.swiper-slide').find('.speaker-img');
-    		    	$img_block.css({'background-image':'url('+img+')'});
-    		    },
-    		    mouseleave: function () {
-    		    	var $img_block = $(this).parents('.swiper-slide').find('.speaker-img');
-    		    	var img_orig = $img_block.find('img').attr('src');
-    		    	$img_block.css({'background-image':'url('+img_orig+')'});
-    		    }
-    		}, ".speaker-change img");
-
-    		//hover animation on conference
-    		$(".shedule-entry, .shedule-user").on({
-    		    mouseenter: function () {
-    		    	$(this).parent('.shedule-block').addClass('active');
-    		    },
-    		    mouseleave: function () {
-    		    	$(this).parent('.shedule-block').removeClass('active');
-    		    }
-    		});
 
     		/*==================================================*/
     		/* 09 - TIMES, TABS */
