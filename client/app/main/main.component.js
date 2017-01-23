@@ -50,6 +50,12 @@ export class MainController {
       this.jsFunctionProvider.hoverAnimation();
       this.jsFunctionProvider.changeImageOnSpeaker();
       this.jsFunctionProvider.hoverAnimationOnConference();
+        /*==================================================*/
+        /* 09 - TIMES, TABS */
+        /*==================================================*/
+        this.jsFunctionProvider.Timers();
+        this.jsFunctionProvider.CountDown();
+        this.jsFunctionProvider.Tabs();
 
 
 
