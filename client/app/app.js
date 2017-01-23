@@ -173,40 +173,7 @@ angular.element(document)
 
     		}
 
-    		/*==================================================*/
-    		/* 13 - AJAX CONTACT FORM */
-    		/*==================================================*/
-    		$('.js-contact-form').submit(function(e){
 
-    	        $('.ajax-loader').show();
-
-    	        var url = 'mail.php',
-    	            form = this;
-
-    	        $(form).find('[name="fields[code]"]').remove();
-
-    	        function result(class_key, data){
-    	          setTimeout(function(){
-    	            $('.ajax-loader').hide();
-    	            $('.ajax-result').find(class_key).show().text(data);
-    	          },500);
-    	        }
-
-    	        $.ajax({
-    	          type: "POST",
-    	          url: url,
-    	          data: $(form).serialize(),
-    	        })
-    	        .done(function(data) {
-    	          result('.success', data);
-
-    	        }).error(function(data){
-    	          result('.error', data);
-    	        })
-
-    	        e.preventDefault();
-
-    	      });
 
     				  $("#demo01").animatedModal({"color": "#000"});
 

@@ -70,6 +70,11 @@ export class MainController {
         this.jsFunctionProvider.confButton();
         this.jsFunctionProvider.entryButton();
 
+        /*==================================================*/
+        /* 13 - AJAX CONTACT FORM */
+        /*==================================================*/
+        this.jsFunctionProvider.ajaxContactForm();
+
 
 
 
