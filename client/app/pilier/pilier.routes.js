@@ -3,11 +3,11 @@
 export default function($stateProvider) {
   'ngInject';
   $stateProvider
-    .state('pilier', {
-      url: '/pilier',
-      template: '<pilier></pilier>'
+    // .state('pilier', {
+    //   url: '/pilier',
+    //   template: '<pilier></pilier>'
 
-    })
+    // })
 
     .state('leadership', {
       url: '/pilier/leadership',
