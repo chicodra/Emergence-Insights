@@ -56,6 +56,14 @@ export class MainController {
         this.jsFunctionProvider.Timers();
         this.jsFunctionProvider.CountDown();
         this.jsFunctionProvider.Tabs();
+        /*=====================*/
+        /* 10 - LIGHT-BOX */
+        /*=====================*/
+        this.jsFunctionProvider.activityIndicatorFunctions();
+        this.jsFunctionProvider.closeButtonFunctions();
+        this.jsFunctionProvider.overLay();
+        this.jsFunctionProvider.capTion();
+        this.jsFunctionProvider.arrOws();
 
 
 

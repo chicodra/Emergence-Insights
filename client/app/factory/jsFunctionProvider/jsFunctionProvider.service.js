@@ -387,6 +387,83 @@ export function jsFunctionProviderService() {
       });
     });
   }
+  /*=====================*/
+  /* 10 - LIGHT-BOX */
+  /*=====================*/
+  /*activity indicator functions*/
+  this.activityIndicatorFunctions=function () {
+    var activityIndicatorOn = function(){
+      $( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
+    };
+    var activityIndicatorOff = function(){
+      $( '#imagelightbox-loading' ).remove();
+    };
+
+  }
+  /*close button functions*/
+  this.closeButtonFunctions=function () {
+    var closeButtonOn = function(instance){
+      $('<button type="button" id="imagelightbox-close" title="Close"></button>').appendTo('body').on('click touchend', function(){ $(this).remove(); instance.quitImageLightbox(); return false; });
+    };
+    var closeButtonOff = function(){
+      $('#imagelightbox-close').remove();
+    };
+  }
+  /*overlay*/
+
+  this.overLay=function () {
+    var overlayOn = function(){$('<div id="imagelightbox-overlay"></div>').appendTo('body');};
+    var overlayOff = function(){$('#imagelightbox-overlay').remove();};
+  }
+  /*caption*/
+
+  this.capTion=function () {
+    var captionOff = function(){$('#imagelightbox-caption').remove();};
+    var captionOn = function(){
+      var description = $('a[href="' + $('#imagelightbox').attr('src') + '"] img').attr('alt');
+      if(description.length > 0)
+        $('<div id="imagelightbox-caption">' + description +'</div>').appendTo('body');
+    };
+  }
+  /*arrows*/
+
+  this.arrOws=function () {
+    var arrowsOn = function( instance, selector ){
+      var $arrows = $( '<button type="button" class="imagelightbox-arrow imagelightbox-arrow-left"><i class="fa fa-chevron-left"></i></button><button type="button" class="imagelightbox-arrow imagelightbox-arrow-right"><i class="fa fa-chevron-right"></i></button>' );
+      $arrows.appendTo('body');
+      $arrows.on('click touchend', function(e)
+      {
+        e.preventDefault();
+        var $this	= $(this),
+          $target	= $(selector + '[href="' + $('#imagelightbox').attr('src') + '"]' ),
+          index	= $target.index(selector);
+        if( $this.hasClass('imagelightbox-arrow-left') )
+        {
+          index = index - 1;
+          if( !$(selector).eq(index).length )
+            index = $(selector).length;
+        }
+        else
+        {
+          index = index + 1;
+          if( !$(selector).eq(index).length )
+            index = 0;
+        }
+        instance.switchImageLightbox(index);
+        return false;
+      });
+    };
+    var arrowsOff = function(){$('.imagelightbox-arrow').remove();};
+
+    var selectorG = '.lightbox';
+    var instanceG =$(selectorG).imageLightbox({
+      quitOnDocClick:	false,
+      onStart:		function() {arrowsOn( instanceG, selectorG );overlayOn(); closeButtonOn(instanceG); },
+      onEnd:			function() {arrowsOff();captionOff(); overlayOff(); closeButtonOff(); activityIndicatorOff(); },
+      onLoadStart: 	function() {captionOff(); activityIndicatorOn(); },
+      onLoadEnd:	 	function() {$('.imagelightbox-arrow').css('display', 'block');captionOn(); activityIndicatorOff(); }
+    });
+  }
 }
 
 export default angular.module('emergenceInsightsApp.jsFunctionProvider', [])
