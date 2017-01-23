@@ -56,12 +56,12 @@ PilierComponent.$inject = ["themeProvider"];
 
 export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
   .config(routes)
-  .component('pilier', {
-    template: require('./pilier.html'),
-    controller: PilierComponent,
-    controllerAs: 'vm'
+  // .component('pilier', {
+  //   template: require('./pilier.html'),
+  //   controller: PilierComponent,
+  //   controllerAs: 'vm'
 
-  })
+  // })
   .component('action', {
     template: require('./templates/action.html'),
     controller: ActionComponent,

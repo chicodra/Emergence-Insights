@@ -7,7 +7,7 @@ export default function($stateProvider) {
       url: '/pays',
       template: '<pays></pays>'
     })
-  .state('pays/:paysName', {
+  .state('paysinfo', {
     url: '/pays/:paysName',
     template: '<infopays></infopays>',
 
