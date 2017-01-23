@@ -16,18 +16,30 @@ export class PaysComponent {
   }
 
   Init(){
+
     //this.listTheme=[];
     document.querySelector('header').style.backgroundColor = '#222'
 
-    this.paysProvider.listPays().then(list => {
-      this.listPays=list;
+    //this.listPays=[];
+    if(this.paysProvider.listpays==null){
+      this.paysProvider.listPays().then(list => {
+        this.listPays=list;
 
-      console.log('pays', this.listPays)
+        console.log('pays vide', this.listPays)
 
 
 
 
-    });
+
+      });
+    }
+    else{
+      this.listPays=this.paysProvider.listays
+      console.log('pays non vide', this.listPays)
+    }
+
+
+
   }
 }
 export class InfoPaysController{
@@ -43,7 +55,7 @@ export class InfoPaysController{
   }
 
   // Init(){
-  //   //this.listTheme=[];
+  //   //this.listPays=[];
   //
   //
   //   this.paysProvider.listPays().then(list => {

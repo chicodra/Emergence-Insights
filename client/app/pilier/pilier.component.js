@@ -13,14 +13,18 @@ export class PilierComponent {
   constructor(themeProvider) {
     this.message = 'Hello';
 
+
     this.themeprovider=themeProvider;
     console.log('init',this);
+
 
 
   }
   Init() {
     //this.listTheme=[];
+
     document.querySelector('header').style.backgroundColor = '#222'
+
     if(this.themeprovider.listTheme==null){
       this.themeprovider.listThemes().then(list => {
         this.listTheme=list;
@@ -29,15 +33,12 @@ export class PilierComponent {
         console.log('themes', this.listTheme)
 
 
-
-
       });
     }
     else{
       this.listTheme=this.themeprovider.listTheme
       console.log('themes non vide', this.listTheme)
     }
-
 
 
 

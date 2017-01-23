@@ -4,6 +4,7 @@ const angular = require('angular');
 /*@ngInject*/
 export function paysProviderService($http,$q) {
 	// AngularJS will instantiate a singleton by calling "new" on this function
+  this.listpays=null;
   this.listPays=function () {
     var deferred=$q.defer();
     var liste=[];
