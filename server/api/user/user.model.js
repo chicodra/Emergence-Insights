@@ -33,6 +33,9 @@ var UserSchema = new Schema({
       }
     }
   },
+  adresse : String,
+  date_naiss : Date,
+  tel : String,
   provider: String,
   salt: String,
   facebook: {},
