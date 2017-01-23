@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('/assets/fonts/bootstrap/glyphicons-halflings-regular.eot');
+  src: url('/ assets/fonts/bootstrap/glyphicons-halflings-regular.eot');
   src: url('/assets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
   url('/assets/fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
   url('/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
@@ -45,7 +45,12 @@
 /* Component styles are injected through gulp */
 /* inject:css */
 @import 'admin/admin.css';
+@import 'article/article.css';
+@import 'emergences.css';
+@import 'indice/indice.css';
 @import 'main/main.css';
+@import 'pays/pays.css';
+@import 'pilier/pilier.css';
 @import '../components/footer/footer.css';
 @import '../components/modal/modal.css';
 @import '../components/oauth-buttons/oauth-buttons.css';
