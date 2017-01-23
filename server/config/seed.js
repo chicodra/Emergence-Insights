@@ -21,23 +21,28 @@ Theme.find({}).remove()
       {
         _id: 1,
         libelle: 'Leadership, Gouvernance et Culture de l’Emergence',
-        mot_introduction: 'Section d’introduction VGN'
+        mot_introduction: 'Section d’introduction VGN',
+        link:'leadership'
       }, {
         _id: 2,
         libelle: 'Action et Coordination du Gouvernement',
-        mot_introduction: 'Section d’introduction EL'
+        mot_introduction: 'Section d’introduction EL',
+        link:'action'
       }, {
         _id: 3,
         libelle: 'Moteurs de croissance',
-        mot_introduction: 'Section d’introduction '
+        mot_introduction: 'Section d’introduction ',
+        link:'moteur'
       }, {
         _id: 4,
         libelle: 'Secteurs Supports',
-        mot_introduction: 'Section d’introduction ND'
+        mot_introduction: 'Section d’introduction ND',
+        link:'secteur'
       }, {
         _id: 5,
         libelle: 'Développement des Entreprises',
-        mot_introduction: 'Section d’introduction MF'
+        mot_introduction: 'Section d’introduction MF',
+        link:'developpement'
       }
     ).then(() => {
       console.log('finished populating Themes');
