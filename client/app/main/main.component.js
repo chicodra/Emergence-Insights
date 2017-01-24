@@ -7,37 +7,83 @@ export class MainController {
   socket;
   awesomeThings = [];
   newThing = '';
+  themeProvider;
+  paysProvider;
+  jsFunctionProvider;
 
   /*@ngInject*/
-  constructor($http, $scope, socket) {
-    this.$http = $http;
-    this.socket = socket;
+  constructor( themeProvider,paysProvider,jsFunctionProvider) {
+    //this.socket = socket;
+    this.themeProvider=themeProvider,
+      this.paysProvider=paysProvider;
+    this.jsFunctionProvider=jsFunctionProvider;
 
-    $scope.$on('$destroy', function() {
-      socket.unsyncUpdates('thing');
-    });
+    console.log('main',this);
+
+
   }
 
-  $onInit() {
-    this.$http.get('/api/things')
-      .then(response => {
-        this.awesomeThings = response.data;
-        this.socket.syncUpdates('thing', this.awesomeThings);
+   Init(){
+     // var swipers = [], winW, winH, winScr, _isresponsive, xsPoint = 480, smPoint = 768, mdPoint = 992, lgPoint = 1200, addPoint = 1600, _ismobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i);
+
+     //console.log("init",this);
+    angular.element(document)
+      .ready(() => {
+
+      console.log('document main',document);
+      /* Document REady */
+      this.jsFunctionProvider.onDocumentReady();
+
+
+      /* on Page Load */
+      this.jsFunctionProvider.onPageLoad();
+      this.jsFunctionProvider.onPageResize();
+      this.jsFunctionProvider.onSliderArrowClick();
+      this.jsFunctionProvider.onPageScroll();
+        /*==============================*/
+        /* 08 - BUTTONS, CLICKS, HOVERS */
+        /*==============================*/
+      this.jsFunctionProvider.topMenu();
+      this.jsFunctionProvider.videoPlayBtn();
+      this.jsFunctionProvider.videoPlayBtnBig();
+      this.jsFunctionProvider.Popup();
+      this.jsFunctionProvider.hoverAnimation();
+      this.jsFunctionProvider.changeImageOnSpeaker();
+      this.jsFunctionProvider.hoverAnimationOnConference();
+        /*==================================================*/
+        /* 09 - TIMES, TABS */
+        /*==================================================*/
+        this.jsFunctionProvider.Timers();
+        this.jsFunctionProvider.CountDown();
+        this.jsFunctionProvider.Tabs();
+        /*=====================*/
+        /* 10 - LIGHT-BOX */
+        /*=====================*/
+        this.jsFunctionProvider.activityIndicatorFunctions();
+        this.jsFunctionProvider.closeButtonFunctions();
+        this.jsFunctionProvider.overLay();
+        this.jsFunctionProvider.capTion();
+        this.jsFunctionProvider.arrOws();
+        /*==================================================*/
+        /* 11 - STYLE BAR */
+        /*==================================================*/
+        this.jsFunctionProvider.confButton();
+        this.jsFunctionProvider.entryButton();
+
+        /*==================================================*/
+        /* 13 - AJAX CONTACT FORM */
+        /*==================================================*/
+        this.jsFunctionProvider.ajaxContactForm();
+
+
+
+
       });
   }
 
-  addThing() {
-    if(this.newThing) {
-      this.$http.post('/api/things', {
-        name: this.newThing
-      });
-      this.newThing = '';
-    }
-  }
 
-  deleteThing(thing) {
-    this.$http.delete(`/api/things/${thing._id}`);
-  }
+
+
 
 
 }
