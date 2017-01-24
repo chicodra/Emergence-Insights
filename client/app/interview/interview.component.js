@@ -8,9 +8,13 @@ import routes from './interview.routes';
 export class InterviewComponent {
   /*@ngInject*/
    jsFunctionProvider;
-  constructor( jsFunctionProvider) {
+  questionProvider;
+  params;
+  constructor( jsFunctionProvider,questionProvider,$stateParams) {
     this.message = 'Hello';
     this.jsFunctionProvider = jsFunctionProvider;
+    this.questionProvider=questionProvider;
+    this.params=$stateParams;
     console.log('interview',this);
   }
   Init() {
@@ -69,8 +73,9 @@ export class InterviewComponent {
       });
 
   }
+
 }
-InterviewComponent.$inject=["jsFunctionProvider"];
+InterviewComponent.$inject=["jsFunctionProvider","questionProvider","$stateParams"];
 export default angular.module('emergenceInsightsApp.interview', [uiRouter])
   .config(routes)
   .component('interview', {

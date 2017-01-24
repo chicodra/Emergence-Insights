@@ -43,8 +43,8 @@ import interviewsProvider from './factory/interviewsProvider/interviewsProvider.
 import actualiteProvider from './factory/actualiteProvider/actualiteProvider.service';
 import documentationProvider from './factory/documentationProvider/documentationProvider.service';
 import agendaProvider from './factory/agendaProvider/agendaProvider.service';
-
 import InterviewComponent from './interview/interview.component';
+import questionProvider from './factory/questionProvider/questionProvider.service';
 
 
 
@@ -53,7 +53,8 @@ import InterviewComponent from './interview/interview.component';
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
   uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
   main, constants, socket, util,theme,paysProvider,articleProvider, si, revue, interviews, etudedecas,
-  fichedebonnepratiques,jsFunctionSlider,actualiteProvider,documentationProvider,agendaProvider, InterviewComponent,interviewsProvider
+  fichedebonnepratiques,jsFunctionSlider,actualiteProvider,documentationProvider,agendaProvider,
+  InterviewComponent,interviewsProvider,questionProvider
 
 
 ])
