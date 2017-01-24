@@ -10,15 +10,16 @@ export class PilierComponent {
   listTheme;
 
   constructor(themeProvider) {
-    this.message = 'Hello';
+    
     this.themeprovider=themeProvider;
 
 
   }
+
+
   Init(){
     //this.listTheme=[];
-
-
+   
      this.themeprovider.listThemes().then(list => {
        this.listTheme=list;
 
@@ -35,6 +36,18 @@ PilierComponent.$inject = ["themeProvider"];
 
 export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
   .config(routes)
+  .config(function($provide) {
+    $provide.decorator('$state', function($delegate, $stateParams) {
+        $delegate.forceReload = function() {
+            return $delegate.go($delegate.current, $stateParams, {
+                reload: true,
+                inherit: false,
+                notify: true
+            });
+        };
+        return $delegate;
+    });
+})
   .component('pilier', {
     template: require('./pilier.html'),
     controller: PilierComponent,

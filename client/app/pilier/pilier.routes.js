@@ -2,6 +2,8 @@
 
 export default function($stateProvider) {
   'ngInject';
+
+  
   $stateProvider
     .state('pilier', {
       url: '/pilier',
@@ -12,6 +14,7 @@ export default function($stateProvider) {
     .state('leadership', {
       url: '/pilier/leadership',
       template: require('./templates/leadership.html'),
+      
       // controller: 'LoginController',
       // controllerAs: 'vm'
   })

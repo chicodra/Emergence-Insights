@@ -46,7 +46,7 @@
             <li ng-mouseenter="nbCtrl.classSecteur()" ng-mouseleave="nbCtrl.delclassSecteur()" ng-click="nbCtrl.delclassSecteur()" class="nbCtrl.dropSecteur"><a href="pays.html">Piliers de l'emergence</a>
               <ul ng-style="nbCtrl.styleSecteur">
                 <li>
-                  <a ui-sref="leadership" ng-click="nbCtrl.delclassSecteur()"> <i class="fa fa-arrow-right" aria-hidden="true"></i>  &nbsp; Leadership Gouvernance et Culture de l'emergence </a>
+                  <a ui-sref="leadership" data-ui-sref-opts="{reload: true}" ng-click="nbCtrl.delclassSecteur()"> <i class="fa fa-arrow-right" aria-hidden="true"></i>  &nbsp; Leadership Gouvernance et Culture de l'emergence </a>
                 </li>
                 <li>
                   <a ui-sref="action" ng-click="nbCtrl.delclassSecteur()"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Action et Coordonnation du Gouvernement</a>
