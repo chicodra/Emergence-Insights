@@ -42,6 +42,7 @@ import jsFunctionSlider from './factory/jsFunctionProvider/jsFunctionProvider.se
 import interviewsProvider from './factory/interviewsProvider/interviewsProvider.service';
 import actualiteProvider from './factory/actualiteProvider/actualiteProvider.service';
 import documentationProvider from './factory/documentationProvider/documentationProvider.service';
+import agendaProvider from './factory/agendaProvider/agendaProvider.service';
 
 
 //import './app.css';
@@ -49,7 +50,7 @@ import documentationProvider from './factory/documentationProvider/documentation
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
   uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
   main, constants, socket, util,theme,paysProvider,articleProvider, interviewsProvider, si, revue, interviews, etudedecas,
-  fichedebonnepratiques,jsFunctionSlider,actualiteProvider,documentationProvider
+  fichedebonnepratiques,jsFunctionSlider,actualiteProvider,documentationProvider,agendaProvider
 
 ])
   .config(routeConfig)

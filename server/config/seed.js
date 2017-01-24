@@ -20,6 +20,7 @@ import Message from '../api/message/message.model';
 import Question from '../api/question/question.model';
 import Reponse from '../api/reponse/reponse.model';
 import Documentation from '../api/documentation/documentation.model';
+import Agenda from '../api/agenda/agenda.model';
 
 Documentation.find({}).remove()
   .then(()=>{
@@ -68,6 +69,51 @@ Documentation.find({}).remove()
   )
   .then(() => {
         console.log('finished populating Documentations');
+      });
+  })
+Agenda.find({}).remove()
+  .then(()=>{
+    Agenda.create(
+      {
+        _id: 1,
+        contenu : 'Le Sénégal, en forme longue la République du Sénégal, est un pays d\'Afrique de l\'Ouest.' +
+        ' Il est bordé par l\'océan Atlantique à l\'ouest, la Mauritanie au nord, à l\'est par le Mali, la Guinée' +
+        ' et la Guinée-Bissau au sud. La Gambie forme une quasi-enclave dans le Sénégal, pénétrant à plus de 300 km à ' +
+        'l\'intérieur des terres. Les îles du Cap-Vert sont situées à 560 km de la côte sénégalaise. ' ,
+        id_pays :10
+
+      },
+      {
+        _id: 2,
+        contenu : 'Le pays doit son nom au fleuve qui le borde à l\'est et au nord et qui prend sa source dans le Fouta Djallon ' +
+        'en Guinée. Le climat est tropical et sec avec deux saisons : la saison sèche et la saison des pluies.' +
+        ' L\'actuel territoire du Sénégal a vu se développer plusieurs royaumes dont le Djolof, vassaux des empires successifs du Ghana,' +
+        ' du Mali et Songhaï. Après 1591, il subit le morcellement politique ouest-africain consécutif à la bataille de Tondibi.' ,
+        id_pays :10
+
+      },
+      {
+        _id: 3,
+        contenu : ' Au xviie siècle, plusieurs comptoirs appartenant à différents empires coloniaux Européens s\'établissent ' +
+        'le long de la côte, ils servent de support au commerce triangulaire. La France prend peu à peu l\'ascendant sur les autres' +
+        ' puissances puis érige Saint-Louis, Gorée, Dakar et Rufisque en communes françaises régies selon le statut des Quatre communes.',
+        id_pays :10
+
+      },
+      {
+        _id: 4,
+        contenu :' Avec la Révolution industrielle, la France désirait construire un chemin de fer afin de les relier et entra ' +
+        'en conflit avec le Damel du Cayor, Lat Dior. Ce conflit permit à la France de faire officiellement du Cayor un protectorat' +
+        ' en 1886, un an après la fin de la conférence de Berlin. La colonisation de l\'ensemble de l\'Afrique de l\'Ouest est alors' +
+        ' amorcée et Saint Louis, puis Dakar deviendront les deux capitales successives de l\'Afrique-Occidentale française' +
+        ' créée en 1895. Dakar devient ensuite la capitale de la République sénégalaise au moment de l\'indépendance en 1960.',
+        id_pays :10
+
+      },
+
+    )
+      .then(() => {
+        console.log('finished populating Agendas');
       });
   })
 

@@ -106,13 +106,16 @@ export class InfoPaysController{
   actualitesPays;
   documentationsPays;
   documentationProvider;
-  constructor(paysProvider,$stateParams,jsFunctionProvider,actualiteProvider,documentationProvider) {
+  agendasPays;
+  agendaProvider;
+  constructor(paysProvider,$stateParams,jsFunctionProvider,actualiteProvider,documentationProvider,agendaProvider) {
     this.message = 'Hello';
     this.paysProvider=paysProvider;
     this.params=$stateParams;
     this.jsFunctionProvider=jsFunctionProvider;
     this.actualiteProvider=actualiteProvider;
     this.documentationProvider=documentationProvider;
+    this.agendaProvider=agendaProvider;
     this.pays=null;
 
 
@@ -156,6 +159,19 @@ export class InfoPaysController{
     });
 
   }
+  getAgendasPays(id){
+    this.agendaProvider.listAgendasPays(id).then(list => {
+      this.agendasPays=list;
+
+      console.log('agendas vide', this.documentationsPays)
+
+
+
+
+
+    });
+
+  }
   Init(){
     console.log('paysprovider',this.paysProvider);
     this.pays=this.getPays(this.params.paysName,this.paysProvider.listpays);
@@ -163,6 +179,7 @@ export class InfoPaysController{
     //window.setTimeout(this.getActualitesPays(this.pays._id),100);
     this.getActualitesPays(this.pays._id);
     this.getDocumentationsPays(this.pays._id);
+    this.getAgendasPays(this.pays._id);
 
     angular.element(document)
       .ready(() => {
@@ -236,7 +253,8 @@ export class InfoPaysController{
 }
 
 PaysComponent.$inject = ["paysProvider","jsFunctionProvider"];
-InfoPaysController.$inject = ["paysProvider","$stateParams","jsFunctionProvider","actualiteProvider","documentationProvider"];
+InfoPaysController.$inject = ["paysProvider","$stateParams","jsFunctionProvider","actualiteProvider","documentationProvider",
+"agendaProvider"];
 export default angular.module('emergenceInsightsApp.pays', [uiRouter])
   .config(routes)
   .component('pays', {
