@@ -46,11 +46,11 @@
 /* inject:css */
 @import 'admin/admin.css';
 @import 'article/article.css';
-@import 'emergences.css';
 @import 'indice/indice.css';
 @import 'interview/interview.css';
 @import 'main/main.css';
 @import 'pays/pays.css';
+@import 'pilier/emergences.css';
 @import 'pilier/pilier.css';
 @import '../components/footer/footer.css';
 @import '../components/modal/modal.css';
