@@ -305,7 +305,7 @@ Pays.find({}).remove()
     }, {
       _id: 3,
       nom: 'CÔTE D\'IVOIRE',
-      image: 'Côte d\'Ivoire_Abidjan.jpg',
+      image: 'Abidjan.png',
       description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `
     }, {
