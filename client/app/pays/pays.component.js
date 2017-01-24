@@ -104,12 +104,15 @@ export class InfoPaysController{
   jsFunctionProvider;
   actualiteProvider;
   actualitesPays;
-  constructor(paysProvider,$stateParams,jsFunctionProvider,actualiteProvider) {
+  documentationsPays;
+  documentationProvider;
+  constructor(paysProvider,$stateParams,jsFunctionProvider,actualiteProvider,documentationProvider) {
     this.message = 'Hello';
     this.paysProvider=paysProvider;
     this.params=$stateParams;
     this.jsFunctionProvider=jsFunctionProvider;
     this.actualiteProvider=actualiteProvider;
+    this.documentationProvider=documentationProvider;
     this.pays=null;
 
 
@@ -140,12 +143,26 @@ export class InfoPaysController{
     });
 
   }
+  getDocumentationsPays(id){
+    this.documentationProvider.listDocumentationPays(id).then(list => {
+      this.documentationsPays=list;
+
+      console.log('documentation vide', this.documentationsPays)
+
+
+
+
+
+    });
+
+  }
   Init(){
     console.log('paysprovider',this.paysProvider);
     this.pays=this.getPays(this.params.paysName,this.paysProvider.listpays);
     console.log('pays',this.pays);
     //window.setTimeout(this.getActualitesPays(this.pays._id),100);
     this.getActualitesPays(this.pays._id);
+    this.getDocumentationsPays(this.pays._id);
 
     angular.element(document)
       .ready(() => {
@@ -219,7 +236,7 @@ export class InfoPaysController{
 }
 
 PaysComponent.$inject = ["paysProvider","jsFunctionProvider"];
-InfoPaysController.$inject = ["paysProvider","$stateParams","jsFunctionProvider","actualiteProvider"];
+InfoPaysController.$inject = ["paysProvider","$stateParams","jsFunctionProvider","actualiteProvider","documentationProvider"];
 export default angular.module('emergenceInsightsApp.pays', [uiRouter])
   .config(routes)
   .component('pays', {
