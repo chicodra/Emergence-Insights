@@ -78,6 +78,16 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a single Article from the DB
+export function getArticleByTitre(req, res) {
+  return Article.find({titre : req.params.tit}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+
+
 // Creates a new Article in the DB
 export function create(req, res) {
   return Article.create(req.body)

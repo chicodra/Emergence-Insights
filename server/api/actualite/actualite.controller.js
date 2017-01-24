@@ -78,6 +78,15 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a single Actualite bu sujet
+export function getActuBySujet(req, res) {
+  return Actualite.find({sujet : req.params.suj}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+
 // Creates a new Actualite in the DB
 export function create(req, res) {
   return Actualite.create(req.body)
