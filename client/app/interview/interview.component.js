@@ -1,32 +1,20 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import routing from './main.routes';
+'use strict';
+const angular = require('angular');
 
-export class MainController {
-  $http;
-  socket;
-  awesomeThings = [];
-  newThing = '';
-  themeProvider;
-  paysProvider;
-  jsFunctionProvider;
+const uiRouter = require('angular-ui-router');
 
+import routes from './interview.routes';
+
+export class InterviewComponent {
   /*@ngInject*/
-  constructor(themeProvider, paysProvider, jsFunctionProvider) {
-    //this.socket = socket;
-    this.themeProvider = themeProvider,
-      this.paysProvider = paysProvider;
+   jsFunctionProvider;
+  constructor( jsFunctionProvider) {
+    this.message = 'Hello';
     this.jsFunctionProvider = jsFunctionProvider;
-
-    console.log('main', this);
-
-
+    console.log('interview',this);
   }
-
   Init() {
-    // var swipers = [], winW, winH, winScr, _isresponsive, xsPoint = 480, smPoint = 768, mdPoint = 992, lgPoint = 1200, addPoint = 1600, _ismobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i);
 
-    //console.log("init",this);
     angular.element(document)
       .ready(() => {
         document.querySelector('header').style.backgroundColor = '';
@@ -79,19 +67,15 @@ export class MainController {
 
 
       });
+
   }
-
-
-
-
-
-
 }
-
-export default angular.module('emergenceApp.main', [uiRouter])
-  .config(routing)
-  .component('main', {
-    template: require('./main.html'),
-    controller: MainController
+InterviewComponent.$inject=["jsFunctionProvider"];
+export default angular.module('emergenceInsightsApp.interview', [uiRouter])
+  .config(routes)
+  .component('interview', {
+    template: require('./interview.html'),
+    controller: InterviewComponent,
+    controllerAs: 'vm'
   })
   .name;
