@@ -23,6 +23,6 @@ export function interviewsProvider($http,$q) {
   }
 }
 
-export default angular.module('emergenceInsightsApp.interview', [])
+export default angular.module('emergenceInsightsApp.interviewprovider', [])
   .service('interviewsProvider', interviewsProvider)
   .name;

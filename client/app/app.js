@@ -52,8 +52,8 @@ import InterviewComponent from './interview/interview.component';
 
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
   uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
-  main, constants, socket, util,theme,paysProvider,articleProvider, interviewsProvider, si, revue, interviews, etudedecas,
-  fichedebonnepratiques,jsFunctionSlider,actualiteProvider,documentationProvider,agendaProvider, InterviewComponent
+  main, constants, socket, util,theme,paysProvider,articleProvider, si, revue, interviews, etudedecas,
+  fichedebonnepratiques,jsFunctionSlider,actualiteProvider,documentationProvider,agendaProvider, InterviewComponent,interviewsProvider
 
 
 ])
