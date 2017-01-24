@@ -35,7 +35,7 @@ describe('Interview API Router:', function() {
   });
 
   describe('GET /api/interviews', function() {
-    it('should route to interview.controller.index', function() {
+    it('should route to interviewsProvider.controller.index', function() {
       routerStub.get
         .withArgs('/', 'interviewCtrl.index')
         .should.have.been.calledOnce;
@@ -43,7 +43,7 @@ describe('Interview API Router:', function() {
   });
 
   describe('GET /api/interviews/:id', function() {
-    it('should route to interview.controller.show', function() {
+    it('should route to interviewsProvider.controller.show', function() {
       routerStub.get
         .withArgs('/:id', 'interviewCtrl.show')
         .should.have.been.calledOnce;
@@ -51,7 +51,7 @@ describe('Interview API Router:', function() {
   });
 
   describe('POST /api/interviews', function() {
-    it('should route to interview.controller.create', function() {
+    it('should route to interviewsProvider.controller.create', function() {
       routerStub.post
         .withArgs('/', 'interviewCtrl.create')
         .should.have.been.calledOnce;
@@ -59,7 +59,7 @@ describe('Interview API Router:', function() {
   });
 
   describe('PUT /api/interviews/:id', function() {
-    it('should route to interview.controller.upsert', function() {
+    it('should route to interviewsProvider.controller.upsert', function() {
       routerStub.put
         .withArgs('/:id', 'interviewCtrl.upsert')
         .should.have.been.calledOnce;
@@ -67,7 +67,7 @@ describe('Interview API Router:', function() {
   });
 
   describe('PATCH /api/interviews/:id', function() {
-    it('should route to interview.controller.patch', function() {
+    it('should route to interviewsProvider.controller.patch', function() {
       routerStub.patch
         .withArgs('/:id', 'interviewCtrl.patch')
         .should.have.been.calledOnce;
@@ -75,7 +75,7 @@ describe('Interview API Router:', function() {
   });
 
   describe('DELETE /api/interviews/:id', function() {
-    it('should route to interview.controller.destroy', function() {
+    it('should route to interviewsProvider.controller.destroy', function() {
       routerStub.delete
         .withArgs('/:id', 'interviewCtrl.destroy')
         .should.have.been.calledOnce;
