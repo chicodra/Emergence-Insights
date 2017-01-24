@@ -101,16 +101,85 @@ export class InfoPaysController{
   paysProvider;
   pays;
   params
-  jsFunctionProvider
-  constructor(paysProvider,$stateParams,jsFunctionProvider) {
+  jsFunctionProvider;
+  actualiteProvider;
+  actualitesPays;
+  documentationsPays;
+  documentationProvider;
+  agendasPays;
+  agendaProvider;
+  constructor(paysProvider,$stateParams,jsFunctionProvider,actualiteProvider,documentationProvider,agendaProvider) {
     this.message = 'Hello';
     this.paysProvider=paysProvider;
     this.params=$stateParams;
     this.jsFunctionProvider=jsFunctionProvider;
+    this.actualiteProvider=actualiteProvider;
+    this.documentationProvider=documentationProvider;
+    this.agendaProvider=agendaProvider;
+    this.pays=null;
+
 
     console.log('this',this);
   }
+  getPays(paysName,list){
+    //console.log(paysName,list);
+    for (var pays in list){
+      //console.log(list[pays]);
+      if(list[pays].nom==paysName){
+        //console.log(list[pays]);
+        return list[pays];
+      }
+    }
+    return null;
+
+  }
+  getActualitesPays(id){
+    this.actualiteProvider.listActualitesPays(id).then(list => {
+      this.actualitesPays=list;
+
+      console.log('pays vide', this.actualitesPays)
+
+
+
+
+
+    });
+
+  }
+  getDocumentationsPays(id){
+    this.documentationProvider.listDocumentationPays(id).then(list => {
+      this.documentationsPays=list;
+
+      console.log('documentation vide', this.documentationsPays)
+
+
+
+
+
+    });
+
+  }
+  getAgendasPays(id){
+    this.agendaProvider.listAgendasPays(id).then(list => {
+      this.agendasPays=list;
+
+      console.log('agendas vide', this.documentationsPays)
+
+
+
+
+
+    });
+
+  }
   Init(){
+    console.log('paysprovider',this.paysProvider);
+    this.pays=this.getPays(this.params.paysName,this.paysProvider.listpays);
+    console.log('pays',this.pays);
+    //window.setTimeout(this.getActualitesPays(this.pays._id),100);
+    this.getActualitesPays(this.pays._id);
+    this.getDocumentationsPays(this.pays._id);
+    this.getAgendasPays(this.pays._id);
 
     angular.element(document)
       .ready(() => {
@@ -166,6 +235,7 @@ export class InfoPaysController{
       });
   }
 
+
   // Init(){
   //   //this.listPays=[];
   //
@@ -183,7 +253,8 @@ export class InfoPaysController{
 }
 
 PaysComponent.$inject = ["paysProvider","jsFunctionProvider"];
-InfoPaysController.$inject = ["paysProvider","$stateParams","jsFunctionProvider"];
+InfoPaysController.$inject = ["paysProvider","$stateParams","jsFunctionProvider","actualiteProvider","documentationProvider",
+"agendaProvider"];
 export default angular.module('emergenceInsightsApp.pays', [uiRouter])
   .config(routes)
   .component('pays', {
