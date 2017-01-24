@@ -10,10 +10,13 @@ export class ArticleComponent {
   listArticles;
   articleProvider;
   jsFunctionProvider;
-  constructor(articleProvider, jsFunctionProvider) {
+  params;
+  constructor(articleProvider, jsFunctionProvider,$stateParams) {
     this.message = 'Hello';
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
+    this.params=$stateParams;
+    console.log('article',this);
 
   }
   Init() {
@@ -84,7 +87,7 @@ export class ArticleComponent {
     });
   }
 }
-ArticleComponent.$inject = ["articleProvider", "jsFunctionProvider"];
+ArticleComponent.$inject = ["articleProvider", "jsFunctionProvider","$stateParams"];
 
 
 export default angular.module('emergenceInsightsApp.article', [uiRouter])
