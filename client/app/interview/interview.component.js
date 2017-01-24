@@ -2,71 +2,23 @@
 const angular = require('angular');
 
 const uiRouter = require('angular-ui-router');
-import routes from './pilier.routes';
-export class PilierComponent {
 
+import routes from './interview.routes';
 
+export class InterviewComponent {
   /*@ngInject*/
-  themeprovider;
-  listTheme;
-
-  constructor(themeProvider) {
+   jsFunctionProvider;
+  constructor( jsFunctionProvider) {
     this.message = 'Hello';
-
-
-    this.themeprovider=themeProvider;
-    console.log('init',this);
-
-
-
+    this.jsFunctionProvider = jsFunctionProvider;
+    console.log('interview',this);
   }
   Init() {
-    //this.listTheme=[];
 
-    document.querySelector('header').style.backgroundColor = '#222'
-
-    if(this.themeprovider.listTheme==null){
-      this.themeprovider.listThemes().then(list => {
-        this.listTheme=list;
-        this.themeprovider.listTheme=list;
-
-        console.log('themes', this.listTheme)
-
-
-      });
-    }
-    else{
-      this.listTheme=this.themeprovider.listTheme
-      console.log('themes non vide', this.listTheme)
-    }
-
-
-
-  }
-
-
-
-}
-export class PiliersComponent {
-  jsFunctionProvider;
-
-  /*@ngInject*/
-  constructor( jsFunctionProvider) {
-    //this.socket = socket;
-
-    this.jsFunctionProvider=jsFunctionProvider;
-
-    console.log('pilier',this);
-
-
-  }
-
-  Init(){
-    document.querySelector('header').style.backgroundColor= '#222';
     angular.element(document)
       .ready(() => {
-
-        console.log('document pilier',document);
+        document.querySelector('header').style.backgroundColor = '';
+        console.log('document main', document);
         /* Document REady */
         this.jsFunctionProvider.onDocumentReady();
 
@@ -115,49 +67,15 @@ export class PiliersComponent {
 
 
       });
+
   }
 }
-PilierComponent.$inject = ["themeProvider"];
-PiliersComponent.$inject = [ "jsFunctionProvider"];
-
-export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
+InterviewComponent.$inject=["jsFunctionProvider"];
+export default angular.module('emergenceInsightsApp.interview', [uiRouter])
   .config(routes)
-  // .component('pilier', {
-  //   template: require('./pilier.html'),
-  //   controller: PilierComponent,
-  //   controllerAs: 'vm'
-
-  // })
-  .component('action', {
-    template: require('./templates/action.html'),
-    controller: PiliersComponent,
+  .component('interview', {
+    template: require('./interview.html'),
+    controller: InterviewComponent,
     controllerAs: 'vm'
-
   })
-  .component('leadership', {
-    template: require('./templates/leadership.html'),
-    controller: PiliersComponent,
-    controllerAs: 'vm'
-
-  })
-  .component('secteur', {
-    template: require('./templates/secteur_support.html'),
-    controller: PiliersComponent,
-    controllerAs: 'vm'
-
-  })
-  .component('moteurs', {
-    template: require('./templates/moteur.html'),
-    controller: PiliersComponent,
-    controllerAs: 'vm'
-
-  })
-  .component('developpement', {
-    template: require('./templates/developpement.html'),
-    controller: PiliersComponent,
-    controllerAs: 'vm'
-
-  })
-
   .name;
-
