@@ -2,16 +2,15 @@
 const angular = require('angular');
 
 /*@ngInject*/
-export function questionProviderService($http,$q) {
+export function reponseProviderService($http,$q) {
 	// AngularJS will instantiate a singleton by calling "new" on this function
-  this.listeQuestions=null;
-  this.listQuestionsInterviews=function (id) {
+  this.getReponseByQuestion=function (id) {
     var deferred=$q.defer();
     var liste=[];
-    $http.get('/api/questions/int/'+id,{
+    $http.get('/api/reponses/quest/'+id,{
       cache: true
     }).then(function(list) {
-      //console.log("cycle",list);
+      console.log("reponse",list);
       liste=list.data;
       deferred.resolve(liste);
 
@@ -23,6 +22,6 @@ export function questionProviderService($http,$q) {
   }
 }
 
-export default angular.module('emergenceInsightsApp.questionProvider', [])
-  .service('questionProvider', questionProviderService)
+export default angular.module('emergenceInsightsApp.reponseProvider', [])
+  .service('reponseProvider', reponseProviderService)
   .name;
