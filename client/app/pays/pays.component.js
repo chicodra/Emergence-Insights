@@ -10,11 +10,13 @@ export class PaysComponent {
   paysProvider;
   listPays;
   jsFunctionProvider;
+ 
   constructor(paysProvider,jsFunctionProvider) {
     this.message = 'Hello';
     this.paysProvider=paysProvider;
     this.jsFunctionProvider=jsFunctionProvider;
     console.log('this',this);
+
   }
 
 
@@ -24,22 +26,38 @@ export class PaysComponent {
     document.querySelector('header').style.backgroundColor = '#222'
 
     //this.listPays=[];
-    if(this.paysProvider.listpays==null){
-      this.paysProvider.listPays().then(list => {
+    this.paysProvider.listPays().then(list => {
         this.listPays=list;
+var verre;
+        for (var i = 0; i < this.listPays.length - 1; i++) {
+          var element = this.listPays[i];
+          for (var j = i + 1; j < this.listPays.length; j++) {
+            var el = this.listPays[j];
+            if(Number(element._id)>Number(el._id)){
+              this.verre = this.listPays[i];
+              this.listPays[i] = this.listPays[j];
+              this.listPays[j] = this.verre;
+              
+            }
+          }
+          
+          
+        }
 
-        console.log('pays vide', this.listPays)
-
+        console.log('paysssss vide', this.listPays)
 
 
 
 
       });
-    }
-    else{
-      this.listPays=this.paysProvider.listays
-      console.log('pays non vide', this.listPays)
-    }
+    // if(this.paysProvider.listpays==null){
+      
+    // }
+    // else{
+    //   this.listPays=this.paysProvider.listpays
+    //   console.log('pays non vide', this.listPays)
+
+    // }
     angular.element(document)
       .ready(() => {
 
@@ -95,6 +113,13 @@ export class PaysComponent {
 
 
 
+  }
+
+  modulo(cpt){
+    if(cpt % 2 == 0){
+      return 0;
+    }
+    return 1;
   }
 }
 export class InfoPaysController{
