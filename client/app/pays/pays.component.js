@@ -10,11 +10,13 @@ export class PaysComponent {
   paysProvider;
   listPays;
   jsFunctionProvider;
+ 
   constructor(paysProvider,jsFunctionProvider) {
     this.message = 'Hello';
     this.paysProvider=paysProvider;
     this.jsFunctionProvider=jsFunctionProvider;
     console.log('this',this);
+
   }
 
 
@@ -33,12 +35,12 @@ export class PaysComponent {
 
 
 
-
       });
     }
     else{
-      this.listPays=this.paysProvider.listays
+      this.listPays=this.paysProvider.listpays
       console.log('pays non vide', this.listPays)
+
     }
     angular.element(document)
       .ready(() => {
@@ -95,6 +97,13 @@ export class PaysComponent {
 
 
 
+  }
+
+  modulo(cpt){
+    if(cpt % 2 == 0){
+      return 0;
+    }
+    return 1;
   }
 }
 export class InfoPaysController{
