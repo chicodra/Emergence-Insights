@@ -221,29 +221,39 @@ Article.find({}).remove()
   .then(() => {
     Article.create(
       {
+        titre : 'le sommet africain',
         contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
         id_theme: 1,
+        image : 'confroom2.jpg'
       },
       {
+        titre : 'le réchaffement climatique',
         contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
         id_theme: 1,
+        image : 'maxresdefault.jpg'
       },
       {
+        titre : 'la crise gambienne',
         contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
         id_theme: 1,
+        image : 'gouvernance.jpg'
       },
       {
+        titre : 'les martiens',
         contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
         id_theme: 1,
+        image : 'abidjan.jpg'
       },
       {
+        titre : 'le mali',
         contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
         id_theme: 1,
+        image : 'collaboration.jpg'
       });
   });
 
@@ -251,12 +261,12 @@ Actualite.find({}).remove()
   .then(() => {
     Actualite.create({
       _id: 1,
-      libelle: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
       sujet: 'Crise de Gambie'
     }, {
       _id: 2,
-      libelle: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
 `,
       sujet: 'Crise de Mali'
     });
@@ -282,40 +292,76 @@ Pays.find({}).remove()
   .then(() => {
     Pays.create({
       _id: 1,
-      nom: 'BOTSWANA'
+      nom: 'BOTSWANA',
+      image: 'Botswana_Gaborone.jpg' ,
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 2,
-      nom: 'CAP-VERT'
+      nom: 'CAP-VERT',
+      image: 'Cap-Vert_Praia.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 3,
-      nom: 'CÔTE D\'IVOIRE'
+      nom: 'CÔTE D\'IVOIRE',
+      image: 'Côte d\'Ivoire_Abidjan.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 4,
-      nom: 'ETHIOPIE'
+      nom: 'ETHIOPIE',
+      image: 'Ethiopia_Addis Ababa.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 5,
-      nom: 'GABON'
+      nom: 'GABON',
+      image: 'Gabon_Libreville.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 6,
-      nom: 'GUINEE EQUATORIAL'
+      nom: 'GUINEE EQUATORIAL',
+      image: 'Guinée Equatoriale.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 7,
-      nom: 'KENYA'
+      nom: 'KENYA',
+      image: 'Kenya_Kilimanjaro.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 8,
-      nom: 'MAUDICE'
+      nom: 'MAURICE',
+      image: 'Maurice_Port-Louis.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 9,
-      nom: 'RWANDA'
+      nom: 'RWANDA',
+      image: 'Rwanda_Kigali.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 10,
-      nom: 'SENEGAL'
+      nom: 'SENEGAL',
+      image: 'Sénégal_Dakar.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 11,
-      nom: 'SOUTH AFRICA'
+      nom: 'SOUTH AFRICA',
+      image: 'South Africa_Cape Town.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     }, {
       _id: 12,
-      nom: 'TANZANIE'
+      nom: 'TANZANIE',
+      image: 'Tanzania_Dar es Salam.jpg',
+      description : `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+`
     },);
   });
 
