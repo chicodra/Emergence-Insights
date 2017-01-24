@@ -44,13 +44,17 @@ import actualiteProvider from './factory/actualiteProvider/actualiteProvider.ser
 import documentationProvider from './factory/documentationProvider/documentationProvider.service';
 import agendaProvider from './factory/agendaProvider/agendaProvider.service';
 
+import InterviewComponent from './interview/interview.component';
+
+
 
 //import './app.css';
 
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
   uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
   main, constants, socket, util,theme,paysProvider,articleProvider, interviewsProvider, si, revue, interviews, etudedecas,
-  fichedebonnepratiques,jsFunctionSlider,actualiteProvider,documentationProvider,agendaProvider
+  fichedebonnepratiques,jsFunctionSlider,actualiteProvider,documentationProvider,agendaProvider, InterviewComponent
+
 
 ])
   .config(routeConfig)
