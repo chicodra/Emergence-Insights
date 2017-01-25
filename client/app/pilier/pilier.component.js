@@ -23,7 +23,7 @@ export class PilierComponent {
     //this.listTheme=[];
 
 
-    document.querySelector('header').style.backgroundColor = '#222'
+    // document.querySelector('header').style.backgroundColor = '#222'
 
     if(this.themeprovider.listTheme==null){
       this.themeprovider.listThemes().then(list => {

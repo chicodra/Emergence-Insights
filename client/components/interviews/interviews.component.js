@@ -6,23 +6,25 @@ export class interviewsComponent {
   interviewsProvider;
   listInterviews;
   jsFunctionProvider;
-  constructor(jsFunctionProvider,interviewsProvider) {
+  constructor(jsFunctionProvider, interviewsProvider) {
     this.message = 'World';
-    this.interviewsProvider=interviewsProvider;
-    this.jsFunctionProvider=jsFunctionProvider;
-    console.log('interviews',this);
+    this.interviewsProvider = interviewsProvider;
+    this.jsFunctionProvider = jsFunctionProvider;
+    console.log('interviews', this);
   }
-  Init(){
-    if(this.interviewsProvider.listeInt==null){
+  Init() {
+    if (this.interviewsProvider.listeInt == null) {
       this.interviewsProvider.listInterviews().then(list => {
-        this.listInterviews=list;
-        this.interviewsProvider.listeInt=list;
+        this.listInterviews = list;
+        this.interviewsProvider.listeInt = list;
         console.log('interviews vide', this.listInterviews)
+        // this.interview = list[0];
+        this.image = '../../assets/images/perfstock/experts/' + this.listInterviews.image;
+
       });
 
-    }
-    else{
-      this.listInterviews=this.interviewsProvider.listeInt;
+    } else {
+      this.listInterviews = this.interviewsProvider.listeInt;
       console.log('interviews non vide', this.listInterviews)
 
     }
@@ -82,13 +84,15 @@ export class interviewsComponent {
       });
   }
 }
-interviewsComponent.$inject=["jsFunctionProvider","interviewsProvider"];
+interviewsComponent.$inject = ["jsFunctionProvider", "interviewsProvider"];
 
 export default angular.module('emergenceInsightsApp.interviews', [])
   .component('interviews', {
     // template: '<h1>Hello {{ $ctrl.message }}</h1>',
     template: require('./interviews.html'),
-    bindings: { message: '<' },
+    bindings: {
+      message: '<'
+    },
     controller: interviewsComponent,
     controllerAs: 'vm'
   })
