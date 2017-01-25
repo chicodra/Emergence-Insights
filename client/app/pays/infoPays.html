@@ -1,7 +1,7 @@
 <div class="col-md-1" ></div>
 
 <div class="col-md-10 paysInfo" ng-init="vm.Init()">
- 
+
   <uib-tabset active="activeJustified" justified="true">
     <uib-tab index="0" heading="ACTUALITE" >
       <!-- ABOUT -->
@@ -17,7 +17,7 @@
           </div>
         </div>-->
         <!-- SIMPLE TITLE -->
-        
+
       <div class="row small-block">
           <div class="container">
             <div class="simple-slider swiper-container" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1"
@@ -25,17 +25,18 @@
               <!--<div class="swiper-wrapper">-->
               <!--<div class="swiper-slide active" data-val="0">-->
               <!--<div class="simple-slide">-->
-              <div class="row"  ng-repeat="actualite in vm.actualitesPays ">
+              <div class="row"  style="padding: 10px 10px 10px 10px" ng-repeat="actualite in vm.actualitesPays ">
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-1">
                   <img class="img-responsive" src="../../assets/images/perfstock/pays/senegal.jpg" alt="">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
                   <h4><a class="simple-title" href="#">{{actualite.sujet}}</a></h4>
                   <div class="simple-text">
-                    <p>{{actualite.libelle}}</p>
+                    <p>{{actualite.contenu | limitTo:100}}</p>
 
                   </div>
                 </div>
+                <br>
               </div>
               <!--</div>-->
               <!--</div>-->
