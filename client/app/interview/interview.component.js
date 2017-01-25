@@ -55,7 +55,7 @@ export class InterviewComponent {
 
     angular.element(document)
       .ready(() => {
-        document.querySelector('header').style.backgroundColor = '';
+        document.querySelector('header').style.backgroundColor = '#222';
         console.log('document main', document);
         /* demo animated */
         this.jsFunctionProvider.demoAnimated();
