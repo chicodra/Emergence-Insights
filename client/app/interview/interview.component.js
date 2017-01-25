@@ -8,17 +8,55 @@ import routes from './interview.routes';
 export class InterviewComponent {
   /*@ngInject*/
    jsFunctionProvider;
-  constructor( jsFunctionProvider) {
+  questionProvider;
+  params;
+  reponseProvider;
+  interview=null;
+  questions;
+  reponses;
+  timeout;
+  interviewsProvider;
+  constructor( jsFunctionProvider,questionProvider,$stateParams,reponseProvider,interviewsProvider,$timeout) {
     this.message = 'Hello';
+    this.interviewsProvider=interviewsProvider;
+    this.interview=this.getInterview(1);
+
+
     this.jsFunctionProvider = jsFunctionProvider;
+    this.questionProvider=questionProvider;
+    this.params=$stateParams;
+    this.reponseProvider=reponseProvider;
+    this.reponses=[];
+
+    this.timeout=$timeout;
+
     console.log('interview',this);
+
+  }
+  getInterview(libelle){
+    this.interviewsProvider.getInterviewByName(libelle).then(list => {
+      console.log('interview vide', list);
+      this.interview=list
+      this.getQuestions(this.interview._id)
+      //return list;
+
+
+
+
+
+
+
+    });
   }
   Init() {
+    console.log('this questions',this.questions);
 
     angular.element(document)
       .ready(() => {
         document.querySelector('header').style.backgroundColor = '#222';
         console.log('document main', document);
+        /* demo animated */
+        this.jsFunctionProvider.demoAnimated();
         /* Document REady */
         this.jsFunctionProvider.onDocumentReady();
 
@@ -69,8 +107,40 @@ export class InterviewComponent {
       });
 
   }
+getReponse(id){
+  this.reponseProvider.getReponseByQuestion(id).then(list =>{
+    console.log('list',list);
+    this.reponses.push(list);
+    //return list;
+  });
+
 }
-InterviewComponent.$inject=["jsFunctionProvider"];
+  getQuestions(id){
+    this.questionProvider.listQuestionsInterviews(id).then(list => {
+      this.questions=list;
+      for(var q in this.questions){
+        var quest=this.questions[q];
+        console.log(quest);
+        this.getReponse(quest._id)
+        //this.reponses.push(reponse);
+        //console.log('reponse',reponse);
+
+      }
+
+
+      //console.log('questions vide', this.questions);
+
+
+
+
+
+    });
+    window.setTimeout(console.log('reponses',this.reponses),5000)
+    //console.log('reponses',this.reponses);
+  }
+
+}
+InterviewComponent.$inject=["jsFunctionProvider","questionProvider","$stateParams","reponseProvider","interviewsProvider","$timeout"];
 export default angular.module('emergenceInsightsApp.interview', [uiRouter])
   .config(routes)
   .component('interview', {

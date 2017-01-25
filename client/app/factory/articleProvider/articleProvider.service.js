@@ -20,6 +20,22 @@ export function articleProviderService($http,$q) {
     return liste;
 
   }
+  this.getArticleByName=function (titre) {
+    var deferred=$q.defer();
+    var liste=[];
+    $http.get('/api/articles/titre/'+titre,{
+      cache: true
+    }).then(function(list) {
+      console.log("cycle",list.data);
+      liste=list.data;
+      deferred.resolve(liste);
+
+    });
+    liste=deferred.promise;
+
+    return liste;
+
+  }
 }
 
 export default angular.module('emergenceInsightsApp.articleProvider', [])

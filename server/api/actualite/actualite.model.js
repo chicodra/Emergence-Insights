@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 var ActualiteSchema = new mongoose.Schema({
   _id : Number,
-  libelle : String,
+  contenu : String,
   sujet : String
 });
 

@@ -21,6 +21,22 @@ export function paysProviderService($http,$q) {
     return liste;
 
   }
+  this.getPaysByName=function (name) {
+    var deferred=$q.defer();
+    var liste=[];
+    $http.get('/api/payss/nom/'+name,{
+      cache: true
+    }).then(function(list) {
+      //console.log("cycle",list);
+      liste=list.data;
+      deferred.resolve(liste);
+
+    });
+    liste=deferred.promise;
+
+    return liste;
+
+  }
 }
 
 export default angular.module('emergenceInsightsApp.paysProvider', [])

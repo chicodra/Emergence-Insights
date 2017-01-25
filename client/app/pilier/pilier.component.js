@@ -11,8 +11,6 @@ export class PilierComponent {
   listTheme;
 
   constructor(themeProvider) {
-    this.message = 'Hello';
-
 
     this.themeprovider=themeProvider;
     console.log('init',this);
@@ -20,8 +18,10 @@ export class PilierComponent {
 
 
   }
+
   Init() {
     //this.listTheme=[];
+
 
     document.querySelector('header').style.backgroundColor = '#222'
 
@@ -30,7 +30,9 @@ export class PilierComponent {
         this.listTheme=list;
         this.themeprovider.listTheme=list;
 
+
         console.log('themes', this.listTheme)
+
 
 
       });
@@ -63,10 +65,12 @@ export class PiliersComponent {
 
   Init(){
     document.querySelector('header').style.backgroundColor= '#222';
-    angular.element(document)
+      angular.element(document)
       .ready(() => {
 
         console.log('document pilier',document);
+        /* demo animated */
+        this.jsFunctionProvider.demoAnimated();
         /* Document REady */
         this.jsFunctionProvider.onDocumentReady();
 

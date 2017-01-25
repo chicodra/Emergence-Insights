@@ -1,4 +1,4 @@
-<div class="col-md-1"></div>
+<div class="col-md-1" ng-init="vm.Init()"></div>
 <div class="col-md-10 paysInfo">
   <uib-tabset active="activeJustified" justified="true">
     <uib-tab index="0" heading="ACTUALITE">
@@ -22,20 +22,15 @@
               <!--<div class="swiper-wrapper">-->
               <!--<div class="swiper-slide active" data-val="0">-->
               <!--<div class="simple-slide">-->
-              <div class="row">
+              <div class="row"  ng-repeat="actualite in vm.actualitesPays ">
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-1">
                   <img class="img-responsive" src="../../assets/images/perfstock/pays/senegal.jpg" alt="">
                 </div>
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
-                  <h4><a class="simple-title" href="#">Actualité</a></h4>
+                  <h4><a class="simple-title" href="#">{{actualite.sujet}}</a></h4>
                   <div class="simple-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                      ex ea commodo consequat.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                      laborum.
-                    </p>
+                    <p>{{actualite.libelle}}</p>
+
                   </div>
                 </div>
               </div>
@@ -51,31 +46,20 @@
 </div>
 </uib-tab>
 <uib-tab index="1" heading="DOCUMENTATION">
+  <div class="row" ng-repeat="documentation in vm.documentationsPays">
+    <h4 class="simple-title">{{documentation.libelle}}</h4>
+    <h2 class="simple-text">
+     {{documentation.contenu}}
+    </h2>
+  </div>
+
+</uib-tab>
+<uib-tab index="2" heading="AGENDA"><div class="row" ng-repeat="agenda in vm.agendasPays">
   <h4 class="simple-title">Senegal (14 Regions)</h4>
   <h2 class="simple-text">
-    Le Sénégal, en forme longue la République du Sénégal, est un pays d'Afrique de l'Ouest. Il est bordé par l'océan Atlantique
-    à l'ouest, la Mauritanie au nord, à l'est par le Mali, la Guinée et la Guinée-Bissau au sud. La Gambie forme une quasi-enclave
-    dans le Sénégal, pénétrant à plus de 300 km à l'intérieur des terres. Les îles du Cap-Vert sont situées à 560 km de la
-    côte sénégalaise. Le pays doit son nom au fleuve qui le borde à l'est et au nord et qui prend sa source dans le Fouta
-    Djallon en Guinée. Le climat est tropical et sec avec deux saisons : la saison sèche et la saison des pluies. L'actuel
-    territoire du Sénégal a vu se développer plusieurs royaumes dont le Djolof, vassaux des empires successifs du Ghana,
-    du Mali et Songhaï. Après 1591, il subit le morcellement politique ouest-africain consécutif à la bataille de Tondibi.
-    Au xviie siècle, plusieurs comptoirs appartenant à différents empires coloniaux Européens s'établissent le long de la
-    côte, ils servent de support au commerce triangulaire. La France prend peu à peu l'ascendant sur les autres puissances
-    puis érige Saint-Louis, Gorée, Dakar et Rufisque en communes françaises régies selon le statut des Quatre communes. Avec
-    la Révolution industrielle, la France désirait construire un chemin de fer afin de les relier et entra en conflit avec
-    le Damel du Cayor, Lat Dior. Ce conflit permit à la France de faire officiellement du Cayor un protectorat en 1886, un
-    an après la fin de la conférence de Berlin. La colonisation de l'ensemble de l'Afrique de l'Ouest est alors amorcée et
-    Saint Louis, puis Dakar deviendront les deux capitales successives de l'Afrique-Occidentale française créée en 1895.
-    Dakar devient ensuite la capitale de la République sénégalaise au moment de l'indépendance en 1960. Contrairement aux
-    autres anciennes colonies de l'AOF le Sénégal indépendant moderne est donc le résultat du regroupement d'un territoire
-    peuplé d'anciens citoyens français (Les Quatre communes) et d'un territoire peuplé d'anciens « Indigènes » (le reste
-    du pays). Le pays fait partie de la CEDEAO. Depuis le 2 avril 2012, le président du pays est Macky Sall. Intégré aux
-    principales instances de la communauté internationale, le Sénégal fait également partie de l'Union africaine (UA), de
-    la Communauté des États sahélo-sahariens (CES) et de l'Organisation Internationale de la Francophonie.
-  </h2>
-</uib-tab>
-<uib-tab index="2" heading="AGENDA">
+{{agenda.contenu}}  </h2>
+</div>
+
 </uib-tab>
 </uib-tabset>
 </div>

@@ -2,6 +2,8 @@
 
 export default function($stateProvider) {
   'ngInject';
+
+  
   $stateProvider
     // .state('pilier', {
     //   url: '/pilier',
@@ -11,7 +13,9 @@ export default function($stateProvider) {
 
     .state('leadership', {
       url: '/pilier/leadership',
+
       template: '<leadership></leadership>',
+
   })
     .state('action', {
       url: '/pilier/action',

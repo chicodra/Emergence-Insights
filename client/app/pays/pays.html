@@ -33,141 +33,35 @@
           </div>
         </div>
         <div class="tabs-content clearfix">
-          <div class="tab-info active">
-            <div class="shedule-block left">
+          <div ng-repeat="pays in vm.listPays" class="tab-info active">
+
+            <div ng-if="vm.modulo(pays._id) === 1">
+            <div class="shedule-block left" ng-init="">
               <img class="shedule-user" src="assets/img/user_1.jpg" alt="">
               <div class="shedule-entry">
                 <div class="shedule-date">Vision 2020</div>
-                <h4><a class="shedule-speaker" id="demo01" href="#animatedModal">Rwanda</a></h4>
+                <h4><a class="shedule-speaker" id="demo01" ui-sref="paysinfo({paysName:pays.nom})">{{pays.nom}}</a></h4>
 
-                <div class="shedule-text">Le Rwanda  figure aujourd’hui parmi les pays africains les plus prisés par les investisseurs étrangers.</div>
-                <img class="img-responsive" src="assets/img/perfstock/pays/modal/rwanda.jpg" alt="">
+                <div class="shedule-text">{{pays.description}}</div>
+                <img class="img-responsive" src="assets/images/perfstock/pays/Photos Pays/{{pays.image}}" alt="">
               </div>
             </div>
-            <div class="shedule-block right">
-              <img class="shedule-user" src="assets/img/user_2.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">Plan Sénégal Emergent</div>
-                <h4><a class="shedule-speaker" href="#">Senegal</a></h4>
-
-                <div class="shedule-text">Le Sénégal a décidé d’adopter un nouveau modèle de développement pour accélérer sa marche vers l’émergence.</div>
-                <img class="img-responsive" src="assets/img/perfstock/pays/modal/senegal.jpg" alt="">
-              </div>
             </div>
-            <div class="shedule-block left">
-              <img class="shedule-user" src="assets/img/user_3.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">Plan Stratégique Gabon Emergent</div>
-                <h4><a class="shedule-speaker" href="#">Gabon</a></h4>
 
-                <div class="shedule-text">Le projet de "Gabon émergent" consiste à mettre en oeuvre une stratégie autour de trois piliers de croissance dont le ressort est la valorisation du potentiel en ressources humaines, naturelles et minéralières du Gabon.</div>
-                <img class="img-responsive" src="assets/img/perfstock/pays/modal/gabon.jpg" alt="">
-              </div>
-            </div>
-            <div class="shedule-block right">
-              <img class="shedule-user" src="assets/img/user_3.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">PND 2016-2020</div>
-                <h4><a class="shedule-speaker" href="#">Côte d'Ivoire</a></h4>
-
-                <div class="shedule-text">La Côte d'Ivoire a l'ambition de devenir un pays émergent à l'horizon 2020.</div>
-                <img class="img-responsive" src="assets/img/perfstock/pays/modal/ivorycoast.jpg" alt="">
-              </div>
-            </div>
-            <div class="shedule-block left">
-              <img class="shedule-user" src="assets/img/user_3.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">Plan Tanzania</div>
-                <h4><a class="shedule-speaker" href="#">Tanzanie</a></h4>
-
-                <div class="shedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                <img class="img-responsive" src="assets/img/perfstock/pays/modal/tanzanie.jpg" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="tab-info">
-            <div class="shedule-block left">
-              <img class="shedule-user" src="assets/img/user_3.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">9:30 am - 11:30 am / 19.09.2015</div>
-                <h4><a class="shedule-speaker" href="#">Mike Polsone</a></h4>
-
-                <div class="shedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                <img class="img-responsive" src="assets/img/shedule_3.jpg" alt="">
-              </div>
-            </div>
-            <div class="shedule-block right">
-              <img class="shedule-user" src="assets/img/user_4.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">9:30 am - 11:30 am / 19.09.2015</div>
-                <h4><a class="shedule-speaker" href="#">Mark Gatta</a></h4>
-
-                <div class="shedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                <img class="img-responsive" src="assets/img/shedule_4.jpg" alt="">
-              </div>
-            </div>
-            <div class="shedule-block left">
-              <img class="shedule-user" src="assets/img/user_5.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">9:30 am - 11:30 am / 19.09.2015</div>
-                <h4><a class="shedule-speaker" href="#">Mike Polsone</a></h4>
-
-                <div class="shedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                <img class="img-responsive" src="assets/img/shedule_5.jpg" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="tab-info">
-            <div class="shedule-block left">
-              <img class="shedule-user" src="assets/img/user_5.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">9:30 am - 11:30 am / 19.09.2015</div>
-                <h4><a class="shedule-speaker" href="#">Mike Polsone</a></h4>
-
-                <div class="shedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                <img class="img-responsive" src="assets/img/shedule_5.jpg" alt="">
-              </div>
-            </div>
-            <div class="shedule-block right">
-              <img class="shedule-user" src="assets/img/user_4.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">9:30 am - 11:30 am / 19.09.2015</div>
-                <h4><a class="shedule-speaker" href="#">Mark Gatta</a></h4>
-
-                <div class="shedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                <img class="img-responsive" src="assets/img/shedule_4.jpg" alt="">
-              </div>
-            </div>
-            <div class="shedule-block left">
+            <div ng-if="vm.modulo(pays._id) === 0">
+            <div class="shedule-block right" ng-init="">
               <img class="shedule-user" src="assets/img/user_1.jpg" alt="">
               <div class="shedule-entry">
-                <div class="shedule-date">9:30 am - 11:30 am / 19.09.2015</div>
-                <h4><a class="shedule-speaker" href="#">Sandra Doe</a></h4>
+                <div class="shedule-date">Vision 2020</div>
+                <h4><a class="shedule-speaker" id="demo01" ui-sref="paysinfo({paysName:pays.nom})">{{pays.nom}}</a></h4>
 
-                <div class="shedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                <img class="img-responsive" src="assets/img/shedule_1.jpg" alt="">
+                <div class="shedule-text">Le Rwanda  figure aujourd’hui parmi les pays africains les plus prisés par les investisseurs étrangers.</div>
+                <img class="img-responsive" src="assets/images/perfstock/pays/Photos Pays/{{pays.image}}" alt="">
               </div>
             </div>
-            <div class="shedule-block right">
-              <img class="shedule-user" src="assets/img/user_2.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">9:30 am - 11:30 am / 19.09.2015</div>
-                <h4><a class="shedule-speaker" href="#">Sandra Doe</a></h4>
-
-                <div class="shedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                <img class="img-responsive" src="assets/img/shedule_2.jpg" alt="">
-              </div>
             </div>
-            <div class="shedule-block left">
-              <img class="shedule-user" src="assets/img/user_3.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">9:30 am - 11:30 am / 19.09.2015</div>
-                <h4><a class="shedule-speaker" href="#">Mike Polsone</a></h4>
 
-                <div class="shedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                <img class="img-responsive" src="assets/img/shedule_3.jpg" alt="">
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

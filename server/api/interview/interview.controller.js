@@ -78,6 +78,15 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+//getInterviewByName
+
+export function getInterviewByName(req, res){
+   return Interview.find({libelle:req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Creates a new Interview in the DB
 export function create(req, res) {
   return Interview.create(req.body)
@@ -85,7 +94,7 @@ export function create(req, res) {
     .catch(handleError(res));
 }
 
-//getInterviewByModel
+//getInterviewByTheme
 
 export function getInterviewByTheme(req, res){
    return Interview.find({id_theme:req.params.id}).exec()

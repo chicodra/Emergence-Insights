@@ -78,6 +78,15 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a single Pays by name
+export function getPaysByName(req, res) {
+  return Pays.find({nom : req.params.nom}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+
 // Creates a new Pays in the DB
 export function create(req, res) {
   return Pays.create(req.body)
