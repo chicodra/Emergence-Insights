@@ -24,9 +24,7 @@
             <div class="nav-tab-item active">
               Pays Africains
             </div>
-            <div class="nav-tab-item">
-              Autres Pays
-            </div>
+            
             <!-- <div class="nav-tab-item">
                                               Gouvernance
                                       </div> -->
@@ -36,20 +34,20 @@
           <div ng-repeat="pays in vm.listPays" class="tab-info active">
 
             <div ng-if="vm.modulo(pays._id) === 1">
-            <div class="shedule-block left" ng-init="">
+             <div class="shedule-block left" ng-init="">
               <img class="shedule-user" src="assets/img/user_1.jpg" alt="">
-              <div class="shedule-entry">
+               <div class="shedule-entry">
                 <div class="shedule-date">Vision 2020</div>
                 <h4><a class="shedule-speaker" id="demo01" ui-sref="paysinfo({paysName:pays.nom})">{{pays.nom}}</a></h4>
 
                 <div class="shedule-text">{{pays.description}}</div>
                 <img class="img-responsive" src="assets/images/perfstock/pays/Photos Pays/{{pays.image}}" alt="">
               </div>
-            </div>
+             </div>
             </div>
 
             <div ng-if="vm.modulo(pays._id) === 0">
-            <div class="shedule-block right" ng-init="">
+             <div class="shedule-block right" ng-init="">
               <img class="shedule-user" src="assets/img/user_1.jpg" alt="">
               <div class="shedule-entry">
                 <div class="shedule-date">Vision 2020</div>
@@ -58,7 +56,7 @@
                 <div class="shedule-text">Le Rwanda  figure aujourd’hui parmi les pays africains les plus prisés par les investisseurs étrangers.</div>
                 <img class="img-responsive" src="assets/images/perfstock/pays/Photos Pays/{{pays.image}}" alt="">
               </div>
-            </div>
+             </div>
             </div>
 
 
@@ -68,7 +66,6 @@
     </div>
   </div>
 
-{{vm.message}}
   <!--DEMO01-->
   <div id="animatedModal" class="animated animatedModal-off" style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); overflow-y: auto; z-index: -9999; opacity: 0; animation-duration: 0.6s;">
     <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
