@@ -6,10 +6,12 @@ export class revueArticlesComponent {
   listArticles;
   articleProvider;
   jsFunctionProvider;
+  nb;
   constructor(articleProvider, jsFunctionProvider) {
     this.message = 'Hello';
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
+    this.nb=0;
     console.log('revue d\'articles',this);
 
   }
