@@ -35,7 +35,7 @@ export function jsFunctionProviderService() {
   /*============================*/
   this.onPageLoad=function () {
     console.log(' on page load')
-    initSwiper();
+    //
     $('.isotope-container').isotope({itemSelector: '.item', masonry:{gutter:0,columnWidth:'.grid-sizer'}});
     if($(window).scrollTop()>0){
       $('.header').addClass('scrolled');
@@ -99,6 +99,9 @@ export function jsFunctionProviderService() {
   /*=====================*/
   /* 07 - SWIPER SLIDERS */
   /*=====================*/
+  this.initSwiper=function () {
+    initSwiper();
+  }
   function initSwiper(){
     console.log('init swippers');
     var initIterator = 0;
