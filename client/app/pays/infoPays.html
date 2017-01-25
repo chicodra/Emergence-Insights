@@ -1,7 +1,9 @@
-<div class="col-md-1" ng-init="vm.Init()"></div>
-<div class="col-md-10 paysInfo">
+<div class="col-md-1" ></div>
+
+<div class="col-md-10 paysInfo" ng-init="vm.Init()">
+ 
   <uib-tabset active="activeJustified" justified="true">
-    <uib-tab index="0" heading="ACTUALITE">
+    <uib-tab index="0" heading="ACTUALITE" >
       <!-- ABOUT -->
       <div class="main-block clearfix">
         <!--<div class="container">
@@ -15,7 +17,8 @@
           </div>
         </div>-->
         <!-- SIMPLE TITLE -->
-        <div class="row small-block">
+        
+      <div class="row small-block">
           <div class="container">
             <div class="simple-slider swiper-container" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1"
               data-add-slides="2">
@@ -43,24 +46,28 @@
           </div>
         </div>
       </div>
-</div>
-</uib-tab>
-<uib-tab index="1" heading="DOCUMENTATION">
-  <div class="row" ng-repeat="documentation in vm.documentationsPays">
-    <h4 class="simple-title">{{documentation.libelle}}</h4>
-    <h2 class="simple-text">
-     {{documentation.contenu}}
-    </h2>
-  </div>
+     </div>
+    </uib-tab>
 
-</uib-tab>
-<uib-tab index="2" heading="AGENDA"><div class="row" ng-repeat="agenda in vm.agendasPays">
-  <h4 class="simple-title">Senegal (14 Regions)</h4>
-  <h2 class="simple-text">
-{{agenda.contenu}}  </h2>
-</div>
+    <uib-tab index="1" heading="DOCUMENTATION">
+      <div class="row" ng-repeat="documentation in vm.documentationsPays">
+        <h4 class="simple-title">{{documentation.libelle}}</h4>
+        <h2 class="simple-text">
+            {{documentation.contenu}}
+        </h2>
+      </div>
 
-</uib-tab>
-</uib-tabset>
+    </uib-tab>
+
+    <uib-tab index="2" heading="AGENDA">
+      <div class="row" ng-repeat="agenda in vm.agendasPays">
+       <h4 class="simple-title">Senegal (14 Regions)</h4>
+       <h2 class="simple-text">
+          {{agenda.contenu}}  </h2>
+     </div>
+
+    </uib-tab>
+
+  </uib-tabset>
 </div>
 <div class="col-md-1"></div>
