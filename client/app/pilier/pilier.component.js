@@ -12,8 +12,8 @@ export class PilierComponent {
 
   constructor(themeProvider) {
 
-    this.themeprovider=themeProvider;
-    console.log('init',this);
+    this.themeprovider = themeProvider;
+    console.log('init', this);
 
 
 
@@ -23,22 +23,20 @@ export class PilierComponent {
     //this.listTheme=[];
 
 
-    // document.querySelector('header').style.backgroundColor = '#222'
+    document.querySelector('header').style.backgroundColor = '#222'
 
-    if(this.themeprovider.listTheme==null){
+    if (this.themeprovider.listTheme == null) {
       this.themeprovider.listThemes().then(list => {
-        this.listTheme=list;
-        this.themeprovider.listTheme=list;
+        this.listTheme = list;
+        this.themeprovider.listTheme = list;
 
 
         console.log('themes', this.listTheme)
 
 
-
       });
-    }
-    else{
-      this.listTheme=this.themeprovider.listTheme
+    } else {
+      this.listTheme = this.themeprovider.listTheme
       console.log('themes non vide', this.listTheme)
     }
 
@@ -56,19 +54,19 @@ export class PiliersComponent {
   constructor(jsFunctionProvider) {
     //this.socket = socket;
 
-    this.jsFunctionProvider=jsFunctionProvider;
+    this.jsFunctionProvider = jsFunctionProvider;
 
-    console.log('pilier',this);
+    console.log('pilier', this);
 
 
   }
 
-  Init(){
-    document.querySelector('header').style.backgroundColor= '#222';
-      angular.element(document)
+  Init() {
+    angular.element(document)
       .ready(() => {
 
-        console.log('document pilier',document);
+
+        console.log('document pilier', document);
         /* demo animated */
         this.jsFunctionProvider.demoAnimated();
         /* Document REady */
@@ -118,12 +116,15 @@ export class PiliersComponent {
 
 
 
-
       });
+    setTimeout(function () {
+      document.querySelector('header').style.backgroundColor = '#222';
+    }, 100);
+
   }
 }
 PilierComponent.$inject = ["themeProvider"];
-PiliersComponent.$inject = [ "jsFunctionProvider"];
+PiliersComponent.$inject = ["jsFunctionProvider"];
 
 export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
   .config(routes)
@@ -165,4 +166,3 @@ export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
   })
 
   .name;
-
