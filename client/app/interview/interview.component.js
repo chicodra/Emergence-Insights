@@ -19,12 +19,13 @@ export class InterviewComponent {
   constructor( jsFunctionProvider,questionProvider,$stateParams,reponseProvider,interviewsProvider,$timeout) {
     this.message = 'Hello';
     this.interviewsProvider=interviewsProvider;
-    this.interview=this.getInterview(1);
+    this.params=$stateParams;
+    this.interview=this.getInterview(this.params.libelle);
 
 
     this.jsFunctionProvider = jsFunctionProvider;
     this.questionProvider=questionProvider;
-    this.params=$stateParams;
+
     this.reponseProvider=reponseProvider;
     this.reponses=[];
 
@@ -35,8 +36,9 @@ export class InterviewComponent {
   }
   getInterview(libelle){
     this.interviewsProvider.getInterviewByName(libelle).then(list => {
-      console.log('interview vide', list);
-      this.interview=list
+      this.interview=list[0];
+      console.log('interview vide', this.interview);
+
       this.getQuestions(this.interview._id)
       //return list;
 

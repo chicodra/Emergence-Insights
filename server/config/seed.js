@@ -410,17 +410,20 @@ User.find({}).remove()
 
  Interview.find({}).remove()
   .then(() => {
-    Interview.create({
+    Interview.create(
+      {
   _id : 1,
-  libelle: 'Emergence Insights Interview de M. Thierno Seydou Nourou Sy',
-  intervenant: 'M. Thierno Seydou Nourou Sy',
-  contenu:`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                    eu fugiat nulla pariatur.`,
+  libelle: 'Emergence Insights Interview de M. Tony Elumelu',
+  intervenant: 'Tony Elumelu',
+  contenu:`En moins de trente ans, le Nigérian Tony Elumelu a bâti un groupe de pointe dans la banque, l'hôtellerie
+                    et l'énergie. Ce businessman pas comme les autres lance un programme de 100 millions de dollars pour
+                    soutenir les patrons de demain.
+                    Lis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`,
    id_theme:1,
-   imag: '../../client/assets/images/perfstock/nouveautes/fait_bon_chez_soi.jpg',
-},{
+   image: 'tony_elumelu.jpg',
+},
+      {
   _id : 2,
   libelle: 'Emergence Insights Interview de M.  Victor Gorom Ndiaye',
   intervenant: 'M. Victor Gorom Ndiaye',
@@ -429,8 +432,19 @@ User.find({}).remove()
                     ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
                     eu fugiat nulla pariatur.`,
    id_theme:2,
-   imag: '../../client/assets/images/perfstock/experts/victor_gorom_ndiaye.jpg',
-});
+   image: 'victor_gorom_ndiaye.jpg',
+},
+      {
+        _id : 3,
+        libelle: 'Emergence Insights Interview de M. Akon',
+        intervenant: 'M. Akon',
+        contenu:`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu fugiat nulla pariatur.`,
+        id_theme:2,
+        image: 'akon.jpg',
+      });
   });
 
 
