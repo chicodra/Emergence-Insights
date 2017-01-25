@@ -22,7 +22,7 @@ export class InterviewComponent {
     this.interviewsProvider=interviewsProvider;
     this.params=$stateParams;
     this.interview=this.getInterview(this.params.libelle);
-
+    this.nb=0;
 
     this.jsFunctionProvider = jsFunctionProvider;
     this.questionProvider=questionProvider;
