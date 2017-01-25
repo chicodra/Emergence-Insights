@@ -4,7 +4,7 @@ const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 
 import routes from './pays.routes';
-
+var p;
 export class PaysComponent {
   /*@ngInject*/
   paysProvider;
@@ -136,6 +136,7 @@ export class InfoPaysController{
   documentationProvider;
   agendasPays;
   agendaProvider;
+  nb;
   constructor(paysProvider,$stateParams,jsFunctionProvider,actualiteProvider,documentationProvider,agendaProvider) {
     this.message = 'Hello';
     this.paysProvider=paysProvider;
@@ -144,37 +145,40 @@ export class InfoPaysController{
     this.actualiteProvider=actualiteProvider;
     this.documentationProvider=documentationProvider;
     this.agendaProvider=agendaProvider;
-    this.pays=null;
-
+    this.pays = null;
+    this.nb=0;
+this.getPays(this.params.paysName);
+console.log('get pays by name 3',p);
 
     console.log('this',this);
   }
-  // getPays(paysName,){
-  //   //console.log(paysName,list);
-  //   this.paysProvider.getPaysByName(paysName).then(list=>{
-  //     console.log('get pays by name',list);
-  //     return list;
-  //   })
-  //
-  //
-  // }
-  getPays(paysName,list){
-    console.log(paysName,list);
-    for (var pays in list){
-      console.log(list[pays]);
-      if(list[pays].nom==paysName){
-        console.log(list[pays]);
-        return list[pays];
-      }
-    }
-    return null;
+  
+  getPays(paysName){
+    //console.log(paysName,list);
+    this.paysProvider.getPaysByName(paysName).then(list=>{
+    console.log('get pays by name',this);
+    p = list;
+    this.pays=list[0];
+        console.log('get pays by name 2',this.pays);
+    this.getActualitesPays(this.pays._id);
+    this.getDocumentationsPays(this.pays._id);
+     this.getAgendasPays(this.pays._id);
+        
+        console.log('get pays by name 4',p);
+
+     });
+        
+
+    
+
+
 
   }
   getActualitesPays(id){
     this.actualiteProvider.listActualitesPays(id).then(list => {
       this.actualitesPays=list;
 
-      console.log('pays vide', this.actualitesPays)
+      console.log('actualites vide', this.actualitesPays)
 
 
 
@@ -210,15 +214,14 @@ export class InfoPaysController{
 
   }
   Init(){
-    console.log('paysprovider',this.paysProvider);
-    this.pays=this.getPays(this.params.paysName,this.paysProvider.listpays);
-    //this.pays=this.getPays(this.params.paysName);
-    console.log('pays',this.pays);
+    // console.log('paysprovider',this.paysProvider);
+   console.log('pays',this.pays);
+
 
     //window.setTimeout(this.getActualitesPays(this.pays._id),100);
-    this.getActualitesPays(this.pays._id);
-    this.getDocumentationsPays(this.pays._id);
-    this.getAgendasPays(this.pays._id);
+    // this.getActualitesPays(this.pays._id);
+    // this.getDocumentationsPays(this.pays._id);
+    // this.getAgendasPays(this.pays._id);
 
     angular.element(document)
       .ready(() => {
@@ -276,21 +279,6 @@ export class InfoPaysController{
       });
   }
 
-
-  // Init(){
-  //   //this.listPays=[];
-  //
-  //
-  //   this.paysProvider.listPays().then(list => {
-  //     this.listPays=list;
-  //
-  //     console.log('pays', this.listPays)
-  //
-  //
-  //
-  //
-  //   });
-  // }
 }
 
 PaysComponent.$inject = ["paysProvider","jsFunctionProvider"];
