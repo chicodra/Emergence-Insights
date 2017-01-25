@@ -149,13 +149,25 @@ export class InfoPaysController{
 
     console.log('this',this);
   }
-  getPays(paysName,){
-    //console.log(paysName,list);
-    this.paysProvider.getPaysByName(paysName).then(list=>{
-      console.log('get pays by name',list);
-      return list;
-    })
-
+  // getPays(paysName,){
+  //   //console.log(paysName,list);
+  //   this.paysProvider.getPaysByName(paysName).then(list=>{
+  //     console.log('get pays by name',list);
+  //     return list;
+  //   })
+  //
+  //
+  // }
+  getPays(paysName,list){
+    console.log(paysName,list);
+    for (var pays in list){
+      console.log(list[pays]);
+      if(list[pays].nom==paysName){
+        console.log(list[pays]);
+        return list[pays];
+      }
+    }
+    return null;
 
   }
   getActualitesPays(id){
@@ -199,7 +211,8 @@ export class InfoPaysController{
   }
   Init(){
     console.log('paysprovider',this.paysProvider);
-    this.pays=this.getPays(this.params.paysName);
+    this.pays=this.getPays(this.params.paysName,this.paysProvider.listpays);
+    //this.pays=this.getPays(this.params.paysName);
     console.log('pays',this.pays);
 
     //window.setTimeout(this.getActualitesPays(this.pays._id),100);
