@@ -15,6 +15,7 @@ export class InterviewComponent {
   questions;
   reponses;
   timeout;
+  listeQr;
   interviewsProvider;
   constructor( jsFunctionProvider,questionProvider,$stateParams,reponseProvider,interviewsProvider,$timeout) {
     this.message = 'Hello';
@@ -28,6 +29,7 @@ export class InterviewComponent {
 
     this.reponseProvider=reponseProvider;
     this.reponses=[];
+    this.listeQr=[];
 
     this.timeout=$timeout;
 
@@ -109,10 +111,11 @@ export class InterviewComponent {
       });
 
   }
-getReponse(id){
-  this.reponseProvider.getReponseByQuestion(id).then(list =>{
+getReponse(quest){
+  this.reponseProvider.getReponseByQuestion(quest._id).then(list =>{
     console.log('list',list);
     this.reponses.push(list);
+    this.listeQr.push({question:quest,reponse:list[0]});
     //return list;
   });
 
@@ -123,7 +126,7 @@ getReponse(id){
       for(var q in this.questions){
         var quest=this.questions[q];
         console.log(quest);
-        this.getReponse(quest._id)
+        this.getReponse(quest)
         //this.reponses.push(reponse);
         //console.log('reponse',reponse);
 
