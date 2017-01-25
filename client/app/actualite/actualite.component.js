@@ -2,70 +2,26 @@
 const angular = require('angular');
 
 const uiRouter = require('angular-ui-router');
-import routes from './pilier.routes';
-export class PilierComponent {
 
+import routes from './actualite.routes';
 
+export class ActualiteComponent {
   /*@ngInject*/
-  themeprovider;
-  listTheme;
-
-  constructor(themeProvider) {
-
-    this.themeprovider=themeProvider;
-    console.log('init',this);
-
-
-
-  }
-
-  Init() {
-    //this.listTheme=[];
-
-
-    // document.querySelector('header').style.backgroundColor = '#222'
-
-    if(this.themeprovider.listTheme==null){
-      this.themeprovider.listThemes().then(list => {
-        this.listTheme=list;
-        this.themeprovider.listTheme=list;
-
-
-        console.log('themes', this.listTheme)
-
-
-
-      });
-    }
-    else{
-      this.listTheme=this.themeprovider.listTheme
-      console.log('themes non vide', this.listTheme)
-    }
-
-
-
-  }
-
-
-
-}
-export class PiliersComponent {
   jsFunctionProvider;
-
-  /*@ngInject*/
-  constructor(jsFunctionProvider) {
-    //this.socket = socket;
-
+  params;
+  actualite;
+  actualiteProvider;
+  constructor(jsFunctionProvider,$stateParams,actualiteProvider) {
+    this.message = 'hii';
     this.jsFunctionProvider=jsFunctionProvider;
-
-    console.log('pilier',this);
-
-
+    this.params=$stateParams;
+    this.actualiteProvider=actualiteProvider;
+    this.getActualite(this.params.libelle)
+    console.log('this actualite', this);
   }
-
   Init(){
     document.querySelector('header').style.backgroundColor= '#222';
-      angular.element(document)
+    angular.element(document)
       .ready(() => {
 
         console.log('document pilier',document);
@@ -77,7 +33,6 @@ export class PiliersComponent {
 
         /* on Page Load */
         this.jsFunctionProvider.onPageLoad();
-        this.jsFunctionProvider.initSwiper();
         this.jsFunctionProvider.onPageResize();
         this.jsFunctionProvider.onSliderArrowClick();
         this.jsFunctionProvider.onPageScroll();
@@ -121,48 +76,19 @@ export class PiliersComponent {
 
       });
   }
+  getActualite(libelle){
+    this.actualiteProvider.getActualiteByName(libelle).then(list =>{
+      this.actualite=list;
+      console.log('actualite single',list);
+    })
+  }
 }
-PilierComponent.$inject = ["themeProvider"];
-PiliersComponent.$inject = [ "jsFunctionProvider"];
-
-export default angular.module('emergenceInsightsApp.pilier', [uiRouter])
+ActualiteComponent.$inject=["jsFunctionProvider","$stateParams","actualiteProvider"];
+export default angular.module('emergenceInsightsApp.actualite', [uiRouter])
   .config(routes)
-  // .component('pilier', {
-  //   template: require('./pilier.html'),
-  //   controller: PilierComponent,
-  //   controllerAs: 'vm'
-
-  // })
-  .component('action', {
-    template: require('./templates/action.html'),
-    controller: PiliersComponent,
+  .component('actualite', {
+    template: require('./actualite.html'),
+    controller: ActualiteComponent,
     controllerAs: 'vm'
-
   })
-  .component('leadership', {
-    template: require('./templates/leadership.html'),
-    controller: PiliersComponent,
-    controllerAs: 'vm'
-
-  })
-  .component('secteur', {
-    template: require('./templates/secteur_support.html'),
-    controller: PiliersComponent,
-    controllerAs: 'vm'
-
-  })
-  .component('moteurs', {
-    template: require('./templates/moteur.html'),
-    controller: PiliersComponent,
-    controllerAs: 'vm'
-
-  })
-  .component('developpement', {
-    template: require('./templates/developpement.html'),
-    controller: PiliersComponent,
-    controllerAs: 'vm'
-
-  })
-
   .name;
-

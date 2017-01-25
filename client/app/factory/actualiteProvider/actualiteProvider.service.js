@@ -37,6 +37,22 @@ export function actualiteProviderService($http,$q) {
     return liste;
 
   }
+  this.getActualiteByName=function (libelle) {
+    var deferred=$q.defer();
+    var liste=[];
+    $http.get('/api/actualites/sujet/'+libelle,{
+      cache: true
+    }).then(function(list) {
+      //console.log("cycle",list);
+      liste=list.data;
+      deferred.resolve(liste);
+
+    });
+    liste=deferred.promise;
+
+    return liste;
+
+  }
 }
 
 export default angular.module('emergenceInsightsApp.actualiteProvider', [])
