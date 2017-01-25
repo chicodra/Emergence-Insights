@@ -29,10 +29,8 @@ export class PaysComponent {
         this.listPays=list;
 var verre;
         for (var i = 0; i < this.listPays.length - 1; i++) {
-          var element = this.listPays[i];
           for (var j = i + 1; j < this.listPays.length; j++) {
-            var el = this.listPays[j];
-            if(Number(element._id)>Number(el._id)){
+            if(Number(this.listPays[i]._id)>Number(this.listPays[j]._id)){
               this.verre = this.listPays[i];
               this.listPays[i] = this.listPays[j];
               this.listPays[j] = this.verre;

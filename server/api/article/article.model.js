@@ -10,7 +10,9 @@ var ArticleSchema = new mongoose.Schema({
     type : Number,
     ref : 'Theme'
   },
-  image : String
+  image : String,
+  auteur : String,
+  date_publication : String
 });
 
 export default mongoose.model('Article', ArticleSchema);

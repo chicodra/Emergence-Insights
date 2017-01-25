@@ -9,6 +9,8 @@ router.get('/', controller.index);
 router.get('/:id', controller.show);
 router.get('/theme/:id',controller.getArticleByTheme);
 router.get('/titre/:tit', controller.getArticleByTitre);
+router.get('/auteur/:aut', controller.getArticleByAuteur);
+router.get('/date/:dat', controller.getArticleByDate);
 router.post('/', controller.create);
 router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);
