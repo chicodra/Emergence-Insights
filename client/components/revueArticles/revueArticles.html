@@ -1,3 +1,4 @@
+<!-- ABOUT -->
 <div class="main-block clearfix" ng-init="vm.Init()">
   <div class="container">
     <div class="row">
@@ -10,14 +11,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="swiper-container swiper-swiper-unique-id-1 initialized pagination-hidden" data-autoplay="0" data-loop="0" data-speed="1000"
-        data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2" data-sm-slides="3" data-md-slides="4" data-lg-slides="4"
-        data-add-slides="4" id="swiper-unique-id-1">
-        <div class="swiper-wrapper" style="width: 972px; height: 391px;">
-          <div  ng-repeat="article in vm.listArticles" class="swiper-slide swiper-slide-visible swiper-slide-active" data-val="{{vm.nb+1}}" style="width: 243px; height: 391px;">
-            <div class="about-item" >
+      <div  class="swiper-container" data-autoplay="0" data-loop="0" data-speed="1000" data-slides-per-view="responsive" data-mob-slides="1"
+        data-xs-slides="2" data-sm-slides="3" data-md-slides="4" data-lg-slides="4" data-add-slides="4">
+        <div class="swiper-wrapper" style="width: 1215px; height: 380px;">
+          <div ng-repeat="article in vm.listArticles" class="swiper-slide swiper-slide-visible swiper-slide-active" data-val="{{vm.nb+1}}"
+            style="width: 243px; height: 391px;">
+            <div class="about-item">
               <img class="img-responsive" ng-src="../../../assets/images/perfstock/slider/{{article.image}}" alt="">
-              <a class="about-title"ui-sref="article({libelle:article.titre})">{{article.titre}}</a>
+              <a class="about-title" ui-sref="article({libelle:article.titre})">{{article.titre}}</a>
+      
               <div class="about-keywords">
                 <a href="#" class="tags">publication </a>/
                 <a href="#" class="tags">gouvernance </a>/
@@ -25,19 +27,12 @@
                 <a href="#" class="tags">rapport </a>/
                 <a href="#" class="tags">initiative </a>
               </div>
-              <div class="about-text">{{article.contenu}}.
-              </div>
+              <div class="about-text">{{article.contenu}}.</div>
             </div>
-          </div>
-
-        </div>
-        <div class="pagination pagination-swiper-unique-id-1"><span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch" style="display: inline-block;"></span><span
-            class="swiper-pagination-switch swiper-visible-switch" style="display: none;"></span>
-          <span class="swiper-pagination-switch swiper-visible-switch" style="display: none;"></span>
-          <span class="swiper-pagination-switch swiper-visible-switch" style="display: none;"></span>
         </div>
     </div>
+    <div class="pagination"></div>
   </div>
-  <div class="pagination"></div>
+</div>
 </div>
 </div>
