@@ -1,7 +1,19 @@
 <div class="col-md-1" ></div>
 
 <div class="col-md-10 paysInfo" ng-init="vm.Init()">
-
+  <div class="row" id = "desc">
+      <div class="col-md-4">
+      <img class="img-responsive" src="../../assets/images/perfstock/pays/Photos Pays/{{vm.pays.image}}" alt="" style="height: 200px;">
+    </div>
+    <div class="col-md-8" id = "nomS">
+        <h1>{{vm.pays.nom}}</h1>
+        <div class="col-md-12">
+        <p>{{vm.pays.description}}</p>
+      </div>
+      </div>
+      
+    </div>
+    
   <uib-tabset active="activeJustified" justified="true">
     <uib-tab index="0" heading="ACTUALITE" >
       <!-- ABOUT -->
@@ -26,9 +38,7 @@
               <!--<div class="swiper-slide active" data-val="0">-->
               <!--<div class="simple-slide">-->
               <div class="row"  style="padding: 10px 10px 10px 10px" ng-repeat="actualite in vm.actualitesPays ">
-                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-1">
-                  <img class="img-responsive" src="../../assets/images/perfstock/pays/senegal.jpg" alt="">
-                </div>
+        
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
                   <h4><a class="simple-title" href="#">{{actualite.sujet}}</a></h4>
                   <div class="simple-text">
