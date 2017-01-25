@@ -24,7 +24,7 @@ export function interviewsProvider($http,$q) {
   this.getInterviewByName=function (libelle) {
     var deferred=$q.defer();
     var liste=[];
-    $http.get('/api/interviews/'+libelle,{
+    $http.get('/api/interviews/themes/'+libelle,{
       cache: true
     }).then(function(list) {
       //console.log("cycle",list);
