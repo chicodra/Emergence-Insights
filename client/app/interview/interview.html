@@ -5,10 +5,9 @@
         <h4 class="block-category"></h4>
         <h2 class="block-title">Interview</h2>
       </div>
-      <div class="simple-title" style="margin-left: -180px;"> Interview Exclusive :
+      <div class="simple-title" style="margin-left: -180px;"> Interview Exclusive : {{vm.interview.intervenant}}<br>
         <div class="simple-title">
-          <p style=" font-family: 'Crimson Text', serif; font-size: 21px; color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae expedita asperiores libero, adipisci. Aut eaque
-            veniam incidunt
+          <p style=" font-family: 'Crimson Text', serif; font-size: 21px; color: black;">{{vm.interview.libelle}}
           </p>
         </div>
       </div>
@@ -16,87 +15,38 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-4 ">
-      <img class="img-responsive" src="../../../assets/images/perfstock/nouveautes/mo_ibrahim.jpg" alt="" style="padding: 0 20px 20px 0;">
+      <img class="img-responsive" src="../../../assets/images/perfstock/experts/{{vm.interview.image}}" alt="" style="padding: 0 20px 20px 0;">
     </div>
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
       <div class="simple-text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <p>{{vm.interview.contenu}}
         </p>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-7 col-md-offset-0">
-      <div>
-        <p style="text-indent: 25pt; font-family: 'Crimson Text', serif; font-size: 21px; letter-spacing: 0em; line-height: 1em;">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae expedita asperiores libero, adipisci. Aut eaque veniam incidunt
-          ?
-        </p>
+      <div ng-repeat="Qr in vm.listeQr">
+        <div>
+          <p style="text-indent: 25pt; font-family: 'Crimson Text', serif; font-size: 21px; letter-spacing: 0em; line-height: 1em;">
+            {{Qr.question.titre}}
+          </p>
+          <br>
+        </div>
+        <div class="simple-text">
+          <p style="font-family: 'Arsenal', sans-serif, monospace; color: #929292; font-size: 21px;">
+            {{Qr.reponse.libelle}}
+          </p>
+        </div>
         <br>
       </div>
-      <div class="simple-text">
-        <p style="font-family: 'Arsenal', sans-serif, monospace; color: #929292; font-size: 21px;">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tempora, esse rerum itaque, quam debitis dignissimos.
-          Assumenda sint, quo in voluptatum! Neque maxime obcaecati, iure, nam praesentium nesciunt officia hic. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit. Doloribus quidem accusamus consequuntur magni expedita vero fugiat
-          optio cumque saepe odit, beatae ad, tempore dolorum rem fuga doloremque omnis, distinctio necessitatibus.
-        </p>
-      </div>
-      <br>
-      <div>
-        <p style="text-indent: 25pt; font-family: 'Crimson Text', serif; font-size: 21px; letter-spacing: 0em; line-height: 1.1em;">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae expedita asperiores libero, adipisci. Aut eaque veniam incidunt
-          ?
-        </p>
-      </div>
-      <br>
-      <div>
-        <p style="font-family: 'Arsenal', sans-serif, monospace; color: #929292; font-size: 21px;">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tempora, esse rerum itaque, quam debitis dignissimos.
-          Assumenda sint, quo in voluptatum! Neque maxime obcaecati, iure, nam praesentium nesciunt officia hic. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit. Doloribus quidem accusamus consequuntur magni expedita vero fugiat
-          optio cumque saepe odit, beatae ad, tempore dolorum rem fuga doloremque omnis, distinctio necessitatibus.
-        </p>
-      </div>
-      <br>
-      <div>
-        <p style="text-indent: 25pt; font-family: 'Crimson Text', serif; font-size: 21px; letter-spacing: 0em; line-height: 1.1em;">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae expedita asperiores libero, adipisci. Aut eaque veniam incidunt
-          ?
-        </p>
-        <br>
-      </div>
-      <div>
-        <p style="font-family: 'Arsenal', sans-serif, monospace; color: #929292; font-size: 21px;">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tempora, esse rerum itaque, quam debitis dignissimos.
-          Assumenda sint, quo in voluptatum! Neque maxime obcaecati, iure, nam praesentium nesciunt officia hic. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit. Doloribus quidem accusamus consequuntur magni expedita vero fugiat
-          optio cumque saepe odit, beatae ad, tempore dolorum rem fuga doloremque omnis, distinctio necessitatibus.
-        </p>
-      </div>
-      <br>
-      <div>
-        <p style="text-indent: 25pt; font-family: 'Crimson Text', serif; font-size: 21px; letter-spacing: 0em; line-height: 1.1em;">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae expedita asperiores libero, adipisci. Aut eaque veniam incidunt
-          ?
-        </p>
-      </div>
-      <br>
-      <div>
-        <p style="font-family: 'Arsenal', sans-serif, monospace; color: #929292; font-size: 21px;">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tempora, esse rerum itaque, quam debitis dignissimos.
-          Assumenda sint, quo in voluptatum! Neque maxime obcaecati, iure, nam praesentium nesciunt officia hic. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit. Doloribus quidem accusamus consequuntur magni expedita vero fugiat
-          optio cumque saepe odit, beatae ad, tempore dolorum rem fuga doloremque omnis, distinctio necessitatibus.
-        </p>
-      </div>
+
+      <!--fin -->
+
     </div>
     <div class="col-xs-12 col-sm-10 col-md-4 col-md-offset-1" style="margin-top: 100px;">
       <div class="simple-text">
-        <blockquote><i class="fa fa-quote-left" aria-hidden="true"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum
-          in hic aliquid exercitationem neque, consectetur porro saepe quaerat quidem corrupti alias aut veniam earum suscipit
-          non illum at nisi itaque.
+        <blockquote><i class="fa fa-quote-left" aria-hidden="true"></i>roukhe
         </blockquote>
       </div>
     </div>

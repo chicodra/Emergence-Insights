@@ -172,6 +172,7 @@ console.log('get pays by name 3',p);
     
 
 
+
   }
   getActualitesPays(id){
     this.actualiteProvider.listActualitesPays(id).then(list => {
@@ -215,6 +216,7 @@ console.log('get pays by name 3',p);
   Init(){
     // console.log('paysprovider',this.paysProvider);
    console.log('pays',this.pays);
+
 
     //window.setTimeout(this.getActualitesPays(this.pays._id),100);
     // this.getActualitesPays(this.pays._id);
