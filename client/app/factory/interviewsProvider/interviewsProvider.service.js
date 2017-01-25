@@ -21,8 +21,24 @@ export function interviewsProvider($http,$q) {
     return liste;
 
   }
+  this.getInterviewByName=function (libelle) {
+    var deferred=$q.defer();
+    var liste=[];
+    $http.get('/api/interviews/'+libelle,{
+      cache: true
+    }).then(function(list) {
+      //console.log("cycle",list);
+      liste=list.data;
+      deferred.resolve(liste);
+
+    });
+    liste=deferred.promise;
+
+    return liste;
+
+  }
 }
 
-export default angular.module('emergenceInsightsApp.interview', [])
+export default angular.module('emergenceInsightsApp.interviewprovider', [])
   .service('interviewsProvider', interviewsProvider)
   .name;

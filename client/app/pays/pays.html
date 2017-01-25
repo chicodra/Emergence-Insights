@@ -40,9 +40,9 @@
               <img class="shedule-user" src="assets/img/user_1.jpg" alt="">
               <div class="shedule-entry">
                 <div class="shedule-date">Vision 2020</div>
-                <h4><a class="shedule-speaker" id="demo01" href="#animatedModal">{{pays.nom}}</a></h4>
+                <h4><a class="shedule-speaker" id="demo01" ui-sref="paysinfo({paysName:pays.nom})">{{pays.nom}}</a></h4>
 
-                <div class="shedule-text">Le Rwanda  figure aujourd’hui parmi les pays africains les plus prisés par les investisseurs étrangers.</div>
+                <div class="shedule-text">{{pays.description}}</div>
                 <img class="img-responsive" src="assets/images/perfstock/pays/Photos Pays/{{pays.image}}" alt="">
               </div>
             </div>
@@ -53,14 +53,14 @@
               <img class="shedule-user" src="assets/img/user_1.jpg" alt="">
               <div class="shedule-entry">
                 <div class="shedule-date">Vision 2020</div>
-                <h4><a class="shedule-speaker" id="demo01" href="#animatedModal">{{pays.nom}}</a></h4>
+                <h4><a class="shedule-speaker" id="demo01" ui-sref="paysinfo({paysName:pays.nom})">{{pays.nom}}</a></h4>
 
                 <div class="shedule-text">Le Rwanda  figure aujourd’hui parmi les pays africains les plus prisés par les investisseurs étrangers.</div>
                 <img class="img-responsive" src="assets/images/perfstock/pays/Photos Pays/{{pays.image}}" alt="">
               </div>
             </div>
             </div>
-            
+
 
           </div>
         </div>

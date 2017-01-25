@@ -548,7 +548,14 @@ export function jsFunctionProviderService() {
 
     });
   }
+  /** demo animated */
+
+  this.demoAnimated=function () {
+    $("#demo01").animatedModal({"color": "#000"});
+  }
 }
+
+
 
 export default angular.module('emergenceInsightsApp.jsFunctionProvider', [])
   .service('jsFunctionProvider', jsFunctionProviderService)

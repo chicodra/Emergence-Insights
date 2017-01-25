@@ -1,4 +1,4 @@
-<div class="main-block clearfix">
+<div class="main-block clearfix" ng-init="vm.Init()">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
@@ -14,10 +14,10 @@
         data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2" data-sm-slides="3" data-md-slides="4" data-lg-slides="4"
         data-add-slides="4" id="swiper-unique-id-1">
         <div class="swiper-wrapper" style="width: 972px; height: 391px;">
-          <div class="swiper-slide swiper-slide-visible swiper-slide-active" data-val="0" style="width: 243px; height: 391px;">
+          <div  ng-repeat="article in vm.listArticles" class="swiper-slide swiper-slide-visible swiper-slide-active" data-val="{{vm.nb+1}}" style="width: 243px; height: 391px;">
             <div class="about-item">
-              <img class="img-responsive" src="../../../assets/images/perfstock/nouveautes/mo_ibrahim.jpg" alt="">
-              <a class="about-title" href="#">Publication: Indice Mo Ibrahim de la gouvernance</a>
+              <img class="img-responsive" src="../../../assets/images/perfstock/slider/{{article.image}}" alt="">
+              <a class="about-title"ui-sref="article({libelle:article.titre})">{{article.titre}}</a>
               <div class="about-keywords">
                 <a href="#" class="tags">publication </a>/
                 <a href="#" class="tags">gouvernance </a>/
@@ -25,56 +25,11 @@
                 <a href="#" class="tags">rapport </a>/
                 <a href="#" class="tags">initiative </a>
               </div>
-              <div class="about-text">Depuis 10 ans, l’IIAG fournit une évaluation approfondie de l’état de la gouvernance dans chacun des 54 pays
-                africains.
+              <div class="about-text">{{article.contenu}}.
               </div>
             </div>
           </div>
-          <div class="swiper-slide swiper-slide-visible" data-val="1" style="width: 243px; height: 391px;">
-            <div class="about-item">
-              <img class="img-responsive" src="../../../assets/images/perfstock/alaune/execution_plans_demergence.jpg" alt="">
-              <a class="about-title" href="#">Article: Exécution des Plans d’Emergence en Afrique</a>
-              <div class="about-keywords">
-                <a href="#" class="tags">article </a>/
-                <a href="#" class="tags">mise en oeuvre </a>/
-                <a href="#" class="tags">défis </a>/
-                <a href="#" class="tags">politique </a>/
-                <a href="#" class="tags">financement </a>
-              </div>
-              <div class="about-text">Cette formation présente les étapes clés à mener pour identifier les secteurs moteurs de croissance et analyser
-                la compétitivité...</div>
-            </div>
-          </div>
-          <div class="swiper-slide swiper-slide-visible" data-val="2" style="width: 243px; height: 391px;">
-            <div class="about-item">
-              <img class="img-responsive" src="../../../assets/images/perfstock/nouveautes/wef_africa.jpg" alt="">
-              <a class="about-title" href="#">Publication: Indice de Compétivité 2015-2016, WEF</a>
-              <div class="about-keywords">
-                <a href="#" class="tags">publication </a>/
-                <a href="#" class="tags">indice </a>/
-                <a href="#" class="tags">compétivité </a>/
-                <a href="#" class="tags">économie </a>/
-                <a href="#" class="tags">rapport </a>
-              </div>
-              <div class="about-text">Le Rapport sur la compétitivité économique mesure la compétitivité de 140 économies et donne des éclairages...</div>
-            </div>
-          </div>
-          <div class="swiper-slide swiper-slide-visible" data-val="3" style="width: 243px; height: 391px;">
-            <div class="about-item">
-              <img class="img-responsive" src="../../../assets/images/perfstock/alaune/etude_de_cas.jpg" alt="">
-              <a class="about-title" href="#">Etude de Cas: Le Développement de l’Industrie textile en Ethiopie</a>
-              <div class="about-keywords">
-                <a href="#" class="tags">étude de cas </a>/
-                <a href="#" class="tags">industrie </a>/
-                <a href="#" class="tags">textile </a>/
-                <a href="#" class="tags">compétivité </a>/
-                <a href="#" class="tags">ppp </a>
-              </div>
-              <div class="about-text">Cette formation présente les activités à mener pour permettre la structuration de la filière tourisme et la
-                valorisation...
-              </div>
-            </div>
-          </div>
+
         </div>
         <div class="pagination pagination-swiper-unique-id-1"><span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch" style="display: inline-block;"></span><span
             class="swiper-pagination-switch swiper-visible-switch" style="display: none;"></span>
