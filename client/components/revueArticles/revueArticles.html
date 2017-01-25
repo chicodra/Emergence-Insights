@@ -15,8 +15,8 @@
         data-add-slides="4" id="swiper-unique-id-1">
         <div class="swiper-wrapper" style="width: 972px; height: 391px;">
           <div  ng-repeat="article in vm.listArticles" class="swiper-slide swiper-slide-visible swiper-slide-active" data-val="{{vm.nb+1}}" style="width: 243px; height: 391px;">
-            <div class="about-item">
-              <img class="img-responsive" src="../../../assets/images/perfstock/slider/{{article.image}}" alt="">
+            <div class="about-item" >
+              <img class="img-responsive" ng-src="../../../assets/images/perfstock/slider/{{article.image}}" alt="">
               <a class="about-title"ui-sref="article({libelle:article.titre})">{{article.titre}}</a>
               <div class="about-keywords">
                 <a href="#" class="tags">publication </a>/
