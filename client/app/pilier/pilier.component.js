@@ -53,7 +53,7 @@ export class PiliersComponent {
   jsFunctionProvider;
 
   /*@ngInject*/
-  constructor( jsFunctionProvider) {
+  constructor(jsFunctionProvider) {
     //this.socket = socket;
 
     this.jsFunctionProvider=jsFunctionProvider;
