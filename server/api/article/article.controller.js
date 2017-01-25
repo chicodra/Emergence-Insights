@@ -104,6 +104,21 @@ export function getArticleByTheme(req, res){
     .catch(handleError(res));
 }
 
+export function getArticleByAuteur(req, res){
+   return Article.find({auteur:req.params.aut}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function getArticleByDate(req, res){
+   return Article.find({date_publication:req.params.dat}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+
 // Upserts the given Article in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {
