@@ -55,6 +55,8 @@ export class InterviewComponent {
       .ready(() => {
         document.querySelector('header').style.backgroundColor = '';
         console.log('document main', document);
+        /* demo animated */
+        this.jsFunctionProvider.demoAnimated();
         /* Document REady */
         this.jsFunctionProvider.onDocumentReady();
 

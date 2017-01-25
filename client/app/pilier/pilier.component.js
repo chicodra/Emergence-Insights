@@ -65,10 +65,12 @@ export class PiliersComponent {
 
   Init(){
     document.querySelector('header').style.backgroundColor= '#222';
-    angular.element(document)
+      angular.element(document)
       .ready(() => {
 
         console.log('document pilier',document);
+        /* demo animated */
+        this.jsFunctionProvider.demoAnimated();
         /* Document REady */
         this.jsFunctionProvider.onDocumentReady();
 

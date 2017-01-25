@@ -10,7 +10,7 @@ export class PaysComponent {
   paysProvider;
   listPays;
   jsFunctionProvider;
- 
+
   constructor(paysProvider,jsFunctionProvider) {
     this.message = 'Hello';
     this.paysProvider=paysProvider;
@@ -23,7 +23,6 @@ export class PaysComponent {
   Init(){
 
     //this.listTheme=[];
-    document.querySelector('header').style.backgroundColor = '#222'
 
     //this.listPays=[];
     this.paysProvider.listPays().then(list => {
@@ -37,11 +36,11 @@ var verre;
               this.verre = this.listPays[i];
               this.listPays[i] = this.listPays[j];
               this.listPays[j] = this.verre;
-              
+
             }
           }
-          
-          
+
+
         }
 
         console.log('paysssss vide', this.listPays)
@@ -51,7 +50,7 @@ var verre;
 
       });
     // if(this.paysProvider.listpays==null){
-      
+
     // }
     // else{
     //   this.listPays=this.paysProvider.listpays
@@ -62,6 +61,10 @@ var verre;
       .ready(() => {
 
         console.log('document pilier',document);
+        document.querySelector('header').style.backgroundColor = '#222'
+        /* demo animated */
+        this.jsFunctionProvider.demoAnimated();
+
         /* Document REady */
         this.jsFunctionProvider.onDocumentReady();
 
@@ -210,6 +213,8 @@ export class InfoPaysController{
       .ready(() => {
 
         console.log('document pilier',document);
+        /* demo animated */
+        this.jsFunctionProvider.demoAnimated();
         /* Document REady */
         this.jsFunctionProvider.onDocumentReady();
 
