@@ -10,10 +10,13 @@ export class ActualiteComponent {
   jsFunctionProvider;
   params;
   actualite;
-  constructor(jsFunctionProvider,$stateParams) {
-    this.message = 'Hello';
+  actualiteProvider;
+  constructor(jsFunctionProvider,$stateParams,actualiteProvider) {
+    this.message = 'hii';
     this.jsFunctionProvider=jsFunctionProvider;
     this.params=$stateParams;
+    this.actualiteProvider=actualiteProvider;
+    this.getActualite(this.params.libelle)
     console.log('this actualite', this);
   }
   Init(){
@@ -73,8 +76,14 @@ export class ActualiteComponent {
 
       });
   }
+  getActualite(libelle){
+    this.actualiteProvider.getActualiteByName(libelle).then(list =>{
+      this.actualite=list;
+      console.log('actualite single',list);
+    })
+  }
 }
-ActualiteComponent.$inject=["jsFunctionProvider","$stateParams"];
+ActualiteComponent.$inject=["jsFunctionProvider","$stateParams","actualiteProvider"];
 export default angular.module('emergenceInsightsApp.actualite', [uiRouter])
   .config(routes)
   .component('actualite', {

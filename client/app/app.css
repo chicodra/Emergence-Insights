@@ -44,6 +44,7 @@
 
 /* Component styles are injected through gulp */
 /* inject:css */
+@import 'actualite/actualite.css';
 @import 'admin/admin.css';
 @import 'article/article.css';
 @import 'indice/indice.css';
