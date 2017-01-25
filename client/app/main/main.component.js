@@ -39,6 +39,7 @@ export class MainController {
 
         /* on Page Load */
         this.jsFunctionProvider.onPageLoad();
+        this.jsFunctionProvider.initSwiper();
         this.jsFunctionProvider.onPageResize();
         this.jsFunctionProvider.onSliderArrowClick();
         this.jsFunctionProvider.onPageScroll();

@@ -152,7 +152,7 @@ console.log('get pays by name 3',p);
 
     console.log('this',this);
   }
-  
+
   getPays(paysName){
     //console.log(paysName,list);
     this.paysProvider.getPaysByName(paysName).then(list=>{
@@ -163,13 +163,13 @@ console.log('get pays by name 3',p);
     this.getActualitesPays(this.pays._id);
     this.getDocumentationsPays(this.pays._id);
      this.getAgendasPays(this.pays._id);
-        
+
         console.log('get pays by name 4',p);
 
      });
-        
 
-    
+
+
 
 
 
@@ -236,7 +236,7 @@ console.log('get pays by name 3',p);
         /* on Page Load */
         this.jsFunctionProvider.onPageLoad();
         this.jsFunctionProvider.onPageResize();
-        this.jsFunctionProvider.onSliderArrowClick();
+        //this.jsFunctionProvider.onSliderArrowClick();
         this.jsFunctionProvider.onPageScroll();
         /*==============================*/
         /* 08 - BUTTONS, CLICKS, HOVERS */
