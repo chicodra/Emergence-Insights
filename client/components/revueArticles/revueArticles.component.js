@@ -90,7 +90,7 @@ export default angular.module('emergenceInsightsApp.revueArticles', [])
   .component('revueArticles', {
     // template: '<h1>Hello {{ $ctrl.message }}</h1>',
     template: require('./revueArticles.html'),
-    bindings: { message: '<' },
+    bindings: { message: '<', theme: '<' },
     controller: revueArticlesComponent,
     controllerAs:'vm'
   })
