@@ -109,7 +109,9 @@ export class InterviewComponent {
 
 
       });
-
+    setTimeout(function () {
+      document.querySelector('header').style.backgroundColor = '#222';
+    }, 100);
   }
 getReponse(quest){
   this.reponseProvider.getReponseByQuestion(quest._id).then(list =>{

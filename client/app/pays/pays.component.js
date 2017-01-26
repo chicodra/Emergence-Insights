@@ -11,42 +11,42 @@ export class PaysComponent {
   listPays;
   jsFunctionProvider;
 
-  constructor(paysProvider,jsFunctionProvider) {
+  constructor(paysProvider, jsFunctionProvider) {
     this.message = 'Hello';
-    this.paysProvider=paysProvider;
-    this.jsFunctionProvider=jsFunctionProvider;
-    console.log('this',this);
+    this.paysProvider = paysProvider;
+    this.jsFunctionProvider = jsFunctionProvider;
+    console.log('this', this);
 
   }
 
 
-  Init(){
+  Init() {
 
     //this.listTheme=[];
 
     //this.listPays=[];
     this.paysProvider.listPays().then(list => {
-        this.listPays=list;
-var verre;
-        for (var i = 0; i < this.listPays.length - 1; i++) {
-          for (var j = i + 1; j < this.listPays.length; j++) {
-            if(Number(this.listPays[i]._id)>Number(this.listPays[j]._id)){
-              this.verre = this.listPays[i];
-              this.listPays[i] = this.listPays[j];
-              this.listPays[j] = this.verre;
+      this.listPays = list;
+      var verre;
+      for (var i = 0; i < this.listPays.length - 1; i++) {
+        for (var j = i + 1; j < this.listPays.length; j++) {
+          if (Number(this.listPays[i]._id) > Number(this.listPays[j]._id)) {
+            this.verre = this.listPays[i];
+            this.listPays[i] = this.listPays[j];
+            this.listPays[j] = this.verre;
 
-            }
           }
-
-
         }
 
-        console.log('paysssss vide', this.listPays)
+
+      }
+
+      console.log('paysssss vide', this.listPays)
 
 
 
 
-      });
+    });
     // if(this.paysProvider.listpays==null){
 
     // }
@@ -58,8 +58,7 @@ var verre;
     angular.element(document)
       .ready(() => {
 
-        console.log('document pilier',document);
-        document.querySelector('header').style.backgroundColor = '#222'
+        console.log('document pilier', document);
         /* demo animated */
         this.jsFunctionProvider.demoAnimated();
 
@@ -113,17 +112,19 @@ var verre;
       });
 
 
-
+    setTimeout(function () {
+      document.querySelector('header').style.backgroundColor = '#222';
+    }, 100);
   }
 
-  modulo(cpt){
-    if(cpt % 2 == 0){
+  modulo(cpt) {
+    if (cpt % 2 == 0) {
       return 0;
     }
     return 1;
   }
 }
-export class InfoPaysController{
+export class InfoPaysController {
   paysProvider;
   pays;
   params
@@ -135,23 +136,23 @@ export class InfoPaysController{
   agendasPays;
   agendaProvider;
   nb;
-  constructor(paysProvider,$stateParams,jsFunctionProvider,actualiteProvider,documentationProvider,agendaProvider) {
+  constructor(paysProvider, $stateParams, jsFunctionProvider, actualiteProvider, documentationProvider, agendaProvider) {
     this.message = 'Hello';
-    this.paysProvider=paysProvider;
-    this.params=$stateParams;
-    this.jsFunctionProvider=jsFunctionProvider;
-    this.actualiteProvider=actualiteProvider;
-    this.documentationProvider=documentationProvider;
-    this.agendaProvider=agendaProvider;
+    this.paysProvider = paysProvider;
+    this.params = $stateParams;
+    this.jsFunctionProvider = jsFunctionProvider;
+    this.actualiteProvider = actualiteProvider;
+    this.documentationProvider = documentationProvider;
+    this.agendaProvider = agendaProvider;
     this.pays = null;
-    this.nb=0;
-this.getPays(this.params.paysName);
-console.log('get pays by name 3',p);
+    this.nb = 0;
+    this.getPays(this.params.paysName);
+    console.log('get pays by name 3', p);
 
-    console.log('this',this);
+    console.log('this', this);
   }
 
-  getPays(paysName){
+  getPays(paysName) {
     //console.log(paysName,list);
     this.paysProvider.getPaysByName(paysName).then(list=>{
     console.log('get pays by name',this);
@@ -162,9 +163,10 @@ console.log('get pays by name 3',p);
     // this.getDocumentationsPays(this.pays._id);
     //  this.getAgendasPays(this.pays._id);
 
-        console.log('get pays by name 4',p);
 
-     });
+      console.log('get pays by name 4', p);
+
+    });
 
 
 
@@ -172,9 +174,9 @@ console.log('get pays by name 3',p);
 
 
   }
-  getActualitesPays(id){
+  getActualitesPays(id) {
     this.actualiteProvider.listActualitesPays(id).then(list => {
-      this.actualitesPays=list;
+      this.actualitesPays = list;
 
       console.log('actualites vide', this.actualitesPays)
 
@@ -185,9 +187,9 @@ console.log('get pays by name 3',p);
     });
 
   }
-  getDocumentationsPays(id){
+  getDocumentationsPays(id) {
     this.documentationProvider.listDocumentationPays(id).then(list => {
-      this.documentationsPays=list;
+      this.documentationsPays = list;
 
       console.log('documentation vide', this.documentationsPays)
 
@@ -198,9 +200,9 @@ console.log('get pays by name 3',p);
     });
 
   }
-  getAgendasPays(id){
+  getAgendasPays(id) {
     this.agendaProvider.listAgendasPays(id).then(list => {
-      this.agendasPays=list;
+      this.agendasPays = list;
 
       console.log('agendas vide', this.documentationsPays)
 
@@ -211,9 +213,9 @@ console.log('get pays by name 3',p);
     });
 
   }
-  Init(){
+  Init() {
     // console.log('paysprovider',this.paysProvider);
-   console.log('pays',this.pays);
+    console.log('pays', this.pays);
 
 
     //window.setTimeout(this.getActualitesPays(this.pays._id),100);
@@ -221,10 +223,11 @@ console.log('get pays by name 3',p);
     // this.getDocumentationsPays(this.pays._id);
     // this.getAgendasPays(this.pays._id);
 
+
     angular.element(document)
       .ready(() => {
 
-        console.log('document pilier',document);
+        console.log('document pilier', document);
         /* demo animated */
         this.jsFunctionProvider.demoAnimated();
         /* Document REady */
@@ -275,13 +278,20 @@ console.log('get pays by name 3',p);
 
 
       });
-  }
+  
+
+    setTimeout(function () {
+      document.querySelector('header').style.backgroundColor = '#222';
+    }, 100);
 
 }
 
-PaysComponent.$inject = ["paysProvider","jsFunctionProvider"];
-InfoPaysController.$inject = ["paysProvider","$stateParams","jsFunctionProvider","actualiteProvider","documentationProvider",
-"agendaProvider"];
+}
+
+PaysComponent.$inject = ["paysProvider", "jsFunctionProvider"];
+InfoPaysController.$inject = ["paysProvider", "$stateParams", "jsFunctionProvider", "actualiteProvider", "documentationProvider",
+  "agendaProvider"
+];
 export default angular.module('emergenceInsightsApp.pays', [uiRouter])
   .config(routes)
   .component('pays', {
@@ -290,8 +300,8 @@ export default angular.module('emergenceInsightsApp.pays', [uiRouter])
     controllerAs: 'vm'
   })
   .component('infopays', {
-  template: require('./infoPays.html'),
-  controller: InfoPaysController,
-  controllerAs: 'vm'
-})
+    template: require('./infoPays.html'),
+    controller: InfoPaysController,
+    controllerAs: 'vm'
+  })
   .name;
