@@ -7,7 +7,7 @@
     <div class="col-md-8" id="nomS">
       <h1>{{vm.pays.nom}}</h1>
       <div class="col-md-12">
-        <p>{{vm.pays.description}}</p>
+        <p>{{vm.pays.description | limitTo: 50 }}</p>
       </div>
     </div>
   </div>
