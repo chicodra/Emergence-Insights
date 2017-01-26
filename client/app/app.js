@@ -30,6 +30,7 @@ import revue from '../components/revueArticles/revueArticles.component';
 import interviews from '../components/interviews/interviews.component';
 import etudedecas from '../components/etudeDeCas/etudeDeCas.component';
 import fichedebonnepratiques from '../components/ficheDeBonnePratiques/ficheDeBonnePratiques.component';
+import listactualites from '../components/listActualites/listActualites.component';
 import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
@@ -56,7 +57,7 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
   uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
   main, constants, socket, util,theme,paysProvider,articleProvider, si, revue, interviews, etudedecas,
   fichedebonnepratiques,jsFunctionSlider,actualiteProvider,documentationProvider,agendaProvider,
-  InterviewComponent,interviewsProvider,questionProvider,reponseProvider,ActualiteComponent
+  InterviewComponent,interviewsProvider,questionProvider,reponseProvider,ActualiteComponent, listactualites
 
 
 ])
