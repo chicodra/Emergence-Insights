@@ -93,9 +93,21 @@ FicheActualite.find({}).remove()
       },
       {
         _id: 12,
-        id_pays: 12,
+        id_pays: 10,
         id_actualite: 2,
         date: '2017-01-01'
+      },
+      {
+        _id: 13,
+        id_pays: 10,
+        id_actualite: 3,
+        date: '2015-01-01'
+      },
+      {
+        _id: 14,
+        id_pays: 10,
+        id_actualite: 4,
+        date: '2013-01-01'
       });
   });
 Pays.find({}).remove()
@@ -185,7 +197,8 @@ Actualite.find({}).remove()
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `,
-      sujet: 'Crise de Gambie'
+      sujet: 'Crise de Gambie',
+      image: 'crisis.jpg'
     }, {
       _id: 2,
       contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -195,7 +208,31 @@ Actualite.find({}).remove()
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `,
-      sujet: 'Crise de Mali'
+      sujet: 'Crise de Mali',
+      image: 'boko-haram.jpg'
+    },
+    , {
+      _id: 3,
+      contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      `,
+      sujet: 'L\'immigration clandestine',
+      image: 'gal_gui.jpg'
+    }, {
+      _id: 4,
+      contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      `,
+      sujet: 'La grève des transporteurs',
+      image: 'ddd.jpg'
     });
   });
 Documentation.find({}).remove()
@@ -710,40 +747,40 @@ Article.find({}).remove()
     Article.create(
       {
         titre : 'le sommet africain',
-        contenu: `<strong>D</strong>ans l’attente des décisions des États-Unis en matière de politique étrangère, des dirigeants dynamiques
+        contenu: `Dans l’attente des décisions des États-Unis en matière de politique étrangère, des dirigeants dynamiques
         du secteur africain de l’énergie se préparent à retourner à Washington DC pour la 3e édition du sommet Powering Africa
         qui se tiendra au mois de mars. Le sommet est à nouveau soutenu par Power Africa, l’organisation gouvernementale
         créée par les États-Unis pour établir le raccordement de 60 millions de nouveaux ménages et entreprises d’ici à 2030.
-        <br> Le sommet annuel Powering Africa (www.PoweringAfrica-Summit.com) revient à Washington DC en mars, pour fournir
+        Le sommet annuel Powering Africa (www.PoweringAfrica-Summit.com) revient à Washington DC en mars, pour fournir
         aux intervenants et aux développeurs du secteur africain de l’énergie une plateforme leur permettant de rencontrer
         des investisseurs multilatéraux et mondiaux et des fournisseurs de technologie. Lors de cette réunion seront présentés
-        les principaux projets d’infrastructure et d’énergie aux partenaires les plus dynamiques.<br> EN 2016, LE SOMMET
-        A ACCUEILLI 620 PARTICIPANTS ISSUS DE 18 PAYS <br> En 2016, le sommet a accueilli 620 participants issus de 18 pays.
+        les principaux projets d’infrastructure et d’énergie aux partenaires les plus dynamiques. EN 2016, LE SOMMET
+        A ACCUEILLI 620 PARTICIPANTS ISSUS DE 18 PAYS En 2016, le sommet a accueilli 620 participants issus de 18 pays.
         Et bien que 65 % des délégués soient originaires d’Amérique du Nord, des investisseurs d’Europe et d’Asie étaient
         également présents afin de mettre sur pied des partenariats avec les principales entreprises du secteur de la technologie,
         les agences gouvernementales, la Banque mondiale, la SFI et d’autres, et de favoriser l’avancée de leurs projets
-        africains en cours de développement. <br> Le sommet est à nouveau soutenu par Power Africa, l’organisation gouvernementale
+        africains en cours de développement. Le sommet est à nouveau soutenu par Power Africa, l’organisation gouvernementale
         créée par les États-Unis pour établir le raccordement de 60 millions de nouveaux ménages et entreprises d’ici à 2030,
         favorisant ainsi l’objectif de doubler la taille de certaines économies africaines et le pouvoir d’achat des 1,5
         milliards de personnes concernées. ... suite de l'article sur Autre presse Dans l’attente des décisions des États-Unis
         en matière de politique étrangère, des dirigeants dynamiques du secteur africain de l’énergie se préparent à retourner
         à Washington DC pour la 3e édition du sommet Powering Africa qui se tiendra au mois de mars. Le sommet est à nouveau
         soutenu par Power Africa, l’organisation gouvernementale créée par les États-Unis pour établir le raccordement de
-        60 millions de nouveaux ménages et entreprises d’ici à 2030. <br> Le sommet annuel Powering Africa (www.PoweringAfrica-Summit.com)
+        60 millions de nouveaux ménages et entreprises d’ici à 2030. Le sommet annuel Powering Africa (www.PoweringAfrica-Summit.com)
         revient à Washington DC en mars, pour fournir aux intervenants et aux développeurs du secteur africain de l’énergie
         une plateforme leur permettant de rencontrer des investisseurs multilatéraux et mondiaux et des fournisseurs de technologie.
         Lors de cette réunion seront présentés les principaux projets d’infrastructure et d’énergie aux partenaires les plus
         dynamiques.
-        <br> EN 2016, LE SOMMET A ACCUEILLI 620 PARTICIPANTS ISSUS DE 18 PAYS <br> En 2016, le sommet a accueilli 620 participants
+        EN 2016, LE SOMMET A ACCUEILLI 620 PARTICIPANTS ISSUS DE 18 PAYS En 2016, le sommet a accueilli 620 participants
         issus de 18 pays. Et bien que 65 % des délégués soient originaires d’Amérique du Nord, des investisseurs d’Europe
         et d’Asie étaient également présents afin de mettre sur pied des partenariats avec les principales entreprises du
         secteur de la technologie, les agences gouvernementales, la Banque mondiale, la SFI et d’autres, et de favoriser
-        l’avancée de leurs projets africains en cours de développement. <br> Le sommet est à nouveau soutenu par Power Africa,
+        l’avancée de leurs projets africains en cours de développement. Le sommet est à nouveau soutenu par Power Africa,
         l’organisation gouvernementale créée par les États-Unis pour établir le raccordement de 60 millions de nouveaux ménages
         et entreprises d’ici à 2030, favorisant ainsi l’objectif de doubler la taille de certaines économies africaines et
         le pouvoir d’achat des 1,5 milliards de personnes concernées. ... suite de l'article sur Autre presse`,
         id_theme: 1,
-        image : 'confroom2.jpg',
+        image : 'confroom.jpg',
         auteur : 'Jeau paul Mendy',
         date_publication : '2017-01-25'
       },
@@ -776,7 +813,7 @@ Article.find({}).remove()
 
         Tidjane Deme de l’Office lead francophone Africa et Seydina Diop de Lead, Policy and govenement relations, francophone Africa seront les panélistes de cette rencontre. La situation d’Internet au Sénégal, les problèmes qu’il rencontre et les solutions pour pallier ces problèmes sont les aspects sur lesquels les panélistes vont exposer.
 
-  `,
+     `,
         id_theme: 1,
         image : 'fait_bon_chez_soi.jpg',
         auteur : 'jean pierre ',
@@ -799,8 +836,7 @@ Article.find({}).remove()
         image : 'collaboration.jpg',
         auteur : 'jean pierre ',
         date_publication : '2017-01-25'
-      });
-  });
+      });});
 
 
 
