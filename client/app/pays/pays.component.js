@@ -159,9 +159,9 @@ export class InfoPaysController {
     p = list;
     this.pays=list[0];
         console.log('get pays by name 2',this.pays);
-    this.getActualitesPays(this.pays._id);
-    this.getDocumentationsPays(this.pays._id);
-     this.getAgendasPays(this.pays._id);
+    // this.getActualitesPays(this.pays._id);
+     this.getDocumentationsPays(this.pays._id);
+      this.getAgendasPays(this.pays._id);
 
 
       console.log('get pays by name 4', p);
