@@ -52,7 +52,7 @@ export class listActualitesComponent {
       }
       getActualitesPays(th.pays._id);
 
-    },100);
+    },50);
 
 
   }
