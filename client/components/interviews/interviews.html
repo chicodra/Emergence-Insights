@@ -1,54 +1,61 @@
-
 <div id="speakers" class="main-block clearfix" ng-init="vm.Init()">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-        <div class="block-header">
-          <h4 class="block-category">Interviews</h4>
-          <h2 class="block-title">Paroles d'experts</h2>
+  <div ng-hide="vm.value">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+          <div class="block-header">
+            <h4 class="block-category">Interviews</h4>
+            <h2 class="block-title">Paroles d'experts</h2>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="slider-wth-thumbs" >
-    <div class="swiper-container thumbnails-preview" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1">
-      <div class="swiper-wrapper">
-        <div ng-repeat="interview in vm.listInterviews"  class="swiper-slide active" data-val="{{vm.nb}}">
-          <div class="speaker-img"><img class="img-responsive center-image" ng-src="../../assets/images/perfstock/experts/{{interview.image}}" alt=""></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="speaker-block">
-                  <div class="speaker-title">  {{interview.intervenant}} </div>
-                  <div class="speaker-category">  {{interview.libelle}}  </div>
-                  <div class="speaker-text">
-                    {{interview.contenu}}
-                  </div>
-                  <div class="speaker-social clearfix">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
+    <div class="slider-wth-thumbs">
+      <div class="swiper-container thumbnails-preview" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1">
+        <div class="swiper-wrapper">
+          <div ng-repeat="interview in vm.listInterviews" class="swiper-slide active" data-val="{{vm.nb}}">
+            <div class="speaker-img"><img class="img-responsive center-image" ng-src="../../assets/images/perfstock/experts/{{interview.image}}" alt=""></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-md-6">
+                  <div class="speaker-block">
+                    <div class="speaker-title"> <a style="color: white;" ui-sref="interview({libelle:interview.libelle})">{{interview.intervenant}}</a>                      </div>
+                    <div class="speaker-category"> <a style="color: white;" ui-sref="interview({libelle:interview.libelle})"> {{interview.libelle}} </a>                      </div>
+                    <div class="speaker-text">
+                      {{interview.contenu}}
+                    </div>
+                    <div class="speaker-social clearfix">
+                      <a href="#"><i class="fa fa-google-plus"></i></a>
+                      <a href="#"><i class="fa fa-facebook"></i></a>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                      <a href="#"><i class="fa fa-linkedin"></i></a>
+                      <a href="#"><i class="fa fa-skype"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="pagination"></div>
+        <div class="swiper-arrow-left style-1"><img src="/assets/images/arrow_left.png" alt=""></div>
+        <div class="swiper-arrow-right style-1"><img src="/assets/images/arrow_right.png" alt=""></div>
       </div>
-      <div class="pagination"></div>
-      <div class="swiper-arrow-left style-1"><img src="/assets/images/arrow_left.png" alt=""></div>
-      <div class="swiper-arrow-right style-1"><img src="/assets/images/arrow_right.png" alt=""></div>
-    </div>
-    <div class="swiper-container thumbnails" data-autoplay="0" data-loop="0" data-speed="500" data-center="0" data-slides-per-view="responsive"
-         data-mob-slides="3" data-xs-slides="4" data-sm-slides="6" data-md-slides="7" data-lg-slides="8" data-add-slides="8">
-      <div class="swiper-wrapper">
-       
-      </div>
-      <div class="pagination hidden"></div>
+      <div class="swiper-container thumbnails" data-autoplay="0" data-loop="0" data-speed="500" data-center="0" data-slides-per-view="responsive"
+        data-mob-slides="3" data-xs-slides="4" data-sm-slides="6" data-md-slides="7" data-lg-slides="8" data-add-slides="8">
+        <div class="swiper-wrapper">
+        </div>
+        <div class="pagination hidden"></div>
     </div>
   </div>
 </div>
-
-
+<div ng-repeat="interview in vm.listInterviews" class="swiper-slide current active" data-val="{{vm.nb}}">
+  <img class="img-responsive img-full" ng-src="../../../assets/images/perfstock/experts/thumbs/{{interview.image}}" alt="">
+  <div class="thumb-desc">
+    <div class="thumb-title"> <a ng-click="vm.scrol()" style="color: white;" ui-sref="interview({libelle:interview.libelle})">
+{{interview.intervenant}}  </a></div>
+    <div class="thumb-text"> <a style="color: white;" ui-sref="interview({libelle:interview.libelle})"> {{interview.libelle}} </a> </div>
+  </div>
+  <div class="thumb-overlay"></div>
+</div>
+</div>

@@ -11,8 +11,16 @@ export class interviewsComponent {
     this.interviewsProvider = interviewsProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     console.log('interviews', this);
+
   }
+
+    scrol() {
+      document.scrollTop();
+      console.log('okk sc');
+    }
+
   Init() {
+
     if (this.interviewsProvider.listeInt == null) {
       this.interviewsProvider.listInterviews().then(list => {
         this.listInterviews = list;
@@ -92,7 +100,8 @@ export default angular.module('emergenceInsightsApp.interviews', [])
     // template: '<h1>Hello {{ $ctrl.message }}</h1>',
     template: require('./interviews.html'),
     bindings: {
-      message: '<'
+      message: '<',
+      value: '<'
     },
     controller: interviewsComponent,
     controllerAs: 'vm'
