@@ -6,12 +6,17 @@ export class listActualitesComponent {
   constructor() {
     this.message = 'World';
   }
+
+  // lo commence a jouer 
 }
 
 export default angular.module('emergenceInsightsApp.listActualites', [])
   .component('listActualites', {
-    template: '<h1>Hello {{ $ctrl.message }}</h1>',
-    bindings: { message: '<' },
-    controller: listActualitesComponent
+    template: require('./listActualites.html'),
+    bindings: { 
+      message: '<'
+   },
+    controller: listActualitesComponent,
+    controllerAs: 'vm'
   })
   .name;
