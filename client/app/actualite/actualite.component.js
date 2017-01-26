@@ -78,7 +78,7 @@ export class ActualiteComponent {
   }
   getActualite(libelle){
     this.actualiteProvider.getActualiteByName(libelle).then(list =>{
-      this.actualite=list;
+    this.actualite=list[0];
       console.log('actualite single',list);
     })
   }
