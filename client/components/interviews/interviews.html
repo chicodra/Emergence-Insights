@@ -49,7 +49,7 @@
     </div>
   </div>
 </div>
-<div ng-repeat="interview in vm.listInterviews" class="swiper-slide current active" data-val="{{vm.nb}}">
+<div ng-show="vm.value" ng-repeat="interview in vm.listInterviews" class="swiper-slide current active" data-val="{{vm.nb}}">
   <img class="img-responsive img-full" ng-src="../../../assets/images/perfstock/experts/thumbs/{{interview.image}}" alt="">
   <div class="thumb-desc">
     <div class="thumb-title"> <a ng-click="vm.scrol()" style="color: white;" ui-sref="interview({libelle:interview.libelle})">
