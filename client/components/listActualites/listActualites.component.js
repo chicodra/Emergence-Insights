@@ -33,7 +33,7 @@ export class listActualitesComponent {
     console.log('list actualites', this);
     //this.Init();
     var th=this;
-    setTimeout(function(){console.log('khaar lou yague',th);
+    setTimeout(function(){console.log('khaar lou yague',th.pays);
       function getActualitesPays(id){
         //setTimeout(console.log('get actualites pays',id),5000);
         //console.log('get actualites pays',id);
