@@ -6,6 +6,7 @@ var controller = require('./etude_de_cas.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
+router.get('/nombre', controller.GetDocumentSize);
 router.get('/:id', controller.show);
 router.get('/theme/:id',controller.getEtudeDeCasByTheme);
 router.get('/partie/:id',controller.getEtudeDeCasByPartie);

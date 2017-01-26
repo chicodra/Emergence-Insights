@@ -85,7 +85,7 @@ export function getActByPays(req, res) {
      var lesActus = [];
     actualites.forEach(function(actu) {
        
-            lesActus.push(actu.id_actualite);
+            lesActus.push(actu);
        
     });
     return res.json(lesActus);
