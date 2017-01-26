@@ -3,30 +3,25 @@ const angular = require('angular');
 
 const uiRouter = require('angular-ui-router');
 
-import routes from './actualite.routes';
+import routes from './partenaires.routes';
 
-export class ActualiteComponent {
+export class PartenairesComponent {
   /*@ngInject*/
   jsFunctionProvider;
-  params;
-  actualite;
-  actualiteProvider;
-  constructor(jsFunctionProvider,$stateParams,actualiteProvider) {
-    this.message = 'hii';
-    this.jsFunctionProvider=jsFunctionProvider;
-    this.params=$stateParams;
-    this.actualiteProvider=actualiteProvider;
-    this.getActualite(this.params.libelle)
-    console.log('this actualite', this);
+  constructor(jsFunctionProvider) {
+    this.jsFunctionProvider = jsFunctionProvider;
+    this.message = 'Hello';
+    document.querySelector('header').style.backgroundColor = "#222";
   }
-  Init(){
-    document.querySelector('header').style.backgroundColor= '#222';
-    angular.element(document)
+  Init() {
+      angular.element(document)
       .ready(() => {
 
         console.log('document pilier',document);
+        document.querySelector('header').style.backgroundColor = '#222'
         /* demo animated */
         this.jsFunctionProvider.demoAnimated();
+
         /* Document REady */
         this.jsFunctionProvider.onDocumentReady();
 
@@ -75,20 +70,18 @@ export class ActualiteComponent {
 
 
       });
-  }
-  getActualite(libelle){
-    this.actualiteProvider.getActualiteByName(libelle).then(list =>{
-    this.actualite=list[0];
-      console.log('actualite single',list);
-    })
+
+
+
+
   }
 }
-ActualiteComponent.$inject=["jsFunctionProvider","$stateParams","actualiteProvider"];
-export default angular.module('emergenceInsightsApp.actualite', [uiRouter])
+PartenairesComponent.$inject= ["jsFunctionProvider"]
+export default angular.module('emergenceInsightsApp.partenaires', [uiRouter])
   .config(routes)
-  .component('actualite', {
-    template: require('./actualite.html'),
-    controller: ActualiteComponent,
-    controllerAs: 'vm'
+  .component('partenaires', {
+    template: require('./partenaires.html'),
+    controller: PartenairesComponent,
+    controllerAs: 'partenairesCtrl'
   })
   .name;
