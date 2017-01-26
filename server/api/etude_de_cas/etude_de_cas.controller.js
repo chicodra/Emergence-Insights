@@ -70,6 +70,14 @@ export function index(req, res) {
     .catch(handleError(res));
 }
 
+//Gets Numbers Of Etude de Cas
+
+export function GetDocumentSize(req, res) {
+  return EtudeDeCas.find().count()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Gets a single EtudeDeCas from the DB
 export function show(req, res) {
   return EtudeDeCas.findById(req.params.id).exec()
