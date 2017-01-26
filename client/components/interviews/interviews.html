@@ -14,18 +14,13 @@
     <div class="swiper-container thumbnails-preview" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1">
       <div class="swiper-wrapper">
         <div ng-repeat="interview in vm.listInterviews"  class="swiper-slide active" data-val="{{vm.nb}}">
-          <div class="speaker-img">
-            <a ui-sref="interview({libelle:interview.libelle})">
-              <img class="img-responsive center-image" src="../../assets/images/perfstock/experts/{{interview.image}}" alt="">
-            </a>
-          </div>
-
+          <div class="speaker-img"><img class="img-responsive center-image" ng-src="../../assets/images/perfstock/experts/{{interview.image}}" alt=""></div>
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-md-6">
                 <div class="speaker-block">
                   <div class="speaker-title">  {{interview.intervenant}} </div>
-                  <div class="speaker-category"><a ui-sref="interview({libelle:interview.libelle})" style="color: white;"> {{interview.libelle}} </a>  </div>
+                  <div class="speaker-category">  {{interview.libelle}}  </div>
                   <div class="speaker-text">
                     {{interview.contenu}}
                   </div>
