@@ -10,12 +10,14 @@ export class MainController {
   themeProvider;
   paysProvider;
   jsFunctionProvider;
+  
 
   /*@ngInject*/
   constructor(themeProvider, paysProvider, jsFunctionProvider) {
     //this.socket = socket;
     this.themeProvider = themeProvider,
       this.paysProvider = paysProvider;
+      this.nbpays=this.paysProvider.length;
     this.jsFunctionProvider = jsFunctionProvider;
 
     console.log('main', this);
