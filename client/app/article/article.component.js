@@ -18,7 +18,7 @@ export class ArticleComponent {
     this.articleProvider.getArticleByName(this.params.libelle).then(list => {
 
     this.article = list[0];
-    this.image ='../../assets/images/perfstock/slider/'+this.article.image;
+    this.image ='../../assets/images/perfstock/article/'+this.article.image;
       console.log('image',this.image);
       console.log('single article', this.article)
 
