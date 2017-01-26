@@ -17,7 +17,7 @@
           <div ng-repeat="article in vm.listArticles" class="swiper-slide swiper-slide-visible swiper-slide-active" data-val="{{vm.nb+1}}"
             style="width: 243px; height: 391px; ">
             <div class="about-item">
-              <img class="img-responsive" ng-src="../../../assets/images/perfstock/slider/{{article.image}}" alt="">
+              <img class="img-responsive" ui-sref="article({libelle:article.titre})" style=" height: 200px;" ng-src="../../../assets/images/perfstock/article/{{article.image}}" alt="">
               <a class="about-title" ui-sref="article({libelle:article.titre})">{{article.titre}}</a>
       
               <div class="about-keywords">

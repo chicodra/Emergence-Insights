@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-  <div class="slider-wth-thumbs">
+  <div class="slider-wth-thumbs" >
     <div class="swiper-container thumbnails-preview" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1">
       <div class="swiper-wrapper">
         <div ng-repeat="interview in vm.listInterviews"  class="swiper-slide active" data-val="{{vm.nb}}">
@@ -19,6 +19,7 @@
               <img class="img-responsive center-image" src="../../assets/images/perfstock/experts/{{interview.image}}" alt="">
             </a>
           </div>
+
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-md-6">
@@ -35,11 +36,6 @@
                     <a href="#"><i class="fa fa-linkedin"></i></a>
                     <a href="#"><i class="fa fa-skype"></i></a>
                   </div>
-                  <!--<div class="speaker-change clearfix">
-                    <img src="/assets/images/speaker_change_1.jpg" data-image="/assets/images/speaker_change_1_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_2.jpg" data-image="/assets/images/speaker_change_2_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_3.jpg" data-image="/assets/images/speaker_change_3_b.jpg" alt="">
-                  </div>-->
                 </div>
               </div>
             </div>
@@ -53,14 +49,7 @@
     <div class="swiper-container thumbnails" data-autoplay="0" data-loop="0" data-speed="500" data-center="0" data-slides-per-view="responsive"
          data-mob-slides="3" data-xs-slides="4" data-sm-slides="6" data-md-slides="7" data-lg-slides="8" data-add-slides="8">
       <div class="swiper-wrapper">
-        <div ng-repeat="interview in vm.listInterviews" class="swiper-slide current active" data-val="{{vm.nb}}">
-          <img class="img-responsive img-full" src="/assets/images/perfstock/experts/thumbs/{{interview.image}}" alt="">
-          <div class="thumb-desc">
-            <div class="thumb-title"> {{interview.intervenant}} </div>
-            <div class="thumb-text"> {{interview.libelle}} </div>
-          </div>
-          <div class="thumb-overlay"></div>
-        </div>
+       
       </div>
       <div class="pagination hidden"></div>
     </div>
