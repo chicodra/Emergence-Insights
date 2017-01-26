@@ -23,10 +23,10 @@
 
         <div>
           <h4>
-            <a class="simple-title" href="#">{{actualite.sujet}}</a>
+            <p style="font-family: 'Crimson Text', serif; font-size: 28px; letter-spacing: 0.1em; line-height: 1.2em; margin-left: 40%;margin-bottom: 20px;"> {{actualite.sujet}} </p>
           </h4>
-          <div class="simple-text">
-            <p>{{actualite.contenu }}</p>
+          <div class="">
+            <p style="font-family: 'Crimson Text', serif; font-size: 20px; letter-spacing: 0.1em; line-height: 1.2em; text-indent: 35pt;" >{{actualite.contenu |limitTo:150 }}</p>
           </div>
         </div>
 
@@ -36,7 +36,7 @@
 </uib-tab>
 <uib-tab index="1" heading="DOCUMENTATION">
   <div class="row" style="padding: 30px 0px 0px 10px" ng-repeat="documentation in vm.documentationsPays">
-<h4 class="simple-title">{{documentation.libelle}}</h4>
+<h4 class=""><p style="font-family: 'Crimson Text', serif; font-size: 28px; letter-spacing: 0.1em; line-height: 1.2em; margin-left: 40%;margin-bottom: 20px;">{{documentation.libelle}}</p></h4>
 <h2 class="simple-text">
   {{documentation.contenu}}
 </h2>
@@ -44,7 +44,7 @@
 </uib-tab>
 <uib-tab index="2" heading="AGENDA">
   <div class="row" style="padding: 30px 10px 10px 10px" ng-repeat="agenda in vm.agendasPays">
-<h4 class="simple-title">Senegal (14 Regions)</h4>
+<h4 class="simple-title"><p style="font-family: 'Crimson Text', serif; font-size: 28px; letter-spacing: 0.1em; line-height: 1.2em; margin-left: 30%;margin-bottom: 20px;">Senegal (14 Regions)</p></h4>
 <h2 class="simple-text">
   {{agenda.contenu}} </h2>
 </div>
