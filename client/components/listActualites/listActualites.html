@@ -1,11 +1,15 @@
-<div class="row" style="padding: 30px 0px 0px 10px" ng-repeat="actualite in vm.actualitesPays ">
-  <div>
+<div  class="row" style="padding: 30px 0px 0px 10px" ng-repeat="actualite in vm.actualitesPays ">
+  <div class="col-md-4">
+    <img class="img-responsive" src="../../assets/images/perfstock/actualite/{{actualite.image}}" alt="" style="height: 200px;">
+  </div>
+  <div class="col-md-8">
     <h4>
       <p style="font-family: 'Crimson Text', serif; font-size: 28px; letter-spacing: 0.1em; line-height: 1.2em; margin-left: 40%;margin-bottom: 20px;">
-        {{actualite.sujet}} </p>
+        <a ui-sref="actualite({libelle:actualite.sujet})"> {{actualite.sujet}}</a>  </p>
     </h4>
     <div class="">
       <p style="font-family: 'Crimson Text', serif; font-size: 20px; letter-spacing: 0.1em; line-height: 1.2em; text-indent: 35pt;">{{actualite.contenu |limitTo:150 }}</p>
     </div>
   </div>
 </div>
+
