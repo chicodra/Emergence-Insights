@@ -103,72 +103,84 @@ Pays.find({}).remove()
       _id: 1,
       nom: 'BOTSWANA',
       image: 'Botswana_Gaborone.jpg',
+      drapeau: 'botswana',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         `
     }, {
       _id: 2,
       nom: 'CAP-VERT',
       image: 'Cap-Vert_Praia.jpg',
+      drapeau:'cap-vert',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 3,
       nom: 'CÔTE D\'IVOIRE',
       image: 'Abidjan.png',
+      drapeau: 'cote-divoire',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 4,
       nom: 'ETHIOPIE',
       image: 'Ethiopia_Addis Ababa.jpg',
+      drapeau:'ethiopie',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 5,
       nom: 'GABON',
       image: 'Gabon_Libreville.jpg',
+      drapeau: 'gabon',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 6,
       nom: 'GUINEE EQUATORIAL',
       image: 'Guinée Equatoriale.jpg',
+      drapeau: 'guinee-equatoriale',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 7,
       nom: 'KENYA',
       image: 'Kenya_Kilimanjaro.jpg',
+      drapeau: 'kenya',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 8,
       nom: 'MAURICE',
       image: 'Maurice_Port-Louis.jpg',
+      drapeau: 'maurice',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 9,
       nom: 'RWANDA',
       image: 'Rwanda_Kigali.jpg',
+      drapeau: 'rwanda',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 10,
       nom: 'SENEGAL',
       image: 'Sénégal_Dakar.jpg',
+      drapeau: 'senegal',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 11,
       nom: 'SOUTH AFRICA',
       image: 'South Africa_Cape Town.jpg',
+      drapeau: 'south-africa',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 12,
       nom: 'TANZANIE',
       image: 'Tanzania_Dar es Salam.jpg',
+      drapeau: 'tanzanie',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, );
