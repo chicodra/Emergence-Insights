@@ -1,0 +1,21 @@
+/*.header { background-color: #222; }*/
+
+.pilierEm {
+  margin-top: 170px;
+}
+
+h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.img-texte{
+    float: left;
+    width: 30%;
+    margin-right:15px;
+    
+}
+
+

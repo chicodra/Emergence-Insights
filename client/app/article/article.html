@@ -1,0 +1,39 @@
+<div ng-init="vm.Init()">
+  <!-- MAIN-SLIDER -->
+  <div id="about" class="main-slider clearfix">
+    <div class="swiper-container" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1" data-add-slides="2">
+      <div class="swiper-wrapper">
+
+        <div >
+          <div class="triheight" >
+             <img class="img-responsive" style="width: 100%;" ng-src="{{vm.image}}" alt="">
+            <div class="vertical-align">
+              <div class="">
+                <div class="block-title" style="font-size: 30px; margin-top:30%; margin-left: 150px; ">
+                  <font color="white">{{vm.article.titre}}</font>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagination"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 pilierEm">
+      <div class="description" style="width: 400px; height: 80px; margin: -140px 0 50px 0; padding: 0 10px 40px 30px">
+        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true" style="padding:10px 10px 20px 10px; color: #4485C1;" tooltip-placement="top" uib-tooltip="{{vm.article.auteur}}"></i>
+        <i class="fa fa-calendar-o fa-2x" aria-hidden="true" style="padding:10px 10px 20px 10px; color: #4485C1;" tooltip-placement="top" uib-tooltip="{{vm.article.date_publication}}"></i>
+         <i class="fa fa-print fa-2x" aria-hidden="true" style="padding:10px 10px 20px 10px; color: #4485C1;" tooltip-placement="top" uib-tooltip="Imprimer"></i>
+      </div>
+
+      <p style="font-family: 'Crimson Text', serif; font-size: 28px; letter-spacing: 0.1em; line-height: 1.2em;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{vm.article.contenu}}
+
+      </p>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <revue-articles></revue-articles>
+</div>

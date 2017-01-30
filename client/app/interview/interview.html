@@ -1,0 +1,71 @@
+<div class="container pilierEm" ng-init="vm.Init()">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <div class="block-header">
+        <h4 class="block-category"></h4>
+        <h2 class="block-title">Interview</h2>
+      </div>
+      <div class="simple-title" style="margin-left: -180px;"> Interview Exclusive : {{vm.interview.intervenant}}<br>
+        <div class="simple-title">
+          <p style=" font-family: 'Crimson Text', serif; font-size: 21px; color: black;">{{vm.interview.libelle}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-4 ">
+      <img class="img-responsive" src="../../../assets/images/perfstock/experts/{{vm.interview.image}}" alt="" style="padding: 0 20px 20px 0;">
+    </div>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+      <div class="simple-text">
+        <p>{{vm.interview.contenu}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-7 col-md-offset-0">
+      <div ng-repeat="Qr in vm.listeQr">
+        <div>
+          <p style="text-indent: 25pt; font-family: 'Crimson Text', serif; font-size: 21px; letter-spacing: 0em; line-height: 1em;">
+            {{Qr.question.titre}}
+          </p>
+          <br>
+        </div>
+        <div class="simple-text">
+          <p style="font-family: 'Arsenal', sans-serif, monospace; color: #929292; font-size: 21px;">
+            {{Qr.reponse.libelle}}
+          </p>
+        </div>
+        <br>
+      </div>
+
+      <!--fin -->
+
+    </div>
+    <div class="col-xs-12 col-sm-10 col-md-4 col-md-offset-1" style="margin-top: 100px;">
+      <div class="simple-text">
+        <blockquote><i class="fa fa-quote-left" aria-hidden="true"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum qui architecto est numquam eaque facere vitae tenetur molestias, magni ipsum ex eum eos ea consequatur maxime nam quo quaerat dignissimos.
+        </blockquote>
+      </div>
+    </div>
+  </div>
+  <div class="slider-wth-thumbs row pilierEm">
+    <div class="swiper-container thumbnails" data-autoplay="0" data-loop="0" data-speed="500" data-center="0" data-slides-per-view="responsive"
+      data-mob-slides="3" data-xs-slides="4" data-sm-slides="6" data-md-slides="7" data-lg-slides="8" data-add-slides="8">
+      <div class="swiper-wrapper">
+        <!--<div class="swiper-slide current active" data-val="0">
+          <img class="img-responsive img-full" src="../../../assets/images/perfstock/experts/thumbs/tony_elumelu.jpg" alt="">
+          <div class="thumb-desc">
+            <div class="thumb-title">Tony Elumelu</div>
+            <div class="thumb-text">Tony Elumelu Foundation</div>
+          </div>
+          <div class="thumb-overlay"></div>
+        </div>-->
+        <interviews value="true"></interviews>
+      </div>
+      <div class="pagination"></div>
+  </div>
+</div>
+</div>
