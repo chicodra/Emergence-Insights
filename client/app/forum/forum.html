@@ -1,0 +1,77 @@
+<div ng-init="vm.Init()" class="pilierEm container">
+  <div class="row" style="margin-top: 100px;">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Forum</div>
+        <div class="panel-body">
+          <p>Liste des sujets</p>
+          <div class="input-group" style="padding: 30px;">
+            <span class="input-group-addon" id="basic-addon3">Rechercher</span>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" ng-model="query">
+          </div>
+        </div>
+        <!-- Table -->
+        <table class="table table-hover">
+          <tr>
+            <td>Forum {{query}} </td>
+            <td>Topic</td>
+            <td>Post</td>
+            <td>Freshness</td>
+          </tr>
+          <tr>
+            <td>
+              <div style="padding: 6px;">
+                <p class="simple-title"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, blanditiis, natus a a! </p>
+                <p>lremgj dolor sit amet, consectetur adipi fgkgf fgkjfg </p>
+              </div>
+            </td>
+            <td>2</td>
+            <td>4</td>
+            <td>lorem okolorem okolorem okolorem oko</td>
+          </tr>
+          <tr>
+            <td>
+              <p class="simple-title"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, blanditiis, natus a a! </p>
+              <p>lremgj dolor sit amet, consectetur adipi fgkgf fgkjfg </p>
+            </td>
+            <td>4</td>
+            <td>4</td>
+            <td>lorem okolorem okolorem oko</td>
+          </tr>
+          <tr>
+            <td>
+              <p class="simple-title"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, blanditiis, natus a a! </p>
+              <p>lremgj dolor sit amet, consectetur adipi fgkgf fgkjfg </p>
+            </td>
+            <td>0</td>
+            <td>l0</td>
+            <td>lorem okolorem oko</td>
+          </tr>
+        </table>
+      </div>
+      <!--fin panel-->
+    </div>
+    <!--fin col-md-10-->
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">Créer un sujet</div>
+        <div class="panel-body">
+          <form class="form-horizontal">
+            <div class="form-group" style="padding: 4px;">
+              <!--<label for="inputEmail3" class="col-sm-2 control-label">Email</label>-->
+              <div style="margin-bottom: 0.5em;">
+                <input type="text" class="form-control" placeholder="Sujet">
+              </div>
+              <div>
+                <a class="c-btn b-50 blue hv-blue-o" style="color: #000;" href="#">Ajouter</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--fin panel-->
+    </div>
+    <!--fin col-md-2-->
+  </div>
+</div>

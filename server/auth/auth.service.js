@@ -60,6 +60,10 @@ export function hasRole(roleRequired) {
     });
 }
 
+//Verifier Deux Roles
+
+
+
 /**
  * Returns a jwt token signed by the app secret
  */
