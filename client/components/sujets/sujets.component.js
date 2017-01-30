@@ -1,44 +1,32 @@
 'use strict';
 const angular = require('angular');
 
-export class interviewsComponent {
+export class sujetsComponent {
   /*@ngInject*/
-  interviewsProvider;
-  listInterviews;
   jsFunctionProvider;
-  constructor(jsFunctionProvider, interviewsProvider) {
-    this.message = 'World';
-    this.interviewsProvider = interviewsProvider;
-    this.jsFunctionProvider = jsFunctionProvider;
-    console.log('interviews', this);
-
+  sujetProvider;
+  userProvider;
+  listeSujets;
+  constructor(jsFunctionProvider,sujetProvider,userProvider) {
+    this.jsFunctionProvider=jsFunctionProvider;
+    this.sujetProvider=sujetProvider;
+    this.userProvider=userProvider;
+    this.message = 'Hello';
+    console.log('forum',this);
   }
-
-    scrol() {
-      document.scrollTop();
-      console.log('okk sc');
-    }
-
   Init() {
- 
-    if (this.interviewsProvider.listeInt == null) {
-      this.interviewsProvider.listInterviews().then(list => {
-        this.listInterviews = list;
-        this.interviewsProvider.listeInt = list;
-        console.log('interviews vide', this.listInterviews)
-        // this.interview = list[0];
-        this.image = '../../assets/images/perfstock/experts/' + this.listInterviews.image;
+    //this.listTheme=[];
+    var th=this;
+    setTimeout(function () {
+      th.getSubjects();
 
-      });
+    },50);
 
-    } else {
-      this.listInterviews = this.interviewsProvider.listeInt;
-      console.log('interviews non vide', this.listInterviews)
 
-    }
+
     angular.element(document)
       .ready(() => {
-        document.querySelector('header').style.backgroundColor = '';
+        document.querySelector('header').style.backgroundColor = '#222';
         console.log('document main', document);
         /* demo animated */
         this.jsFunctionProvider.demoAnimated();
@@ -48,7 +36,6 @@ export class interviewsComponent {
 
         /* on Page Load */
         this.jsFunctionProvider.onPageLoad();
-        this.jsFunctionProvider.initSwiper();
         this.jsFunctionProvider.onPageResize();
         this.jsFunctionProvider.onSliderArrowClick();
         this.jsFunctionProvider.onPageScroll();
@@ -91,19 +78,24 @@ export class interviewsComponent {
 
 
       });
-  }
-}
-interviewsComponent.$inject = ["jsFunctionProvider", "interviewsProvider"];
 
-export default angular.module('emergenceInsightsApp.interviews', [])
-  .component('interviews', {
+  }
+  getSubjects(){
+    this.sujetProvider.listSujets().then(list =>{
+      console.log("liste sujets",list);
+      this.listeSujets=list;
+    })
+
+  }
+
+}
+sujetsComponent.$inject=["jsFunctionProvider","sujetProvider","userProvider"];
+export default angular.module('emergenceInsightsApp.sujets', [])
+  .component('sujets', {
     // template: '<h1>Hello {{ $ctrl.message }}</h1>',
-    template: require('./interviews.html'),
-    bindings: {
-      message: '<',
-      value: '<'
-    },
-    controller: interviewsComponent,
+    template: require('./sujets.html'),
+    bindings: { message: '<' },
+    controller: sujetsComponent,
     controllerAs: 'vm'
   })
   .name;
