@@ -973,6 +973,12 @@ User.find({}).remove()
         email: 'admin@example.com',
         password: 'admin'
       }, {
+        provider: 'local',
+        role: 'user',
+        name: 'Raymond',
+        email: 'ray@example.com',
+        password: 'saphila'
+      },{
         _id: '587f5a2908c8482cf40bb351',
         provider: 'local',
         name: 'pach',
