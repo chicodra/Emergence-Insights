@@ -963,6 +963,7 @@ User.find({}).remove()
         _id: '587f54a347ea262b686ecc5f',
         provider: 'local',
         name: 'Test User',
+        images:'akon.jpg',
         email: 'test@example.com',
         password: 'test'
       }, {
@@ -970,12 +971,14 @@ User.find({}).remove()
         provider: 'local',
         role: 'admin',
         name: 'Admin',
+        images:'tony_elumelu.jpg',
         email: 'admin@example.com',
         password: 'admin'
       }, {
         provider: 'local',
         role: 'user',
         name: 'Raymond',
+        images:'victor_gorom_ndiaye.jpg',
         email: 'ray@example.com',
         password: 'saphila'
       },{
