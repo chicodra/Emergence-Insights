@@ -27,7 +27,7 @@
             <li ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" ng-click="nbCtrl.delclassPays()" class="cl1"><a ui-sref="pays"> Info Pays</a>
               <ul class="nbCtrl.cl2" ng-style="nbCtrl.myStyle">
                 <li ng-repeat="pays in nbCtrl.listPays"><a ui-sref="paysinfo({paysName: pays.nom})">
-                  <img class="img-responsive"  style="width: 50px;" src="assets/images/perfstock/drapeau/{{pays.drapeau}}" alt="">
+                  <img class="img-circle"  style="width: 15px;" src="assets/images/perfstock/drapeau/{{pays.drapeau}}" alt="">
                   {{pays.nom}} </a></li>
               </ul>
             </li>
@@ -39,8 +39,13 @@
             </li>
             <!--<li><a href="pays.html">Contact</a>-->
 
-            <li><a ui-sref="partenaires">Partenaires</a></li>
+
+          
             <li><a ui-sref="forum">Forum</a></li>
+
+            <!--<li><a ui-sref="partenaires">Partenaires</a></li>-->
+
+
           </ul>
         </div>
       </div>
