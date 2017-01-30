@@ -60,6 +60,24 @@ export function hasRole(roleRequired) {
     });
 }
 
+//Roles
+
+export function hasRoles(roleRequired, roleRequireds) {
+  if(!roleRequired) {
+    throw new Error('Required role needs to be set');
+  }
+
+  return compose()
+    .use(isAuthenticated())
+    .use(function meetsRequirements(req, res, next) {
+      if((config.userRoles.indexOf(req.user.role) >= config.userRoles.indexOf(roleRequired)) || (config.userRoles.indexOf(req.user.role) >= config.userRoles.indexOf(roleRequireds))) {
+        return next();
+      } else {
+        return res.status(403).send('Forbidden');
+      }
+    });
+}
+
 /**
  * Returns a jwt token signed by the app secret
  */
