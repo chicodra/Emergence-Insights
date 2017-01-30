@@ -21,6 +21,7 @@ import Question from '../api/question/question.model';
 import Reponse from '../api/reponse/reponse.model';
 import Documentation from '../api/documentation/documentation.model';
 import Agenda from '../api/agenda/agenda.model';
+import Presentation from '../api/presentation/presentation.model';
 
 // <INFOS PAYS>
 FicheActualite.find({}).remove()
@@ -110,7 +111,7 @@ Pays.find({}).remove()
       _id: 2,
       nom: 'CAP-VERT',
       image: 'Cap-Vert_Praia.jpg',
-      drapeau:'cap-vert.jpeg',
+      drapeau: 'cap-vert.jpeg',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
@@ -124,7 +125,7 @@ Pays.find({}).remove()
       _id: 4,
       nom: 'ETHIOPIE',
       image: 'Ethiopia_Addis Ababa.jpg',
-      drapeau:'ethiopie.jpeg',
+      drapeau: 'ethiopie.jpeg',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
@@ -656,6 +657,23 @@ Theme.find({}).remove()
     });
   });
 
+Presentation.find({}).remove()
+  .then(() => {
+    Presentation.create({
+      titre: 'Bienvenue sur',
+      contenu: 'Emergence Insights',
+      info: 'Une Plateforme Collaborative pour une mise en oeuvre plus efficace des plans d\'émmergence',
+      images: 'image1'
+    },{
+      titre: 'Mars 2017 à Abidjan',
+      contenu:'CIEA',
+      info: 'Enhancing Africa\'s transformation',
+      images: 'images2'
+    }).then(() => {
+      console.log('finished populating Themes');
+    });
+  });
+
 
 Partie.find({}).remove()
   .then(() => {
@@ -721,7 +739,7 @@ Fiche.find({}).remove()
 
 
 
-Article.find({}).remove() 
+Article.find({}).remove()
   .then(() => {
     Article.create({
       titre: 'le sommet africain',
@@ -795,14 +813,13 @@ Article.find({}).remove()
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
   `,
-        id_theme: 1,
-        image : 'gouv_mis.jpg',
-        auteur : 'Issa diakhoumpa',
-        date_publication : '2016-01-25'
-      },
-      {
-        titre : '\« La problématique de l’Internet au Sénégal \» au centre du panel de discussion de \« HOW TO GROW INTERNET IN SENEGAL \»',
-        contenu: `
+      id_theme: 1,
+      image: 'gouv_mis.jpg',
+      auteur: 'Issa diakhoumpa',
+      date_publication: '2016-01-25'
+    }, {
+      titre: '\« La problématique de l’Internet au Sénégal \» au centre du panel de discussion de \« HOW TO GROW INTERNET IN SENEGAL \»',
+      contenu: `
 
         Dans le cadre du programme « HOW TO GROW INTERNET IN SENEGAL », un panel de discussion organisé par Jokkolabs et Google sur : « La problématique d’Internet au Sénégal » aura lieu mercredi 8 avril de 17 heures à 19 heures à Jokkolabs Dakar.
 
@@ -842,14 +859,13 @@ Article.find({}).remove()
 
      `,
 
-        id_theme: 1,
-        image : 'maxresdefault.jpg',
-        auteur : 'jean pierre ',
-        date_publication : '2017-01-25'
-      },
-      {
-        titre : 'les martiens',
-        contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      id_theme: 1,
+      image: 'maxresdefault.jpg',
+      auteur: 'jean pierre ',
+      date_publication: '2017-01-25'
+    }, {
+      titre: 'les martiens',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -886,14 +902,13 @@ Article.find({}).remove()
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
   `,
-        id_theme: 1,
-        image : 'abidjan.jpg',
-        auteur : 'jean pierre ',
-        date_publication : '2017-01-25'
-      },
-      {
-        titre : 'le mali',
-        contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      id_theme: 1,
+      image: 'abidjan.jpg',
+      auteur: 'jean pierre ',
+      date_publication: '2017-01-25'
+    }, {
+      titre: 'le mali',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -929,11 +944,12 @@ Article.find({}).remove()
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
   `,
-        id_theme: 1,
-        image : 'collaboration.jpg',
-        auteur : 'jean pierre ',
-        date_publication : '2017-01-25'
-      });});
+      id_theme: 1,
+      image: 'collaboration.jpg',
+      auteur: 'jean pierre ',
+      date_publication: '2017-01-25'
+    });
+  });
 
 
 
