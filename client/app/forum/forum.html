@@ -19,18 +19,18 @@
             <td>Post</td>
             <td>Freshness</td>
           </tr>
-          <tr>
+          <tr ng-repeat="sujet in vm.listeSujets">
             <td>
               <div style="padding: 6px;">
-                <p class="simple-title"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, blanditiis, natus a a! </p>
+                <p class="simple-title"> {{sujet.titre}} </p>
                 <p>lremgj dolor sit amet, consectetur adipi fgkgf fgkjfg </p>
               </div>
             </td>
-            <td>2</td>
-            <td>4</td>
+            <td>0</td>
+            <td>0</td>
             <td>lorem okolorem okolorem okolorem oko</td>
           </tr>
-          <tr>
+          <!--<tr>
             <td>
               <p class="simple-title"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, blanditiis, natus a a! </p>
               <p>lremgj dolor sit amet, consectetur adipi fgkgf fgkjfg </p>
@@ -47,7 +47,7 @@
             <td>0</td>
             <td>l0</td>
             <td>lorem okolorem oko</td>
-          </tr>
+          </tr>-->
         </table>
       </div>
       <!--fin panel-->
