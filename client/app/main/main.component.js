@@ -41,7 +41,7 @@ export class MainController {
         console.log('listpres',th.listPres);
 
       })
-    })
+    },50)
     angular.element(document)
       .ready(() => {
         document.querySelector('header').style.backgroundColor = '';

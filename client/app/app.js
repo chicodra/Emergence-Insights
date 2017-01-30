@@ -39,6 +39,7 @@ import theme from './factory/themeProvider/themeProvider.service';
 import paysProvider from './factory/paysProvider/paysProvider.service';
 import articleComponent from './article/article.component';
 import articleProvider from './factory/articleProvider/articleProvider.service';
+import forumComponent from './forum/forum.component';
 import jsFunctionSlider from './factory/jsFunctionProvider/jsFunctionProvider.service';
 import interviewsProvider from './factory/interviewsProvider/interviewsProvider.service';
 import actualiteProvider from './factory/actualiteProvider/actualiteProvider.service';
@@ -62,7 +63,7 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     main, constants, socket, util, theme, paysProvider, articleProvider, si, revue, interviews, etudedecas,
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
     InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent,
-  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider
+  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent
 
 
   ])

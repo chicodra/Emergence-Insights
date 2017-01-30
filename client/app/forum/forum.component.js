@@ -8,13 +8,23 @@ import routes from './forum.routes';
 export class ForumComponent {
   /*@ngInject*/
   jsFunctionProvider;
-  constructor(jsFunctionProvider) {
+  sujetProvider;
+  userProvider;
+  listeSujets;
+  constructor(jsFunctionProvider,sujetProvider,userProvider) {
     this.jsFunctionProvider=jsFunctionProvider;
+    this.sujetProvider=sujetProvider;
+    this.userProvider=userProvider;
     this.message = 'Hello';
     console.log('forum',this);
   }
   Init() {
     //this.listTheme=[];
+    var th=this;
+    setTimeout(function () {
+      th.getSubjects();
+
+    },50);
 
 
 
@@ -74,8 +84,16 @@ export class ForumComponent {
       });
 
   }
+  getSubjects(){
+    this.sujetProvider.listSujets().then(list =>{
+      console.log("liste sujets",list);
+      this.listeSujets=list;
+    })
+
+  }
+
 }
-ForumComponent.$inject=["jsFunctionProvider"];
+ForumComponent.$inject=["jsFunctionProvider","sujetProvider","userProvider"];
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)
   .component('forum', {
