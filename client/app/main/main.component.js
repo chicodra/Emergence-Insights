@@ -7,18 +7,23 @@ export class MainController {
   socket;
   awesomeThings = [];
   newThing = '';
+  listPres;
   themeProvider;
   paysProvider;
   jsFunctionProvider;
-  
+  presentationProvider;
+  nbpays;
+
 
   /*@ngInject*/
-  constructor(themeProvider, paysProvider, jsFunctionProvider) {
+  constructor(themeProvider, paysProvider, jsFunctionProvider,presentationProvider) {
     //this.socket = socket;
     this.themeProvider = themeProvider,
       this.paysProvider = paysProvider;
-      this.nbpays=this.paysProvider.length;
+      //this.nbpays=this.paysProvider.listpays.length;
     this.jsFunctionProvider = jsFunctionProvider;
+    this.presentationProvider=presentationProvider;
+    this.listPres=null;
 
     console.log('main', this);
 
@@ -29,6 +34,14 @@ export class MainController {
     // var swipers = [], winW, winH, winScr, _isresponsive, xsPoint = 480, smPoint = 768, mdPoint = 992, lgPoint = 1200, addPoint = 1600, _ismobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i);
 
     //console.log("init",this);
+    var th =this;
+    setTimeout(function () {
+      th.presentationProvider.listPresentations().then(list => {
+        th.listPres=list;
+        console.log('listpres',th.listPres);
+
+      })
+    },50)
     angular.element(document)
       .ready(() => {
         document.querySelector('header').style.backgroundColor = '';
