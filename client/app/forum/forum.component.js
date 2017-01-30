@@ -11,10 +11,14 @@ export class ForumComponent {
   sujetProvider;
   userProvider;
   listeSujets;
-  constructor(jsFunctionProvider,sujetProvider,userProvider) {
+  listeUsers;
+  listeComs;
+  commentarieProvider;
+  constructor(jsFunctionProvider,sujetProvider,userProvider,commentarieProvider) {
     this.jsFunctionProvider=jsFunctionProvider;
     this.sujetProvider=sujetProvider;
     this.userProvider=userProvider;
+    this.commentarieProvider=commentarieProvider;
     this.message = 'Hello';
     console.log('forum',this);
   }
@@ -23,6 +27,8 @@ export class ForumComponent {
     var th=this;
     setTimeout(function () {
       th.getSubjects();
+      th.getUsers();
+      th.getComsBySujet(1);
 
     },50);
 
@@ -91,9 +97,23 @@ export class ForumComponent {
     })
 
   }
+  getUsers(){
+    this.userProvider.getUsers().then(list =>{
+      console.log("liste users",list);
+      this.listeUsers=list;
+    })
+
+  }
+  getComsBySujet(id){
+    this.commentarieProvider.getComsBySujet().then(list =>{
+      console.log("liste coms",list);
+      this.listeComs=list;
+    })
+
+  }
 
 }
-ForumComponent.$inject=["jsFunctionProvider","sujetProvider","userProvider"];
+ForumComponent.$inject=["jsFunctionProvider","sujetProvider","userProvider","commentarieProvider"];
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)
   .component('forum', {
