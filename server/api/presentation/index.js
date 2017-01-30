@@ -6,6 +6,7 @@ var controller = require('./presentation.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
+router.get('/slide/:id',controller.getPresByNomSlide);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.upsert);
