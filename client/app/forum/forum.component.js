@@ -1,50 +1,36 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import routing from './main.routes';
+'use strict';
+const angular = require('angular');
 
-export class MainController {
-  $http;
-  socket;
-  awesomeThings = [];
-  newThing = '';
-  listPres;
-  themeProvider;
-  paysProvider;
-  jsFunctionProvider;
-  presentationProvider;
-  nbpays;
+const uiRouter = require('angular-ui-router');
 
+import routes from './forum.routes';
 
+export class ForumComponent {
   /*@ngInject*/
-  constructor(themeProvider, paysProvider, jsFunctionProvider,presentationProvider) {
-    //this.socket = socket;
-    this.themeProvider = themeProvider,
-      this.paysProvider = paysProvider;
-      //this.nbpays=this.paysProvider.listpays.length;
-    this.jsFunctionProvider = jsFunctionProvider;
-    this.presentationProvider=presentationProvider;
-    this.listPres=null;
-
-    console.log('main', this);
-
-
+  jsFunctionProvider;
+  sujetProvider;
+  userProvider;
+  listeSujets;
+  constructor(jsFunctionProvider,sujetProvider,userProvider) {
+    this.jsFunctionProvider=jsFunctionProvider;
+    this.sujetProvider=sujetProvider;
+    this.userProvider=userProvider;
+    this.message = 'Hello';
+    console.log('forum',this);
   }
-
   Init() {
-    // var swipers = [], winW, winH, winScr, _isresponsive, xsPoint = 480, smPoint = 768, mdPoint = 992, lgPoint = 1200, addPoint = 1600, _ismobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i);
-
-    //console.log("init",this);
-    var th =this;
+    //this.listTheme=[];
+    var th=this;
     setTimeout(function () {
-      th.presentationProvider.listPresentations().then(list => {
-        th.listPres=list;
-        console.log('listpres',th.listPres);
+      th.getSubjects();
 
-      })
-    },50)
+    },50);
+
+
+
     angular.element(document)
       .ready(() => {
-        document.querySelector('header').style.backgroundColor = '';
+        document.querySelector('header').style.backgroundColor = '#222';
         console.log('document main', document);
         /* demo animated */
         this.jsFunctionProvider.demoAnimated();
@@ -54,7 +40,6 @@ export class MainController {
 
         /* on Page Load */
         this.jsFunctionProvider.onPageLoad();
-        this.jsFunctionProvider.initSwiper();
         this.jsFunctionProvider.onPageResize();
         this.jsFunctionProvider.onSliderArrowClick();
         this.jsFunctionProvider.onPageScroll();
@@ -97,19 +82,23 @@ export class MainController {
 
 
       });
+
+  }
+  getSubjects(){
+    this.sujetProvider.listSujets().then(list =>{
+      console.log("liste sujets",list);
+      this.listeSujets=list;
+    })
+
   }
 
-
-
-
-
-
 }
-
-export default angular.module('emergenceApp.main', [uiRouter])
-  .config(routing)
-  .component('main', {
-    template: require('./main.html'),
-    controller: MainController
+ForumComponent.$inject=["jsFunctionProvider","sujetProvider","userProvider"];
+export default angular.module('emergenceInsightsApp.forum', [uiRouter])
+  .config(routes)
+  .component('forum', {
+    template: require('./forum.html'),
+    controller: ForumComponent,
+    controllerAs: 'vm'
   })
   .name;

@@ -85,6 +85,14 @@ export function create(req, res) {
     .catch(handleError(res));
 }
 
+// Get Presentation By Nom Slide
+export function getPresByNomSlide(req, res) {
+  return Presentation.find({images : req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Upserts the given Presentation in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {

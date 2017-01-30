@@ -39,6 +39,7 @@ import theme from './factory/themeProvider/themeProvider.service';
 import paysProvider from './factory/paysProvider/paysProvider.service';
 import articleComponent from './article/article.component';
 import articleProvider from './factory/articleProvider/articleProvider.service';
+import forumComponent from './forum/forum.component';
 import jsFunctionSlider from './factory/jsFunctionProvider/jsFunctionProvider.service';
 import interviewsProvider from './factory/interviewsProvider/interviewsProvider.service';
 import actualiteProvider from './factory/actualiteProvider/actualiteProvider.service';
@@ -49,6 +50,9 @@ import questionProvider from './factory/questionProvider/questionProvider.servic
 import reponseProvider from './factory/reponseProvider/reponseProvider.service';
 import ActualiteComponent from './actualite/actualite.component';
 import PartenairesComponent from './partenaires/partenaires.component';
+import presentationProvider from './factory/presentationProvider/presentationProvider.service';
+import sujetProvider from './factory/sujetProvider/sujetProvider.service';
+import userProvider from './factory/userProvider/userProvider.service';
 
 
 
@@ -58,7 +62,8 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
     main, constants, socket, util, theme, paysProvider, articleProvider, si, revue, interviews, etudedecas,
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
-    InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent, listactualites, PartenairesComponent
+    InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent,
+  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent
 
 
   ])
