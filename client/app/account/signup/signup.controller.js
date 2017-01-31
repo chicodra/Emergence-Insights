@@ -7,13 +7,19 @@ type User = {
   name: string;
   email: string;
   password: string;
+  adresse : string;
+  tel : string;
+  date_naiss : Date;
 };
 
 export default class SignupController {
   user: User = {
     name: '',
     email: '',
-    password: ''
+    password: '',
+    adresse : '',
+    tel : '',
+    date_naiss : ''
   };
   errors = {};
   submitted = false;
@@ -33,7 +39,10 @@ export default class SignupController {
       return this.Auth.createUser({
         name: this.user.name,
         email: this.user.email,
-        password: this.user.password
+        password: this.user.password,
+        adresse: this.user.adresse,
+        tel : this.user.tel,
+        date_naiss : this.user.date_naiss
       })
         .then(() => {
           // Account created, redirect to home

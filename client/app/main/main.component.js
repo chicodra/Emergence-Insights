@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import routing from './main.routes';
 
+
 export class MainController {
   $http;
   socket;
@@ -11,21 +12,22 @@ export class MainController {
   themeProvider;
   paysProvider;
   jsFunctionProvider;
-  presentationProvider;
-  nbpays;
+
+
 
 
   /*@ngInject*/
-  constructor(themeProvider, paysProvider, jsFunctionProvider,presentationProvider) {
+  constructor(themeProvider, paysProvider, jsFunctionProvider, Auth, $state) {
+    document.querySelector('header').hidden = false;
     //this.socket = socket;
     this.themeProvider = themeProvider,
       this.paysProvider = paysProvider;
-      //this.nbpays=this.paysProvider.listpays.length;
+    this.nbpays = this.paysProvider.length;
     this.jsFunctionProvider = jsFunctionProvider;
-    this.presentationProvider=presentationProvider;
-    this.listPres=null;
+    this.Auth = Auth;
+    this.$state = $state;
 
-    console.log('main', this);
+
 
 
   }
