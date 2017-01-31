@@ -26,6 +26,7 @@ export class interviewsComponent {
         this.listInterviews = list;
         this.interviewsProvider.listeInt = list;
         console.log('interviews vide', this.listInterviews)
+         console.log('nombre interviews', this.interviewsProvider.listInterviews.length);
         // this.interview = list[0];
         this.image = '../../assets/images/perfstock/experts/' + this.listInterviews.image;
 
