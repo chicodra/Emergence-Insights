@@ -33,6 +33,7 @@ export class NavbarComponent {
     this.paysProvider=paysProvider;
     //console.log('init',themeProvider)
     console.log('navbar',this);
+    //console.log('nombre pays', this.paysProvider.listPays.length);
   }
   goHome(){
     this.state.go('main');
@@ -58,7 +59,7 @@ export class NavbarComponent {
     if(this.paysProvider.listpays==null){
       this.paysProvider.listPays().then(list => {
         this.listPays=list;
-        this.paysProvider.listpays=list;
+        this.paysProvider.listpays=list;  
 
         console.log('pays vide', this.listPays)
 

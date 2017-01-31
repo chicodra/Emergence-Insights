@@ -87,6 +87,14 @@ export function getInterviewByName(req, res){
     .catch(handleError(res));
 }
 
+//Gets Numbers Of Interviews
+
+export function GetInterviewSize(req, res) {
+  return Interview.find().count()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Creates a new Interview in the DB
 export function create(req, res) {
   return Interview.create(req.body)
