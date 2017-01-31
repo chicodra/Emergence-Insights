@@ -1,14 +1,14 @@
 'use strict';
 
-describe('Component: articles', function() {
+describe('Component: users', function() {
   // load the component's module
-  beforeEach(module('emergenceApp.articles'));
+  beforeEach(module('emergenceInsightsApp.users'));
 
-  var articlesComponent;
+  var usersComponent;
 
   // Initialize the component and a mock scope
   beforeEach(inject(function($componentController) {
-    articlesComponent = $componentController('articles', {});
+    usersComponent = $componentController('users', {});
   }));
 
   it('should ...', function() {

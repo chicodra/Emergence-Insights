@@ -32,6 +32,7 @@ import etudedecas from '../components/etudeDeCas/etudeDeCas.component';
 import fichedebonnepratiques from '../components/ficheDeBonnePratiques/ficheDeBonnePratiques.component';
 import listactualites from '../components/listActualites/listActualites.component';
 import sujets from '../components/sujets/sujets.component';
+import users from '../components/users/users.component';
 import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
@@ -64,7 +65,7 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     main, constants, socket, util, theme, paysProvider, articleProvider, si, revue, interviews, etudedecas,
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
     InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent,
-  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets
+  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users
 
 
   ])
