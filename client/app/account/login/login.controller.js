@@ -24,6 +24,7 @@ export default class LoginController {
   constructor(Auth, $state) {
     this.Auth = Auth;
     this.$state = $state;
+    document.querySelector('header').hidden = true;
   }
 
   login(form) {
