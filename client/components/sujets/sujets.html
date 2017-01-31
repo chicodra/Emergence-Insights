@@ -1,0 +1,36 @@
+<div ng-init="vm.Init()">
+  <!-- Default panel contents -->
+  <div class="panel panel-default">
+    <div class="panel-heading">Forum</div>
+    <div class="panel-body">
+      <p>Liste des sujets</p>
+      <div class="input-group" style="padding: 30px;">
+        <span class="input-group-addon" id="basic-addon3">Rechercher</span>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" ng-model="query">
+      </div>
+    </div>
+    <!-- Table -->
+    <table class="table table-hover">
+      <tr>
+        <td>Forum</td>
+        <td>Date</td>
+        <td>Commentaire</td>
+        <td>Utilisateur</td>
+      </tr>
+      <tr ng-repeat="sujet in vm.listeSujets | filter:query">
+        <td>
+          <div style="padding: 6px;">
+            <p class="simple-title"> {{sujet.titre}} </p>
+            <p>lremgj dolor sit amet, consectetur adipi fgkgf  </p>
+          </div>
+        </td>
+        <td>
+          {{sujet.date_creation | date:'dd/MM/yyyy'}}
+        </td>
+        <td>0</td>
+        <td>lorem okolorem okolorem okolorem oko</td>
+      </tr>
+    </table>
+  </div>
+  <!--fin panel-->
+</div>

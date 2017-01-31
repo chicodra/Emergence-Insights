@@ -24,7 +24,7 @@
             <div class="nav-tab-item active">
               Pays Africains
             </div>
-            
+
             <!-- <div class="nav-tab-item">
                                               Gouvernance
                                       </div> -->
@@ -34,29 +34,33 @@
           <div ng-repeat="pays in vm.listPays" class="tab-info active">
 
             <div ng-if="vm.modulo(pays._id) === 1">
-             <div class="shedule-block left" ng-init="">
-              <img class="shedule-user" src="assets/img/user_1.jpg" alt="">
+             <div class="shedule-block left" >
+               <a  id="demo01" ui-sref="paysinfo({paysName:pays.nom})">
+               <img class="shedule-user " style="width: 100px; height: 100px;" src="assets/images/perfstock/drapeau/{{pays.drapeau}}" alt="">
                <div class="shedule-entry">
                 <div class="shedule-date">Vision 2020</div>
-                <h4><a class="shedule-speaker" id="demo01" ui-sref="paysinfo({paysName:pays.nom})">{{pays.nom}}</a></h4>
+                <h4 class="shedule-speaker">{{pays.nom}}</h4>
 
                 <div class="shedule-text">{{pays.description}}</div>
                 <img class="img-responsive" src="assets/images/perfstock/pays/Photos Pays/{{pays.image}}" alt="">
               </div>
+               </a>
              </div>
             </div>
 
             <div ng-if="vm.modulo(pays._id) === 0">
-             <div class="shedule-block right" ng-init="">
-              <img class="shedule-user" src="assets/img/user_1.jpg" alt="">
-              <div class="shedule-entry">
-                <div class="shedule-date">Vision 2020</div>
-                <h4><a class="shedule-speaker" id="demo01" ui-sref="paysinfo({paysName:pays.nom})">{{pays.nom}}</a></h4>
+              <div class="shedule-block right" >
+                <a  id="demo01" ui-sref="paysinfo({paysName:pays.nom})">
+                  <img class="shedule-user " style="width: 100px; height: 100px;" src="assets/images/perfstock/drapeau/{{pays.drapeau}}" alt="">
+                  <div class="shedule-entry">
+                    <div class="shedule-date">Vision 2020</div>
+                    <h4 class="shedule-speaker">{{pays.nom}}</h4>
 
-                <div class="shedule-text">Le Rwanda  figure aujourd’hui parmi les pays africains les plus prisés par les investisseurs étrangers.</div>
-                <img class="img-responsive" src="assets/images/perfstock/pays/Photos Pays/{{pays.image}}" alt="">
+                    <div class="shedule-text">{{pays.description}}</div>
+                    <img class="img-responsive" src="assets/images/perfstock/pays/Photos Pays/{{pays.image}}" alt="">
+                  </div>
+                </a>
               </div>
-             </div>
             </div>
 
 

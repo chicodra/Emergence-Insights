@@ -2,16 +2,17 @@
 <div class="col-md-10 paysInfo" ng-init="vm.Init()">
   <div class="row" id="desc">
     <div class="col-md-4">
-      <img class="img-responsive" src="../../assets/images/perfstock/pays/Photos Pays/{{vm.pays.image}}" alt="" style="height: 200px;">
+      <img class="img-responsive"  style="height: 150px;" src="assets/images/perfstock/drapeau/{{vm.pays.drapeau}}" alt="">
+""
     </div>
-    <div class="col-md-8" id="nomS">
-      <h1>{{vm.pays.nom}}</h1>
+    <div class="col-md-8 " id="nomS">
+      <h1 style="margin-left: -150px;">{{vm.pays.nom}}</h1>
       <div class="col-md-12">
-        <p>{{vm.pays.description | limitTo: 50 }}</p>
+        <p style="margin-top: -30px;">{{vm.pays.description | limitTo: 50 }}</p>
       </div>
     </div>
   </div>
-  <uib-tabset active="activeJustified" justified="true">
+  <uib-tabset active="activeJustified" justified="true" style="padding: 50px 0 0 0;">
     <uib-tab index="0" heading="ACTUALITE">
 
       <list-actualites pays="vm.pays"></list-actualites>

@@ -20,7 +20,7 @@ export class interviewsComponent {
     }
 
   Init() {
-
+ 
     if (this.interviewsProvider.listeInt == null) {
       this.interviewsProvider.listInterviews().then(list => {
         this.listInterviews = list;
