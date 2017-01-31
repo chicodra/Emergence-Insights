@@ -12,20 +12,27 @@ export class MainController {
   themeProvider;
   paysProvider;
   jsFunctionProvider;
-
-
+  presentationProvider;
+  interviewsProvider;
+  interv = [];
+  nbpays;
 
 
   /*@ngInject*/
-  constructor(themeProvider, paysProvider, jsFunctionProvider, Auth, $state) {
-    document.querySelector('header').hidden = false;
+  constructor(themeProvider, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider) {
     //this.socket = socket;
+        document.querySelector('header').hidden = false;
     this.themeProvider = themeProvider,
       this.paysProvider = paysProvider;
-    this.nbpays = this.paysProvider.length;
+    this.interviewsProvider = interviewsProvider;
+    /*this.nbpays = this.paysProvider.listPays.length;*/
     this.jsFunctionProvider = jsFunctionProvider;
-    this.Auth = Auth;
-    this.$state = $state;
+    this.presentationProvider = presentationProvider;
+    this.listPres = null;
+    this.interv = interviewsProvider.listInterviews();
+
+    // console.log('nombre pays', this.paysProvider.listPays.length);
+    console.log('nombre interviews', this.interv);
 
 
 
@@ -36,14 +43,16 @@ export class MainController {
     // var swipers = [], winW, winH, winScr, _isresponsive, xsPoint = 480, smPoint = 768, mdPoint = 992, lgPoint = 1200, addPoint = 1600, _ismobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i);
 
     //console.log("init",this);
-    var th =this;
+    this.nbpays = this.interviewsProvider.listInterviews.length;
+    console.log('nombre', this.nbpays);
+    var th = this;
     setTimeout(function () {
       th.presentationProvider.listPresentations().then(list => {
-        th.listPres=list;
-        console.log('listpres',th.listPres);
+        th.listPres = list;
+        console.log('listpres', th.listPres);
 
       })
-    },50)
+    }, 50)
     angular.element(document)
       .ready(() => {
         document.querySelector('header').style.backgroundColor = '';
@@ -94,8 +103,6 @@ export class MainController {
         /* 13 - AJAX CONTACT FORM */
         /*==================================================*/
         this.jsFunctionProvider.ajaxContactForm();
-
-
 
 
       });

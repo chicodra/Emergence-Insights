@@ -78,6 +78,14 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Get Sujet By Nom
+export function getSujetByNom(req, res) {
+  return Sujet.find({ titre: req.params.id }).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Get subjects by one user
 export function getSujetByUser(req, res) {
   return Sujet.find({ id_user: req.params.id }).exec()

@@ -37,6 +37,20 @@ export function interviewsProvider($http,$q) {
     return liste;
 
   }
+   this.getNumberInterviews=function () {
+    var deferred=$q.defer();
+    var liste=[];
+    $http.get('/api/interviews/nombre/',{
+      cache: true
+    }).then(function(list) {
+      //console.log("cycle",list);
+      liste=list.data;
+      deferred.resolve(liste);
+    });
+    liste=deferred.promise;
+    return liste;
+
+  }
 }
 
 export default angular.module('emergenceInsightsApp.interviewprovider', [])

@@ -40,6 +40,7 @@ export class PaysComponent {
 
 
       }
+       console.log('nombre pays', this.listPays.length);
 
       console.log('paysssss vide', this.listPays)
 
