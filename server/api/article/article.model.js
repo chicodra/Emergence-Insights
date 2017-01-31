@@ -12,6 +12,7 @@ var ArticleSchema = new mongoose.Schema({
   },
   image : String,
   auteur : String,
+  une: Boolean,
   date_publication : String
 });
 
