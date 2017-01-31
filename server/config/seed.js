@@ -778,6 +778,7 @@ Article.find({}).remove()
       id_theme: 1,
       image: 'confroom.jpg',
       auteur: 'Jeau paul Mendy',
+      une: true,
       date_publication: '2017-01-25'
     }, {
       titre: 'L\’innovation et la sécurité numérique au coeur du Sommet Afrique France',
@@ -816,6 +817,7 @@ Article.find({}).remove()
       id_theme: 1,
       image: 'gouv_mis.jpg',
       auteur: 'Issa diakhoumpa',
+      une: true,
       date_publication: '2016-01-25'
     }, {
       titre: '\« La problématique de l’Internet au Sénégal \» au centre du panel de discussion de \« HOW TO GROW INTERNET IN SENEGAL \»',
@@ -862,6 +864,7 @@ Article.find({}).remove()
       id_theme: 1,
       image: 'maxresdefault.jpg',
       auteur: 'jean pierre ',
+      une: false,
       date_publication: '2017-01-25'
     }, {
       titre: 'les martiens',
@@ -905,6 +908,7 @@ Article.find({}).remove()
       id_theme: 1,
       image: 'abidjan.jpg',
       auteur: 'jean pierre ',
+      une: false,
       date_publication: '2017-01-25'
     }, {
       titre: 'le mali',
@@ -947,6 +951,7 @@ Article.find({}).remove()
       id_theme: 1,
       image: 'collaboration.jpg',
       auteur: 'jean pierre ',
+      une: false,
       date_publication: '2017-01-25'
     });
   });
