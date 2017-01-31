@@ -54,6 +54,7 @@ import PartenairesComponent from './partenaires/partenaires.component';
 import presentationProvider from './factory/presentationProvider/presentationProvider.service';
 import sujetProvider from './factory/sujetProvider/sujetProvider.service';
 import userProvider from './factory/userProvider/userProvider.service';
+import commentarieProvider from './factory/commentaireProvider/commentaireProvider.service';
 
 
 
@@ -64,7 +65,9 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     main, constants, socket, util, theme, paysProvider, articleProvider, si, revue, interviews, etudedecas,
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
     InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent,
-  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets
+
+  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent,commentarieProvider, sujets
+
 
 
   ])
