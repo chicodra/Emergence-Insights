@@ -13,12 +13,12 @@ export class ForumComponent {
   listeSujets;
   listeUsers;
   listeComs;
-  commentarieProvider;
-  constructor(jsFunctionProvider,sujetProvider,userProvider,commentarieProvider) {
-    this.jsFunctionProvider=jsFunctionProvider;
-    this.sujetProvider=sujetProvider;
-    this.userProvider=userProvider;
-    this.commentarieProvider=commentarieProvider;
+  commentaireProvider;
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider) {
+    this.jsFunctionProvider = jsFunctionProvider;
+    this.sujetProvider = sujetProvider;
+    this.userProvider = userProvider;
+    this.commentaireProvider = commentaireProvider;
     this.message = 'Hello';
     console.log('forum', this);
   }
@@ -97,23 +97,15 @@ export class ForumComponent {
     })
 
   }
-  getUsers(){
-    this.userProvider.getUsers().then(list =>{
-      console.log("liste users",list);
-      this.listeUsers=list;
-    })
-
-  }
-  getComsBySujet(id){
-    this.commentarieProvider.getComsBySujet().then(list =>{
-      console.log("liste coms",list);
-      this.listeComs=list;
+  getUsers() {
+    this.userProvider.getUsers().then(list => {
+      console.log("liste users", list);
+      this.listeUsers = list;
     })
 
   }
 
 }
-
 
 export class ForuminfoComponent {
   sujetProvider;
@@ -121,27 +113,39 @@ export class ForuminfoComponent {
   params
   jsFunctionProvider;
   nb;
-  constructor(sujetProvider, $stateParams, jsFunctionProvider) {
+  listeComs;
+  commentaireProvider;
+  constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider) {
     this.message = 'Hello';
     this.sujetProvider = sujetProvider;
     this.params = $stateParams;
     this.jsFunctionProvider = jsFunctionProvider;
+    this.commentaireProvider = commentaireProvider;
     this.listSujets = null;
     this.nb = 0;
-    this.getsujet(this.params.sujetName);
-    console.log('get sujet by name 3', this.listSujets);
 
-    console.log('this', this);
+    //this.getsujet(this.params.sujetName);
+    console.log('get sujet by name 3', this);
+
+    // console.log('this', this);
+  }
+  getComsBySujet(id) {
+    this.commentaireProvider.getComsBySujet(id).then(list => {
+      console.log("liste coms", list);
+      this.listeComs = list;
+    })
+
   }
 
   getsujet(sujetName) {
     //console.log(paysName,list);
     this.sujetProvider.getSujetByName(sujetName).then(list => {
-      console.log('get sujet by name', this);
+      console.log('get sujet by name', list);
       // p = list;
       this.listSujets = list[0];
       console.log('get sujet by name 2', this.listSujets);
-      console.log('get sujet by name 4', p);
+      this.getComsBySujet(this.listSujets._id);
+      // console.log('get sujet by name 4', p);
 
     });
 
@@ -153,6 +157,11 @@ export class ForuminfoComponent {
   }
 
   Init() {
+    var th = this;
+    setTimeout(function () {
+      th.getsujet(th.params.forumName);
+
+    }, 50)
     // console.log('paysprovider',this.paysProvider);
     console.log('sujet list', this.listSujets);
 
@@ -225,8 +234,9 @@ export class ForuminfoComponent {
 
   }
 }
-ForumComponent.$inject=["jsFunctionProvider","sujetProvider","userProvider","commentarieProvider"];
-ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider"];
+// ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
+ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider"];
+ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider"];
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)
   .component('forum', {

@@ -1,1 +1,71 @@
-<div ng-init="vm.Init()"></div>
+<div ng-init="vm.Init()" style="margin-top: 250px;">
+  <!--<sujet></sujet>-->
+  <div class="row">
+    <div class="col-md-1">
+      <!--<sujets></sujets>-->
+    </div>
+    <div class="col-md-7">
+      <div class="main-block clearfix">
+          <!--<div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+              <div class="block-header">
+                <h4 class="block-category">A la Une</h4>
+                <h2 class="block-title">Nouveautés</h2>
+                <div class="block-text">Découvrez les derniers contenus partagés sur la plateforme</div>
+              </div>
+            </div>
+          </div>-->
+          <div class="row">
+            <ul class="media-list">
+              <li class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object" src="../assets/images/perfstock/experts/akon.jpg" alt="..." height="60px" width="60px">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading" ng-bind="vm.listSujets.id_user.name"> </h4>
+                  <p>
+                    {{vm.listSujets.titre}}
+                  </p>
+                </div>
+              </li>
+              <div style="margin-left: 60px; margin-top: 50px;">
+                <li class="media" style="padding: 10px;" ng-repeat="com in vm.listeComs">
+                  <div class="media-left">
+                    <a href="#">
+                      <img class="media-object" ng-src="../assets/images/perfstock/experts/thumbs/{{com.id_user.images}}" alt="..." height="60px"
+                        width="60px">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading"> {{com.id_user.name}} </h4>
+                    {{com.contenu}}
+                  </div>
+                </li>
+              </div>
+            </ul>
+          </div>
+          <div class="row" style="padding: 30px;">
+            <div class="row">
+              <div class="media">
+                <div class="media-left" style="padding: 10px;">
+                  <a href="#">
+                    <img height="60px" width="60px" class="media-object" src="../assets/images/perfstock/experts/tony_elumelu.jpg" alt="...">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Laissez un commentaire?</h4>
+                  <textarea placeholder=" Laissez un commentaire..." class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-top: 7px;">
+              <a class="c-btn b-50 blue hv-blue-o" style="color: #000;" href="#">Ajouter</a>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

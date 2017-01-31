@@ -27,7 +27,7 @@ export function sujetProviderService($http, $q) {
     $http.get('/api/sujets/nom/' + name, {
       cache: true
     }).then(function (list) {
-      //console.log("cycle",list);
+      console.log("cycle",list);
       liste = list.data;
       deferred.resolve(liste);
 

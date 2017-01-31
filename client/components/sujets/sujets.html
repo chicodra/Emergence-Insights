@@ -20,7 +20,7 @@
       <tr ng-repeat="sujet in vm.listeSujets | filter:query">
         <td>
           <div style="padding: 6px;">
-            <p class="simple-title"> {{sujet.titre}} </p>
+            <a class="simple-title" ui-sref="foruminfo({forumName:sujet.titre})"> {{sujet.titre}} </a>
             <p>lremgj dolor sit amet, consectetur adipi fgkgf </p>
           </div>
         </td>
@@ -32,12 +32,12 @@
           <div class="media">
             <div class="media-left">
               <a href="#">
-                <img class="media-object img-circle" src="../assets/images/perfstock/logo.png" alt="..." height="40px" width="40px;">
+                <img class="media-object img-circle" ng-src="../assets/images/perfstock/experts/{{sujet.id_user.images}}" alt="..." height="40px" width="40px;">
               </a>
             </div>
             <div class="media-body">
-              <h4 class="media-heading">Media heading</h4>
-              Lorem ipsum dolor sit amet, consectetur tempora expedita vero eius fuga!
+              <h4 class="media-heading"> {{sujet.id_user.name}} </h4>
+              Lorem ipsu fuga!
             </div>
           </div>
         </td>

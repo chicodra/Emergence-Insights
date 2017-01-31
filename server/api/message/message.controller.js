@@ -110,7 +110,7 @@ export function show(req, res) {
 
 // Get messages by one subject
 export function getMessageBySujet(req, res) {
-  return Message.find({ id_sujet: req.params.id }).populate('id_user')
+  return Message.find({ id_sujet: req.params.id }).populate('id_createur').populate('id_user')
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
