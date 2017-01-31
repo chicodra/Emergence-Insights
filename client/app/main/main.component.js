@@ -18,7 +18,8 @@ export class MainController {
   ListEtud;
   nbinterviews;
   nbetud;
-
+  ListP;
+  nbp;
 
   /*@ngInject*/
   constructor(themeProvider, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider,etudecasProvider) {
@@ -53,6 +54,13 @@ export class MainController {
       console.log('Raymond Etude ', this.ListEtud.length);
       this.nbetud=this.ListEtud.length;
       console.log('Ray Etude', this.nbetud);
+    });
+    
+     this.paysProvider.listPays().then(list => {
+      this.listP = list;
+      console.log('Raymond Pays ', this.listP.length);
+      this.nbp=this.listP.length;
+      console.log('Ray Pays', this.nbp);
     });
     
     
