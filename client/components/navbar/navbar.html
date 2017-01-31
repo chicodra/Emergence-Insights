@@ -46,6 +46,7 @@
           <a href="#"><i class="fa fa-google-plus"></i></a>-->
           <!--<a href="#"><i class="fa fa-linkedin"></i></a>
           <a href="#"><i class="fa fa-facebook"></i></a>-->
+          <a ng-show="nbCtrl.isLoggedIn()">bonjour, {{nbCtrl.getCurrentUser().name}}</li>
           <a ui-sref="login"><i class=" fa fa-sign-in" ng-hide="nbCtrl.isLoggedIn()" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se connecter"></i></a>
           <a ui-sref="logout" ng-show="nbCtrl.isLoggedIn()">logout</a>
           <a href=""><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i></a>
