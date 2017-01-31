@@ -5,3 +5,4 @@
 [0130/185713:ERROR:node_debugger.cc(86)] Cannot start debugger server
 [0131/111729:ERROR:file_io.cc(41)] write: Le canal de communication est sur le point d’être fermé. (0xE8)
 [0131/114054:ERROR:file_io.cc(41)] write: Le canal de communication est sur le point d’être fermé. (0xE8)
+[0131/133023:ERROR:file_io.cc(41)] write: Le canal de communication est sur le point d’être fermé. (0xE8)
