@@ -13,25 +13,23 @@ export class MainController {
   jsFunctionProvider;
   presentationProvider;
   interviewsProvider;
-  interv = [];
-  nbpays;
+  ListInterv;
+  ListEtud;
+  nbinterviews;
+  nbetud;
 
 
   /*@ngInject*/
-  constructor(themeProvider, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider) {
+  constructor(themeProvider, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider,etudecasProvider) {
     //this.socket = socket;
     this.themeProvider = themeProvider,
-      this.paysProvider = paysProvider;
+    this.paysProvider = paysProvider;
     this.interviewsProvider = interviewsProvider;
+    this.etudecasProvider = etudecasProvider;
     /*this.nbpays = this.paysProvider.listPays.length;*/
     this.jsFunctionProvider = jsFunctionProvider;
     this.presentationProvider = presentationProvider;
     this.listPres = null;
-    this.interv = interviewsProvider.listInterviews();
-
-    // console.log('nombre pays', this.paysProvider.listPays.length);
-    console.log('nombre interviews', this.interv);
-
     console.log('main', this);
 
 
@@ -41,8 +39,21 @@ export class MainController {
     // var swipers = [], winW, winH, winScr, _isresponsive, xsPoint = 480, smPoint = 768, mdPoint = 992, lgPoint = 1200, addPoint = 1600, _ismobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i);
 
     //console.log("init",this);
-    this.nbpays = this.interviewsProvider.listInterviews.length;
-    console.log('nombre', this.nbpays);
+      this.interviewsProvider.listInterviews().then(list => {
+      this.ListInterv = list;
+      console.log('Raymond ', this.ListInterv.length);
+      this.nbinterviews=this.ListInterv.length;
+      console.log('Ray ', this.nbinterviews);
+    });
+
+      this.etudecasProvider.listEtudedeCas().then(list => {
+      this.ListEtud = list;
+      console.log('Raymond Etude ', this.ListEtud.length);
+      this.nbetud=this.ListEtud.length;
+      console.log('Ray Etude', this.nbetud);
+    });
+    
+    
     var th = this;
     setTimeout(function () {
       th.presentationProvider.listPresentations().then(list => {
