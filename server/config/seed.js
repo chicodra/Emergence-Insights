@@ -1112,9 +1112,10 @@ User.find({}).remove()
         email: 'admin@example.com',
         password: 'admin'
       }, {
+        _id: "589082cab9c05000f04c77d0",
         provider: 'local',
         role: 'user',
-        name: 'Raymond',
+        name: 'Raymond Sadio',
         images:'victor_gorom_ndiaye.jpg',
         email: 'ray@example.com',
         password: 'saphila'
@@ -1124,7 +1125,14 @@ User.find({}).remove()
         name: 'pach',
         email: 'adfmin@exmple.com',
         password: 'admin'
-      })
+      }),{
+        _id: "58907f18b9c05000f04c77cf",
+        provider: 'local',
+        name: 'Waly Ndiaye',
+        images:'akon.jpg',
+        email: 'kain@exmple.com',
+        password: 'pass'
+      }
       .then(() => {
         console.log('finished populating users');
       });
@@ -1141,6 +1149,16 @@ Sujet.find({}).remove()
       _id: 2,
       titre: 'La fonte des neiges',
       id_user: '587f54a347ea262b686ecc5f',
+      date_creation: '2017-04-01'
+    }, {
+      _id: 3,
+      titre: 'Le Muslim ban',
+      id_user: '58907f18b9c05000f04c77cf',
+      date_creation: '2017-04-01'
+    }, {
+      _id: 4,
+      titre: 'Donald trump messie ou desctructeur',
+      id_user: '589082cab9c05000f04c77d0',
       date_creation: '2017-04-01'
     });
   });
@@ -1424,6 +1442,54 @@ Message.find({}).remove()
       id_createur: '587f54a347ea262b686ecc5f',
       contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
   `,
-      date_creation: '2017-01-01'
+      date_creation: '2017-04-01'
+    }, {
+      _id: 12,
+      id_user: '589082cab9c05000f04c77d0',
+      id_sujet: 3,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+  `,
+      date_creation: '2017-04-08'
+    }, {
+      _id: 13,
+      id_user: '589082cab9c05000f04c77d0',
+      id_sujet: 3,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+  `,
+      date_creation: '2017-05-01'
+    }, {
+      _id: 14,
+      id_user: '58907f18b9c05000f04c77cf',
+      id_sujet: 3,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+  `,
+      date_creation: '2017-05-03'
+    }, {
+      _id: 15,
+      id_user: '58907f18b9c05000f04c77cf',
+      id_sujet: 4,
+      id_createur: '589082cab9c05000f04c77d0',
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+  `,
+      date_creation: '2017-05-03'
+    }, {
+      _id: 16,
+      id_user: '58907f18b9c05000f04c77cf',
+      id_sujet: 4,
+      id_createur: '589082cab9c05000f04c77d0',
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+  `,
+      date_creation: '2017-05-03'
+    }, {
+      _id: 17,
+      id_user: '589082cab9c05000f04c77d0',
+      id_sujet: 4,
+      id_createur: '589082cab9c05000f04c77d0',
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+  `,
+      date_creation: '2017-05-03'
     });
   });
