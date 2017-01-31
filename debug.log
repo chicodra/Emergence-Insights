@@ -1,1 +1,7 @@
 [0117/210323:ERROR:file_io.cc(41)] write: Le canal de communication est sur le point d’être fermé. (0xE8)
+[0130/181656:ERROR:tcp_listen_socket.cc(76)] Could not bind socket to 127.0.0.1:6004
+[0130/181656:ERROR:node_debugger.cc(86)] Cannot start debugger server
+[0130/185713:ERROR:tcp_listen_socket.cc(76)] Could not bind socket to 127.0.0.1:6004
+[0130/185713:ERROR:node_debugger.cc(86)] Cannot start debugger server
+[0131/111729:ERROR:file_io.cc(41)] write: Le canal de communication est sur le point d’être fermé. (0xE8)
+[0131/114054:ERROR:file_io.cc(41)] write: Le canal de communication est sur le point d’être fermé. (0xE8)

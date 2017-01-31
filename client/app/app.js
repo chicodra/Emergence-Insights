@@ -31,6 +31,7 @@ import interviews from '../components/interviews/interviews.component';
 import etudedecas from '../components/etudeDeCas/etudeDeCas.component';
 import fichedebonnepratiques from '../components/ficheDeBonnePratiques/ficheDeBonnePratiques.component';
 import listactualites from '../components/listActualites/listActualites.component';
+import sujets from '../components/sujets/sujets.component';
 import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';

@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import routing from './main.routes';
 
+
 export class MainController {
   $http;
   socket;
@@ -22,6 +23,7 @@ export class MainController {
   /*@ngInject*/
   constructor(themeProvider, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider,etudecasProvider) {
     //this.socket = socket;
+        document.querySelector('header').hidden = false;
     this.themeProvider = themeProvider,
     this.paysProvider = paysProvider;
     this.interviewsProvider = interviewsProvider;
@@ -30,8 +32,8 @@ export class MainController {
     this.jsFunctionProvider = jsFunctionProvider;
     this.presentationProvider = presentationProvider;
     this.listPres = null;
-    console.log('main', this);
 
+    console.log('main', this);
 
   }
 
