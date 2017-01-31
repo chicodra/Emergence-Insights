@@ -17,5 +17,9 @@ h1 {
     margin-right:15px;
     
 }
+.hover01 figure:hover img {
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+}
 
 
