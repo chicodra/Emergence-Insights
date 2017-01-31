@@ -104,6 +104,16 @@ export function getArticleByTheme(req, res){
     .catch(handleError(res));
 }
 
+//getArticleAlaUne
+
+export function getArticleAlaUne(req, res){
+   return Article.find({une:req.params.id}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+
 export function getArticleByAuteur(req, res){
    return Article.find({auteur:req.params.aut}).exec()
     .then(handleEntityNotFound(res))
