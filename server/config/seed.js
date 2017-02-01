@@ -1126,14 +1126,14 @@ User.find({}).remove()
         name: 'pach',
         email: 'adfmin@exmple.com',
         password: 'admin'
-      }),{
+      },{
         _id: "58907f18b9c05000f04c77cf",
         provider: 'local',
         name: 'Waly Ndiaye',
         images:'akon.jpg',
         email: 'kain@exmple.com',
         password: 'pass'
-      }
+    })
       .then(() => {
         console.log('finished populating users');
       });
