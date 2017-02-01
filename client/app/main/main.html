@@ -16,18 +16,20 @@
             </div>
           </div>
         </div>
-        <div class="swiper-slide" data-val="1">
-          <div class="fullheight">
-            <img class="center-image" src="/assets/images/bg_1.jpg" alt="">
-            <div class="vertical-align">
-              <div class="square-box">
-                <h4 class="square-date">25 June 2015</h4>
-                <h2 class="square-title">design conference</h2>
-                <div class="square-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodn</div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+       <!--<div  class="swiper-slide" data-val="1">
+                    	<div class="fullheight">
+                        	<img class="center-image" src="/assets/images/bg_1.jpg" alt="">
+                        	<div class="vertical-align">
+                        		<div class="square-box">
+                        			<h4 class="square-date">25 June 2015</h4>
+                        			<h2 class="square-title">design conference</h2>
+                        			<div class="square-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodn</div>
+                        		</div>
+                        	</div>
+                    	</div>
+                    </div>-->
+
         <div class="swiper-slide" data-val="2">
           <div class="triheight">
             <img class="center-image" src="/assets/images/perfstock/slider/confroom2.jpg" alt="">
@@ -52,19 +54,19 @@
       <h4 class="counter-title">Emergence Insights:</h4>
       <div class="counters-block clearfix" data-finaldate="11 sep 2016">
         <div class="counters-entry">
-          <div style="font-size: 30px; color: blue;">{{$ctrl.nbetud}}</div>
+          <div class="counters-count ">{{$ctrl.nbetud}}</div>
           <div class="counters-label">études de cas</div>
         </div>
         <div class="counters-entry">
-          <div class="counters-count hours">100</div>
-          <div class="counters-label">publications</div>
+          <div class="counters-count">{{$ctrl.nbarticle}}</div>
+          <div class="counters-label">articles</div>
         </div>
         <div class="counters-entry">
-          <div style="font-size: 30px; color: blue;">{{$ctrl.nbinterviews}}</div>
+          <div class="counters-count">{{$ctrl.nbinterviews}}</div>
           <div class="counters-label">interviews</div>
         </div>
         <div class="counters-entry">
-          <div style="font-size: 30px; color: blue;">{{$ctrl.nbp}}</div>
+          <div class="counters-count">{{$ctrl.nbp}}</div>
           <div class="counters-label">Liste des pays</div>
         </div>
       </div>
@@ -374,330 +376,7 @@
   </div>
 </div>
 <!-- SLIDER WITH THUMBS -->
-<div id="speakers" class="main-block clearfix">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-        <div class="block-header">
-          <h4 class="block-category">Interviews</h4>
-          <h2 class="block-title">Paroles d'experts</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="slider-wth-thumbs">
-    <div class="swiper-container thumbnails-preview" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide active" data-val="0">
-          <div class="speaker-img"><img class="center-image" src="/assets/images/perfstock/experts/tony_elumelu.jpg" alt=""></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="speaker-block">
-                  <div class="speaker-title">Tony Elumelu</div>
-                  <div class="speaker-category">Tony Elumelu Foundation</div>
-                  <div class="speaker-text">En moins de trente ans, le Nigérian Tony Elumelu a bâti un groupe de pointe dans la banque, l'hôtellerie
-                    et l'énergie. Ce businessman pas comme les autres lance un programme de 100 millions de dollars pour
-                    soutenir les patrons de demain.
-                    <br />Lis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-                  <div class="speaker-social clearfix">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
-                  </div>
-                  <div class="speaker-change clearfix">
-                    <img src="/assets/images/speaker_change_1.jpg" data-image="/assets/images/speaker_change_1_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_2.jpg" data-image="/assets/images/speaker_change_2_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_3.jpg" data-image="/assets/images/speaker_change_3_b.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide" data-val="1">
-          <div class="speaker-img"><img class="center-image" src="/assets/images/perfstock/experts/akon.jpg" alt=""></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="speaker-block">
-                  <div class="speaker-title">Akon</div>
-                  <div class="speaker-category">Fondateur Akon Light Africa</div>
-                  <div class="speaker-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                    eu fugiat nulla pariatur.</div>
-                  <div class="speaker-social clearfix">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
-                  </div>
-                  <div class="speaker-change clearfix">
-                    <img src="/assets/images/speaker_change_1.jpg" data-image="/assets/images/speaker_change_1_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_2.jpg" data-image="/assets/images/speaker_change_2_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_3.jpg" data-image="/assets/images/speaker_change_3_b.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide" data-val="2">
-          <div class="speaker-img"><img class="center-image" src="/assets/images/perfstock/experts/victor_gorom_ndiaye.jpg" alt=""></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="speaker-block">
-                  <div class="speaker-title">Victor Gorom Ndiaye</div>
-                  <div class="speaker-category">Fondateur Performances Group</div>
-                  <div class="speaker-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                    eu fugiat nulla pariatur.</div>
-                  <div class="speaker-social clearfix">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
-                  </div>
-                  <div class="speaker-change clearfix">
-                    <img src="/assets/images/speaker_change_1.jpg" data-image="/assets/images/speaker_change_1_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_2.jpg" data-image="/assets/images/speaker_change_2_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_3.jpg" data-image="/assets/images/speaker_change_3_b.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide active" data-val="3">
-          <div class="speaker-img"><img class="center-image" src="/assets/images/perfstock/experts/tony_elumelu.jpg" alt=""></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="speaker-block">
-                  <div class="speaker-title">Tony Elumelu</div>
-                  <div class="speaker-category">Tony Elumelu Foundation</div>
-                  <div class="speaker-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                    eu fugiat nulla pariatur.</div>
-                  <div class="speaker-social clearfix">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
-                  </div>
-                  <div class="speaker-change clearfix">
-                    <img src="/assets/images/speaker_change_1.jpg" data-image="/assets/images/speaker_change_1_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_2.jpg" data-image="/assets/images/speaker_change_2_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_3.jpg" data-image="/assets/images/speaker_change_3_b.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide" data-val="4">
-          <div class="speaker-img"><img class="center-image" src="/assets/images/perfstock/experts/akon.jpg" alt=""></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="speaker-block">
-                  <div class="speaker-title">Akon</div>
-                  <div class="speaker-category">Fondateur Akon Light Africa</div>
-                  <div class="speaker-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                    eu fugiat nulla pariatur.</div>
-                  <div class="speaker-social clearfix">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
-                  </div>
-                  <div class="speaker-change clearfix">
-                    <img src="/assets/images/speaker_change_1.jpg" data-image="/assets/images/speaker_change_1_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_2.jpg" data-image="/assets/images/speaker_change_2_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_3.jpg" data-image="/assets/images/speaker_change_3_b.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide" data-val="5">
-          <div class="speaker-img"><img class="center-image" src="/assets/images/perfstock/experts/victor_gorom_ndiaye.jpg" alt=""></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="speaker-block">
-                  <div class="speaker-title">Victor Gorom Ndiaye</div>
-                  <div class="speaker-category">Fondateur Performances Group</div>
-                  <div class="speaker-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                    eu fugiat nulla pariatur.</div>
-                  <div class="speaker-social clearfix">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
-                  </div>
-                  <div class="speaker-change clearfix">
-                    <img src="/assets/images/speaker_change_1.jpg" data-image="/assets/images/speaker_change_1_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_2.jpg" data-image="/assets/images/speaker_change_2_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_3.jpg" data-image="/assets/images/speaker_change_3_b.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide" data-val="6">
-          <div class="speaker-img"><img class="center-image" src="/assets/images/perfstock/experts/akon.jpg" alt=""></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="speaker-block">
-                  <div class="speaker-title">Akon</div>
-                  <div class="speaker-category">Fondateur Akon Light Africa</div>
-                  <div class="speaker-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                    eu fugiat nulla pariatur.</div>
-                  <div class="speaker-social clearfix">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
-                  </div>
-                  <div class="speaker-change clearfix">
-                    <img src="/assets/images/speaker_change_1.jpg" data-image="/assets/images/speaker_change_1_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_2.jpg" data-image="/assets/images/speaker_change_2_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_3.jpg" data-image="/assets/images/speaker_change_3_b.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide" data-val="7">
-          <div class="speaker-img"><img class="center-image" src="/assets/images/perfstock/experts/victor_gorom_ndiaye.jpg" alt=""></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="speaker-block">
-                  <div class="speaker-title">Victor Gorom Ndiaye</div>
-                  <div class="speaker-category">Fondateur Performances Group</div>
-                  <div class="speaker-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                    eu fugiat nulla pariatur.</div>
-                  <div class="speaker-social clearfix">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
-                  </div>
-                  <div class="speaker-change clearfix">
-                    <img src="/assets/images/speaker_change_1.jpg" data-image="/assets/images/speaker_change_1_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_2.jpg" data-image="/assets/images/speaker_change_2_b.jpg" alt="">
-                    <img src="/assets/images/speaker_change_3.jpg" data-image="/assets/images/speaker_change_3_b.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="pagination"></div>
-      <div class="swiper-arrow-left style-1"><img src="/assets/images/arrow_left.png" alt=""></div>
-      <div class="swiper-arrow-right style-1"><img src="/assets/images/arrow_right.png" alt=""></div>
-    </div>
-    <div class="swiper-container thumbnails" data-autoplay="0" data-loop="0" data-speed="500" data-center="0" data-slides-per-view="responsive"
-      data-mob-slides="3" data-xs-slides="4" data-sm-slides="6" data-md-slides="7" data-lg-slides="8" data-add-slides="8">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide current active" data-val="0">
-          <img class="img-responsive img-full" src="/assets/images/perfstock/experts/thumbs/tony_elumelu.jpg" alt="">
-          <div class="thumb-desc">
-            <div class="thumb-title">Tony Elumelu</div>
-            <div class="thumb-text">Tony Elumelu Foundation</div>
-          </div>
-          <div class="thumb-overlay"></div>
-        </div>
-        <div class="swiper-slide" data-val="1">
-          <img class="img-responsive img-full" src="/assets/images/perfstock/experts/thumbs/akon.jpg" alt="">
-          <div class="thumb-desc">
-            <div class="thumb-title">Akon</div>
-            <div class="thumb-text">Fondateur ALA</div>
-          </div>
-          <div class="thumb-overlay"></div>
-        </div>
-        <div class="swiper-slide" data-val="2">
-          <img class="img-responsive img-full" src="/assets/images/perfstock/experts/thumbs/victor_gorom_ndiaye.jpg" alt="">
-          <div class="thumb-desc">
-            <div class="thumb-title">Victor Gorom Ndiaye</div>
-            <div class="thumb-text">Fondateur Performances Group</div>
-          </div>
-          <div class="thumb-overlay"></div>
-        </div>
-        <div class="swiper-slide current active" data-val="3">
-          <img class="img-responsive img-full" src="/assets/images/perfstock/experts/thumbs/tony_elumelu.jpg" alt="">
-          <div class="thumb-desc">
-            <div class="thumb-title">Tony Elumelu</div>
-            <div class="thumb-text">Tony Elumelu Foundation</div>
-          </div>
-          <div class="thumb-overlay"></div>
-        </div>
-        <div class="swiper-slide" data-val="4">
-          <img class="img-responsive img-full" src="/assets/images/perfstock/experts/thumbs/akon.jpg" alt="">
-          <div class="thumb-desc">
-            <div class="thumb-title">Akon</div>
-            <div class="thumb-text">Fondateur ALA</div>
-          </div>
-          <div class="thumb-overlay"></div>
-        </div>
-        <div class="swiper-slide" data-val="5">
-          <img class="img-responsive img-full" src="/assets/images/perfstock/experts/thumbs/victor_gorom_ndiaye.jpg" alt="">
-          <div class="thumb-desc">
-            <div class="thumb-title">Victor Gorom Ndiaye</div>
-            <div class="thumb-text">Fondateur Performances Group</div>
-          </div>
-          <div class="thumb-overlay"></div>
-        </div>
-        <div class="swiper-slide current active" data-val="6">
-          <img class="img-responsive img-full" src="/assets/images/perfstock/experts/thumbs/tony_elumelu.jpg" alt="">
-          <div class="thumb-desc">
-            <div class="thumb-title">Tony Elumelu</div>
-            <div class="thumb-text">Tony Elumelu Foundation</div>
-          </div>
-          <div class="thumb-overlay"></div>
-        </div>
-        <div class="swiper-slide" data-val="7">
-          <img class="img-responsive img-full" src="/assets/images/perfstock/experts/thumbs/akon.jpg" alt="">
-          <div class="thumb-desc">
-            <div class="thumb-title">Akon</div>
-            <div class="thumb-text">Fondateur ALA</div>
-          </div>
-          <div class="thumb-overlay"></div>
-        </div>
-      </div>
-      <div class="pagination hidden"></div>
-  </div>
-</div>
-</div>
+<interviews></interviews>
 <!-- MESSAGE LINE -->
 <div id="sing" class="message-line">
   <div class="container">
@@ -791,81 +470,7 @@
 </div>
 <!-- NEWS -->
 <div class="main-block style-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-        <div class="block-header">
-          <h4 class="block-category">Suivez-nous</h4>
-          <h2 class="block-title">Actualité</h2>
-          <div class="block-text">Suivez l'actualité de l'émergence à travers notre fil d'actualité et notre compte twitter.</div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="news-entry col-xs-12 col-sm-6 col-md-4">
-        <div class="news type-1 facebook">
-          <h4><a class="news-title" href="#">McKinsey continue de croire en la capacité économique des « lions » d’Afrique ?</a></h4>
-          <div class="news-date"><i class="fa fa-clock-o"></i> 25 Septembre 2016</div>
-          <a class="news-type" href="#"><i class="fa fa-facebook"></i></a>
-          <div class="news-likes">
-            <a href="#"><i class="fa fa-thumbs-o-up"></i> 980</a>
-            <a href="#"><i class="fa fa-comment-o"></i> 79</a>
-          </div>
-        </div>
-      </div>
-      <div class="news-entry col-xs-12 col-sm-6 col-md-4">
-        <div class="news type-2">
-          <img class="img-responsive" src="/assets/images/perfstock/alaune/tanzaniefit.jpg" alt="">
-          <div class="news-desc">
-            <h4><a class="news-title" href="#">Les enfants tanzaniens sont les plus en forme au monde</a></h4>
-            <div class="news-date"><i class="fa fa-clock-o"></i> 26 Septembre 2016</div>
-          </div>
-        </div>
-      </div>
-      <div class="news-entry col-xs-12 col-sm-6 col-md-4">
-        <div class="news type-1 twitter">
-          <h4><a class="news-title" href="#">Énergie, infrastructures, hôtellerie - La Boad accorde 10 nouveaux prêts de 90 milliards de F Cfa</a></h4>
-          <div class="news-date"><i class="fa fa-clock-o"></i> 24 Aout 2016</div>
-          <a class="news-type" href="#"><i class="fa fa-facebook"></i></a>
-          <div class="news-likes">
-            <a href="#"><i class="fa fa-thumbs-o-up"></i> 980</a>
-            <a href="#"><i class="fa fa-star-o"></i> 79</a>
-          </div>
-        </div>
-      </div>
-      <div class="news-entry col-xs-12 col-sm-6 col-md-4">
-        <div class="news type-2">
-          <img class="img-responsive" src="/assets/images/perfstock/alaune/obama_power_africa.jpg" alt="">
-          <div class="news-desc">
-            <h4><a class="news-title" href="#">Un milliard de dollars supplémentaires pour le plan d’électrification de l’Afrique d’Obama</a></h4>
-            <div class="news-date"><i class="fa fa-clock-o"></i> 21 Septembre 2016</div>
-          </div>
-        </div>
-      </div>
-      <div class="news-entry col-xs-12 col-sm-6 col-md-4">
-        <div class="news type-1 twitter">
-          <h4><a class="news-title" href="#"> L’Afrique concentre la moitié des pays à plus forte croissance de la planète</a></h4>
-          <div class="news-date"><i class="fa fa-clock-o"></i> 02 Octobre 2016</div>
-          <a class="news-type" href="#"><i class="fa fa-facebook"></i></a>
-          <div class="news-likes">
-            <a href="#"><i class="fa fa-thumbs-o-up"></i> 980</a>
-            <a href="#"><i class="fa fa-star-o"></i> 79</a>
-          </div>
-        </div>
-      </div>
-      <div class="news-entry col-xs-12 col-sm-6 col-md-4">
-        <div class="news type-1 facebook">
-          <h4><a class="news-title" href="#"> Zep-Re lance une académie de formation pour améliorer la pénétration de l’assurance dans l’espace COMESA</a></h4>
-          <div class="news-date"><i class="fa fa-clock-o"></i> 30 Septembre 2016</div>
-          <a class="news-type" href="#"><i class="fa fa-facebook"></i></a>
-          <div class="news-likes">
-            <a href="#"><i class="fa fa-thumbs-o-up"></i> 980</a>
-            <a href="#"><i class="fa fa-comment-o"></i> 79</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<actualiteune></actualiteune>
 </div>
 <!-- SPONSORS -->
 <div id="partners" class="main-block style-2">
