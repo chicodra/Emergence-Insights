@@ -19,7 +19,8 @@
         <td>Commentaire</td>
         <td>Utilisateur</td>
       </tr>
-      <tr id="sujet" ng-repeat="sujet in vm.listeSujets | filter:query">
+      <tr ui-sref="foruminfo({forumName:sujet.titre})" id="sujet" ng-repeat="sujet in vm.listeSujets | filter:query">
+        
         <td>
           <div style="padding: 6px;">
             <a class="simple-title" ui-sref="foruminfo({forumName:sujet.titre})"> {{sujet.titre}} </a>
