@@ -28,12 +28,13 @@
 		                    </div>
 		                </div>-->
 
-		
-<div class="row">
-	<div class="news-entry col-xs-12 col-sm-6 col-md-4" style="padding: 40px 10px 0px 0px; width: 300px; margin-right: 80px;" ng-repeat="actualite in vm.actualitesPays">
-	<div class="news type-2 hover01 column">
-		<a   ui-sref="actualite({libelle:actualite.id_actualite.sujet})">
-		                			<figure><img class="img-responsive " src="../../assets/images/perfstock/actualite/{{actualite.id_actualite.image}}"  style="height: 200px; width:500px;"></figure>
+
+		<div class="row">
+			<div class="news-entry col-xs-12 col-sm-6 col-md-4" style="padding: 40px 10px 0px 0px; width: 300px; margin-right: 80px;" ng-repeat="actualite in vm.actualitesPays">
+<div class="news type-2 hover01 column">
+	<a ui-sref="actualite({libelle:actualite.id_actualite.sujet})">
+		<figure>
+			<img class="img-responsive " src="../../assets/images/perfstock/actualite/{{actualite.id_actualite.image}}" style="height: 200px; width:500px;"></figure>
 </a>
 <div class="news-desc">
 	<h4><a class="news-title " ui-sref="actualite({libelle:actualite.id_actualite.sujet})"> {{actualite.id_actualite.sujet}}</a></h4>
@@ -41,8 +42,6 @@
 </div>
 </div>
 </div>
-
 </div>
-
 </div>
 </div>

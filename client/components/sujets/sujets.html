@@ -20,15 +20,27 @@
       <tr ng-repeat="sujet in vm.listeSujets | filter:query">
         <td>
           <div style="padding: 6px;">
-            <p class="simple-title"> {{sujet.titre}} </p>
-            <p>lremgj dolor sit amet, consectetur adipi fgkgf  </p>
+            <a class="simple-title" ui-sref="foruminfo({forumName:sujet.titre})"> {{sujet.titre}} </a>
+            <p>lremgj dolor sit amet, consectetur adipi fgkgf </p>
           </div>
         </td>
         <td>
           {{sujet.date_creation | date:'dd/MM/yyyy'}}
         </td>
         <td>0</td>
-        <td>lorem okolorem okolorem okolorem oko</td>
+        <td>
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle" ng-src="../assets/images/perfstock/experts/{{sujet.id_user.images}}" alt="..." height="40px" width="40px;">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"> {{sujet.id_user.name}} </h4>
+              Lorem ipsu fuga!
+            </div>
+          </div>
+        </td>
       </tr>
     </table>
   </div>

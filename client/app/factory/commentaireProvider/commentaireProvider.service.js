@@ -6,9 +6,10 @@ export function commentaireProviderService($http,$q) {
 	// AngularJS will instantiate a singleton by calling "new" on this function
   //this.listPres=null;
   this.getComsBySujet=function (id) {
+    
     var deferred=$q.defer();
     var liste=[];
-    $http.get('/api/commentaires/sujet/'+id,{
+    $http.get('/api/messages/sujet/'+id,{
       cache: true
     }).then(function(list) {
       //console.log("cycle",list);
