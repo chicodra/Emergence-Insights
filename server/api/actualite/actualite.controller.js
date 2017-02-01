@@ -86,6 +86,13 @@ export function getActuBySujet(req, res) {
     .catch(handleError(res));
 }
 
+//get a Actu if its a la une
+export function getActuByUne(req, res) {
+  return Actualite.find({une : req.params.true}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
 
 // Creates a new Actualite in the DB
 export function create(req, res) {

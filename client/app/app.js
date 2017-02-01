@@ -45,6 +45,7 @@ import articleProvider from './factory/articleProvider/articleProvider.service';
 import forumComponent from './forum/forum.component';
 import jsFunctionSlider from './factory/jsFunctionProvider/jsFunctionProvider.service';
 import interviewsProvider from './factory/interviewsProvider/interviewsProvider.service';
+import etudecasProvider from './factory/etudecasProvider/etudecasProvider.service';
 import actualiteProvider from './factory/actualiteProvider/actualiteProvider.service';
 import documentationProvider from './factory/documentationProvider/documentationProvider.service';
 import agendaProvider from './factory/agendaProvider/agendaProvider.service';
@@ -57,6 +58,7 @@ import presentationProvider from './factory/presentationProvider/presentationPro
 import sujetProvider from './factory/sujetProvider/sujetProvider.service';
 import userProvider from './factory/userProvider/userProvider.service';
 import commentarieProvider from './factory/commentaireProvider/commentaireProvider.service';
+import articlealaune from '../components/articleune/articleune.component';
 
 
 
@@ -67,7 +69,8 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     main, constants, socket, util, theme, paysProvider, articleProvider, si, revue, interviews, etudedecas,
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
     InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent,
-  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users, commentarieProvider, sujet
+
+  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users, commentarieProvider, sujet, etudecasProvider, articlealaune
 
 
   ])
