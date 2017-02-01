@@ -22,6 +22,7 @@ import Reponse from '../api/reponse/reponse.model';
 import Documentation from '../api/documentation/documentation.model';
 import Agenda from '../api/agenda/agenda.model';
 import Presentation from '../api/presentation/presentation.model';
+import Slide from '../api/slide/slide.model';
 
 // <INFOS PAYS>
 FicheActualite.find({}).remove()
@@ -666,18 +667,30 @@ Presentation.find({}).remove()
     Presentation.create({
       titre: 'Bienvenue sur',
       contenu: 'Emergence Insights',
-      info: 'Une Plateforme Collaborative pour une mise en oeuvre plus efficace des plans d\'émmergence',
-      images: 'image1'
+      info: 'Une Plateforme Collaborative pour une mise en oeuvre plus efficace des plans d\'émmergence .',
+      id_slide:1
     },{
       titre: 'Mars 2017 à Abidjan',
       contenu:'CIEA',
-      info: 'Enhancing Africa\'s transformation',
-      images: 'images2'
+      info: 'Enhancing Africa\'s transformation .',
+      id_slide:2
     }).then(() => {
       console.log('finished populating Themes');
     });
   });
 
+Slide.find({}).remove()
+  .then(() => {
+    Slide.create({
+      _id: 1,
+      image: 'collaboration2.jpg',
+    },{
+      _id: 2,
+      image: 'confroom2.jpg',
+    }).then(() => {
+      console.log('finished populating Slide');
+    });
+  });
 
 Partie.find({}).remove()
   .then(() => {

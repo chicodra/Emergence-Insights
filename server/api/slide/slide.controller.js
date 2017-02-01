@@ -1,17 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/presentations              ->  index
- * POST    /api/presentations              ->  create
- * GET     /api/presentations/:id          ->  show
- * PUT     /api/presentations/:id          ->  upsert
- * PATCH   /api/presentations/:id          ->  patch
- * DELETE  /api/presentations/:id          ->  destroy
+ * GET     /api/slides              ->  index
+ * POST    /api/slides              ->  create
+ * GET     /api/slides/:id          ->  show
+ * PUT     /api/slides/:id          ->  upsert
+ * PATCH   /api/slides/:id          ->  patch
+ * DELETE  /api/slides/:id          ->  destroy
  */
 
 'use strict';
 
 import jsonpatch from 'fast-json-patch';
-import Presentation from './presentation.model';
+import Slide from './slide.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -63,54 +63,54 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Presentations
+// Gets a list of Slides
 export function index(req, res) {
-  return Presentation.find().populate('id_slide').exec()
+  return Slide.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Presentation from the DB
+// Gets a single Slide from the DB
 export function show(req, res) {
-  return Presentation.findById(req.params.id).exec()
+  return Slide.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Creates a new Presentation in the DB
+// Creates a new Slide in the DB
 export function create(req, res) {
-  return Presentation.create(req.body)
+  return Slide.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Upserts the given Presentation in the DB at the specified ID
+// Upserts the given Slide in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return Presentation.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+  return Slide.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
 
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Updates an existing Presentation in the DB
+// Updates an existing Slide in the DB
 export function patch(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return Presentation.findById(req.params.id).exec()
+  return Slide.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a Presentation from the DB
+// Deletes a Slide from the DB
 export function destroy(req, res) {
-  return Presentation.findById(req.params.id).exec()
+  return Slide.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

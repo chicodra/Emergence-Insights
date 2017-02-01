@@ -6,7 +6,10 @@ var PresentationSchema = new mongoose.Schema({
   titre: String,
   contenu: String,
   info: String,
-  images:String,
+  id_slide : {
+    type : Number,
+    ref :'Slide'
+  },
   active: Boolean
 });
 
