@@ -27,6 +27,18 @@ h1 {
   height: auto; /* hauteur de l'image */
   -webkit-transition: .1s ease-in-out !important; 
   transition: .1s ease-in-out !important;
+}
+
+#sujet {
+  height: 110px;
+  transition: .8s ease-in-out;
+}
+
+#sujet:hover {
+  color: #fff;
+  background-color: rgba(73, 106, 181, 0.51);
+}
+
 
 }
 .imageflottante img:hover {
@@ -35,4 +47,5 @@ h1 {
   border-radius: 50%;
 
 }
+
 

@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-7">
       <div class="main-block clearfix">
-          <!--<div class="row">
+        <!--<div class="row">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
               <div class="block-header">
                 <h4 class="block-category">A la Une</h4>
@@ -15,57 +15,75 @@
               </div>
             </div>
           </div>-->
-          <div class="row">
-            <ul class="media-list">
-              <li class="media">
+        <div class="row">
+          <ul class="media-list">
+            <li class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object" src="../assets/images/perfstock/experts/akon.jpg" alt="..." height="60px" width="60px">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading" ng-bind="vm.listSujets.id_user.name"> </h4>
+                <p>
+                  {{vm.listSujets.titre}}
+                </p>
+              </div>
+            </li>
+            <div style="margin-left: 60px; margin-top: 50px;">
+              <li class="media" style="padding: 10px;" ng-repeat="com in vm.listeComs">
                 <div class="media-left">
                   <a href="#">
-                    <img class="media-object" src="../assets/images/perfstock/experts/akon.jpg" alt="..." height="60px" width="60px">
+                    <img class="media-object" ng-src="../assets/images/perfstock/experts/thumbs/{{com.id_user.images}}" alt="..." height="60px"
+                      width="60px">
                   </a>
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading" ng-bind="vm.listSujets.id_user.name"> </h4>
-                  <p>
-                    {{vm.listSujets.titre}}
-                  </p>
+                  <h4 class="media-heading"> {{com.id_user.name}} </h4>
+                  {{com.contenu}}
                 </div>
               </li>
-              <div style="margin-left: 60px; margin-top: 50px;">
-                <li class="media" style="padding: 10px;" ng-repeat="com in vm.listeComs">
-                  <div class="media-left">
-                    <a href="#">
-                      <img class="media-object" ng-src="../assets/images/perfstock/experts/thumbs/{{com.id_user.images}}" alt="..." height="60px"
-                        width="60px">
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="media-heading"> {{com.id_user.name}} </h4>
-                    {{com.contenu}}
-                  </div>
-                </li>
+            </div>
+          </ul>
+        </div>
+        <div class="row" style="padding: 30px;">
+          <div class="row">
+            <div class="media">
+              <div class="media-left" style="padding: 10px;">
+                <a href="#">
+                  <img height="60px" width="60px" class="media-object" src="../assets/images/perfstock/experts/tony_elumelu.jpg" alt="...">
+                </a>
               </div>
-            </ul>
-          </div>
-          <div class="row" style="padding: 30px;">
-            <div class="row">
-              <div class="media">
-                <div class="media-left" style="padding: 10px;">
-                  <a href="#">
-                    <img height="60px" width="60px" class="media-object" src="../assets/images/perfstock/experts/tony_elumelu.jpg" alt="...">
-                  </a>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Laissez un commentaire?</h4>
-                  <textarea placeholder=" Laissez un commentaire..." class="form-control" rows="3"></textarea>
-                </div>
+              <div class="media-body">
+                <h4 class="media-heading">Laissez un commentaire?</h4>
+                <textarea placeholder=" Laissez un commentaire..." class="form-control" rows="3"></textarea>
               </div>
             </div>
-            <div class="row" style="margin-top: 7px;">
-              <a class="c-btn b-50 blue hv-blue-o" style="color: #000;" href="#">Ajouter</a>
-            </div>
           </div>
+          <div class="row" style="margin-top: 7px;">
+            <a class="c-btn b-50 blue hv-blue-o" style="color: #000;" href="#">Ajouter</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">Les utilisateurs actifs sur ce sujet</div>
+        <div class="panel-body">
+          <div class="media" ng-repeat="user in vm.listUsers">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="../assets/images/perfstock/experts/{{user.images}}" alt="..." height="60px" width="70px">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"> {{user.name}} </h4>
+              <p> {{user.email}} </p> <br>
+              <p> il y'a 1 minute </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

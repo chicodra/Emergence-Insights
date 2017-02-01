@@ -1,23 +1,25 @@
 <div ng-init="vm.Init()">
   <!-- Default panel contents -->
-  <div class="panel panel-default">
-    <div class="panel-heading">Forum</div>
+  <div class="panel panel-default" style="border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+">
+    <!--<div class="panel-heading">Forum</div>-->
     <div class="panel-body">
-      <p>Liste des sujets</p>
+      <!--<p>Liste des sujets</p>-->
       <div class="input-group" style="padding: 30px;">
         <span class="input-group-addon" id="basic-addon3">Rechercher</span>
-        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" ng-model="query">
+        <input placeholder="Vous recherchez un sujet?" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+          ng-model="query">
       </div>
     </div>
     <!-- Table -->
-    <table class="table table-hover">
+    <table class="table table-hover" style="border: 0;">
       <tr>
-        <td>Forum</td>
+        <td style="width: 400px;">Liste des sujets</td>
         <td>Date</td>
         <td>Commentaire</td>
         <td>Utilisateur</td>
       </tr>
-      <tr ng-repeat="sujet in vm.listeSujets | filter:query">
+      <tr id="sujet" ng-repeat="sujet in vm.listeSujets | filter:query">
         <td>
           <div style="padding: 6px;">
             <a class="simple-title" ui-sref="foruminfo({forumName:sujet.titre})"> {{sujet.titre}} </a>
@@ -27,12 +29,13 @@
         <td>
           {{sujet.date_creation | date:'dd/MM/yyyy'}}
         </td>
-        <td>0</td>
+        <td style="text-align: center">0</td>
         <td>
           <div class="media">
             <div class="media-left">
               <a href="#">
-                <img class="media-object img-circle" ng-src="../assets/images/perfstock/experts/{{sujet.id_user.images}}" alt="..." height="40px" width="40px;">
+                <img class="media-object img-circle" ng-src="../assets/images/perfstock/experts/{{sujet.id_user.images}}" alt="..." height="40px"
+                  width="40px;">
               </a>
             </div>
             <div class="media-body">
@@ -43,6 +46,45 @@
         </td>
       </tr>
     </table>
-  </div>
-  <!--fin panel-->
+</div>
+<!--fin panel-->
+<!-- NEWS -->
+<!--<div class="main-block style-2">
+    <div class="">
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+          <div class="block-header">
+            <h4 class="block-category">Forum</h4>
+            <h2 class="block-title">Liste des sujets</h2>
+            <div class="block-text">
+              <div class="input-group" style="padding: 30px;">
+                <span class="input-group-addon" id="basic-addon3">Rechercher</span>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" ng-model="query">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="news-entry col-xs-12 col-sm-6 col-md-4" ng-repeat="sujet in vm.listeSujets | filter:query">
+          <div class="news type-1 facebook">
+            <div class="thumbnail" style="background-color: #46639D; border: 0px solid black;">
+              <img class="col-sm-4 col-md-4 img-rounded img-responsive" style="height: 40px;" ng-src="../assets/images/perfstock/experts/{{sujet.id_user.images}}"
+                alt="...">
+                <h3 style="margin-top: 0.4em;"><a class="news-title" href="#">{{sujet.id_user.name}}</a></h3>
+                <div class="caption">
+                  <h4 style="float: right;"><a class="news-title" ui-sref="foruminfo({forumName:sujet.titre})"> {{sujet.titre}} {{sujet.titre}} </a></h4>
+                </div>
+            </div>
+            <div class="news-date"><i class="fa fa-clock-o"></i> {{sujet.date_creation | date:'dd/MM/yyyy'}}</div>
+            <!--<a class="news-type" href="#"><i class="fa fa-facebook"></i></a>--
+            <div class="news-likes">
+              <a href="#"><i class="fa fa-thumbs-o-up"></i> 980</a>
+              <a ui-sref="foruminfo({forumName:sujet.titre})"><i class="fa fa-comment-o"></i> 79</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
 </div>
