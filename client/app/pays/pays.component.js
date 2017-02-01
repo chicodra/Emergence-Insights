@@ -169,11 +169,6 @@ export class InfoPaysController {
 
     });
 
-
-
-
-
-
   }
   getActualitesPays(id) {
     this.actualiteProvider.listActualitesPays(id).then(list => {

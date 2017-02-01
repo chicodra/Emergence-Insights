@@ -22,13 +22,21 @@ export class MainController {
   nbarticle;
   ListP;
   nbp;
-
+  listpr;
+  listslide;
+  nb;
+  params;
+  test;
+  titre;
+  info;
+  contenu;
   /*@ngInject*/
-  constructor(themeProvider, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider,etudecasProvider, articleProvider) {
+  constructor(themeProvider, $stateParams, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider, etudecasProvider, articleProvider) {
     //this.socket = socket;
-        document.querySelector('header').hidden = false;
+    document.querySelector('header').hidden = false;
     this.themeProvider = themeProvider,
     this.paysProvider = paysProvider;
+    this.params = $stateParams;
     this.interviewsProvider = interviewsProvider;
     this.etudecasProvider = etudecasProvider;
     /*this.nbpays = this.paysProvider.listPays.length;*/
@@ -36,7 +44,8 @@ export class MainController {
     this.presentationProvider = presentationProvider;
     this.articleProvider = articleProvider;
     this.listPres = null;
-
+    this.nb = 0;
+   /// this.getSlide(this.params.image);
     console.log('main', this);
 
   }
@@ -45,35 +54,39 @@ export class MainController {
     // var swipers = [], winW, winH, winScr, _isresponsive, xsPoint = 480, smPoint = 768, mdPoint = 992, lgPoint = 1200, addPoint = 1600, _ismobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i);
 
     //console.log("init",this);
-      this.interviewsProvider.listInterviews().then(list => {
+    
+    this.interviewsProvider.listInterviews().then(list => {
       this.ListInterv = list;
       console.log('Raymond ', this.ListInterv.length);
-      this.nbinterviews=this.ListInterv.length;
+      this.nbinterviews = this.ListInterv.length;
       console.log('Ray ', this.nbinterviews);
     });
 
-      this.etudecasProvider.listEtudedeCas().then(list => {
+    this.etudecasProvider.listEtudedeCas().then(list => {
       this.ListEtud = list;
       console.log('Raymond Etude ', this.ListEtud.length);
-      this.nbetud=this.ListEtud.length;
+      this.nbetud = this.ListEtud.length;
       console.log('Ray Etude', this.nbetud);
     });
-    
-     this.paysProvider.listPays().then(list => {
+    this.paysProvider.listPays().then(list => {
       this.listP = list;
       console.log('Raymond Pays ', this.listP.length);
-      this.nbp=this.listP.length;
+      this.nbp = this.listP.length;
       console.log('Ray Pays', this.nbp);
     });
 
     this.articleProvider.listArticles().then(list => {
       this.ListArt = list;
-      console.log('Raymond Etude ', this.ListArt.length);
-      this.nbarticle=this.ListArt.length;
-      console.log('Ray Etude', this.nbarticle);
+      console.log('Raymond Article ', this.ListArt.length);
+      this.nbarticle = this.ListArt.length;
+      console.log('Ray Article', this.nbarticle);
     });
-    
-    
+    this.presentationProvider.listPresentations().then(list => {
+      this.listslide = list;;
+      console.log('slide', this.listslide)
+    });
+
+
     var th = this;
     setTimeout(function () {
       th.presentationProvider.listPresentations().then(list => {

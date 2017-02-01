@@ -21,6 +21,7 @@ export function presentationProviderService($http,$q) {
     return liste;
 
   }
+
 }
 
 export default angular.module('emergenceInsightsApp.presentationProvider', [])
