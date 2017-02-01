@@ -24,10 +24,9 @@ export function actualiteProviderService($http,$q) {
    this.listAlaUne=function () {
     var deferred=$q.defer();
     var liste=[];
-    $http.get('/api/actualites/une'+true,{
+    $http.get('/api/actualites/une/'+true,{
       cache: true
     }).then(function(list) {
-      //console.log("cycle",list);
       liste=list.data;
       deferred.resolve(liste);
 

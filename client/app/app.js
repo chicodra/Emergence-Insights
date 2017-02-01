@@ -59,7 +59,6 @@ import commentarieProvider from './factory/commentaireProvider/commentaireProvid
 import articlealaune from '../components/articleune/articleune.component';
 import actualitealaune from '../components/actualiteune/actualiteune.component';
 
-
 //import './app.css';
 
 angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,

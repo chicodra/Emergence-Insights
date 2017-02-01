@@ -16,7 +16,8 @@ export class actualiteuneComponent {
     // console.log('paysprovider',this.paysProvider);
     this.actualiteProvider.listAlaUne().then(list => {
     this.actualitesPays=list;
-
+    console.log('fi leuu khéwé');
+    console.log('Actualités',this.actualitesPays);
     });
 
     angular.element(document)
@@ -76,7 +77,7 @@ export class actualiteuneComponent {
   }
 
 }
-
+actualiteuneComponent .$inject=["jsFunctionProvider", "actualiteProvider"];
 export default angular.module('emergenceInsightsApp.actualiteune', [])
   .component('actualiteune', {
     template: require('./atualite.html'),

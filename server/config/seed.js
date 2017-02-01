@@ -234,7 +234,8 @@ Actualite.find({}).remove()
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `,
       sujet: 'La grève des transporteurs',
-      image: 'ddd.jpg'
+      image: 'ddd.jpg',
+      une : true
     });
   });
 Documentation.find({}).remove()
