@@ -21,5 +21,18 @@ h1 {
 	-webkit-transform: scale(0.9);
 	transform: scale(0.9);
 }
+.imageflottante img {
+/*animation: bounce 0.7s ease infinite;*/
+  width: 200px; /* largeur de l'image */
+  height: auto; /* hauteur de l'image */
+  -webkit-transition: .1s ease-in-out !important; 
+  transition: .1s ease-in-out !important;
 
+}
+.imageflottante img:hover {
+  width: 150px; /* on affiche l'image au carré */
+  height: 150px;
+  border-radius: 50%;
+
+}
 

@@ -1,12 +1,13 @@
-<div class="col-md-1"></div>
-<div class="col-md-10 paysInfo" ng-init="vm.Init()">
+<!--<div class="col-md-1" ></div>-->
+<div> 
+<div class="pilierEm" ng-init="vm.Init()" style="padding: 40px 0 0 0">
   <div class="row" id="desc">
-    <div class="col-md-4">
-      <img class="img-responsive"  style="height: 150px;" src="assets/images/perfstock/drapeau/{{vm.pays.drapeau}}" alt="">
-""
+    <div class="col-md-4 imageflottante">
+      <img class="img-responsive "  style="height: 150px;" src="assets/images/perfstock/drapeau/{{vm.pays.drapeau}}" alt="">
+
     </div>
     <div class="col-md-8 " id="nomS">
-      <h1 style="margin-left: -150px;">{{vm.pays.nom}}</h1>
+      <h1 style="margin-left: -270px;">{{vm.pays.nom}}</h1>
       <div class="col-md-12">
         <p style="margin-top: -30px;">{{vm.pays.description | limitTo: 50 }}</p>
       </div>
@@ -38,4 +39,4 @@
     </uib-tab>
   </uib-tabset>
 </div>
-<div class="col-md-1"></div>
+</div>
