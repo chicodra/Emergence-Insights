@@ -21,6 +21,21 @@ export function actualiteProviderService($http,$q) {
     return liste;
 
   }
+   this.listAlaUne=function () {
+    var deferred=$q.defer();
+    var liste=[];
+    $http.get('/api/actualites/une/'+true,{
+      cache: true
+    }).then(function(list) {
+      liste=list.data;
+      deferred.resolve(liste);
+
+    });
+    liste=deferred.promise;
+
+    return liste;
+
+  }
   this.listActualitesPays=function (id) {
     var deferred=$q.defer();
     var liste=[];

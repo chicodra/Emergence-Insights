@@ -59,8 +59,7 @@ import sujetProvider from './factory/sujetProvider/sujetProvider.service';
 import userProvider from './factory/userProvider/userProvider.service';
 import commentarieProvider from './factory/commentaireProvider/commentaireProvider.service';
 import articlealaune from '../components/articleune/articleune.component';
-
-
+import actualitealaune from '../components/actualiteune/actualiteune.component';
 
 //import './app.css';
 
@@ -70,8 +69,8 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
     InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent,
 
-  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users, commentarieProvider, sujet, etudecasProvider, articlealaune
 
+  listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users, commentarieProvider, sujet, etudecasProvider, articlealaune,actualitealaune
 
   ])
   .config(routeConfig)
