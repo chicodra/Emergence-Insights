@@ -65,7 +65,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Sujets
 export function index(req, res) {
-  return Sujet.find().exec()
+  return Sujet.find().populate('id_user')
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
@@ -80,7 +80,7 @@ export function show(req, res) {
 
 // Get Sujet By Nom
 export function getSujetByNom(req, res) {
-  return Sujet.find({ titre: req.params.id }).exec()
+  return Sujet.find({ titre: req.params.id }).populate('id_user')
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
