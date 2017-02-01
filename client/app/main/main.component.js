@@ -16,13 +16,15 @@ export class MainController {
   interviewsProvider;
   ListInterv;
   ListEtud;
+  ListArt;
   nbinterviews;
   nbetud;
+  nbarticle;
   ListP;
   nbp;
 
   /*@ngInject*/
-  constructor(themeProvider, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider,etudecasProvider) {
+  constructor(themeProvider, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider,etudecasProvider, articleProvider) {
     //this.socket = socket;
         document.querySelector('header').hidden = false;
     this.themeProvider = themeProvider,
@@ -32,6 +34,7 @@ export class MainController {
     /*this.nbpays = this.paysProvider.listPays.length;*/
     this.jsFunctionProvider = jsFunctionProvider;
     this.presentationProvider = presentationProvider;
+    this.articleProvider = articleProvider;
     this.listPres = null;
 
     console.log('main', this);
@@ -61,6 +64,13 @@ export class MainController {
       console.log('Raymond Pays ', this.listP.length);
       this.nbp=this.listP.length;
       console.log('Ray Pays', this.nbp);
+    });
+
+    this.articleProvider.listArticles().then(list => {
+      this.ListArt = list;
+      console.log('Raymond Etude ', this.ListArt.length);
+      this.nbarticle=this.ListArt.length;
+      console.log('Ray Etude', this.nbarticle);
     });
     
     

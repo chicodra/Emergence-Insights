@@ -18,7 +18,7 @@
             </div>
           </div>
         </div>
-       <div  class="swiper-slide" data-val="1">
+       <!--<div  class="swiper-slide" data-val="1">
                     	<div class="fullheight">
                         	<img class="center-image" src="/assets/images/bg_1.jpg" alt="">
                         	<div class="vertical-align">
@@ -29,7 +29,7 @@
                         		</div>
                         	</div>
                     	</div>
-                    </div>
+                    </div>-->
         <div class="swiper-slide" data-val="2">
           <div class="triheight">
             <img class="center-image" src="/assets/images/perfstock/slider/confroom2.jpg" alt="">
@@ -54,19 +54,19 @@
       <h4 class="counter-title">Emergence Insights:</h4>
       <div class="counters-block clearfix" data-finaldate="11 sep 2016">
         <div class="counters-entry">
-          <div style="font-size: 30px; color: blue;">{{$ctrl.nbetud}}</div>
+          <div class="counters-count ">{{$ctrl.nbetud}}</div>
           <div class="counters-label">études de cas</div>
         </div>
         <div class="counters-entry">
-          <div class="counters-count hours">100</div>
-          <div class="counters-label">publications</div>
+          <div class="counters-count">{{$ctrl.nbarticle}}</div>
+          <div class="counters-label">articles</div>
         </div>
         <div class="counters-entry">
-          <div style="font-size: 30px; color: blue;">{{$ctrl.nbinterviews}}</div>
+          <div class="counters-count">{{$ctrl.nbinterviews}}</div>
           <div class="counters-label">interviews</div>
         </div>
         <div class="counters-entry">
-          <div style="font-size: 30px; color: blue;">{{$ctrl.nbp}}</div>
+          <div class="counters-count">{{$ctrl.nbp}}</div>
           <div class="counters-label">Liste des pays</div>
         </div>
       </div>
