@@ -22,6 +22,10 @@ export function commentaireProviderService($http,$q) {
     return liste;
 
   }
+
+  // this.ajoutComs = function(id_user, id_sujet, id_createur, contenu, date_cration){
+    
+  // }
 }
 
 export default angular.module('emergenceInsightsApp.commentaireProvider', [])
