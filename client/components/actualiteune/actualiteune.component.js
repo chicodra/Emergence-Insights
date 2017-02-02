@@ -6,12 +6,18 @@ export class actualiteuneComponent {
   jsFunctionProvider;
   actualiteProvider;
   actualitesPays;
+  FichePays;
   constructor(jsFunctionProvider,actualiteProvider) {
     this.message = 'World';
     this.jsFunctionProvider=jsFunctionProvider;
     this.actualiteProvider=actualiteProvider;
   }
-
+   getFicheByActualite(id) {
+    this.actualiteProvider.getFicheByActualite(id).then(list => {
+      this.FichePays = list[0];
+      console.log('1 Fiche', this.FichePays);
+    });
+  }
    Init(){
     // console.log('paysprovider',this.paysProvider);
     this.actualiteProvider.listAlaUne().then(list => {
@@ -19,10 +25,8 @@ export class actualiteuneComponent {
     console.log('fi leuu khéwé');
     console.log('Actualités',this.actualitesPays);
     });
-
     angular.element(document)
       .ready(() => {
-
         console.log('document pilier',document);
         /* demo animated */
         this.jsFunctionProvider.demoAnimated();

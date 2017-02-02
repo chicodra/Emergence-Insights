@@ -1,79 +1,70 @@
 <header class="header type-3" ng-init="nbCtrl.Init()">
   <div class="logo-block" style="margin-left: -100px">
-<a class="logo" href="#"><img src="/assets/images/logo2.png" alt=""></a>
-</div>
-<div class="container">
-  <div class="top-line clearfix">
+    <a class="logo" href="#"><img src="/assets/images/logo2.png" alt=""></a>
   </div>
-  <nav class="main-nav">
-    <div class="top-line-left">
-      <div class="top-contact">
-        <i class="fa fa-envelope-o" style="margin-left: 90px;"></i><a href="mailto:emergenceinsight@pnud.com">emergenceinsight@pnud.com</a></div>
-<div class="top-contact"><i class="fa fa-phone"></i><a href="tal:61402186411">+221 33 555 1234</a>, <a href="tal:6166650">+221 33 555 4567</a></div>
-</div>
-
-  <div class="menu" style="margin-left: 70px;">
-    <ul>
-      <li><a ui-sref="main">Accueil</a></li>
-      <li ng-mouseenter="nbCtrl.classSecteur()" ng-mouseleave="nbCtrl.delclassSecteur()" ng-click="nbCtrl.delclassSecteur()" class="nbCtrl.dropSecteur"><a>Piliers de l'emergence</a>
-
-
-        <ul ng-style="nbCtrl.styleSecteur">
-          <li ng-repeat="theme in nbCtrl.listTheme">
-            <a ui-sref="{{theme.link}}"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; {{theme.libelle}} </a>
+  <div class="container">
+    <div class="top-line clearfix">
+    </div>
+    <nav class="main-nav">
+      <div class="top-line-left">
+        <div class="top-contact">
+          <i class="fa fa-envelope-o" style="margin-left: 90px;"></i><a href="mailto:emergenceinsight@pnud.com">emergenceinsight@pnud.com</a></div>
+        <div class="top-contact"><i class="fa fa-phone"></i><a href="tal:61402186411">+221 33 555 1234</a>, <a href="tal:6166650">+221 33 555 4567</a></div>
+      </div>
+      <div class="menu" style="margin-left: 70px;">
+        <ul>
+          <li><a ui-sref="main">Accueil</a></li>
+          <li ng-mouseenter="nbCtrl.classSecteur()" ng-mouseleave="nbCtrl.delclassSecteur()" ng-click="nbCtrl.delclassSecteur()" class="nbCtrl.dropSecteur"><a>Piliers de l'emergence</a>
+            <ul ng-style="nbCtrl.styleSecteur">
+              <li ng-repeat="theme in nbCtrl.listTheme">
+                <a ui-sref="{{theme.link}}"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; {{theme.libelle}} </a>
+              </li>
+            </ul>
           </li>
-        </ul>
-      </li>
-      <li ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" ng-click="nbCtrl.delclassPays()" class="cl1"><a ui-sref="pays"> Info Pays</a>
-        <ul class="nbCtrl.cl2" ng-style="nbCtrl.myStyle">
-          <li ng-repeat="pays in nbCtrl.listPays"><a ui-sref="paysinfo({paysName: pays.nom})">
-                  <img class="img-circle"  style="width: 15px;" src="assets/images/perfstock/drapeau/{{pays.drapeau}}" alt=""> {{pays.nom}} </a>
-</li>
-</ul>
-</li>
-<li ng-mouseenter="nbCtrl.classEmergence()" ng-mouseleave="nbCtrl.delclassEmergence()" class="nbCtrl.dropEmergence"><a ui-sref="indice">INDICE DE L'EMERGENCE</a>
-  <!--<ul ng-style="nbCtrl.styleEmergence">
+          <li ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" ng-click="nbCtrl.delclassPays()" class="cl1"><a ui-sref="pays"> Info Pays</a>
+            <ul class="nbCtrl.cl2" ng-style="nbCtrl.myStyle">
+              <li ng-repeat="pays in nbCtrl.listPays">
+                <a ui-sref="paysinfo({paysName: pays.nom})">
+                  <img class="img-circle" style="width: 15px;" src="assets/images/perfstock/drapeau/{{pays.drapeau}}" alt="">                  {{pays.nom}} </a>
+              </li>
+            </ul>
+          </li>
+          <li ng-mouseenter="nbCtrl.classEmergence()" ng-mouseleave="nbCtrl.delclassEmergence()" class="nbCtrl.dropEmergence"><a ui-sref="indice">INDICE DE L'EMERGENCE</a>
+            <!--<ul ng-style="nbCtrl.styleEmergence">
                 <li> <a href="">composante de l'indice </a> </li>
                 <li> <a href="">focus pays</a> </li>
               </ul>-->
-</li>
-<!--<li><a href="pays.html">Contact</a>-->
-
-
-
-<li><a ui-sref="forum">Forum</a></li>
-
-<!--<li><a ui-sref="partenaires">Partenaires</a></li>-->
-
-
-</ul>
-</div>
-
-<div class="top-line-right">
-  <div class="top-social">
-    <!--<a href="#"><i class="fa fa-skype"></i></a>
-          <a href="#"><i class="fa fa-google-plus"></i></a>-->
-    <!--<a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-facebook"></i></a>-->
-    <a ng-show="nbCtrl.isLoggedIn()">bonjour, {{nbCtrl.getCurrentUser().name}}</li>
-          <a ui-sref="login"><i class=" fa fa-sign-in" ng-hide="nbCtrl.isLoggedIn()" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se connecter"></i></a>
-    <a ui-sref="logout" ng-show="nbCtrl.isLoggedIn()">logout</a>
-    <a href=""><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i></a>
-  </div>
-  <a class="search-link top-search" href="#"><i class="fa fa-search"></i></a>
-  <div class="search-popup custom-popup">
-    <form>
-      <div class="popup-close"><i class="fa fa-times"></i></div>
-      <h3 class="popup-title text-center">Search</h3>
-      <div class="c-form-group">
-        <div class="c-form-label">Enter search text</div>
-        <input type="text" required="" value="">
+          </li>
+          <!--<li><a href="pays.html">Contact</a>-->
+          <li><a ui-sref="forum">Forum</a></li>
+          <!--<li><a ui-sref="partenaires">Partenaires</a></li>-->
+        </ul>
       </div>
-      <input class="c-btn b-50 black hv-blue-o" type="submit" value="Search">
-    </form>
+      <div class="top-line-right">
+        <div class="top-social">
+          <!--<a href="#"><i class="fa fa-skype"></i></a>
+          <a href="#"><i class="fa fa-google-plus"></i></a>-->
+          <!--<a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>-->
+          <a ng-show="nbCtrl.isLoggedIn()">bonjour, {{nbCtrl.getCurrentUser().name}}</li>
+          <a ui-sref="login"><i class=" fa fa-sign-in" ng-hide="nbCtrl.isLoggedIn()" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se connecter"></i></a>
+          <a ui-sref="logout" ng-show="nbCtrl.isLoggedIn()">logout</a>
+          <a href=""><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i></a>
+        </div>
+        <a class="search-link top-search" href="#"><i class="fa fa-search"></i></a>
+        <div class="search-popup custom-popup">
+          <form>
+            <div class="popup-close"><i class="fa fa-times"></i></div>
+            <h3 class="popup-title text-center">Search</h3>
+            <div class="c-form-group">
+              <div class="c-form-label">Enter search text</div>
+              <input type="text" required="" value="">
+            </div>
+            <input class="c-btn b-50 black hv-blue-o" type="submit" value="Search">
+          </form>
+        </div>
+      </div>
+    </nav>
+    <button class="cmn-toggle-switch"><span></span></button>
   </div>
-</div>
-</nav>
-<button class="cmn-toggle-switch"><span></span></button>
-</div>
 </header>

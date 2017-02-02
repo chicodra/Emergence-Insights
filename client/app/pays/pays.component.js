@@ -188,11 +188,6 @@ export class InfoPaysController {
       this.documentationsPays = list;
 
       console.log('documentation vide', this.documentationsPays)
-
-
-
-
-
     });
 
   }

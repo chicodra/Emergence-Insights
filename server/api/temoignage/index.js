@@ -1,14 +1,12 @@
 'use strict';
 
 var express = require('express');
-var controller = require('./fiche_actualite.controller');
+var controller = require('./temoignage.controller');
 
 var router = express.Router();
 
 router.get('/', controller.index);
 router.get('/:id', controller.show);
-router.get('/pays/:id', controller.getActByPays);
-router.get('/actu/:id',controller.getFicheByActualite);
 router.post('/', controller.create);
 router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);
