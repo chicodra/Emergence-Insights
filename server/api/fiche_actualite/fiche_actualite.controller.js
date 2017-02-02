@@ -92,6 +92,20 @@ export function getActByPays(req, res) {
   })
 }
 
+//get an actuality by country
+export function getFicheByActualite(req, res) {
+  FicheActualite.find({id_actualite : req.params.id}).populate('id_actualite')
+  .exec(function(err,actualites){
+    if(err) { return handleError(res, err); }
+     var lesActus = [];
+    actualites.forEach(function(actu) {
+       
+            lesActus.push(actu);
+       
+    });
+    return res.json(lesActus);
+  })
+}
 
 // Creates a new FicheActualite in the DB
 export function create(req, res) {

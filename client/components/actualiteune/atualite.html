@@ -18,12 +18,12 @@
           <div class="block-text">Suivez l'actualité de l'émergence à travers notre fil d'actualité et notre compte twitter.</div>
         </div>
       </div>
-	<div class="news-entry col-xs-12 col-sm-6 col-md-4" style="padding: 40px 10px 0px 0px; width: 300px; margin-right: 80px;" ng-repeat="actualite in vm.actualitesPays">
-	<div class="news type-2 hover01 column">
+	<div class="news-entry col-xs-12 col-sm-6 col-md-4" style="padding: 40px 10px 0px 0px; width: 300px; margin-right: 80px;" ng-repeat="actualite in vm.actualitesPays" ng-init="vm.getFicheByActualite(actualite._id)">
+	<div class="news type-2 hover01 column" >
 		<a   ui-sref="actualite({libelle:actualite.sujet})">
 		                			<figure><img class="img-responsive " ng-src="../../assets/images/perfstock/actualite/{{actualite.image}}"  style="height: 200px; width:500px;"></figure>
 </a>
-<div class="news-desc">
+<div class="news-desc" >
 	<h4><a class="news-title " ui-sref="actualite({libelle:actualite.sujet})"> {{actualite.sujet}}</a></h4>
 <!--	<div class="news-date"><i class="fa fa-clock-o"></i>{{actualite.date}}</div>-->
 </div>
