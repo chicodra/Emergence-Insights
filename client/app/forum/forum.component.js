@@ -1,6 +1,5 @@
 'use strict';
 const angular = require('angular');
-
 const uiRouter = require('angular-ui-router');
 
 import routes from './forum.routes';
@@ -14,12 +13,14 @@ export class ForumComponent {
   listeUsers;
   listeComs;
   commentaireProvider;
-
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider) {
+  isLoggedIn: Function;
+  
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
     this.commentaireProvider = commentaireProvider;
+    this.isLoggedIn = Auth.isLoggedInSync;
 
 
     this.message = 'Hello';
@@ -120,8 +121,12 @@ export class ForuminfoComponent {
   nb;
   listeComs;
   commentaireProvider;
-  constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider) {
-    this.message = 'Hello';
+  isLoggedIn: Function;
+  isAdmin: Function;
+  getCurrentUser: Function;
+  constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth) {
+
+    'ngInject';
     this.sujetProvider = sujetProvider;
     this.params = $stateParams;
     this.jsFunctionProvider = jsFunctionProvider;
@@ -129,12 +134,16 @@ export class ForuminfoComponent {
     this.userProvider = userProvider;
     this.listSujets = null;
     this.nb = 0;
+    this.isLoggedIn = Auth.isLoggedInSync;
+    this.getCurrentUser = Auth.getCurrentUserSync;
+    
 
     //this.getsujet(this.params.sujetName);
     console.log('get sujet by name 3', this);
 
     // console.log('this', this);
   }
+
   getComsBySujet(id) {
     this.commentaireProvider.getComsBySujet(id).then(list => {
       console.log("liste coms", list);
@@ -258,8 +267,8 @@ export class ForuminfoComponent {
   }
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
-ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider"];
-ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider"];
+ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth"];
+ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth"];
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)

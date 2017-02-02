@@ -46,12 +46,13 @@
             </div>
           </ul>
         </div>
-        <div class="row" style="padding: 30px;">
+
+        <div class="row" style="padding: 30px;" ng-show="vm.isLoggedIn()">
           <div class="row">
             <div class="media">
               <div class="media-left" style="padding: 10px;">
                 <a href="#">
-                  <img height="60px" width="60px" class="media-object" src="../assets/images/perfstock/experts/tony_elumelu.jpg" alt="...">
+                  <img height="60px" width="60px" class="media-object" src="../assets/images/perfstock/experts/{{vm.getCurrentUser().images}}" alt="...">
                 </a>
               </div>
               <div class="media-body">
@@ -64,6 +65,11 @@
             <a class="c-btn b-50 blue hv-blue-o" style="color: #000;" href="#">Ajouter</a>
           </div>
         </div>
+
+        <!--<div ng-hide="vm.isLoggedIn()">
+          <p>veuillez vous connecter pour commenter</p>
+        </div>-->
+
       </div>
     </div>
     <div class="col-md-4" style=" margin-top: 50px;">
