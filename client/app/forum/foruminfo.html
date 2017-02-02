@@ -57,12 +57,12 @@
               </div>
               <div class="media-body">
                 <h4 class="media-heading">Laissez un commentaire?</h4>
-                <textarea placeholder=" Laissez un commentaire..." class="form-control" rows="3"></textarea>
+                <textarea placeholder=" Laissez un commentaire..." class="form-control" rows="3" ng-model="vm.contenuCom"></textarea>
               </div>
             </div>
           </div>
           <div class="row" style="margin-top: 7px;">
-            <a class="c-btn b-50 blue hv-blue-o" style="color: #000;" href="#">Ajouter</a>
+            <a class="c-btn b-50 blue hv-blue-o" style="color: #000;" href="#" ng-click="vm.create()">Ajouter</a>
           </div>
         </div>
 

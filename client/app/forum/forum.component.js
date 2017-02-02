@@ -124,7 +124,11 @@ export class ForuminfoComponent {
   isLoggedIn: Function;
   isAdmin: Function;
   getCurrentUser: Function;
-  constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth) {
+  contenuCom;
+  $http;
+  socket;
+  $window;
+  constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth, $http, socket, $window) {
 
     'ngInject';
     this.sujetProvider = sujetProvider;
@@ -136,7 +140,9 @@ export class ForuminfoComponent {
     this.nb = 0;
     this.isLoggedIn = Auth.isLoggedInSync;
     this.getCurrentUser = Auth.getCurrentUserSync;
-    
+    this.$http = $http;
+    this.socket = socket;
+    this.$window = $window;
 
     //this.getsujet(this.params.sujetName);
     console.log('get sujet by name 3', this);
@@ -160,7 +166,10 @@ export class ForuminfoComponent {
       // p = list;
       this.listSujets = list[0];
       console.log('get sujet by name 2', this.listSujets);
-      this.getComsBySujet(this.listSujets._id);
+      this.getComsBySujet(this.listSujets._id).then(response => {
+        this.listeComs = response.data;
+        this.socket.syncUpdates('commentaires', this.listeComs);
+      });
       // console.log('get sujet by name 4', p);
       this.getusersbysujet(this.listSujets._id, this.listSujets.id_user._id);
 
@@ -192,7 +201,7 @@ export class ForuminfoComponent {
     var th = this;
     setTimeout(function () {
       th.getsujet(th.params.forumName);
-
+      this.socket.syncUpdates('commentaires', this.listeComs);
     }, 100)
     // console.log('paysprovider',this.paysProvider);
     console.log('sujet list', this.listSujets);
@@ -265,10 +274,28 @@ export class ForuminfoComponent {
     }, 100);
 
   }
+  
+
+  create(){
+    if(this.contenuCom) {
+      this.$http.post('/api/messages', {
+        id_user: this.getCurrentUser()._id,
+        id_sujet: this.listSujets._id,
+        id_createur : this.listSujets.id_user._id,
+        contenu : this.contenuCom,
+        // date_creation: currentdate.getDate() + "/"
+        //         + (currentdate.getMonth()+1)  + "/" 
+        //         + currentdate.getFullYear()
+      });
+      this.contenuCom = '';
+      window.location.reload();
+    }
+  }
+
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
 ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth"];
-ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth"];
+ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket","$window"];
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)
