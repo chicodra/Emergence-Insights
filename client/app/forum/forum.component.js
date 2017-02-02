@@ -14,13 +14,16 @@ export class ForumComponent {
   listeComs;
   commentaireProvider;
   isLoggedIn: Function;
-  
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth) {
+  getCurrentUser : Function;
+  titreSujet;
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
     this.commentaireProvider = commentaireProvider;
     this.isLoggedIn = Auth.isLoggedInSync;
+    this.$http = $http;
+    this.getCurrentUser = Auth.getCurrentUserSync;
 
 
     this.message = 'Hello';
@@ -106,6 +109,22 @@ export class ForumComponent {
       console.log("liste users", list);
       this.listeUsers = list;
     })
+
+  }
+
+  ajoutSujet(){
+    if(this.titreSujet) {
+      this.$http.post('/api/sujets', {
+        titre: this.titreSujet,
+        id_user: this.getCurrentUser()._id,
+
+        // date_creation: currentdate.getDate() + "/"
+        //         + (currentdate.getMonth()+1)  + "/" 
+        //         + currentdate.getFullYear()
+      });
+      this.titreSujet = '';
+      window.location.reload();
+    }
 
   }
 
@@ -294,7 +313,7 @@ export class ForuminfoComponent {
 
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
-ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth"];
+ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http"];
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket","$window"];
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
