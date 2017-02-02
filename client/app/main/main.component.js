@@ -37,7 +37,7 @@ export class MainController {
     //this.socket = socket;
     document.querySelector('header').hidden = false;
     this.themeProvider = themeProvider,
-    this.paysProvider = paysProvider;
+      this.paysProvider = paysProvider;
     this.params = $stateParams;
     this.interviewsProvider = interviewsProvider;
     this.etudecasProvider = etudecasProvider;
@@ -48,7 +48,6 @@ export class MainController {
     this.articleProvider = articleProvider;
     this.listPres = null;
     this.nb = 0;
-
     /// this.getSlide(this.params.image);
     console.log('main', this);
 
@@ -151,6 +150,14 @@ export class MainController {
         /* 13 - AJAX CONTACT FORM */
         /*==================================================*/
         this.jsFunctionProvider.ajaxContactForm();
+
+        setTimeout(function () {
+
+
+          this.jsFunctionProvider.globals();
+
+          this.jsFunctionProvider.anchorsNav();
+        }, 100);
 
 
       });

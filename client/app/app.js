@@ -9,6 +9,7 @@ import 'angular-socket-io';
 
 import uiRouter from 'angular-ui-router';
 import uiBootstrap from 'angular-ui-bootstrap';
+import uiSwiper from 'angular-ui-swiper';
 // import ngMessages from 'angular-messages';
 // import ngValidationMatch from 'angular-validation-match';
 
@@ -68,9 +69,8 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
     main, constants, socket, util, theme, paysProvider, articleProvider, si, revue, interviews, etudedecas,
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
-    InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent,
-    listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users, commentarieProvider, sujet, etudecasProvider, articlealaune,actualitealaune,temoignageProvider
-
+    InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent, uiSwiper, temoignageProvider,
+    listactualites, PartenairesComponent, presentationProvider, sujetProvider, userProvider, forumComponent, sujets, users, commentarieProvider, sujet, etudecasProvider, articlealaune, actualitealaune
   ])
   .config(routeConfig)
   .run(function ($rootScope, $location, Auth) {
