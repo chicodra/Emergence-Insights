@@ -62,6 +62,7 @@ export class PiliersComponent {
   }
 
   Init() {
+    // setTimeout(function () {
     angular.element(document)
       .ready(() => {
 
@@ -115,8 +116,11 @@ export class PiliersComponent {
         this.jsFunctionProvider.ajaxContactForm();
 
 
+        this.jsFunctionProvider.globals();
 
+        this.jsFunctionProvider.anchorsNav();
       });
+    // }, 2000);
     setTimeout(function () {
       document.querySelector('header').style.backgroundColor = '#222';
     }, 100);

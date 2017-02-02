@@ -35,7 +35,7 @@ export class MainController {
     //this.socket = socket;
     document.querySelector('header').hidden = false;
     this.themeProvider = themeProvider,
-    this.paysProvider = paysProvider;
+      this.paysProvider = paysProvider;
     this.params = $stateParams;
     this.interviewsProvider = interviewsProvider;
     this.etudecasProvider = etudecasProvider;
@@ -45,7 +45,7 @@ export class MainController {
     this.articleProvider = articleProvider;
     this.listPres = null;
     this.nb = 0;
-   /// this.getSlide(this.params.image);
+    /// this.getSlide(this.params.image);
     console.log('main', this);
 
   }
@@ -54,7 +54,7 @@ export class MainController {
     // var swipers = [], winW, winH, winScr, _isresponsive, xsPoint = 480, smPoint = 768, mdPoint = 992, lgPoint = 1200, addPoint = 1600, _ismobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i);
 
     //console.log("init",this);
-    
+
     this.interviewsProvider.listInterviews().then(list => {
       this.ListInterv = list;
       console.log('Raymond ', this.ListInterv.length);
@@ -145,6 +145,12 @@ export class MainController {
         /* 13 - AJAX CONTACT FORM */
         /*==================================================*/
         this.jsFunctionProvider.ajaxContactForm();
+
+
+
+        this.jsFunctionProvider.globals();
+
+        this.jsFunctionProvider.anchorsNav();
 
 
       });

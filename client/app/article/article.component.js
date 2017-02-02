@@ -3,6 +3,8 @@ const angular = require('angular');
 
 const uiRouter = require('angular-ui-router');
 
+const uiSwip = require('angular-ui-swiper');
+
 import routes from './article.routes';
 
 export class ArticleComponent {
@@ -11,31 +13,24 @@ export class ArticleComponent {
   articleProvider;
   jsFunctionProvider;
   params;
-  constructor(articleProvider, jsFunctionProvider,$stateParams) {
+  constructor(articleProvider, jsFunctionProvider, $stateParams) {
     this.message = 'Hello';
-    this.params=$stateParams;
+    this.params = $stateParams;
     this.articleProvider = articleProvider;
     this.articleProvider.getArticleByName(this.params.libelle).then(list => {
 
-    this.article = list[0];
-    this.image ='../../assets/images/perfstock/article/'+this.article.image;
-      console.log('image',this.image);
+      this.article = list[0];
+      this.image = '../../assets/images/perfstock/article/' + this.article.image;
+      console.log('image', this.image);
       console.log('single article', this.article)
-
-
-
-
-
-
     });
     this.jsFunctionProvider = jsFunctionProvider;
 
-    console.log('article',this);
+    console.log('article', this);
 
   }
   Init() {
     //this.listTheme=[];
-
 
 
     angular.element(document)
@@ -88,17 +83,22 @@ export class ArticleComponent {
         /*==================================================*/
         this.jsFunctionProvider.ajaxContactForm();
 
+        // this.jsFunctionProvider.megaMenu();
 
+        this.jsFunctionProvider.globals();
 
+        this.jsFunctionProvider.anchorsNav();
+
+        // this.jsFunctionProvider.googlemap();
 
       });
 
   }
 }
-ArticleComponent.$inject = ["articleProvider", "jsFunctionProvider","$stateParams"];
+ArticleComponent.$inject = ["articleProvider", "jsFunctionProvider", "$stateParams"];
 
 
-export default angular.module('emergenceInsightsApp.article', [uiRouter])
+export default angular.module('emergenceInsightsApp.article', [uiRouter, uiSwip])
   .config(routes)
   .component('article', {
     template: require('./article.html'),
