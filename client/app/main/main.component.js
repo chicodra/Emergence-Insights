@@ -30,8 +30,10 @@ export class MainController {
   titre;
   info;
   contenu;
+  listtemoignage;
+  temoignageProvider;
   /*@ngInject*/
-  constructor(themeProvider, $stateParams, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider, etudecasProvider, articleProvider) {
+  constructor(themeProvider, $stateParams, paysProvider, jsFunctionProvider, presentationProvider, temoignageProvider, interviewsProvider, etudecasProvider, articleProvider) {
     //this.socket = socket;
     document.querySelector('header').hidden = false;
     this.themeProvider = themeProvider,
@@ -39,6 +41,7 @@ export class MainController {
     this.params = $stateParams;
     this.interviewsProvider = interviewsProvider;
     this.etudecasProvider = etudecasProvider;
+    this.temoignageProvider = temoignageProvider;
     /*this.nbpays = this.paysProvider.listPays.length;*/
     this.jsFunctionProvider = jsFunctionProvider;
     this.presentationProvider = presentationProvider;
@@ -82,11 +85,13 @@ export class MainController {
       console.log('Ray Article', this.nbarticle);
     });
     this.presentationProvider.listPresentations().then(list => {
-      this.listslide = list;;
-      console.log('slide', this.listslide)
+      this.listslide = list;
+      console.log('slide', this.listslide);
     });
-
-
+    this.temoignageProvider.listTemoignages().then(list => {
+      this.listtemoignage = list;
+      console.log('Ray temoignages', this.listtemoignage);
+    });
     var th = this;
     setTimeout(function () {
       th.presentationProvider.listPresentations().then(list => {
