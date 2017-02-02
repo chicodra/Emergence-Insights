@@ -13,11 +13,11 @@
             <div class="form-group" style="padding: 4px;">
               <!--<label for="inputEmail3" class="col-sm-2 control-label">Email</label>-->
               <div style="margin-bottom: 0.5em;">
-                <input type="text" class="form-control" placeholder="Sujet">
+                <input type="text" class="form-control" placeholder="Sujet" ng-model="vm.titreSujet">
               </div>
               <div>
                 
-                <a class="btn btn-primary" style="color: #ffffff; width: 100%;" href="#">Ajouter</a>
+                <a class="btn btn-primary" style="color: #ffffff; width: 100%;" href="#" ng-click="vm.ajoutSujet()">Ajouter</a>
               </div>
             </div>
           </form>
