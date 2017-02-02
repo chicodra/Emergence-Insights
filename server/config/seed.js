@@ -23,6 +23,30 @@ import Documentation from '../api/documentation/documentation.model';
 import Agenda from '../api/agenda/agenda.model';
 import Presentation from '../api/presentation/presentation.model';
 import Slide from '../api/slide/slide.model';
+import Temoignage from '../api/temoignage/temoignage.model';
+
+//Témoignages
+
+Temoignage.find({}).remove()
+  .then(() => {
+    Temoignage.create({
+      titre: 'Les 5 facteurs clés de succès de la transformation structurelle du Cap Vert',
+      contenu: ` Premier ministre du Cap Vert de 2001 à 2016, José Maria Neves a changé structurellement le pays. Né en 1960,
+              celui qui a décidé de ne plus se recandidater malgré une popularité incontestable pour`,
+      images: 'capvert.jpg'
+    }, {
+      titre: 'Local Global',
+      contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.`,
+      images: 'local_global.jpg'
+    }, {
+      titre: `Des mesures pour l’encadrement du secteur informel`,
+      contenu: `Depuis six mois, les acteurs du secteur informel sont incités à s’enregistrer auprès de la Caisse d’Assurance
+              Maladie...`,
+      images: 'power_pme.jpg'
+    }).then(() => {
+      console.log('finished populating Témoignages');
+    });
+  });
 
 // <INFOS PAYS>
 FicheActualite.find({}).remove()
@@ -31,67 +55,67 @@ FicheActualite.find({}).remove()
       _id: 1,
       id_pays: 10,
       id_actualite: 1,
-      date: '2017-01-01'
+      date: '2017-05-08'
     }, {
       _id: 2,
       id_pays: 1,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-03-11'
     }, {
       _id: 3,
       id_pays: 2,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-08-21'
     }, {
       _id: 4,
       id_pays: 3,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-06-01'
     }, {
       _id: 5,
       id_pays: 4,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-02-01'
     }, {
       _id: 6,
       id_pays: 5,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-09-01'
     }, {
       _id: 7,
       id_pays: 6,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-08-08'
     }, {
       _id: 8,
       id_pays: 7,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-04-07'
     }, {
       _id: 9,
       id_pays: 8,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-04-03'
     }, {
       _id: 10,
       id_pays: 9,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-05-06'
     }, {
       _id: 11,
       id_pays: 11,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-06-05'
     }, {
       _id: 12,
       id_pays: 10,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-02-04'
     }, {
       _id: 13,
       id_pays: 10,
       id_actualite: 3,
-      date: '2015-01-01'
+      date: '2015-03-08'
     }, {
       _id: 14,
       id_pays: 10,
@@ -200,7 +224,7 @@ Actualite.find({}).remove()
       `,
       sujet: 'Crise de Gambie',
       image: 'crisis.jpg',
-      une : true
+      une: true
     }, {
       _id: 2,
       contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -212,7 +236,7 @@ Actualite.find({}).remove()
       `,
       sujet: 'Crise de Mali',
       image: 'boko-haram.jpg',
-      une : true
+      une: true
     }, {
       _id: 3,
       contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -224,7 +248,7 @@ Actualite.find({}).remove()
       `,
       sujet: 'L\'immigration clandestine',
       image: 'gal_gui.jpg',
-      une : true
+      une: true
     }, {
       _id: 4,
       contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -236,7 +260,7 @@ Actualite.find({}).remove()
       `,
       sujet: 'La grève des transporteurs',
       image: 'ddd.jpg',
-      une : true
+      une: true
     });
   });
 Documentation.find({}).remove()
@@ -668,12 +692,12 @@ Presentation.find({}).remove()
       titre: 'Bienvenue sur',
       contenu: 'Emergence Insights',
       info: 'Une Plateforme Collaborative pour une mise en oeuvre plus efficace des plans d\'émmergence .',
-      id_slide:1
-    },{
+      id_slide: 1
+    }, {
       titre: 'Mars 2017 à Abidjan',
-      contenu:'CIEA',
+      contenu: 'CIEA',
       info: 'Enhancing Africa\'s transformation .',
-      id_slide:2
+      id_slide: 2
     }).then(() => {
       console.log('finished populating Themes');
     });
@@ -684,7 +708,7 @@ Slide.find({}).remove()
     Slide.create({
       _id: 1,
       image: 'collaboration2.jpg',
-    },{
+    }, {
       _id: 2,
       image: 'confroom2.jpg',
     }).then(() => {
@@ -1114,7 +1138,7 @@ User.find({}).remove()
         _id: '587f54a347ea262b686ecc5f',
         provider: 'local',
         name: 'Test User',
-        images:'akon.jpg',
+        images: 'akon.jpg',
         email: 'test@example.com',
         password: 'test'
       }, {
@@ -1122,7 +1146,7 @@ User.find({}).remove()
         provider: 'local',
         role: 'admin',
         name: 'Admin',
-        images:'tony_elumelu.jpg',
+        images: 'tony_elumelu.jpg',
         email: 'admin@example.com',
         password: 'admin'
       }, {
@@ -1130,23 +1154,23 @@ User.find({}).remove()
         provider: 'local',
         role: 'user',
         name: 'Raymond Sadio',
-        images:'victor_gorom_ndiaye.jpg',
+        images: 'victor_gorom_ndiaye.jpg',
         email: 'ray@example.com',
         password: 'saphila'
-      },{
+      }, {
         _id: '587f5a2908c8482cf40bb351',
         provider: 'local',
         name: 'pach',
         email: 'adfmin@exmple.com',
         password: 'admin'
-      },{
+      }, {
         _id: "58907f18b9c05000f04c77cf",
         provider: 'local',
         name: 'Waly Ndiaye',
-        images:'akon.jpg',
+        images: 'akon.jpg',
         email: 'kain@exmple.com',
         password: 'pass'
-    })
+      })
       .then(() => {
         console.log('finished populating users');
       });

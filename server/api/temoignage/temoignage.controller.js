@@ -1,17 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/fiche_actualites              ->  index
- * POST    /api/fiche_actualites              ->  create
- * GET     /api/fiche_actualites/:id          ->  show
- * PUT     /api/fiche_actualites/:id          ->  upsert
- * PATCH   /api/fiche_actualites/:id          ->  patch
- * DELETE  /api/fiche_actualites/:id          ->  destroy
+ * GET     /api/temoignages              ->  index
+ * POST    /api/temoignages              ->  create
+ * GET     /api/temoignages/:id          ->  show
+ * PUT     /api/temoignages/:id          ->  upsert
+ * PATCH   /api/temoignages/:id          ->  patch
+ * DELETE  /api/temoignages/:id          ->  destroy
  */
 
 'use strict';
 
 import jsonpatch from 'fast-json-patch';
-import FicheActualite from './fiche_actualite.model';
+import Temoignage from './temoignage.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -63,83 +63,54 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of FicheActualites
+// Gets a list of Temoignages
 export function index(req, res) {
-  return FicheActualite.find().exec()
+  return Temoignage.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single FicheActualite from the DB
+// Gets a single Temoignage from the DB
 export function show(req, res) {
-  return FicheActualite.findById(req.params.id).exec()
+  return Temoignage.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
-//get an actuality by country
-export function getActByPays(req, res) {
-  FicheActualite.find({id_pays : req.params.id}).populate('id_actualite')
-  .exec(function(err,actualites){
-    if(err) { return handleError(res, err); }
-     var lesActus = [];
-    actualites.forEach(function(actu) {
-       
-            lesActus.push(actu);
-       
-    });
-    return res.json(lesActus);
-  })
-}
 
-//get an actuality by country
-export function getFicheByActualite(req, res) {
-  FicheActualite.find({id_actualite : req.params.id}).populate('id_actualite')
-  .exec(function(err,actualites){
-    if(err) { return handleError(res, err); }
-     var lesActus = [];
-    actualites.forEach(function(actu) {
-       
-            lesActus.push(actu);
-       
-    });
-    return res.json(lesActus);
-  })
-}
-
-// Creates a new FicheActualite in the DB
+// Creates a new Temoignage in the DB
 export function create(req, res) {
-  return FicheActualite.create(req.body)
+  return Temoignage.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Upserts the given FicheActualite in the DB at the specified ID
+// Upserts the given Temoignage in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return FicheActualite.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+  return Temoignage.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
 
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Updates an existing FicheActualite in the DB
+// Updates an existing Temoignage in the DB
 export function patch(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return FicheActualite.findById(req.params.id).exec()
+  return Temoignage.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a FicheActualite from the DB
+// Deletes a Temoignage from the DB
 export function destroy(req, res) {
-  return FicheActualite.findById(req.params.id).exec()
+  return Temoignage.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

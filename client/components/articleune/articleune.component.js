@@ -7,10 +7,10 @@ export class articleuneComponent {
     this.message = 'World';
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
-    this.nb=0;
-    console.log('Articles à la une',this);
+    this.nb = 0;
+    console.log('Articles à la une', this);
   }
-    Init() {
+  Init() {
     //this.listTheme=[];
 
 
@@ -69,7 +69,9 @@ export class articleuneComponent {
           /*==================================================*/
           this.jsFunctionProvider.ajaxContactForm();
 
+          this.jsFunctionProvider.globals();
 
+          this.jsFunctionProvider.anchorsNav();
 
 
         });
@@ -85,8 +87,10 @@ export class articleuneComponent {
 export default angular.module('emergenceInsightsApp.articleune', [])
   .component('articleune', {
     template: require('./alaune.html'),
-    bindings: { message: '<' },
+    bindings: {
+      message: '<'
+    },
     controller: articleuneComponent,
-    controllerAs:'vm'
+    controllerAs: 'vm'
   })
   .name;
