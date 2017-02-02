@@ -151,11 +151,13 @@ export class MainController {
         /*==================================================*/
         this.jsFunctionProvider.ajaxContactForm();
 
+        setTimeout(function () {
 
 
-        this.jsFunctionProvider.globals();
+          this.jsFunctionProvider.globals();
 
-        this.jsFunctionProvider.anchorsNav();
+          this.jsFunctionProvider.anchorsNav();
+        }, 100);
 
 
       });
