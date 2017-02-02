@@ -30,8 +30,10 @@ export class MainController {
   titre;
   info;
   contenu;
+  listtemoignage;
+  temoignageProvider;
   /*@ngInject*/
-  constructor(themeProvider, $stateParams, paysProvider, jsFunctionProvider, presentationProvider, interviewsProvider, etudecasProvider, articleProvider) {
+  constructor(themeProvider, $stateParams, paysProvider, jsFunctionProvider, presentationProvider, temoignageProvider, interviewsProvider, etudecasProvider, articleProvider) {
     //this.socket = socket;
     document.querySelector('header').hidden = false;
     this.themeProvider = themeProvider,
@@ -39,13 +41,15 @@ export class MainController {
     this.params = $stateParams;
     this.interviewsProvider = interviewsProvider;
     this.etudecasProvider = etudecasProvider;
+    this.temoignageProvider = temoignageProvider;
     /*this.nbpays = this.paysProvider.listPays.length;*/
     this.jsFunctionProvider = jsFunctionProvider;
     this.presentationProvider = presentationProvider;
     this.articleProvider = articleProvider;
     this.listPres = null;
     this.nb = 0;
-   /// this.getSlide(this.params.image);
+
+    /// this.getSlide(this.params.image);
     console.log('main', this);
 
   }
@@ -54,7 +58,7 @@ export class MainController {
     // var swipers = [], winW, winH, winScr, _isresponsive, xsPoint = 480, smPoint = 768, mdPoint = 992, lgPoint = 1200, addPoint = 1600, _ismobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i);
 
     //console.log("init",this);
-    
+
     this.interviewsProvider.listInterviews().then(list => {
       this.ListInterv = list;
       console.log('Raymond ', this.ListInterv.length);
@@ -82,11 +86,13 @@ export class MainController {
       console.log('Ray Article', this.nbarticle);
     });
     this.presentationProvider.listPresentations().then(list => {
-      this.listslide = list;;
-      console.log('slide', this.listslide)
+      this.listslide = list;
+      console.log('slide', this.listslide);
     });
-
-
+    this.temoignageProvider.listTemoignages().then(list => {
+      this.listtemoignage = list;
+      console.log('Ray temoignages', this.listtemoignage);
+    });
     var th = this;
     setTimeout(function () {
       th.presentationProvider.listPresentations().then(list => {

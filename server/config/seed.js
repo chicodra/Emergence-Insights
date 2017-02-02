@@ -30,8 +30,9 @@ import Temoignage from '../api/temoignage/temoignage.model';
 Temoignage.find({}).remove()
   .then(() => {
     Temoignage.create({
-      titre: 'Ile Du Cap-Vert',
-      contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.`,
+      titre: 'Les 5 facteurs clés de succès de la transformation structurelle du Cap Vert',
+      contenu: ` Premier ministre du Cap Vert de 2001 à 2016, José Maria Neves a changé structurellement le pays. Né en 1960,
+              celui qui a décidé de ne plus se recandidater malgré une popularité incontestable pour`,
       images: 'capvert.jpg'
     }, {
       titre: 'Local Global',
