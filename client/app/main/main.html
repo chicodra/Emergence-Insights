@@ -402,65 +402,13 @@
   </div>
   <div class="swiper-container" data-autoplay="0" data-initial-slide="2" data-loop="0" data-speed="500" data-center="1" data-slides-per-view="auto">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" data-val="0">
+      <div class="swiper-slide" data-val="0" ng-repeat="temoignage in $ctrl.listtemoignage">
         <div class="testimonals">
-          <img class="center-image" src="/assets/images/perfstock/testimonials/local_global.jpg" alt="">
+          <img class="center-image" src="/assets/images/perfstock/testimonials/{{temoignage.images}}" alt="">
           <div class="testimonals-desc">
             <div class="testimonals-title shadow-text">Omar Sow</div>
-            <div class="testimonals-position">Head of design team</div>
-            <div class="testimonals-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide" data-val="1">
-        <div class="testimonals">
-          <img class="center-image" src="/assets/images/perfstock/testimonials/local_global.jpg" alt="">
-          <div class="testimonals-desc">
-            <div class="testimonals-title shadow-text">Amadou Ba</div>
-            <div class="testimonals-position">Head of design team</div>
-            <div class="testimonals-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide" data-val="2">
-        <div class="testimonals">
-          <img class="center-image" src="/assets/images/perfstock/testimonials/power_pme.jpg" alt="">
-          <div class="testimonals-desc">
-            <div class="testimonals-title shadow-text">Des mesures pour l’encadrement du secteur informel</div>
-            <div class="testimonals-position">Dossiers</div>
-            <div class="testimonals-text">Depuis six mois, les acteurs du secteur informel sont incités à s’enregistrer auprès de la Caisse d’Assurance
-              Maladie...
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide" data-val="3">
-        <div class="testimonals">
-          <img class="center-image" src="/assets/images/perfstock/testimonials/capvert.jpg" alt="">
-          <div class="testimonals-desc">
-            <div class="testimonals-title shadow-text">Les 5 facteurs clés de succès de la transformation structurelle du Cap Vert</div>
-            <div class="testimonals-position">Articles</div>
-            <div class="testimonals-text">Premier ministre du Cap Vert de 2001 à 2016, José Maria Neves a changé structurellement le pays. Né en 1960,
-              celui qui a décidé de ne plus se recandidater malgré une popularité incontestable pour...</div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide" data-val="4">
-        <div class="testimonals">
-          <img class="center-image" src="/assets/images/perfstock/testimonials/local_global.jpg" alt="">
-          <div class="testimonals-desc">
-            <div class="testimonals-title shadow-text">Amadou Ba</div>
-            <div class="testimonals-position">Head of design team</div>
-            <div class="testimonals-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </div>
+            <div class="testimonals-position">{{temoignage.titre}}</div>
+            <div class="testimonals-text">{{temoignage.contenu}}</div>
           </div>
         </div>
       </div>
