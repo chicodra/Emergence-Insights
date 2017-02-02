@@ -1,10 +1,10 @@
-<div ng-init="vm.Init()" style="margin-top: 250px;">
+<div ng-init="vm.Init()"class="pilierEm" style="background-color: #E9EBEE">
   <!--<sujet></sujet>-->
   <div class="row">
     <div class="col-md-1">
       <!--<sujets></sujets>-->
     </div>
-    <div class="col-md-7">
+    <div class="col-md-7" style="border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-bottom: 30px;margin-top: 50px; background-color: #FFFFFF;">
       <div class="main-block clearfix">
         <!--<div class="row">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
@@ -14,16 +14,16 @@
                 <div class="block-text">Découvrez les derniers contenus partagés sur la plateforme</div>
               </div>
             </div>
-          </div>-->
+        </div>-->
         <div class="row">
-          <ul class="media-list">
+          <ul class="media-list" style="padding: 20px 10px 10px 10px;">
             <li class="media">
-              <div class="media-left">
+              <div class="media-left" >
                 <a href="#">
-                  <img class="media-object" src="../assets/images/perfstock/experts/akon.jpg" alt="..." height="60px" width="60px">
+                  <img class="media-object" ng-src="../assets/images/perfstock/experts/{{vm.listSujets.id_user.images}}" alt="..." height="60px" width="60px">
                 </a>
               </div>
-              <div class="media-body">
+              <div class="media-body" >
                 <h4 class="media-heading" ng-bind="vm.listSujets.id_user.name"> </h4>
                 <p>
                   {{vm.listSujets.titre}}
@@ -66,7 +66,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" style=" margin-top: 50px;">
       <div class="panel panel-default">
         <div class="panel-heading">Les utilisateurs actifs sur ce sujet</div>
         <div class="panel-body">
