@@ -24,7 +24,8 @@ import Agenda from '../api/agenda/agenda.model';
 import Presentation from '../api/presentation/presentation.model';
 import Slide from '../api/slide/slide.model';
 import Temoignage from '../api/temoignage/temoignage.model';
-
+import Categorie from '../api/categorie/categorie.model';
+import Notification from '../api/notification/notification.model';
 //Témoignages
 
 Temoignage.find({}).remove()
@@ -48,6 +49,24 @@ Temoignage.find({}).remove()
     });
   });
 
+  //Catégories
+
+  Categorie.find({}).remove()
+  .then(() => {
+    Categorie.create({
+  _id: 1,
+  nom: "Langage C",
+},{
+  _id: 2,
+  nom: "MEAN",
+},{
+  _id: 3,
+  nom: "JAVA",
+}).then(() => {
+      console.log('finished populating Témoignages');
+    });
+  });
+
 // <INFOS PAYS>
 FicheActualite.find({}).remove()
   .then(() => {
@@ -55,67 +74,67 @@ FicheActualite.find({}).remove()
       _id: 1,
       id_pays: 10,
       id_actualite: 1,
-      date: '2017-01-01'
+      date: '2017-05-08'
     }, {
       _id: 2,
       id_pays: 1,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-03-11'
     }, {
       _id: 3,
       id_pays: 2,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-08-21'
     }, {
       _id: 4,
       id_pays: 3,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-06-01'
     }, {
       _id: 5,
       id_pays: 4,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-02-01'
     }, {
       _id: 6,
       id_pays: 5,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-09-01'
     }, {
       _id: 7,
       id_pays: 6,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-08-08'
     }, {
       _id: 8,
       id_pays: 7,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-04-07'
     }, {
       _id: 9,
       id_pays: 8,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-04-03'
     }, {
       _id: 10,
       id_pays: 9,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-05-06'
     }, {
       _id: 11,
       id_pays: 11,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-06-05'
     }, {
       _id: 12,
       id_pays: 10,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-02-04'
     }, {
       _id: 13,
       id_pays: 10,
       id_actualite: 3,
-      date: '2015-01-01'
+      date: '2015-03-08'
     }, {
       _id: 14,
       id_pays: 10,
@@ -1181,30 +1200,66 @@ Sujet.find({}).remove()
     Sujet.create({
       _id: 1,
       titre: 'La fonte des glaciers',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
+      id_cat:1,
       date_creation: '2017-04-01'
-    }, {
+      }, {
       _id: 2,
       titre: 'La fonte des neiges',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
+      id_cat:1,
       date_creation: '2017-04-01'
-    }, {
+      }, {
       _id: 3,
       titre: 'Le Muslim ban',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '58907f18b9c05000f04c77cf',
+      id_cat:3,
       date_creation: '2017-04-01'
-    }, {
+      }, {
+      _id: 4,
+      titre: 'up like donald trump',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
+      id_user: '58907f18b9c05000f04c77cf',
+      id_cat:1,
+      date_creation: '2017-05-01'
+      },{
       _id: 5,
       titre: 'Comment adherer emergence?',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
+      id_cat:2,
       date_creation: '2017-01-01'
     }, {
       _id: 6,
       titre: 'Qui est là?',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '589082cab9c05000f04c77d0',
+      id_cat:2,
       date_creation: '2017-01-02'
     });
-  });
+  }); 
+ 
 
 
 Interview.find({}).remove()
@@ -1399,7 +1454,6 @@ Reponse.find({}).remove()
 Message.find({}).remove()
   .then(() => {
     Message.create({
-      _id: 1,
       id_user: '587f54a347ea262b686ecc5e',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1407,7 +1461,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 2,
       id_user: '587f54a347ea262b686ecc5e',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1415,7 +1468,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 3,
       id_user: '587f54a347ea262b686ecc5e',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1423,7 +1475,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 4,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1431,7 +1482,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 5,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1439,7 +1489,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 6,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1447,7 +1496,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 7,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1455,7 +1503,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 8,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1463,7 +1510,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 9,
       id_user: '587f5a2908c8482cf40bb351',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1471,7 +1517,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 10,
       id_user: '587f5a2908c8482cf40bb351',
       id_sujet: 2,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1479,7 +1524,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
-      _id: 11,
       id_user: '587f5a2908c8482cf40bb351',
       id_sujet: 2,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1487,7 +1531,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-04-01'
     }, {
-      _id: 12,
       id_user: '589082cab9c05000f04c77d0',
       id_sujet: 3,
       id_createur: '58907f18b9c05000f04c77cf',
@@ -1495,7 +1538,6 @@ Message.find({}).remove()
   `,
       date_creation: '2017-04-08'
     }, {
-      _id: 13,
       id_user: '589082cab9c05000f04c77d0',
       id_sujet: 3,
       id_createur: '58907f18b9c05000f04c77cf',
@@ -1503,33 +1545,25 @@ Message.find({}).remove()
   `,
       date_creation: '2017-05-01'
     }, {
-      _id: 14,
       id_user: '58907f18b9c05000f04c77cf',
       id_sujet: 3,
       id_createur: '58907f18b9c05000f04c77cf',
       contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
-  `,
+    `,
       date_creation: '2017-05-03'
     }, {
-      _id: 18,
+      id_user: '589082cab9c05000f04c77d0',
+      id_sujet: 4,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+    `,
+      date_creation: '2017-05-03'
+    }, {
       id_user: '58907f18b9c05000f04c77cf',
-      id_sujet: 5,
-      id_createur: '587f54a347ea262b686ecc5f',
-      contenu: `  Lorem i lorem lrelld impodcjx kodssq    Lorem i lorem lrelld impodcjx kodssq `,
-      date_creation: '2017-01-01'
-    }, {
-      _id: 19,
-      id_user: '587f54a347ea262b686ecc5f',
-      id_sujet: 5,
-      id_createur: '587f54a347ea262b686ecc5f',
-      contenu: `  Lorem i lorem lrelld impodcjx kodssq  lorem louy mffs  lrelld impodcjx kodssqlrelld impodcjx kodssq lrelld impodcjx kodssq lrelld impodcjx kodssq lrelld impodcjx kodssq vlrelld impodcjx kodssq  Lorem i lorem lrelld impodcjx kodssq `,
-      date_creation: '2017-01-01'
-    }, {
-      _id: 20,
-      id_user: '587f54a347ea262b686ecc5f',
-      id_sujet: 6,
-      id_createur: '589082cab9c05000f04c77d0',
-      contenu: `  Lorem i lorem lrelld impodcjx kodssq  lorem louy mffs  lrelld impodcjx kodssqlrelld impodcjx kodssq lrelld impodcjx kodssq lrelld impodcjx kodssq lrelld impodcjx kodssq vlrelld impodcjx kodssq  Lorem i lorem lrelld impodcjx kodssq `,
-      date_creation: '2017-01-01'
+      id_sujet: 4,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+    `,
+      date_creation: '2017-05-03'
     });
   });

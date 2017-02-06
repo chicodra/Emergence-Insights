@@ -3,7 +3,6 @@
 import mongoose from 'mongoose';
 
 var MessageSchema = new mongoose.Schema({
-  _id: Number,
   id_user : {
     type : mongoose.Schema.ObjectId,
     ref :'User'

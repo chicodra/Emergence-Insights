@@ -1,6 +1,5 @@
 'use strict';
 const angular = require('angular');
-
 const uiRouter = require('angular-ui-router');
 
 import routes from './forum.routes';
@@ -14,18 +13,40 @@ export class ForumComponent {
   listeUsers;
   listeComs;
   commentaireProvider;
-
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider) {
+  isLoggedIn: Function;
+  getCurrentUser: Function;
+  titreSujet;
+ currentdate = new Date(); 
+ categorieProvider;
+  listcat;
+  listsujetscat;
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, categorieProvider, Auth, $http) {
     this.jsFunctionProvider = jsFunctionProvider;
+    this.categorieProvider = categorieProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
     this.commentaireProvider = commentaireProvider;
-
-
     this.message = 'Hello';
     console.log('forum', this);
   }
+  GetSujetByCategorie(id) {
+    this.categorieProvider.GetSujetByCategorie(id).then(list => {
+      this.listsujetscat = list;
+      console.log("liste sujets par catégories", list);
+    })
+
+  }
+
   Init() {
+
+    this.categorieProvider.listCategorie().then(list => {
+      console.log("liste Catégories", list);
+      this.listcat = list;
+      for (var i = 0; i < this.listcat.length; i++) {
+        this.GetSujetByCategorie(this.listcat[i]._id);
+      }
+
+    })
     //this.listTheme=[];
     var th = this;
     setTimeout(function () {
@@ -100,11 +121,35 @@ export class ForumComponent {
     })
 
   }
+
   getUsers() {
     this.userProvider.getUsers().then(list => {
       console.log("liste users", list);
       this.listeUsers = list;
     })
+
+  }
+
+  ajoutSujet() {
+<<<<<<< HEAD
+    var datetime = this.currentdate.getDate() + "/" +
+      (this.currentdate.getMonth() + 1) + "/" +
+      this.currentdate.getFullYear();
+=======
+    var datetime = this.currentdate.getDate() + "/"
+      + (this.currentdate.getMonth() + 1) + "/"
+      + this.currentdate.getFullYear();
+>>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
+    if (this.titreSujet) {
+      this.$http.post('/api/sujets', {
+        titre: this.titreSujet,
+        id_user: this.getCurrentUser()._id,
+
+        date_creation: datetime
+      });
+      this.titreSujet = '';
+      window.location.reload();
+    }
 
   }
 
@@ -120,8 +165,18 @@ export class ForuminfoComponent {
   nb;
   listeComs;
   commentaireProvider;
-  constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider) {
-    this.message = 'Hello';
+  contenuCom;
+  $http;
+  socket;
+  $window;
+<<<<<<< HEAD
+=======
+  last;
+>>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
+  currentdate = new Date();
+  constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth, $http, socket, $window) {
+
+    'ngInject';
     this.sujetProvider = sujetProvider;
     this.params = $stateParams;
     this.jsFunctionProvider = jsFunctionProvider;
@@ -129,12 +184,19 @@ export class ForuminfoComponent {
     this.userProvider = userProvider;
     this.listSujets = null;
     this.nb = 0;
+    this.isLoggedIn = Auth.isLoggedInSync;
+    this.getCurrentUser = Auth.getCurrentUserSync;
+    this.$http = $http;
+    this.socket = socket;
+    this.$window = $window;
+
 
     //this.getsujet(this.params.sujetName);
     console.log('get sujet by name 3', this);
 
     // console.log('this', this);
   }
+
   getComsBySujet(id) {
     this.commentaireProvider.getComsBySujet(id).then(list => {
       console.log("liste coms", list);
@@ -151,7 +213,10 @@ export class ForuminfoComponent {
       // p = list;
       this.listSujets = list[0];
       console.log('get sujet by name 2', this.listSujets);
-      this.getComsBySujet(this.listSujets._id);
+      this.getComsBySujet(this.listSujets._id).then(response => {
+        this.listeComs = response.data;
+        this.socket.syncUpdates('commentaires', this.listeComs);
+      });
       // console.log('get sujet by name 4', p);
       this.getusersbysujet(this.listSujets._id, this.listSujets.id_user._id);
 
@@ -183,7 +248,7 @@ export class ForuminfoComponent {
     var th = this;
     setTimeout(function () {
       th.getsujet(th.params.forumName);
-
+      this.socket.syncUpdates('commentaires', this.listeComs);
     }, 100)
     // console.log('paysprovider',this.paysProvider);
     console.log('sujet list', this.listSujets);
@@ -256,10 +321,49 @@ export class ForuminfoComponent {
     }, 100);
 
   }
+
+
+  create() {
+<<<<<<< HEAD
+    var datetime = this.currentdate.getDate() + "/" +
+      (this.currentdate.getMonth() + 1) + "/" +
+      this.currentdate.getFullYear();
+=======
+    var local_http = this.$http;
+    var datetime = this.currentdate.getDate() + "/"
+      + (this.currentdate.getMonth() + 1) + "/"
+      + this.currentdate.getFullYear();
+>>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
+    if (this.contenuCom) {
+      this.$http.post('/api/messages', {
+        id_user: this.getCurrentUser()._id,
+        id_sujet: this.listSujets._id,
+        id_createur: this.listSujets.id_user._id,
+        contenu: this.contenuCom,
+        date_creation: this.datetime
+<<<<<<< HEAD
+=======
+      })
+      .then(function(data){
+       local_http.post('/api/notifications', {
+        id_message: data.data._id,
+        date_Envoi: datetime,
+        seen : false
+       })
+>>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
+      });
+      this.contenuCom = '';
+      
+      window.location.reload();
+      
+    }
+  }
+
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
-ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider"];
-ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider"];
+ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http"];
+ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
+
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)

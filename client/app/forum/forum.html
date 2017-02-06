@@ -8,13 +8,13 @@
     <div class="col-md-2" style="width: 350px; margin-top: 40px;">
       <div class="panel panel-default" style="border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <!--<div class="panel-heading">Créer un sujet</div>-->
-        <div class="panel-body">
+        <div class="panel-body" ng-show="vm.isLoggedIn()">
           <form class="form-horizontal">
             <div class="form-group" style="padding: 4px;">
               <!--<label for="inputEmail3" class="col-sm-2 control-label">Email</label>-->
               <div style="margin-bottom: 0.5em;">
                 <input type="text" class="form-control" placeholder="Titre" required>
-                <input type="text" class="form-control" placeholder="Contenu" required>
+                <input type="text" class="form-control" placeholder="Contenu" ng-model="vm.titreSujet" required>
                 <!-- Single button -->
                 <div class="btn-group" uib-dropdown is-open="status.isopen">
                   <button id="single-button" type="button" class="btn btn-default" uib-dropdown-toggle ng-disabled="disabled">
@@ -31,7 +31,11 @@
                 </div>
               </div>
               <div>
-                <a class="btn btn-primary" style="color: #ffffff; width: 100%;" href="#">Ajouter</a>
+
+                
+                
+                <a class="btn btn-primary" style="color: #ffffff; width: 100%;" href="#" ng-click="vm.ajoutSujet()">Ajouter</a>
+
               </div>
             </div>
           </form>
