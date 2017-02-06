@@ -131,15 +131,10 @@ export class ForumComponent {
   }
 
   ajoutSujet() {
-<<<<<<< HEAD
-    var datetime = this.currentdate.getDate() + "/" +
-      (this.currentdate.getMonth() + 1) + "/" +
-      this.currentdate.getFullYear();
-=======
+
     var datetime = this.currentdate.getDate() + "/"
       + (this.currentdate.getMonth() + 1) + "/"
       + this.currentdate.getFullYear();
->>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
     if (this.titreSujet) {
       this.$http.post('/api/sujets', {
         titre: this.titreSujet,
@@ -169,10 +164,6 @@ export class ForuminfoComponent {
   $http;
   socket;
   $window;
-<<<<<<< HEAD
-=======
-  last;
->>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
   currentdate = new Date();
   constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth, $http, socket, $window) {
 
@@ -324,16 +315,11 @@ export class ForuminfoComponent {
 
 
   create() {
-<<<<<<< HEAD
-    var datetime = this.currentdate.getDate() + "/" +
-      (this.currentdate.getMonth() + 1) + "/" +
-      this.currentdate.getFullYear();
-=======
+
     var local_http = this.$http;
     var datetime = this.currentdate.getDate() + "/"
       + (this.currentdate.getMonth() + 1) + "/"
       + this.currentdate.getFullYear();
->>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
     if (this.contenuCom) {
       this.$http.post('/api/messages', {
         id_user: this.getCurrentUser()._id,
@@ -341,8 +327,6 @@ export class ForuminfoComponent {
         id_createur: this.listSujets.id_user._id,
         contenu: this.contenuCom,
         date_creation: this.datetime
-<<<<<<< HEAD
-=======
       })
       .then(function(data){
        local_http.post('/api/notifications', {
@@ -350,7 +334,6 @@ export class ForuminfoComponent {
         date_Envoi: datetime,
         seen : false
        })
->>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
       });
       this.contenuCom = '';
       
