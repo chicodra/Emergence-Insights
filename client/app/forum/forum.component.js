@@ -14,9 +14,9 @@ export class ForumComponent {
   listeComs;
   commentaireProvider;
   isLoggedIn: Function;
-  getCurrentUser : Function;
+  getCurrentUser: Function;
   titreSujet;
- currentdate = new Date(); 
+  currentdate = new Date();
 
   constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http) {
     this.jsFunctionProvider = jsFunctionProvider;
@@ -114,16 +114,16 @@ export class ForumComponent {
 
   }
 
-  ajoutSujet(){
-  var  datetime =this.currentdate.getDate() + "/"
-                + (this.currentdate.getMonth()+1)  + "/" 
-                + this.currentdate.getFullYear();
-    if(this.titreSujet) {
+  ajoutSujet() {
+    var datetime = this.currentdate.getDate() + "/"
+      + (this.currentdate.getMonth() + 1) + "/"
+      + this.currentdate.getFullYear();
+    if (this.titreSujet) {
       this.$http.post('/api/sujets', {
         titre: this.titreSujet,
         id_user: this.getCurrentUser()._id,
 
-         date_creation: datetime
+        date_creation: datetime
       });
       this.titreSujet = '';
       window.location.reload();
@@ -150,7 +150,8 @@ export class ForuminfoComponent {
   $http;
   socket;
   $window;
-   currentdate = new Date(); 
+  last;
+  currentdate = new Date();
   constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth, $http, socket, $window) {
 
     'ngInject';
@@ -166,6 +167,7 @@ export class ForuminfoComponent {
     this.$http = $http;
     this.socket = socket;
     this.$window = $window;
+
 
     //this.getsujet(this.params.sujetName);
     console.log('get sujet by name 3', this);
@@ -297,29 +299,39 @@ export class ForuminfoComponent {
     }, 100);
 
   }
-  
 
-  create(){
-    var  datetime =this.currentdate.getDate() + "/"
-                + (this.currentdate.getMonth()+1)  + "/" 
-                + this.currentdate.getFullYear();
-    if(this.contenuCom) {
+
+  create() {
+    var local_http = this.$http;
+    var datetime = this.currentdate.getDate() + "/"
+      + (this.currentdate.getMonth() + 1) + "/"
+      + this.currentdate.getFullYear();
+    if (this.contenuCom) {
       this.$http.post('/api/messages', {
         id_user: this.getCurrentUser()._id,
         id_sujet: this.listSujets._id,
-        id_createur : this.listSujets.id_user._id,
-        contenu : this.contenuCom,
-         date_creation: this.datetime
+        id_createur: this.listSujets.id_user._id,
+        contenu: this.contenuCom,
+        date_creation: this.datetime
+      })
+      .then(function(data){
+       local_http.post('/api/notifications', {
+        id_message: data.data._id,
+        date_Envoi: datetime,
+        seen : false
+       })
       });
       this.contenuCom = '';
+      
       window.location.reload();
+      
     }
   }
 
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
 ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http"];
-ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket","$window"];
+ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)
