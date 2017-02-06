@@ -1221,8 +1221,7 @@ Sujet.find({}).remove()
       id_user: '58907f18b9c05000f04c77cf',
       id_cat:1,
       date_creation: '2017-05-01'
-      });
-    }, {
+      },{
       _id: 5,
       titre: 'Comment adherer emergence?',
       id_user: '587f54a347ea262b686ecc5f',
@@ -1235,7 +1234,8 @@ Sujet.find({}).remove()
       id_cat:2,
       date_creation: '2017-01-02'
     });
-  });
+  }); 
+ 
 
 
 Interview.find({}).remove()
