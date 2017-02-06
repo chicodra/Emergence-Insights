@@ -16,8 +16,8 @@ export class ForumComponent {
   isLoggedIn: Function;
   getCurrentUser: Function;
   titreSujet;
- currentdate = new Date(); 
- categorieProvider;
+  currentdate = new Date();
+  categorieProvider;
   listcat;
   listsujetscat;
   constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, categorieProvider, Auth, $http) {
@@ -131,15 +131,9 @@ export class ForumComponent {
   }
 
   ajoutSujet() {
-<<<<<<< HEAD
     var datetime = this.currentdate.getDate() + "/" +
       (this.currentdate.getMonth() + 1) + "/" +
       this.currentdate.getFullYear();
-=======
-    var datetime = this.currentdate.getDate() + "/"
-      + (this.currentdate.getMonth() + 1) + "/"
-      + this.currentdate.getFullYear();
->>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
     if (this.titreSujet) {
       this.$http.post('/api/sujets', {
         titre: this.titreSujet,
@@ -169,10 +163,6 @@ export class ForuminfoComponent {
   $http;
   socket;
   $window;
-<<<<<<< HEAD
-=======
-  last;
->>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
   currentdate = new Date();
   constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth, $http, socket, $window) {
 
@@ -324,44 +314,36 @@ export class ForuminfoComponent {
 
 
   create() {
-<<<<<<< HEAD
+    var local_http = this.$http;
     var datetime = this.currentdate.getDate() + "/" +
       (this.currentdate.getMonth() + 1) + "/" +
       this.currentdate.getFullYear();
-=======
-    var local_http = this.$http;
-    var datetime = this.currentdate.getDate() + "/"
-      + (this.currentdate.getMonth() + 1) + "/"
-      + this.currentdate.getFullYear();
->>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
+
     if (this.contenuCom) {
       this.$http.post('/api/messages', {
-        id_user: this.getCurrentUser()._id,
-        id_sujet: this.listSujets._id,
-        id_createur: this.listSujets.id_user._id,
-        contenu: this.contenuCom,
-        date_creation: this.datetime
-<<<<<<< HEAD
-=======
-      })
-      .then(function(data){
-       local_http.post('/api/notifications', {
-        id_message: data.data._id,
-        date_Envoi: datetime,
-        seen : false
-       })
->>>>>>> 3ceca4df0429644f608a8fda66e2ea8e4b764e63
-      });
+          id_user: this.getCurrentUser()._id,
+          id_sujet: this.listSujets._id,
+          id_createur: this.listSujets.id_user._id,
+          contenu: this.contenuCom,
+          date_creation: this.datetime
+        })
+        .then(function (data) {
+          local_http.post('/api/notifications', {
+            id_message: data.data._id,
+            date_Envoi: datetime,
+            seen: false
+          })
+        });
       this.contenuCom = '';
-      
+
       window.location.reload();
-      
+
     }
   }
 
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
-ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http"];
+ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "categorieProvider", "Auth", "$http"];
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
 
 

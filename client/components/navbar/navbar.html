@@ -49,7 +49,7 @@
           <a ng-show="nbCtrl.isLoggedIn()">bonjour, {{nbCtrl.getCurrentUser().name}}</li>
           <a ui-sref="login"><i class=" fa fa-sign-in" ng-hide="nbCtrl.isLoggedIn()" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se connecter"></i></a>
           <a ui-sref="logout" ng-show="nbCtrl.isLoggedIn()">logout</a>
-          <a href=""><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i></a>
+          <a href="" ng-show="nbCtrl.isLoggedIn()"><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications">{{nbCtrl.nbnotif}}</i></a>
         </div>
         <a class="search-link top-search" href="#"><i class="fa fa-search"></i></a>
         <div class="search-popup custom-popup">
