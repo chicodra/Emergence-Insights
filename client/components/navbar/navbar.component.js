@@ -15,12 +15,14 @@ export class NavbarComponent {
   isCollapsed = true;
   state;
   themeProvider;
-
+  notificationProvider;
+  listnotif;
+  nbnotif;
   paysProvider;
   listTheme;
   listPays;
 
-  constructor(Auth,themeProvider,$state,paysProvider) {
+  constructor(Auth,themeProvider,$state,paysProvider, notificationProvider) {
 
     'ngInject';
 
@@ -29,7 +31,7 @@ export class NavbarComponent {
     this.getCurrentUser = Auth.getCurrentUserSync;
     this.state=$state;
     this.themeProvider=themeProvider;
-
+    this.notificationProvider=notificationProvider;
     this.paysProvider=paysProvider;
     //console.log('init',themeProvider)
     console.log('navbar',this);
@@ -70,7 +72,19 @@ export class NavbarComponent {
       console.log('pays non vide', this.listPays)
     }
 
+      this.notificationProvider.listNotification().then(list => {
+      this.listnotif = list;
+      if (this.listnotif.length==0) {
+        console.log('Liste Vide');
+        this.nbnotif=this.listnotif.length;
+        console.log('Nombre Notifications', this.nbnotif);
+      } else {
+        console.log('Ray Notifications', this.listnotif);
+        this.nbnotif=this.listnotif.length;
+        console.log('Nombre Notifications', this.nbnotif);
+      }
 
+    });
 
 
   }
