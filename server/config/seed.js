@@ -1610,7 +1610,8 @@ SousCategorie.find({}).remove()
   description : 'lorem ipsum dolor sit amet',
   id_categorie : 3
   }).then(() => {
-      console.log('finished populating Témoignages');
+      console.log('finished populating Sous Catégories');
+    });
     });
 Notif.find({}).remove()
   .then(() => {
@@ -1694,5 +1695,7 @@ Notif.find({}).remove()
    id_message :16,
   date_Envoi: '2017-05-03',
   seen: false
+}).then(() => {
+      console.log('finished populating notifications');
 });
-  });
+});
