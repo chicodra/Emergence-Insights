@@ -11,5 +11,10 @@ export default function ($stateProvider) {
     url: '/forum/:forumName',
     template: '<foruminfo></foruminfo>',
 
+  })
+    .state('categorie', {
+    url: '/categorie',
+    template: '<categorie></categorie>',
+
   });
 }
