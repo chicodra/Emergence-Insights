@@ -14,11 +14,12 @@ export class ForumComponent {
   listeComs;
   commentaireProvider;
   titreSujet;
-  categorieProvider;
+
+ currentdate = new Date(); 
+ categorieProvider;
   listcat;
   listsujetscat;
-
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, categorieProvider) {
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, commentaireProvider, categorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
@@ -130,14 +131,15 @@ export class ForumComponent {
   }
 
   ajoutSujet(){
+  var  datetime =this.currentdate.getDate() + "/"
+                + (this.currentdate.getMonth()+1)  + "/" 
+                + this.currentdate.getFullYear();
     if(this.titreSujet) {
       this.$http.post('/api/sujets', {
         titre: this.titreSujet,
         id_user: this.getCurrentUser()._id,
 
-        // date_creation: currentdate.getDate() + "/"
-        //         + (currentdate.getMonth()+1)  + "/" 
-        //         + currentdate.getFullYear()
+         date_creation: datetime
       });
       this.titreSujet = '';
       window.location.reload();
@@ -161,6 +163,7 @@ export class ForuminfoComponent {
   $http;
   socket;
   $window;
+   currentdate = new Date(); 
   constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth, $http, socket, $window) {
 
     'ngInject';
@@ -310,15 +313,16 @@ export class ForuminfoComponent {
   
 
   create(){
+    var  datetime =this.currentdate.getDate() + "/"
+                + (this.currentdate.getMonth()+1)  + "/" 
+                + this.currentdate.getFullYear();
     if(this.contenuCom) {
       this.$http.post('/api/messages', {
         id_user: this.getCurrentUser()._id,
         id_sujet: this.listSujets._id,
         id_createur : this.listSujets.id_user._id,
         contenu : this.contenuCom,
-        // date_creation: currentdate.getDate() + "/"
-        //         + (currentdate.getMonth()+1)  + "/" 
-        //         + currentdate.getFullYear()
+         date_creation: this.datetime
       });
       this.contenuCom = '';
       window.location.reload();
