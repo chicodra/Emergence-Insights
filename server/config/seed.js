@@ -24,7 +24,8 @@ import Agenda from '../api/agenda/agenda.model';
 import Presentation from '../api/presentation/presentation.model';
 import Slide from '../api/slide/slide.model';
 import Temoignage from '../api/temoignage/temoignage.model';
-
+import Categorie from '../api/categorie/categorie.model';
+import Notification from '../api/notification/notification.model';
 //Témoignages
 
 Temoignage.find({}).remove()
@@ -44,6 +45,24 @@ Temoignage.find({}).remove()
               Maladie...`,
       images: 'power_pme.jpg'
     }).then(() => {
+      console.log('finished populating Témoignages');
+    });
+  });
+
+  //Catégories
+
+  Categorie.find({}).remove()
+  .then(() => {
+    Categorie.create({
+  _id: 1,
+  nom: "Langage C",
+},{
+  _id: 2,
+  nom: "MEAN",
+},{
+  _id: 3,
+  nom: "JAVA",
+}).then(() => {
       console.log('finished populating Témoignages');
     });
   });
@@ -1181,25 +1200,66 @@ Sujet.find({}).remove()
     Sujet.create({
       _id: 1,
       titre: 'La fonte des glaciers',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
+      id_cat:1,
       date_creation: '2017-04-01'
       }, {
       _id: 2,
       titre: 'La fonte des neiges',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
+      id_cat:1,
       date_creation: '2017-04-01'
       }, {
       _id: 3,
       titre: 'Le Muslim ban',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '58907f18b9c05000f04c77cf',
+      id_cat:3,
       date_creation: '2017-04-01'
       }, {
       _id: 4,
       titre: 'up like donald trump',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '58907f18b9c05000f04c77cf',
+      id_cat:1,
       date_creation: '2017-05-01'
-      });
-  });
+      },{
+      _id: 5,
+      titre: 'Comment adherer emergence?',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
+      id_user: '587f54a347ea262b686ecc5f',
+      id_cat:2,
+      date_creation: '2017-01-01'
+    }, {
+      _id: 6,
+      titre: 'Qui est là?',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
+      id_user: '589082cab9c05000f04c77d0',
+      id_cat:2,
+      date_creation: '2017-01-02'
+    });
+  }); 
+ 
 
 
 Interview.find({}).remove()

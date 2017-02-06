@@ -46,6 +46,12 @@ h1 {
 
 }
 
+
+.tag:hover span {
+  text-decoration:underline;
+  /*border-bottom: 1px solid black;*/
+}
+
 .cuadro_intro_hover {
     	padding: 0px;
 		position: relative;
