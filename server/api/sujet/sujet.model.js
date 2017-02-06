@@ -13,7 +13,7 @@ var SujetSchema = new mongoose.Schema({
   },
   id_cat :{
     type : Number,
-    ref : 'Categorie'
+    ref : 'SousCategorie'
   },
   date_creation : Date
 });
