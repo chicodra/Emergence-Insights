@@ -9,6 +9,10 @@ var SujetSchema = new mongoose.Schema({
     type : mongoose.Schema.ObjectId,
     ref: 'User'
   },
+  id_cat :{
+    type : Number,
+    ref : 'Categorie'
+  },
   date_creation : Date
 });
 

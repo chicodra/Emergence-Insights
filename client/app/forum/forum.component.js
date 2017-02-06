@@ -14,18 +14,38 @@ export class ForumComponent {
   listeUsers;
   listeComs;
   commentaireProvider;
+  categorieProvider;
+  listcat;
+  listsujetscat;
 
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider) {
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, categorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
     this.commentaireProvider = commentaireProvider;
-
+    this.categorieProvider = categorieProvider;
 
     this.message = 'Hello';
     console.log('forum', this);
   }
+  GetSujetByCategorie(id) {
+    this.categorieProvider.GetSujetByCategorie(id).then(list => {
+      this.listsujetscat = list;
+      console.log("liste sujets par catégories", list);
+    })
+
+  }
+
   Init() {
+
+    this.categorieProvider.listCategorie().then(list => {
+      console.log("liste Catégories", list);
+      this.listcat = list;
+      for (var i = 0; i < this.listcat.length; i++) {
+        this.GetSujetByCategorie(this.listcat[i]._id);
+      }
+    
+    })
     //this.listTheme=[];
     var th = this;
     setTimeout(function () {
@@ -100,6 +120,7 @@ export class ForumComponent {
     })
 
   }
+
   getUsers() {
     this.userProvider.getUsers().then(list => {
       console.log("liste users", list);
@@ -258,7 +279,7 @@ export class ForuminfoComponent {
   }
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
-ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider"];
+ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "categorieProvider"];
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider"];
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
