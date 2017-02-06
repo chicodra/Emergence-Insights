@@ -320,6 +320,7 @@ export class ForuminfoComponent {
     var datetime = this.currentdate.getDate() + "/" +
       (this.currentdate.getMonth() + 1) + "/" +
       this.currentdate.getFullYear();
+
     if (this.contenuCom) {
       this.$http.post('/api/messages', {
           id_user: this.getCurrentUser()._id,
@@ -433,6 +434,7 @@ export class CategorieComponent {
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
 ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider"];
+
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
 
 

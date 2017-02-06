@@ -65,7 +65,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Notifications
 export function index(req, res) {
-  return Notification.find().exec()
+  return Notification.find().populate('id_message').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
