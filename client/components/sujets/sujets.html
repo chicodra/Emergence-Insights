@@ -17,20 +17,25 @@
         <td style="width: 400px;">Liste des sujets</td>
         <td>Date</td>
         <td>Commentaire</td>
+        <td>Categories</td>
         <td>Utilisateur</td>
       </tr>
       <tr ui-sref="foruminfo({forumName:sujet.titre})" id="sujet" ng-repeat="sujet in vm.listeSujets | filter:query">
-        
         <td>
           <div style="padding: 6px;">
             <a class="simple-title" ui-sref="foruminfo({forumName:sujet.titre})"> {{sujet.titre}} </a>
-            <p>lremgj dolor sit amet, consectetur adipi fgkgf </p>
+            <!--<p style="font-family: 'Roboto Mono', monospace;">lremgj dolor sit amet, consectetur adipi fgkgf </p>-->
           </div>
         </td>
         <td>
           {{sujet.date_creation | date:'dd/MM/yyyy'}}
         </td>
         <td style="text-align: center">0</td>
+        <td>
+          <div class="tag" style="cursor: pointer;">
+            <i class="fa fa-tag" aria-hidden="true"></i> <span> java </span>
+          </div>
+        </td>
         <td>
           <div class="media">
             <div class="media-left">

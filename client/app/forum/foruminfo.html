@@ -40,7 +40,7 @@
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading"> {{com.id_user.name}} </h4>
-                  {{com.contenu}}
+                 <p style="font-family: 'Roboto Mono', monospace; line-height: normal;"> {{com.contenu}}</p>
                 </div>
               </li>
             </div>
@@ -57,7 +57,8 @@
               </div>
               <div class="media-body">
                 <h4 class="media-heading">Laissez un commentaire?</h4>
-                <textarea placeholder=" Laissez un commentaire..." class="form-control" rows="3" ng-model="vm.contenuCom"></textarea>
+                <textarea style="width: 50%; resize: none;" placeholder=" Laissez un commentaire..." class="form-control" rows="3" ng-model="vm.contenuCom"></textarea>
+
               </div>
             </div>
           </div>

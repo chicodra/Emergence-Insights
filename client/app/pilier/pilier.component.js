@@ -66,6 +66,9 @@ export class PiliersComponent {
     angular.element(document)
       .ready(() => {
 
+        this.jsFunctionProvider.globals();
+
+        this.jsFunctionProvider.anchorsNav();
 
         console.log('document pilier', document);
         /* demo animated */
@@ -116,9 +119,6 @@ export class PiliersComponent {
         this.jsFunctionProvider.ajaxContactForm();
 
 
-        this.jsFunctionProvider.globals();
-
-        this.jsFunctionProvider.anchorsNav();
       });
     // }, 2000);
     setTimeout(function () {
