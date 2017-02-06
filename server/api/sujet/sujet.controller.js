@@ -78,6 +78,15 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+//Get Sujet By Catégorie
+
+export function getSujetByCategorie(req, res) {
+  return Sujet.find({ id_cat: req.params.id }).populate('id_user')
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Get Sujet By Nom
 export function getSujetByNom(req, res) {
   return Sujet.find({ titre: req.params.id }).populate('id_user')
