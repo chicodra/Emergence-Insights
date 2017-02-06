@@ -132,9 +132,11 @@ export class ForumComponent {
   }
 
   ajoutSujet() {
-    var datetime = this.currentdate.getDate() + "/" +
-      (this.currentdate.getMonth() + 1) + "/" +
-      this.currentdate.getFullYear();
+
+    var datetime = this.currentdate.getDate() + "/"
+      + (this.currentdate.getMonth() + 1) + "/"
+      + this.currentdate.getFullYear();
+
     if (this.titreSujet) {
       this.$http.post('/api/sujets', {
         titre: this.titreSujet,
@@ -317,26 +319,25 @@ export class ForuminfoComponent {
   create() {
 
     var local_http = this.$http;
-    var datetime = this.currentdate.getDate() + "/" +
-      (this.currentdate.getMonth() + 1) + "/" +
-      this.currentdate.getFullYear();
-
+    var datetime = this.currentdate.getDate() + "/"
+      + (this.currentdate.getMonth() + 1) + "/"
+      + this.currentdate.getFullYear();
     if (this.contenuCom) {
       this.$http.post('/api/messages', {
-          id_user: this.getCurrentUser()._id,
-          id_sujet: this.listSujets._id,
-          id_createur: this.listSujets.id_user._id,
-          contenu: this.contenuCom,
-          date_creation: this.datetime
+        id_user: this.getCurrentUser()._id,
+        id_sujet: this.listSujets._id,
+        id_createur: this.listSujets.id_user._id,
+        contenu: this.contenuCom,
+        date_creation: this.datetime
+      })
+      .then(function(data){
+       local_http.post('/api/notifications', {
+        id_message: data.data._id,
+        date_Envoi: datetime,
+        seen : false
+       })
+      });
 
-        })
-        .then(function (data) {
-          local_http.post('/api/notifications', {
-            id_message: data.data._id,
-            date_Envoi: datetime,
-            seen: false
-          })
-        });
       this.contenuCom = '';
 
       window.location.reload();

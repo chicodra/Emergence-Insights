@@ -25,6 +25,8 @@ import Presentation from '../api/presentation/presentation.model';
 import Slide from '../api/slide/slide.model';
 import Temoignage from '../api/temoignage/temoignage.model';
 import Categorie from '../api/categorie/categorie.model';
+import SousCategorie from '../api/sousCategorie/sousCategorie.model';
+
 import Notif from '../api/notification/notification.model';
 //Témoignages
 
@@ -51,18 +53,18 @@ Temoignage.find({}).remove()
 
   //Catégories
 
-  Categorie.find({}).remove()
+Categorie.find({}).remove()
   .then(() => {
     Categorie.create({
   _id: 1,
   nom: "Langage C",
-},{
+  },{
   _id: 2,
   nom: "MEAN",
-},{
+  },{
   _id: 3,
   nom: "JAVA",
-}).then(() => {
+  }).then(() => {
       console.log('finished populating Témoignages');
     });
   });
@@ -1452,6 +1454,7 @@ Reponse.find({}).remove()
   });
 
 Message.find({}).remove()
+
   .then(() => {
     Message.create({
       _id: 1,
@@ -1584,6 +1587,31 @@ Message.find({}).remove()
     });
   });
 
+SousCategorie.find({}).remove()
+  .then(() => {
+    SousCategorie.create({
+  _id: 1,
+  titre : 'les tableaux',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 1
+  },{
+  _id: 2,
+  titre : 'les fonctions',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 1
+  },{
+  _id: 3,
+  titre : 'NodeJS',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 2
+  },{
+  _id: 4,
+  titre : 'Expression langage',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 3
+  }).then(() => {
+      console.log('finished populating Témoignages');
+    });
 Notif.find({}).remove()
   .then(() => {
     Notif.create({
