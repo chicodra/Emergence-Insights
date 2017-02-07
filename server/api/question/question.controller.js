@@ -65,7 +65,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Questions
 export function index(req, res) {
-  return Question.find().exec()
+  return Question.find().populate('id_interview').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
@@ -80,7 +80,7 @@ export function show(req, res) {
 
 // Get all questions by a interview
 export function getQuesByInter(req, res) {
-  return Question.find({id_interview : req.params.id}).exec()
+  return Question.find({id_interview : req.params.id}).populate('id_interview').exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
