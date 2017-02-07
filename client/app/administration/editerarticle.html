@@ -5,40 +5,52 @@
       <form>
         <div class="form-group">
           <label for="titre">Titre</label>
-          <input type="text" class="form-control" id="titre" placeholder="Titre" ng-model="titre">
+          <input type="text" class="form-control" id="titre" placeholder="Titre" ng-model="vm.titre">
         </div>
         <div class="form-group">
           <label for="auteur">Auteur</label>
-          <input type="text" class="form-control" id="auteur" placeholder="Auteur" ng-model="auteur">
+          <input type="text" class="form-control" id="auteur" placeholder="Auteur" ng-model="vm.auteur">
         </div>
         <div class="form-group">
           <label for="contenu">Contenu</label>
           <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
-          <textarea class="form-control" rows="3" style="resize: none;" ng-model="contenu"></textarea>
+          <textarea class="form-control" rows="10" style="resize: none;" ng-model="vm.contenu"></textarea>
         </div>
         <div class="form-group">
           <label for="image">Choisir une image</label>
           <input type="file" id="image" ng-model="image">
           <!--<p class="help-block">Example block-level help text here.</p>-->
         </div>
-        <div class="checkbox" style="margin-left: 50p">
+        <div class="checkbox">
           <label>
-            <input type="checkbox" ng-model="alaune">
+            <input type="checkbox" ng-model="vm.une">
             A là une
             </label>
         </div>
         <!-- Single button -->
         <div class="form-group">
-          <label for="sel1">Choisir un theme:</label>
-          <select class="form-control" id="sel1">
+          <label for="theme">Choisir un theme:</label>
+          <select class="form-control" id="theme">
           <option value="">...</option>
-          <option ng-repeat="theme in vm.listTheme" value="theme._id"> {{theme.libelle}} </option>
+          <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-selected="vm.themearticl"> {{theme.libelle}} </option>
           </select>
         </div>
+        <button type="submit" class="btn btn-default">Envoyer</button>
+      </form>
     </div>
-    <button type="submit" class="btn btn-default">Envoyer</button>
-    </form>
+    <!--</div>-->
+    <div class="col-md-4">
+      <!--<p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>-->
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="articl in vm.listArticles">
+          <div class="">
+            <strong>{{articl.titre}}</strong><br>
+            <span class="text-muted">{{articl.auteur}}</span>
+          </div>
+          <a ng-click="" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+          <a ng-click="vm.editArticl(articl)" class=""><span class="fa fa-pencil fa-2x"></span></a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="col-md-4"></div>
-</div>
 </div>

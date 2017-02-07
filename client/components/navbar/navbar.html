@@ -37,16 +37,20 @@
           </li>
           <!--<li><a href="pays.html">Contact</a>-->
           <li><a ui-sref="forum">Forum</a></li>
-          <li ui-sref="administration" ng-show="nbCtrl.isAdmin()" ng-mouseenter="nbCtrl.classAdmin()" ng-mouseleave="nbCtrl.delclassAdmin()" ng-click="nbCtrl.delclassAdmin()" class="cl1"><a>Administration</a>
+          <li ng-show="nbCtrl.isAdmin()" ng-mouseenter="nbCtrl.classAdmin()" ng-mouseleave="nbCtrl.delclassAdmin()" ng-click="nbCtrl.delclassAdmin()"
+            class="cl1"><a>Administration</a>
             <ul ng-style="nbCtrl.styleAdmin">
               <li>
-                <a ui-sref="administration/editerarticle"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Article </a>
+                <a ui-sref="editerarticle"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Article </a>
+              </li>
+              <li>
+                <a ui-sref="editerinterviews"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Interviews </a>
               </li>
             </ul>
-          </li>
-          <!--<li ng-show="nbCtrl.isAdmin()" ng-mouseenter="nbCtrl.classAdmin()" ng-mouseleave="nbCtrl.delclassAdmin()" ng-click="nbCtrl.delclassAdmin()" class="cl1"><a ui-sref="indice">Administration</a>
+            </li>
+            <!--<li ng-show="nbCtrl.isAdmin()" ng-mouseenter="nbCtrl.classAdmin()" ng-mouseleave="nbCtrl.delclassAdmin()" ng-click="nbCtrl.delclassAdmin()" class="cl1"><a ui-sref="indice">Administration</a>
           </li>-->
-          <!--<li><a ui-sref="partenaires">Partenaires</a></li>-->
+            <!--<li><a ui-sref="partenaires">Partenaires</a></li>-->
         </ul>
       </div>
       <div class="top-line-right">
