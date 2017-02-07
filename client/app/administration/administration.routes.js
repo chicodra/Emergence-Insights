@@ -8,7 +8,11 @@ export default function ($stateProvider) {
       template: '<administration></administration>'
     })
     .state('editerarticle', {
-      url: '/administration/editerarticle',
+      url: '/editerarticle',
       template: '<editerarticle></editerarticle>'
+    })
+    .state('editerinterviews', {
+      url: '/editerinterviews',
+      template: '<editerinterviews></editerinterviews>'
     });
 }
