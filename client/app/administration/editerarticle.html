@@ -15,7 +15,6 @@
           <label for="contenu">Contenu</label>
           <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
           <textarea class="form-control" rows="10" style="resize: none;" ng-model="vm.contenu"></textarea>
-
         </div>
         <div class="form-group">
           <label for="image">Choisir une image</label>
@@ -38,7 +37,7 @@
           <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-selected="vm.themearticl" ng-click="vm.setTutorial(theme._id)"> {{theme.libelle}} </option>
           </select>
         </div>
-        <button type="submit" class="btn btn-default">Envoyer</button>
+        <button type="submit" class="btn btn-default" ng-click="vm.addArticle()">Envoyer</button>
       </form>
     </div>
     <!--</div>-->
@@ -55,8 +54,5 @@
         </li>
       </ul>
     </div>
-
-    <button type="submit" class="btn btn-default" ng-click="vm.addArticle()">Envoyer</button>
-    </form>
   </div>
 </div>
