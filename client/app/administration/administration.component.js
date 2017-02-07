@@ -10,21 +10,53 @@ export class AdministrationComponent {
   jsFunctionProvider;
   themeProvider;
   articleProvider;
+
   listArticles;
+  
+  listarticle;
+  datetime;
+  selected;
+  currentdate = new Date();
+  //id_theme;
+  //image;
+  //une;
+
   constructor(jsFunctionProvider, themeProvider, articleProvider) {
-    this.titre = '';
+
+     this.titre = '';
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
     this.themeProvider = themeProvider;
+    this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
     console.log('this', this);
+    this.datetime = this.currentdate.getDate() + "/" +
+      (this.currentdate.getMonth() + 1) + "/" +
+      this.currentdate.getFullYear();
+  }
+  setTutorial (value) {
+  this.selected = value;
+  }
+  addArticle() {
+    if (this.selected) {
+      this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected);
+      this.articleProvider.listArticles().then(list => {
+        this.listarticle = list;
+        console.log('Article You Bess', this.listarticle);
+      });
+    } else {
+      this.theme = '';
+      this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime);
+      this.articleProvider.listArticles().then(list => {
+        this.listarticle = list;
+        console.log('Article You Bess', this.listarticle);
+      });
+    }
 
   }
-
-
   Init() {
     if (this.themeProvider.listTheme == null) {
       this.themeProvider.listThemes().then(list => {
@@ -120,7 +152,11 @@ export class AdministrationComponent {
 
 
 
+
 AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider"];
+
+AdministrationArticleComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider"];
+
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
   .config(routes)
   .component('administration', {

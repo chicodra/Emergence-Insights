@@ -15,15 +15,17 @@
           <label for="contenu">Contenu</label>
           <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
           <textarea class="form-control" rows="10" style="resize: none;" ng-model="vm.contenu"></textarea>
+
         </div>
         <div class="form-group">
           <label for="image">Choisir une image</label>
-          <input type="file" id="image" ng-model="image">
+          <input type="file" id="image" ng-model="vm.image">
           <!--<p class="help-block">Example block-level help text here.</p>-->
         </div>
         <div class="checkbox">
           <label>
             <input type="checkbox" ng-model="vm.une">
+
             A là une
             </label>
         </div>
@@ -32,7 +34,8 @@
           <label for="theme">Choisir un theme:</label>
           <select class="form-control" id="theme">
           <option value="">...</option>
-          <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-selected="vm.themearticl"> {{theme.libelle}} </option>
+
+          <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-selected="vm.themearticl" ng-click="vm.setTutorial(theme._id)"> {{theme.libelle}} </option>
           </select>
         </div>
         <button type="submit" class="btn btn-default">Envoyer</button>
@@ -52,5 +55,8 @@
         </li>
       </ul>
     </div>
+
+    <button type="submit" class="btn btn-default" ng-click="vm.addArticle()">Envoyer</button>
+    </form>
   </div>
 </div>
