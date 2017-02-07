@@ -76,10 +76,11 @@ export class NavbarComponent {
       this.listnotif = list;
       for (var i = 0; i < this.listnotif.length; i++) {
         if (this.listnotif[i].id_message.id_user == this.getCurrentUser()._id) {
-          //this.listnot.push(this.listnotif[i]._id);
-          this.nbnotif=this.nbnotif+1;
+          this.listnot.push(this.listnotif[i]._id);
+          //this.nbnotif=this.nbnotif+1;
         }
       }
+      this.nbnotif=this.listnot.length;
       console.log('Notifications Wadji ', this.listnot);
       console.log('Nombre Notifications', this.nbnotif);
       if (this.listnotif.length == 0) {
