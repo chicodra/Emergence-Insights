@@ -10,10 +10,8 @@ export class AdministrationComponent {
   jsFunctionProvider;
   themeProvider;
   articleProvider;
-
+  alaune;
   listArticles;
-  
-  listarticle;
   datetime;
   selected;
   currentdate = new Date();
@@ -23,7 +21,7 @@ export class AdministrationComponent {
 
   constructor(jsFunctionProvider, themeProvider, articleProvider) {
 
-     this.titre = '';
+    this.titre = '';
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
@@ -37,23 +35,52 @@ export class AdministrationComponent {
       (this.currentdate.getMonth() + 1) + "/" +
       this.currentdate.getFullYear();
   }
-  setTutorial (value) {
-  this.selected = value;
+  setTutorial(value) {
+    this.selected = value;
   }
   addArticle() {
     if (this.selected) {
-      this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected);
-      this.articleProvider.listArticles().then(list => {
-        this.listarticle = list;
-        console.log('Article You Bess', this.listarticle);
-      });
+      if (this.une) {
+        this.alaune=true;
+        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+          this.selected = '';
+      } else {
+        this.alaune=false;
+        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+          this.selected = '';
+      }
+
     } else {
-      this.theme = '';
-      this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime);
-      this.articleProvider.listArticles().then(list => {
-        this.listarticle = list;
-        console.log('Article You Bess', this.listarticle);
-      });
+      if (this.une) {
+        this.selected = null;
+        this.alaune=true;
+        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+      } else {
+        this.selected = null;
+        this.alaune=false;
+        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+        window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+      }
+
     }
 
   }
