@@ -155,8 +155,6 @@ export class AdministrationComponent {
 
 AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider"];
 
-AdministrationArticleComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider"];
-
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
   .config(routes)
   .component('administration', {
