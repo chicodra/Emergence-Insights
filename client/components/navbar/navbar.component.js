@@ -146,6 +146,24 @@ export class NavbarComponent {
       'opacity': '1'
     }
   }
+
+    classAdmin() {
+    console.log('okk');
+    this.cl = "menu-dropdown-icon";
+    this.styleAdmin = {
+      'display': 'block',
+      'opacity': '1'
+    }
+  }
+
+  delclassAdmin() {
+    console.log('okk');
+    this.cl = "";
+    this.styleAdmin = {
+      'display': 'none',
+      'opacity': '1'
+    }
+  }
 }
 
 export default angular.module('directives.navbar', [])

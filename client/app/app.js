@@ -43,6 +43,7 @@ import paysProvider from './factory/paysProvider/paysProvider.service';
 import articleComponent from './article/article.component';
 import articleProvider from './factory/articleProvider/articleProvider.service';
 import forumComponent from './forum/forum.component';
+import AdministrationComponent from './administration/administration.component';
 import jsFunctionSlider from './factory/jsFunctionProvider/jsFunctionProvider.service';
 import interviewsProvider from './factory/interviewsProvider/interviewsProvider.service';
 import etudecasProvider from './factory/etudecasProvider/etudecasProvider.service';
@@ -71,7 +72,7 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     main, constants, socket, util, theme, paysProvider, articleProvider, si, revue, interviews, etudedecas,
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
     InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent,
-    listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users, commentarieProvider, sujet, etudecasProvider, articlealaune,actualitealaune,temoignageProvider,categorieProvider,notificationProvider
+    listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users, commentarieProvider, sujet, etudecasProvider, articlealaune,actualitealaune,temoignageProvider,categorieProvider,notificationProvider, AdministrationComponent
   ])
   .config(routeConfig)
   .run(function ($rootScope, $location, Auth) {
