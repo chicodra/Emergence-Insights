@@ -76,10 +76,11 @@ export class NavbarComponent {
       this.listnotif = list;
       for (var i = 0; i < this.listnotif.length; i++) {
         if (this.listnotif[i].id_message.id_user == this.getCurrentUser()._id) {
-          //this.listnot.push(this.listnotif[i]._id);
-          this.nbnotif=this.nbnotif+1;
+          this.listnot.push(this.listnotif[i]._id);
+          //this.nbnotif=this.nbnotif+1;
         }
       }
+      this.nbnotif=this.listnot.length;
       console.log('Notifications Wadji ', this.listnot);
       console.log('Nombre Notifications', this.nbnotif);
       if (this.listnotif.length == 0) {
@@ -141,6 +142,24 @@ export class NavbarComponent {
     console.log('okk');
     this.dropEmergence = "";
     this.styleEmergence = {
+      'display': 'none',
+      'opacity': '1'
+    }
+  }
+
+    classAdmin() {
+    console.log('okk');
+    this.cl = "menu-dropdown-icon";
+    this.styleAdmin = {
+      'display': 'block',
+      'opacity': '1'
+    }
+  }
+
+  delclassAdmin() {
+    console.log('okk');
+    this.cl = "";
+    this.styleAdmin = {
       'display': 'none',
       'opacity': '1'
     }

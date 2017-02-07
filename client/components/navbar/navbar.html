@@ -37,7 +37,20 @@
           </li>
           <!--<li><a href="pays.html">Contact</a>-->
           <li><a ui-sref="forum">Forum</a></li>
-          <!--<li><a ui-sref="partenaires">Partenaires</a></li>-->
+          <li ng-show="nbCtrl.isAdmin()" ng-mouseenter="nbCtrl.classAdmin()" ng-mouseleave="nbCtrl.delclassAdmin()" ng-click="nbCtrl.delclassAdmin()"
+            class="cl1"><a>Administration</a>
+            <ul ng-style="nbCtrl.styleAdmin">
+              <li>
+                <a ui-sref="editerarticle"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Article </a>
+              </li>
+              <li>
+                <a ui-sref="editerinterviews"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Interviews </a>
+              </li>
+            </ul>
+            </li>
+            <!--<li ng-show="nbCtrl.isAdmin()" ng-mouseenter="nbCtrl.classAdmin()" ng-mouseleave="nbCtrl.delclassAdmin()" ng-click="nbCtrl.delclassAdmin()" class="cl1"><a ui-sref="indice">Administration</a>
+          </li>-->
+            <!--<li><a ui-sref="partenaires">Partenaires</a></li>-->
         </ul>
       </div>
       <div class="top-line-right">
@@ -46,12 +59,16 @@
           <a href="#"><i class="fa fa-google-plus"></i></a>-->
           <!--<a href="#"><i class="fa fa-linkedin"></i></a>
           <a href="#"><i class="fa fa-facebook"></i></a>-->
-          <a ng-show="nbCtrl.isLoggedIn()">bonjour, {{nbCtrl.getCurrentUser().name}}</li>
+          <a ng-show="nbCtrl.isLoggedIn()">bonjour, {{nbCtrl.getCurrentUser().name}}</a>
           <a ui-sref="login"><i class=" fa fa-sign-in" ng-hide="nbCtrl.isLoggedIn()" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se connecter"></i></a>
           <a ui-sref="logout" ng-show="nbCtrl.isLoggedIn()">
             <i class=" fa fa-sign-out" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se deconnecter"></i>
           </a>
-          <a href=""><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i></a>
+
+
+
+          <a href="" ng-show="nbCtrl.isLoggedIn()" ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" ng-click="nbCtrl.delclassPays()" class="cl1"><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i><span class="badge">{{nbCtrl.nbnotif}}</span></a>
+
 
         </div>
         <a class="search-link top-search" href="#"><i class="fa fa-search"></i></a>
