@@ -1,7 +1,8 @@
 'use strict';
 
 import mongoose from 'mongoose';
-
+var autoIncrement = require('mongoose-auto-increment');
+autoIncrement.initialize(mongoose);
 var PaysSchema = new mongoose.Schema({
   _id : Number,
   nom : String,
@@ -10,5 +11,5 @@ var PaysSchema = new mongoose.Schema({
   description : String
  
 });
-
+PaysSchema.plugin(autoIncrement.plugin, 'Pays');
 export default mongoose.model('Pays', PaysSchema);
