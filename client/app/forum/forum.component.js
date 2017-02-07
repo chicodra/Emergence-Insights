@@ -16,11 +16,16 @@ export class ForumComponent {
   isLoggedIn: Function;
   getCurrentUser: Function;
   titreSujet;
+  contenuSujet;
   currentdate = new Date();
   categorieProvider;
   listcat;
   listsujetscat;
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider) {
+  sousCategorieProvider;
+  listSousCat;
+  sousCatVisible = false;
+  sousCat;
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider,sousCategorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.categorieProvider = categorieProvider;
     this.sujetProvider = sujetProvider;
@@ -28,6 +33,9 @@ export class ForumComponent {
     this.commentaireProvider = commentaireProvider;
     this.isLoggedIn = Auth.isLoggedInSync;
     this.message = 'Hello';
+    this.sousCategorieProvider = sousCategorieProvider;
+    this.$http = $http;
+    this.getCurrentUser = Auth.getCurrentUserSync;
     console.log('forum', this);
   }
   GetSujetByCategorie(id) {
@@ -140,14 +148,23 @@ export class ForumComponent {
     if (this.titreSujet) {
       this.$http.post('/api/sujets', {
         titre: this.titreSujet,
+        contenu: this.contenuSujet,
         id_user: this.getCurrentUser()._id,
-
+        id_cat: this.sousCat,
         date_creation: datetime
       });
       this.titreSujet = '';
       window.location.reload();
     }
 
+  }
+
+  clickCategorie(id){
+    
+    this.sousCategorieProvider.listSousCategorie(id).then(list => {
+      this.listSousCat = list;
+      this.sousCatVisible = true;
+    })
   }
 
 
@@ -434,7 +451,7 @@ export class CategorieComponent {
   }
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
-ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider"];
+ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider","sousCategorieProvider"];
 
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
 
