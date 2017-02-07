@@ -78,6 +78,14 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a single SousCategorie from the DB
+export function getSousByCat(req, res) {
+  return SousCategorie.find({id_categorie : req.params.cat}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Creates a new SousCategorie in the DB
 export function create(req, res) {
   return SousCategorie.create(req.body)
