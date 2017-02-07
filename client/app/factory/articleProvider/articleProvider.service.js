@@ -52,6 +52,7 @@ export function articleProviderService($http,$q) {
     return liste;
 
   }
+   
 }
 
 export default angular.module('emergenceInsightsApp.articleProvider', [])
