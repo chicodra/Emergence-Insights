@@ -23,7 +23,7 @@ export class ForumComponent {
  categorieProvider;
   listcat;
   listsujetscat;
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, commentaireProvider, categorieProvider) {
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
