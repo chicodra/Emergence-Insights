@@ -1,7 +1,8 @@
 'use strict';
 
 import mongoose from 'mongoose';
-
+var autoIncrement = require('mongoose-auto-increment');
+autoIncrement.initialize(mongoose);
 var DocumentationSchema = new mongoose.Schema({
   _id : Number,
   libelle : String,
@@ -11,5 +12,5 @@ var DocumentationSchema = new mongoose.Schema({
     ref : 'Pays'
   }
 });
-
+DocumentationSchema.plugin(autoIncrement.plugin, 'Documentation');
 export default mongoose.model('Documentation', DocumentationSchema);

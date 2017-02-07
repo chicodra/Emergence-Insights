@@ -60,7 +60,12 @@
           <a ui-sref="logout" ng-show="nbCtrl.isLoggedIn()">
             <i class=" fa fa-sign-out" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se deconnecter"></i>
           </a>
-          <a href="" ng-show="nbCtrl.isLoggedIn()"><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i>{{nbCtrl.nbnotif}}</a>
+
+
+
+          <a href="" ng-show="nbCtrl.isLoggedIn()" ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" ng-click="nbCtrl.delclassPays()" class="cl1"><i class="fa fa-bell" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Notifications"></i><span class="badge">{{nbCtrl.nbnotif}}</span></a>
+
+
         </div>
         <a class="search-link top-search" href="#"><i class="fa fa-search"></i></a>
         <div class="search-popup custom-popup">
