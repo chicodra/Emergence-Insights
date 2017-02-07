@@ -5,25 +5,25 @@
       <form>
         <div class="form-group">
           <label for="titre">Titre</label>
-          <input type="text" class="form-control" id="titre" placeholder="Titre" ng-model="titre">
+          <input type="text" class="form-control" id="titre" placeholder="Titre" ng-model="vm.titre">
         </div>
         <div class="form-group">
           <label for="auteur">Auteur</label>
-          <input type="text" class="form-control" id="auteur" placeholder="Auteur" ng-model="auteur">
+          <input type="text" class="form-control" id="auteur" placeholder="Auteur" ng-model="vm.auteur">
         </div>
         <div class="form-group">
           <label for="contenu">Contenu</label>
           <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
-          <textarea class="form-control" rows="3" style="resize: none;" ng-model="contenu"></textarea>
+          <textarea class="form-control" rows="3" style="resize: none;" ng-model="vm.contenu"></textarea>
         </div>
         <div class="form-group">
           <label for="image">Choisir une image</label>
-          <input type="file" id="image" ng-model="image">
+          <input type="file" id="image" ng-model="vm.image">
           <!--<p class="help-block">Example block-level help text here.</p>-->
         </div>
         <div class="checkbox" style="margin-left: 50p">
           <label>
-            <input type="checkbox" ng-model="alaune">
+            <input type="checkbox" ng-model="vm.alaune">
             A là une
             </label>
         </div>
@@ -32,11 +32,11 @@
           <label for="sel1">Choisir un theme:</label>
           <select class="form-control" id="sel1">
           <option value="">...</option>
-          <option ng-repeat="theme in vm.listTheme" value="theme._id"> {{theme.libelle}} </option>
+          <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-click="vm.setTutorial(theme._id)"> {{theme.libelle}} </option>
           </select>
         </div>
     </div>
-    <button type="submit" class="btn btn-default">Envoyer</button>
+    <button type="submit" class="btn btn-default" ng-click="vm.addArticle()">Envoyer</button>
     </form>
   </div>
   <div class="col-md-4"></div>
