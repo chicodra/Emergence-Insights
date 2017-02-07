@@ -25,7 +25,9 @@ import Presentation from '../api/presentation/presentation.model';
 import Slide from '../api/slide/slide.model';
 import Temoignage from '../api/temoignage/temoignage.model';
 import Categorie from '../api/categorie/categorie.model';
+import SousCategorie from '../api/sousCategorie/sousCategorie.model';
 
+import Notif from '../api/notification/notification.model';
 //Témoignages
 
 Temoignage.find({}).remove()
@@ -51,18 +53,18 @@ Temoignage.find({}).remove()
 
   //Catégories
 
-  Categorie.find({}).remove()
+Categorie.find({}).remove()
   .then(() => {
     Categorie.create({
   _id: 1,
   nom: "Langage C",
-},{
+  },{
   _id: 2,
   nom: "MEAN",
-},{
+  },{
   _id: 3,
   nom: "JAVA",
-}).then(() => {
+  }).then(() => {
       console.log('finished populating Témoignages');
     });
   });
@@ -1200,36 +1202,60 @@ Sujet.find({}).remove()
     Sujet.create({
       _id: 1,
       titre: 'La fonte des glaciers',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
       id_cat:1,
       date_creation: '2017-04-01'
       }, {
       _id: 2,
       titre: 'La fonte des neiges',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
       id_cat:1,
       date_creation: '2017-04-01'
       }, {
       _id: 3,
       titre: 'Le Muslim ban',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '58907f18b9c05000f04c77cf',
       id_cat:3,
       date_creation: '2017-04-01'
       }, {
       _id: 4,
       titre: 'up like donald trump',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '58907f18b9c05000f04c77cf',
       id_cat:1,
       date_creation: '2017-05-01'
       },{
       _id: 5,
       titre: 'Comment adherer emergence?',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
       id_cat:2,
       date_creation: '2017-01-01'
     }, {
       _id: 6,
       titre: 'Qui est là?',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '589082cab9c05000f04c77d0',
       id_cat:2,
       date_creation: '2017-01-02'
@@ -1428,8 +1454,10 @@ Reponse.find({}).remove()
   });
 
 Message.find({}).remove()
+
   .then(() => {
     Message.create({
+      _id: 1,
       id_user: '587f54a347ea262b686ecc5e',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1437,6 +1465,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 2,
       id_user: '587f54a347ea262b686ecc5e',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1444,6 +1473,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 3,
       id_user: '587f54a347ea262b686ecc5e',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1451,6 +1481,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 4,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1458,6 +1489,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 5,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1465,6 +1497,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 6,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1472,6 +1505,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 7,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1479,6 +1513,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 8,
       id_user: '587f54a347ea262b686ecc5f',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1486,6 +1521,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 9,
       id_user: '587f5a2908c8482cf40bb351',
       id_sujet: 1,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1493,6 +1529,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 10,
       id_user: '587f5a2908c8482cf40bb351',
       id_sujet: 2,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1500,6 +1537,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-01-01'
     }, {
+      _id: 11,
       id_user: '587f5a2908c8482cf40bb351',
       id_sujet: 2,
       id_createur: '587f54a347ea262b686ecc5f',
@@ -1507,6 +1545,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-04-01'
     }, {
+      _id: 12,
       id_user: '589082cab9c05000f04c77d0',
       id_sujet: 3,
       id_createur: '58907f18b9c05000f04c77cf',
@@ -1514,6 +1553,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-04-08'
     }, {
+      _id: 13,
       id_user: '589082cab9c05000f04c77d0',
       id_sujet: 3,
       id_createur: '58907f18b9c05000f04c77cf',
@@ -1521,6 +1561,7 @@ Message.find({}).remove()
   `,
       date_creation: '2017-05-01'
     }, {
+      _id: 14,
       id_user: '58907f18b9c05000f04c77cf',
       id_sujet: 3,
       id_createur: '58907f18b9c05000f04c77cf',
@@ -1528,6 +1569,7 @@ Message.find({}).remove()
     `,
       date_creation: '2017-05-03'
     }, {
+      _id: 15,
       id_user: '589082cab9c05000f04c77d0',
       id_sujet: 4,
       id_createur: '58907f18b9c05000f04c77cf',
@@ -1535,6 +1577,7 @@ Message.find({}).remove()
     `,
       date_creation: '2017-05-03'
     }, {
+      _id: 16,
       id_user: '58907f18b9c05000f04c77cf',
       id_sujet: 4,
       id_createur: '58907f18b9c05000f04c77cf',
@@ -1543,3 +1586,116 @@ Message.find({}).remove()
       date_creation: '2017-05-03'
     });
   });
+
+SousCategorie.find({}).remove()
+  .then(() => {
+    SousCategorie.create({
+  _id: 1,
+  titre : 'les tableaux',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 1
+  },{
+  _id: 2,
+  titre : 'les fonctions',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 1
+  },{
+  _id: 3,
+  titre : 'NodeJS',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 2
+  },{
+  _id: 4,
+  titre : 'Expression langage',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 3
+  }).then(() => {
+      console.log('finished populating Sous Catégories');
+    });
+    });
+Notif.find({}).remove()
+  .then(() => {
+    Notif.create({
+  _id: 1,
+   id_message :1,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 2,
+   id_message :2,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 3,
+   id_message :3,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 4,
+   id_message :4,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 5,
+   id_message :5,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 6,
+   id_message :6,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 7,
+   id_message :7,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 8,
+   id_message :8,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 9,
+   id_message :9,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 10,
+   id_message :10,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 11,
+   id_message :11,
+  date_Envoi: '2017-04-01',
+  seen: false
+},{
+  _id: 12,
+   id_message :12,
+  date_Envoi: '2017-04-08',
+  seen: false
+},{
+  _id: 13,
+   id_message :13,
+  date_Envoi: '2017-05-01',
+  seen: false
+},{
+  _id: 14,
+   id_message :14,
+  date_Envoi: '2017-05-03',
+  seen: false
+},{
+  _id: 15,
+   id_message :15,
+  date_Envoi: '2017-05-03',
+  seen: false
+},{
+  _id: 16,
+   id_message :16,
+  date_Envoi: '2017-05-03',
+  seen: false
+}).then(() => {
+      console.log('finished populating notifications');
+});
+});

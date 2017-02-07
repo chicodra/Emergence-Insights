@@ -10,25 +10,33 @@
 				</div>
 			</div>
 			<div class="col-xs-8 " style="padding: 40px 10px 0px 0px; width: 300px; margin-right: 80px;" ng-repeat="actualite in vm.actualitesPays">
-<div class="news type-2 cuadro_intro_hover ">
-	<a ui-sref="actualite({libelle:actualite.sujet})">
-		<figure>
-			<img class="img-responsive " ng-src="../../assets/images/perfstock/actualite/{{actualite.image}}" style="height: 200px; width:500px;"></figure>
-</a>
-<div class="caption">
-	<div class="blur"></div>
-	<div class="caption-text" >
-		<div class="news-desc " >
-			<h4 ><a ui-sref="actualite({libelle:actualite.sujet})"><p style="color: #fff; font-size: 6Opx;"> {{actualite.sujet}}</p></a></h4>
-			<h4><a class="news-title" ui-sref="actualite({libelle:actualite.sujet})"> <p style="color: #fff; font-size: 10px;"> {{actualite.contenu }}</p></a></h4>
-			<!--<div class="news-date"><i class="fa fa-clock-o"></i>{{actualite.date| date:'dd/MM/yyyy'}}</div>-->
+				<div class="news type-2 cuadro_intro_hover ">
+					<a ui-sref="actualite({libelle:actualite.sujet})">
+						<figure>
+							<img class="img-responsive " ng-src="../../assets/images/perfstock/actualite/{{actualite.image}}" style="height: 300px; width:550px;"></figure>
+					</a>
+					<div class="caption">
+						<div class="blur"></div>
+						<div class="caption-text">
+							<div class="news-desc ">
+								<h4>
+									<a ui-sref="actualite({libelle:actualite.sujet})">
+										<p style="color: #fff; font-size: large;"> {{actualite.sujet}}</p>
+									</a>
+								</h4>
+								<h4>
+									<a class="news-title" ui-sref="actualite({libelle:actualite.sujet})">
+										<p style="color: #fff; font-size: 10px;"> {{actualite.contenu }}</p>
+									</a>
+								</h4>
+								<!--<div class="news-date"><i class="fa fa-clock-o"></i>{{actualite.date| date:'dd/MM/yyyy'}}</div>-->
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
-
-</div>
-</div>
-</div>
-
-</div>
-</div>
 </div>

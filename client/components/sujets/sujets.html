@@ -17,20 +17,25 @@
         <td style="width: 400px;">Liste des sujets</td>
         <td>Date</td>
         <td>Commentaire</td>
+        <td>Categories</td>
         <td>Utilisateur</td>
       </tr>
       <tr ui-sref="foruminfo({forumName:sujet.titre})" id="sujet" ng-repeat="sujet in vm.listeSujets | filter:query">
-        
         <td>
           <div style="padding: 6px;">
             <a class="simple-title" ui-sref="foruminfo({forumName:sujet.titre})"> {{sujet.titre}} </a>
-            <p>lremgj dolor sit amet, consectetur adipi fgkgf </p>
+            <!--<p style="font-family: 'Roboto Mono', monospace;">lremgj dolor sit amet, consectetur adipi fgkgf </p>-->
           </div>
         </td>
         <td>
           {{sujet.date_creation | date:'dd/MM/yyyy'}}
         </td>
         <td style="text-align: center">0</td>
+        <td>
+          <div class="tag" style="cursor: pointer;">
+            <i class="fa fa-tag" aria-hidden="true"></i> <span> java </span>
+          </div>
+        </td>
         <td>
           <div class="media">
             <div class="media-left">
@@ -49,7 +54,7 @@
     </table>
 </div>
 <!--<div class="col-xs-12 ">
-    <h3 class="simple-title" style="margin-left: 350px">Tous les cathegories</h3>
+    <h3 class="simple-title" style="margin-left: 350px">Tous les categories</h3>
 
     <div class="table">
         <div class="col-sm-6 col-md-8 col-lg-6">
@@ -58,7 +63,7 @@
                     <div class="box-wrapper">
                         <div class="box">
                             <div class="cx-header no-sub-items">
-                                <a href="">Nom cathegorie</a>
+                                <a href="">Nom categorie</a>
                                 <div class="count"><span class="badge">123</span></div>
                             </div>
                         </div>
@@ -72,9 +77,4 @@
         
     </div>
 </div>-->
-<div class="table-responsive">
-  <table class="table">
-    ...
-  </table>
-</div>
 </div>

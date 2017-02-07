@@ -17,19 +17,16 @@ export class ForumComponent {
   getCurrentUser: Function;
   titreSujet;
   currentdate = new Date();
-
-
- currentdate = new Date(); 
- categorieProvider;
+  categorieProvider;
   listcat;
   listsujetscat;
   constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
+    this.categorieProvider = categorieProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
     this.commentaireProvider = commentaireProvider;
-    this.categorieProvider = categorieProvider;
-
+    this.isLoggedIn = Auth.isLoggedInSync;
     this.message = 'Hello';
     console.log('forum', this);
   }
@@ -49,7 +46,7 @@ export class ForumComponent {
       for (var i = 0; i < this.listcat.length; i++) {
         this.GetSujetByCategorie(this.listcat[i]._id);
       }
-    
+
     })
     //this.listTheme=[];
     var th = this;
@@ -135,9 +132,11 @@ export class ForumComponent {
   }
 
   ajoutSujet() {
+
     var datetime = this.currentdate.getDate() + "/"
       + (this.currentdate.getMonth() + 1) + "/"
       + this.currentdate.getFullYear();
+
     if (this.titreSujet) {
       this.$http.post('/api/sujets', {
         titre: this.titreSujet,
@@ -167,7 +166,6 @@ export class ForuminfoComponent {
   $http;
   socket;
   $window;
-  last;
   currentdate = new Date();
   constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth, $http, socket, $window) {
 
@@ -319,6 +317,7 @@ export class ForuminfoComponent {
 
 
   create() {
+
     var local_http = this.$http;
     var datetime = this.currentdate.getDate() + "/"
       + (this.currentdate.getMonth() + 1) + "/"
@@ -338,16 +337,105 @@ export class ForuminfoComponent {
         seen : false
        })
       });
+
       this.contenuCom = '';
-      
+
       window.location.reload();
-      
+
     }
   }
 
 }
+
+export class CategorieComponent { 
+  /*@ngInject*/
+  jsFunctionProvider;
+  sujetProvider;
+  userProvider;
+  listeSujets;
+  listeUsers;
+  listeComs;
+  commentaireProvider;
+  isLoggedIn: Function;
+  getCurrentUser: Function;
+  titreSujet;
+  currentdate = new Date();
+  categorieProvider;
+  listcat;
+  listsujetscat;
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider) {
+    this.jsFunctionProvider = jsFunctionProvider;
+    this.categorieProvider = categorieProvider;
+    this.sujetProvider = sujetProvider;
+    this.userProvider = userProvider;
+    this.commentaireProvider = commentaireProvider;
+    this.isLoggedIn = Auth.isLoggedInSync;
+    this.message = 'Hello';
+    console.log('forum', this);
+  }
+
+  Init() {
+
+    angular.element(document)
+      .ready(() => {
+        document.querySelector('header').style.backgroundColor = '#222';
+        console.log('document main', document);
+        /* demo animated */
+        this.jsFunctionProvider.demoAnimated();
+        /* Document REady */
+        this.jsFunctionProvider.onDocumentReady();
+
+
+        /* on Page Load */
+        this.jsFunctionProvider.onPageLoad();
+        this.jsFunctionProvider.onPageResize();
+        this.jsFunctionProvider.onSliderArrowClick();
+        this.jsFunctionProvider.onPageScroll();
+        /*==============================*/
+        /* 08 - BUTTONS, CLICKS, HOVERS */
+        /*==============================*/
+        this.jsFunctionProvider.topMenu();
+        this.jsFunctionProvider.videoPlayBtn();
+        this.jsFunctionProvider.videoPlayBtnBig();
+        this.jsFunctionProvider.Popup();
+        this.jsFunctionProvider.hoverAnimation();
+        this.jsFunctionProvider.changeImageOnSpeaker();
+        this.jsFunctionProvider.hoverAnimationOnConference();
+        /*==================================================*/
+        /* 09 - TIMES, TABS */
+        /*==================================================*/
+        this.jsFunctionProvider.Timers();
+        this.jsFunctionProvider.CountDown();
+        this.jsFunctionProvider.Tabs();
+        /*=====================*/
+        /* 10 - LIGHT-BOX */
+        /*=====================*/
+        this.jsFunctionProvider.activityIndicatorFunctions();
+        this.jsFunctionProvider.closeButtonFunctions();
+        this.jsFunctionProvider.overLay();
+        this.jsFunctionProvider.capTion();
+        this.jsFunctionProvider.arrOws();
+        /*==================================================*/
+        /* 11 - STYLE BAR */
+        /*==================================================*/
+        this.jsFunctionProvider.confButton();
+        this.jsFunctionProvider.entryButton();
+
+        /*==================================================*/
+        /* 13 - AJAX CONTACT FORM */
+        /*==================================================*/
+        this.jsFunctionProvider.ajaxContactForm();
+
+
+
+
+      });
+
+  }
+}
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
-ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http"];
+ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider"];
+
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
 
 
@@ -361,6 +449,11 @@ export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .component('foruminfo', {
     template: require('./foruminfo.html'),
     controller: ForuminfoComponent,
+    controllerAs: 'vm'
+  })
+  .component('categorie', {
+    template: require('./categorie.html'),
+    controller: CategorieComponent,
     controllerAs: 'vm'
   })
   .name;

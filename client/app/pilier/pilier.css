@@ -46,6 +46,12 @@ h1 {
 
 }
 
+
+.tag:hover span {
+  text-decoration:underline;
+  /*border-bottom: 1px solid black;*/
+}
+
 .cuadro_intro_hover {
     	padding: 0px;
 		position: relative;
@@ -85,7 +91,7 @@ h1 {
 		z-index: 10;
 		color: #fff;
 		position: absolute;
-		height: 300px;
+		height: 200px;
 		text-align: center;
 		top:-20px;
 		width: 100%;

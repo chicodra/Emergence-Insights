@@ -1,17 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/notifications              ->  index
- * POST    /api/notifications              ->  create
- * GET     /api/notifications/:id          ->  show
- * PUT     /api/notifications/:id          ->  upsert
- * PATCH   /api/notifications/:id          ->  patch
- * DELETE  /api/notifications/:id          ->  destroy
+ * GET     /api/sousCategories              ->  index
+ * POST    /api/sousCategories              ->  create
+ * GET     /api/sousCategories/:id          ->  show
+ * PUT     /api/sousCategories/:id          ->  upsert
+ * PATCH   /api/sousCategories/:id          ->  patch
+ * DELETE  /api/sousCategories/:id          ->  destroy
  */
 
 'use strict';
 
 import jsonpatch from 'fast-json-patch';
-import Notification from './notification.model';
+import SousCategorie from './sousCategorie.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -63,63 +63,54 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Notifications
+// Gets a list of SousCategories
 export function index(req, res) {
-  return Notification.find().populate('id_message').exec()
+  return SousCategorie.find().populate('id_categorie').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Notification from the DB
+// Gets a single SousCategorie from the DB
 export function show(req, res) {
-  return Notification.findById(req.params.id).exec()
+  return SousCategorie.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Get notifications by a message
-export function getNotifByMessage(req, res) {
-  return Notification.findById({id_message : req.params.id}).exec()
-    .then(handleEntityNotFound(res))
-    .then(respondWithResult(res))
-    .catch(handleError(res));
-}
-
-
-// Creates a new Notification in the DB
+// Creates a new SousCategorie in the DB
 export function create(req, res) {
-  return Notification.create(req.body)
+  return SousCategorie.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Upserts the given Notification in the DB at the specified ID
+// Upserts the given SousCategorie in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return Notification.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+  return SousCategorie.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
 
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Updates an existing Notification in the DB
+// Updates an existing SousCategorie in the DB
 export function patch(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return Notification.findById(req.params.id).exec()
+  return SousCategorie.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a Notification from the DB
+// Deletes a SousCategorie from the DB
 export function destroy(req, res) {
-  return Notification.findById(req.params.id).exec()
+  return SousCategorie.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
