@@ -37,6 +37,12 @@
           </li>
           <!--<li><a href="pays.html">Contact</a>-->
           <li><a ui-sref="forum">Forum</a></li>
+          <li ng-show="nbCtrl.isAdmin()" ng-mouseenter="nbCtrl.classPays()" ng-mouseleave="nbCtrl.delclassPays()" ng-click="nbCtrl.delclassPays()" class="cl1"><a ui-sref="indice">Administration</a>
+            <!--<ul ng-style="nbCtrl.styleEmergence">
+                <li> <a href="">composante de l'indice </a> </li>
+                <li> <a href="">focus pays</a> </li>
+              </ul>-->
+          </li>
           <!--<li><a ui-sref="partenaires">Partenaires</a></li>-->
         </ul>
       </div>
@@ -46,7 +52,8 @@
           <a href="#"><i class="fa fa-google-plus"></i></a>-->
           <!--<a href="#"><i class="fa fa-linkedin"></i></a>
           <a href="#"><i class="fa fa-facebook"></i></a>-->
-          <a ng-show="nbCtrl.isLoggedIn()">bonjour, {{nbCtrl.getCurrentUser().name}}</li>
+          
+          <a ng-show="nbCtrl.isLoggedIn()">bonjour, {{nbCtrl.getCurrentUser().name}}</a>
           <a ui-sref="login"><i class=" fa fa-sign-in" ng-hide="nbCtrl.isLoggedIn()" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se connecter"></i></a>
           <a ui-sref="logout" ng-show="nbCtrl.isLoggedIn()">
             <i class=" fa fa-sign-out" aria-hidden="true" tooltip-placement="bottom" uib-tooltip="Se deconnecter"></i>
