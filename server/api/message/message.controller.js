@@ -95,7 +95,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Messages
 export function index(req, res) {
-  return Message.find().exec()
+  return Message.find().populate('id_sujet').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
