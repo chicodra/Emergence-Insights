@@ -1,9 +1,9 @@
 'use strict';
 
-export default function($stateProvider) {
+export default function ($stateProvider) {
   'ngInject';
 
-  
+
   $stateProvider
     // .state('pilier', {
     //   url: '/pilier',
@@ -16,7 +16,7 @@ export default function($stateProvider) {
 
       template: '<leadership></leadership>',
 
-  })
+    })
     .state('action', {
       url: '/pilier/action',
       template: '<action></action>',
@@ -26,7 +26,7 @@ export default function($stateProvider) {
       url: '/pilier/moteur',
       template: '<moteurs></moteurs>',
 
-})
+    })
     .state('secteur', {
       url: '/pilier/secteur',
       template: '<secteur></secteur>',
