@@ -37,7 +37,11 @@
           <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-selected="vm.themearticl" ng-click="vm.setTutorial(theme._id)"> {{theme.libelle}} </option>
           </select>
         </div>
+<<<<<<< HEAD
         <button type="submit" class="btn btn-default" ng-click="vm.addArticle()">Envoyer</button>
+=======
+        <button type="submit" class="btn btn-default" ng-click="vm.editionArticle(vm.artic)">{{vm.action}}</button>
+>>>>>>> develop
       </form>
     </div>
     <!--</div>-->
@@ -49,7 +53,7 @@
             <strong>{{articl.titre}}</strong><br>
             <span class="text-muted">{{articl.auteur}}</span>
           </div>
-          <a ng-click="" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+          <a ng-click="vm.supprimerArticl(articl)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
           <a ng-click="vm.editArticl(articl)" class=""><span class="fa fa-pencil fa-2x"></span></a>
         </li>
       </ul>
