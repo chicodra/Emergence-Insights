@@ -37,12 +37,15 @@
     <div class="col-md-4">
       <!--<p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>-->
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="interv in vm.listInterviews">
-          <div class="">
-            <strong>{{interv.intervenant}}</strong><br>
-            <span class="text-muted">{{interv.libelle}}</span>
-            <span class="text-muted">{{interv.libelle}}</span>
-          </div>
+        <li class="list-group-item" ng-repeat="interv in vm.listinterview">
+            <div>
+              <strong>{{interv.intervenant}}</strong><br>
+              <span class="text-muted">{{interv.libelle}}</span>
+              <!--<span class="text-muted">{{interv.libelle}}</span>-->
+            </div>
+            <div>
+              <strong style="color: red;"> ok {{interv.q.length}} </strong><br>
+            </div>
           <a ng-click="" class="trash"><span class="fa fa-trash fa-2x"></span></a>
           <a ng-click="vm.editInterv(interv)" class=""><span class="fa fa-pencil fa-2x"></span></a>
         </li>
