@@ -40,6 +40,7 @@ export class AdministrationComponent {
     this.intervenant = '';
     this.themeinterv = '';
     this.artic = "";
+    this.vide="";
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
@@ -53,13 +54,17 @@ export class AdministrationComponent {
       (this.currentdate.getMonth() + 1) + "/" +
       this.currentdate.getFullYear();
   }
-  setTutorial(value) {
+  setClick(value) {
     this.selected = value;
+    this.vide="bon";
+  }
+   setClickValue() {
+    this.vide="";
   }
   editionArticle(artic) {
     if (artic === "") {
       this.action = "Ajouter";
-      if (this.selected) {
+      if (this.selected && this.vide==="bon") {
         if (this.une) {
           this.alaune = true;
           this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
@@ -105,7 +110,7 @@ export class AdministrationComponent {
 
     } else {
       if (artic === "modifier") {
-        if (this.selected) {
+        if (this.selected && this.vide==="bon") {
           if (this.une) {
             this.alaune = true;
             this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
