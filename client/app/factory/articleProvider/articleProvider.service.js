@@ -79,6 +79,13 @@ this.modifier = function (id,titre, auteur, contenu, datetime, theme,alaune) {
       console.log("Modifier bi Bakhna");
     });
   }
+  this.supprimer = function (id) {
+    var deferred = $q.defer();
+    $http.delete('/api/articles/'+id, {
+    }).then(function () {
+      console.log("Supprimer bi Bakhna");
+    });
+  }
 }
 
 export default angular.module('emergenceInsightsApp.articleProvider', [])
