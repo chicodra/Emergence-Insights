@@ -25,6 +25,7 @@ export class AdministrationComponent {
 
     this._id = '';
     this.titre = '';
+
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
@@ -306,10 +307,6 @@ export class AdministrationComponent {
 
   }
 }
-
-
-
-
 
 
 
