@@ -97,4 +97,12 @@ h1 {
 		width: 100%;
 	}
 
+.panel-heading {
+  transition: 0.1s ease-in-out;
+}
 
+.panel-heading:hover {
+	font-size:large;
+	font-family: 'Times New Roman', Times, serif;
+  background-color: rgba(73, 106, 181, 0.51);
+}

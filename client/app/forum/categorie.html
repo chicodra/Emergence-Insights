@@ -1,25 +1,26 @@
 <div ng-init="vm.Init()" class="pilierEm" style="padding: 50px 50px 50px 50px;">
 
-    <div class="row">
-        <div class="col12 title">
-            <h1 style="font-size: x-large; height: 40px; background-color: #E9EBEE; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Liste des forums</h1>
-        </div>
-        <div class="col12" style="padding: 20px;">
-            <h2 style="font-size: larger;  ">Site Web</h2>
-        </div>
-        <!--<div class="col12" style="padding: 10px;" ng-repeat="cat in vm.listcat">
-            <h2 style="font-size: larger">{{cat.nom}}</h2>
-        </div>-->
-        <div class="panel panel-default" style="width: 250px; border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color: #E9EBEE;">
+
+    <div class="">
+        <h1 style="padding: 20px; font-size: x-large; height: 60px; background-color: #E9EBEE; box-shadow: 0 4px 8px 0 rgba(0.19, 0, 0, 0.2), 0 6px 20px 0 rgba(0.19, 0, 0, 0.19);">Liste des forums</h1>
+    </div>
+    <div class="col12 " ng-repeat="cat in vm.listcat">
+        <h2 style="font-size: larger; padding: 30px; font-family: Times New Roma; ">{{cat.nom}}</h2>
+        <div class="panel panel-default" style="width: 250px; border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color: #E9EBEE; ">
             <div class="panel-heading">
                 <a href="">
-                    <div class=" " style="text-align: center;">HTML / CSS</div>
+                    <h2 style="text-align: center;">HTML / CSS</h2>
                 </a>
             </div>
             <div class="" style="padding: 10px;">Une question sur la réalisation de sites web en HTML et CSS?</div>
-            <a href="">
-            <div class="panel-body">Dernier message</div>
-            </a>
+
+            <div class="panel-body">Dernier message :
+                <a href="">
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </a>
+            </div>
         </div>
+        
     </div>
+
 </div>
