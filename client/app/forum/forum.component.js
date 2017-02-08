@@ -117,7 +117,7 @@ export class ForumComponent {
         /*==================================================*/
         this.jsFunctionProvider.ajaxContactForm();
 
-
+        
 
 
       });
@@ -382,11 +382,15 @@ export class CategorieComponent {
   titreSujet;
   currentdate = new Date();
   categorieProvider;
+  sousCategorieProvider;
   listcat;
   listsujetscat;
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider) {
+  listSousCat;
+  khol = 'liii';
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider, sousCategorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.categorieProvider = categorieProvider;
+    this.sousCategorieProvider = sousCategorieProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
     this.commentaireProvider = commentaireProvider;
@@ -448,17 +452,31 @@ export class CategorieComponent {
         this.jsFunctionProvider.ajaxContactForm();
 
 
+        this.categorieProvider.listCategorie().then(list => {
+          var l =  this.sousCategorieProvider;
+      list.forEach(function(element) {
+        l.listSousCategorie(element._id)
+        .then(liste => {
+          element.q = liste;
+        });
+      });
+      this.listcat = list;
+      console.log("oooooooooooooooooooooooooo",list);
 
+
+    })
 
       });
 
   }
+  
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
 ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider","sousCategorieProvider"];
 
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
 
+CategorieComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider","sousCategorieProvider"];
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)
