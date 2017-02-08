@@ -378,11 +378,14 @@ export class CategorieComponent {
   titreSujet;
   currentdate = new Date();
   categorieProvider;
+  sousCategorieProvider;
   listcat;
+  listSousCat;
   listsujetscat;
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider) {
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider, sousCategorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.categorieProvider = categorieProvider;
+    this.sousCategorieProvider = sousCategorieProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
     this.commentaireProvider = commentaireProvider;
@@ -454,6 +457,13 @@ export class CategorieComponent {
      
     })
 
+  }
+  sousCatByCategorie(id){
+    
+    this.sousCategorieProvider.listSousCategorie(id).then(list => {
+      this.listSousCat = list;
+      this.sousCatVisible = true;
+    })
   }
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
