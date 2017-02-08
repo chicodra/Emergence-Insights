@@ -37,7 +37,9 @@
           <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-selected="vm.themearticl" ng-click="vm.setTutorial(theme._id)"> {{theme.libelle}} </option>
           </select>
         </div>
+
         <button type="submit" class="btn btn-default" ng-click="vm.editionArticle(vm.artic)">{{vm.action}}</button>
+
       </form>
     </div>
     <!--</div>-->

@@ -53,14 +53,13 @@ export function articleProviderService($http, $q) {
 
   }
 
-  this.ajoutSujet = function (titre, auteur, contenu, datetime, theme,alaune) {
+  this.ajoutSujet = function (titre, auteur, contenu, datetime, theme) {
     var deferred = $q.defer();
     $http.post('/api/articles', {
         titre: titre,
         contenu: contenu,
         id_theme:theme,
         auteur: auteur,
-        une:alaune,
         date_publication: datetime
     }).then(function () {
       console.log("Bakhna");
