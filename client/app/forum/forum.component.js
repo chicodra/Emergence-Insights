@@ -123,6 +123,7 @@ export class ForumComponent {
       });
 
   }
+ 
   getSubjects() {
     this.sujetProvider.listSujets().then(list => {
       console.log("liste sujets", list);
@@ -154,7 +155,10 @@ export class ForumComponent {
         date_creation: datetime
       });
       this.titreSujet = '';
-      window.location.reload();
+   
+        window.location.reload();
+   
+      
     }
 
   }
@@ -448,12 +452,6 @@ export class CategorieComponent {
 
       });
 
-      this.categorieProvider.listCategorie().then(list => {
-      console.log("liste Catégories", list);
-      this.listcat = list;
-     
-    })
-
   }
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
@@ -461,7 +459,6 @@ ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider",
 
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
 
-CategorieComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider","sousCategorieProvider"];
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)

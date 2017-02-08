@@ -21,7 +21,6 @@ export class AdministrationComponent {
   //image;
   //une;
 
-  
   constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
 
     this._id = '';
@@ -155,6 +154,7 @@ export class AdministrationComponent {
             window.location.reload();
         }
       }
+
     }
   }
 
@@ -202,6 +202,7 @@ export class AdministrationComponent {
       console.log('Reponse yiiii', this.listreponse);
     });
   }
+
   Init() {
     if (this.themeProvider.listTheme == null) {
       this.themeProvider.listThemes().then(list => {
@@ -303,17 +304,13 @@ export class AdministrationComponent {
     this.themeinterv = interv.id_theme;
     // this.une = article.une;
 
+
   }
 }
 
 
 
-
-
-
-
 AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider", "interviewsProvider", "reponseProvider", "questionProvider"];
-
 
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
   .config(routes)
