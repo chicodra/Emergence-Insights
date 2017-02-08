@@ -123,6 +123,7 @@ export class ForumComponent {
       });
 
   }
+ 
   getSubjects() {
     this.sujetProvider.listSujets().then(list => {
       console.log("liste sujets", list);
@@ -154,7 +155,10 @@ export class ForumComponent {
         date_creation: datetime
       });
       this.titreSujet = '';
-      window.location.reload();
+   
+        window.location.reload();
+   
+      
     }
 
   }
