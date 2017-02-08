@@ -132,9 +132,9 @@ export class AdministrationComponent {
     this.interviewsProvider.listInterviews().then(list => {
       this.listinterview=list;
       console.log('Interviews yiii', this.listinterview);
-      for (var i = 0; i < this.listinterview.length; i++) {
+     /* for (var i = 0; i < this.listinterview.length; i++) {
         this.getQuestionByInterview(this.listinterview[i]._id);
-      }
+      }*/
     });
     angular.element(document)
       .ready(() => {
