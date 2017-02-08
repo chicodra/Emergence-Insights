@@ -7,9 +7,9 @@
     <div class="col12 " ng-repeat="cat in vm.listcat">
         <h2 style="font-size: larger; padding: 30px; font-family: Times New Roma; ">{{cat.nom}}</h2>
         <div class="panel panel-default" style="width: 250px; border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color: #E9EBEE; ">
-            <div class="panel-heading">
+            <div class="panel-heading" ng-repeat="scat in vm.">
                 <a href="">
-                    <h2 style="text-align: center;">HTML / CSS</h2>
+                    <h2 style="text-align: center;">{{vm.}}</h2>
                 </a>
             </div>
             <div class="" style="padding: 10px;">Une question sur la réalisation de sites web en HTML et CSS?</div>
