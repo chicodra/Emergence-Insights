@@ -65,7 +65,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Reponses
 export function index(req, res) {
-  return Reponse.find().exec()
+  return Reponse.find().populate('id_question').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
@@ -80,7 +80,7 @@ export function show(req, res) {
 
 //get responses by a questions
 export function getResByQuest(req, res) {
-  return Reponse.find({id_question : req.params.id}).exec()
+  return Reponse.find({id_question : req.params.id}).populate('id_question').exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
