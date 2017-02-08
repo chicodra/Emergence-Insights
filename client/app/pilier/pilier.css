@@ -106,3 +106,10 @@ h1 {
 	font-family: 'Times New Roman', Times, serif;
   background-color: rgba(73, 106, 181, 0.51);
 }
+.cat:hover  {
+  text-decoration:underline;
+	font-size: large;
+	color: #fff;
+	background-color:rgba(73, 106, 181, 0.51);
+  /*border-bottom: 1px solid black;*/
+}
