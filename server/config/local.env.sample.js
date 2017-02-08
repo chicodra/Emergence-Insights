@@ -9,8 +9,8 @@ module.exports = {
   DOMAIN: 'http://localhost:9000',
   SESSION_SECRET: 'emergence-secret',
 
-  FACEBOOK_ID: 'app-id',
-  FACEBOOK_SECRET: 'secret',
+  FACEBOOK_ID: '1495021647204985',
+  FACEBOOK_SECRET: '0e4e8c7f8bb207eb1903e6a5698c2ab8',
 
   TWITTER_ID: 'app-id',
   TWITTER_SECRET: 'secret',

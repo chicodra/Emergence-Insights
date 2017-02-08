@@ -53,6 +53,7 @@ import agendaProvider from './factory/agendaProvider/agendaProvider.service';
 import InterviewComponent from './interview/interview.component';
 import questionProvider from './factory/questionProvider/questionProvider.service';
 import categorieProvider from './factory/categorieProvider/categorieProvider.service';
+import sousCategorieProvider from './factory/sousCategorieProvider/sousCategorieProvider.service';
 import notificationProvider from './factory/notificationProvider/notificationProvider.service';
 import reponseProvider from './factory/reponseProvider/reponseProvider.service';
 import ActualiteComponent from './actualite/actualite.component';
@@ -71,8 +72,8 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
     main, constants, socket, util, theme, paysProvider, articleProvider, si, revue, interviews, etudedecas,
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
-    InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent,
-    listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users, commentarieProvider, sujet, etudecasProvider, articlealaune,actualitealaune,temoignageProvider,categorieProvider,notificationProvider, AdministrationComponent
+    InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent, listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users,sousCategorieProvider, commentarieProvider, sujet, etudecasProvider, articlealaune,actualitealaune,temoignageProvider,categorieProvider,notificationProvider, AdministrationComponent
+
   ])
   .config(routeConfig)
   .run(function ($rootScope, $location, Auth) {
