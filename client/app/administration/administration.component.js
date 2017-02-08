@@ -342,12 +342,6 @@ export class AdministrationComponent {
       document.querySelector('header').style.backgroundColor = '#222';
     }, 100);
   }
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> parent of 4166971... Réglages Conflits
   editInterv(interv) {
     console.log('okkkkkk')
     this.libelle = interv.libelle;
@@ -358,7 +352,7 @@ export class AdministrationComponent {
 
 
   }
-<<<<<<< HEAD
+
   addquestion() {
     // this.nbQ = this.nbQuestion;
     this.nblist = [];
@@ -367,8 +361,6 @@ export class AdministrationComponent {
     }
   }
 
-=======
->>>>>>> parent of 4166971... Réglages Conflits
 }
 
 
