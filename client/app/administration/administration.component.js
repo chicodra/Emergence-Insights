@@ -17,13 +17,27 @@ export class AdministrationComponent {
   datetime;
   selected;
   currentdate = new Date();
+
+  reponseProvider;
+  questionProvider;
+  interviewsProvider;
+  listinterview;
+  listquestion;
+  listreponse;
+  scop;
+  question;
+  q;
+
   //id_theme;
   //image;
   //une;
 
-  constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
 
+
+  constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
+    this.status = false;
     this._id = '';
+
     this.titre = '';
 
     this.auteur = '';
@@ -42,10 +56,12 @@ export class AdministrationComponent {
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
 
+
     this.action = "Ajouter";
     this.reponseProvider = reponseProvider;
     this.interviewsProvider = interviewsProvider;
     this.questionProvider = questionProvider;
+
 
     console.log('this', this);
     this.datetime = this.currentdate.getDate() + "/" +
@@ -61,6 +77,7 @@ export class AdministrationComponent {
     this.vide = "";
 
   }
+
 
   editionArticle(artic) {
     if (artic === "") {
@@ -160,6 +177,7 @@ export class AdministrationComponent {
           this.articleProvider.supprimer(this._id);
           window.location.reload();
         }
+
       }
 
     }
@@ -199,17 +217,20 @@ export class AdministrationComponent {
   getQuestionByInterview(id) {
     this.questionProvider.listQuestionsInterviews(id).then(list => {
       this.listquestion = list;
-      console.log('Question yiiii', this.listquestion);
+      // console.log('Question yiiii', this.listquestion);
       for (var i = 0; i < this.listquestion.length; i++) {
         this.getReponseByQuestion(this.listquestion[i]._id);
       }
+      this.question = this.listquestion.length;
+      // console.log('okktest', this.question)
     });
   }
   getReponseByQuestion(id) {
     this.reponseProvider.getReponseByQuestion(id).then(list => {
       this.listreponse = list;
 
-      console.log('Reponse yiiii', this.listreponse);
+      // console.log('Reponse yiiii', this.listreponse);
+
     });
   }
 
@@ -247,10 +268,31 @@ export class AdministrationComponent {
     this.interviewsProvider.listInterviews().then(list => {
       this.listinterview = list;
       console.log('Interviews yiii', this.listinterview);
-      /* for (var i = 0; i < this.listinterview.length; i++) {
-         this.getQuestionByInterview(this.listinterview[i]._id);
-       }*/
+
+      this.listinterview.forEach(function (element) {
+        this.questionProvider.listQuestionsInterviews(element._id).then(list => {
+          this.listquestion = list;
+          element.q = this.listquestion;
+          var li = element.q
+          li.forEach(function (elem) {
+            this.reponseProvider.getReponseByQuestion(elem._id).then(liste => {
+              this.listreponse = liste;
+              elem.a = this.listreponse;
+              console.log('liste yiii', this.listreponse)
+              
+            });
+          }, this);
+
+          this.question = this.listquestion.length;
+
+          // this.listinterview[i].push({'ok':'this.listquestion'});
+        });
+
+      }, this);
+
+      console.log('okktest', this.listinterview);
     });
+    
 
     angular.element(document)
       .ready(() => {
@@ -313,11 +355,31 @@ export class AdministrationComponent {
       document.querySelector('header').style.backgroundColor = '#222';
     }, 100);
   }
+  editInterv(interv) {
+    console.log('okkkkkk')
+    this.libelle = interv.libelle;
+    this.intervenant = interv.intervenant;
+    this.contenuInterviews = interv.contenu;
+    this.themeinterv = interv.id_theme;
+    // this.une = article.une;
+
+
+  }
+  addquestion() {
+    // this.nbQ = this.nbQuestion;
+    this.nblist = [];
+    for(var i = 0; i < this.nbQuestion; i++){
+      this.nblist.push(i);
+    }
+  }
+
 }
 
 
 
+
 AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider", "interviewsProvider", "reponseProvider", "questionProvider"];
+
 
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
   .config(routes)
