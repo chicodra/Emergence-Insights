@@ -32,7 +32,7 @@
                       
                   </select>
                 </div>
-                
+
                 <div ng-show="vm.sousCatVisible">
                   <select name="sousCategorie" id="sousCat" ng-model="vm.sousCat">
                     <option ng-repeat="sousCatBi in vm.listSousCat" value="{{sousCatBi._id}}">{{ sousCatBi.titre }}</option>
@@ -46,15 +46,20 @@
           </form>
         </div>
       </div>
-      <div class="panel panel-default" style="border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <div class="panel panel-default" style="border:0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="">
+          <h1 style="padding: 20px; font-size: large; height: 60px; background-color: #E9EBEE; box-shadow: 0 4px 8px 0 rgba(0.19, 0, 0, 0.2), 0 6px 20px 0 rgba(0.19, 0, 0, 0.19);">Liste des Categories</h1>
+        </div>
         <!--<div class="panel-heading">Créer un sujet</div>-->
-        <div class="panel-body">
-          <a href="#" style="padding: 30px 30px 30px 30px; "> Inbox  <span class="badge">42</span>
-            <a href="#" style="padding: 30px 30px 30px 30px; "> Inbox  <span class="badge">42</span><a href="#" style="padding: 30px 30px 30px 30px; "> Inbox  <span class="badge">42</span><a href="#" style="padding: 30px 30px 30px 30px; "> Inbox  <span class="badge">42</span><a href="#" style="padding: 30px 30px 30px 30px; "> Inbox  <span class="badge">42</span><a href="#" style="padding: 30px 30px 30px 30px; "> Inbox  <span class="badge">42</span><a href="#" style="padding: 30px 30px 30px 30px; "> Inbox  <span class="badge">42</span><a href="#" style="padding: 30px 30px 30px 30px; "> Inbox  <span class="badge">42</span>
-            
+        <div class="panel-body" style=" padding: 10px; margin-top: -50px; ">
+          <a href="#" > <h2 class="cat" style=" width: 100px; cursor: pointer; padding-top: 7px; font-family: Arial, Helvetica, sans-serif; ">  listSousCat </h2> </a>
+           
+          
+          
+
+        </div>
+        <!--fin panel-->
+        <div class="col-md-1"></div>
+        <!--fin col-md-2-->
       </div>
-      <!--fin panel-->
-      <div class="col-md-1"></div>
-      <!--fin col-md-2-->
     </div>
-  </div>

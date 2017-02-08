@@ -53,9 +53,21 @@ export function articleProviderService($http, $q) {
 
   }
 
-  this.ajoutSujet = function (titre, auteur, contenu, datetime, theme,alaune) {
+  this.ajoutSujet = function (titre, auteur, contenu, datetime, theme) {
     var deferred = $q.defer();
     $http.post('/api/articles', {
+        titre: titre,
+        contenu: contenu,
+        id_theme:theme,
+        auteur: auteur,
+        date_publication: datetime
+    }).then(function () {
+      console.log("Bakhna");
+    });
+  }
+this.modifier = function (id,titre, auteur, contenu, datetime, theme,alaune) {
+    var deferred = $q.defer();
+    $http.put('/api/articles/'+id, {
         titre: titre,
         contenu: contenu,
         id_theme:theme,
@@ -63,11 +75,16 @@ export function articleProviderService($http, $q) {
         une:alaune,
         date_publication: datetime
     }).then(function () {
-      console.log("Bakhna");
+      console.log("Modifier bi Bakhna");
     });
-    //window.location.reload();
   }
-
+  this.supprimer = function (id) {
+    var deferred = $q.defer();
+    $http.delete('/api/articles/'+id, {
+    }).then(function () {
+      console.log("Supprimer bi Bakhna");
+    });
+  }
 }
 
 export default angular.module('emergenceInsightsApp.articleProvider', [])

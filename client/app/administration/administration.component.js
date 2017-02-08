@@ -10,12 +10,14 @@ export class AdministrationComponent {
   jsFunctionProvider;
   themeProvider;
   articleProvider;
-  listInterviews;
+
   listArticles;
-  alaune;
+  
+  listarticle;
   datetime;
   selected;
   currentdate = new Date();
+
   reponseProvider;
   questionProvider;
   interviewsProvider;
@@ -25,83 +27,190 @@ export class AdministrationComponent {
   scop;
   question;
   q;
+
   //id_theme;
   //image;
   //une;
 
 
+
   constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
     this.status = false;
+    this._id = '';
+
     this.titre = '';
+
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
+
     this.libelle = '';
     this.contenuInterviews = '';
     this.intervenant = '';
     this.themeinterv = '';
+    this.artic = "";
+    this.vide="";
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
+
+
+    this.action = "Ajouter";
     this.reponseProvider = reponseProvider;
     this.interviewsProvider = interviewsProvider;
     this.questionProvider = questionProvider;
+
+
     console.log('this', this);
     this.datetime = this.currentdate.getDate() + "/" +
       (this.currentdate.getMonth() + 1) + "/" +
       this.currentdate.getFullYear();
   }
-  setTutorial(value) {
+
+  setClick(value) {
     this.selected = value;
+    this.vide="bon";
   }
-  addArticle() {
-    if (this.selected) {
-      if (this.une) {
-        this.alaune = true;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-        window.location.reload();
-        this.titre = '';
-        this.auteur = '';
-        this.contenu = '';
-        this.datetime = '';
-        this.selected = '';
+   setClickValue() {
+    this.vide="";
+
+  }
+
+
+  editionArticle(artic) {
+    if (artic === "") {
+      this.action = "Ajouter";
+      if (this.selected && this.vide==="bon") {
+        if (this.une) {
+          this.alaune = true;
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+          this.selected = '';
+        } else {
+          this.alaune = false;
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+          this.selected = '';
+        }
+
       } else {
-        this.alaune = false;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-        window.location.reload();
-        this.titre = '';
-        this.auteur = '';
-        this.contenu = '';
-        this.datetime = '';
-        this.selected = '';
+        if (this.une) {
+          this.selected = null;
+          this.alaune = true;
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+        } else {
+          this.selected = null;
+          this.alaune = false;
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+        }
+
       }
 
     } else {
-      if (this.une) {
-        this.selected = null;
-        this.alaune = true;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-        window.location.reload();
-        this.titre = '';
-        this.auteur = '';
-        this.contenu = '';
-        this.datetime = '';
-      } else {
-        this.selected = null;
-        this.alaune = false;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-        window.location.reload();
-        this.titre = '';
-        this.auteur = '';
-        this.contenu = '';
-        this.datetime = '';
+      if (artic === "modifier") {
+        if (this.selected && this.vide==="bon") {
+          if (this.une) {
+            this.alaune = true;
+            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            window.location.reload();
+            this.titre = '';
+            this.auteur = '';
+            this.contenu = '';
+            this.datetime = '';
+            this.selected = '';
+          } else {
+            this.alaune = false;
+            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            window.location.reload();
+            this.titre = '';
+            this.auteur = '';
+            this.contenu = '';
+            this.datetime = '';
+            this.selected = '';
+          }
+
+        } else {
+          if (this.une) {
+            this.selected = null;
+            this.alaune = true;
+            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            window.location.reload();
+            this.titre = '';
+            this.auteur = '';
+            this.contenu = '';
+            this.datetime = '';
+          } else {
+            this.selected = null;
+            this.alaune = false;
+            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            window.location.reload();
+            this.titre = '';
+            this.auteur = '';
+            this.contenu = '';
+            this.datetime = '';
+          }
+
+        }
+
+      }else{
+        if (artic === "supprimer") {
+          this.articleProvider.supprimer(this._id);
+            window.location.reload();
+        }
+
       }
 
     }
+  }
+
+  editArticl(article) {
+    console.log('okkkkkk');
+    this.action = "Modifier";
+    this._id = article._id;
+    this.titre = article.titre;
+    this.auteur = article.auteur;
+    this.contenu = article.contenu;
+    this.themearticl = article.id_theme;
+    this.une = article.une;
+    this.artic = "modifier";
+    /*console.log('li lane la', this._id);*/
 
   }
+
+   supprimerArticl(article) {
+    console.log('okkkkkk');
+    this.action = "Supprimer";
+    this._id = article._id;
+    this.titre = article.titre;
+    this.auteur = article.auteur;
+    this.contenu = article.contenu;
+    this.themearticl = article.id_theme;
+    this.une = article.une;
+    this.artic = "supprimer";
+    /*console.log('li lane la', this._id);*/
+
+  }
+
   getQuestionByInterview(id) {
     this.questionProvider.listQuestionsInterviews(id).then(list => {
       this.listquestion = list;
@@ -121,6 +230,7 @@ export class AdministrationComponent {
 
     });
   }
+
   Init() {
     if (this.themeProvider.listTheme == null) {
       this.themeProvider.listThemes().then(list => {
@@ -134,31 +244,18 @@ export class AdministrationComponent {
       this.listTheme = this.themeProvider.listTheme
       console.log('themes non vide', this.listTheme)
     }
-    if (this.interviewsProvider.listeInt == null) {
-      this.interviewsProvider.listInterviews().then(list => {
-        this.listInterviews = list;
-        this.interviewsProvider.listeInt = list;
-        console.log('interviews vide', this.listInterviews)
-        console.log('nombre interviews', this.interviewsProvider.listInterviews.length);
-        // this.interview = list[0];
-        this.image = '../../assets/images/perfstock/experts/' + this.listInterviews.image;
 
-      });
-
-    } else {
-      this.listInterviews = this.interviewsProvider.listeInt;
-      console.log('interviews non vide', this.listInterviews)
-
-    }
     this.articleProvider.listArticles().then(list => {
       this.listArticles = list;
 
       console.log('article', this.listArticles)
     });
 
+
     this.interviewsProvider.listInterviews().then(list => {
       this.listinterview = list;
       console.log('Interviews yiii', this.listinterview);
+
       this.listinterview.forEach(function (element) {
         this.questionProvider.listQuestionsInterviews(element._id).then(list => {
           this.listquestion = list;
@@ -183,6 +280,7 @@ export class AdministrationComponent {
       console.log('okktest', this.listinterview);
     });
     
+
     angular.element(document)
       .ready(() => {
 
@@ -245,15 +343,8 @@ export class AdministrationComponent {
     }, 100);
   }
 
-  editArticl(article) {
-    console.log('okkkkkk')
-    this.titre = article.titre;
-    this.auteur = article.auteur;
-    this.contenu = article.contenu;
-    this.themearticl = article.id_theme;
-    this.une = article.une;
 
-  }
+
   editInterv(interv) {
     console.log('okkkkkk')
     this.libelle = interv.libelle;
@@ -261,6 +352,7 @@ export class AdministrationComponent {
     this.contenuInterviews = interv.contenu;
     this.themeinterv = interv.id_theme;
     // this.une = article.une;
+
 
   }
   addquestion() {
@@ -271,8 +363,6 @@ export class AdministrationComponent {
     }
   }
 }
-
-
 
 
 

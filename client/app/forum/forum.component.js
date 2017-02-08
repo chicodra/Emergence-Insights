@@ -117,12 +117,13 @@ export class ForumComponent {
         /*==================================================*/
         this.jsFunctionProvider.ajaxContactForm();
 
-
+        
 
 
       });
 
   }
+ 
   getSubjects() {
     this.sujetProvider.listSujets().then(list => {
       console.log("liste sujets", list);
@@ -154,7 +155,10 @@ export class ForumComponent {
         date_creation: datetime
       });
       this.titreSujet = '';
-      window.location.reload();
+   
+        window.location.reload();
+   
+      
     }
 
   }
@@ -380,8 +384,9 @@ export class CategorieComponent {
   categorieProvider;
   sousCategorieProvider;
   listcat;
-  listSousCat;
   listsujetscat;
+  listSousCat;
+  khol = 'liii';
   constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider, sousCategorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.categorieProvider = categorieProvider;
@@ -447,24 +452,24 @@ export class CategorieComponent {
         this.jsFunctionProvider.ajaxContactForm();
 
 
+        this.categorieProvider.listCategorie().then(list => {
+          var l =  this.sousCategorieProvider;
+      list.forEach(function(element) {
+        l.listSousCategorie(element._id)
+        .then(liste => {
+          element.q = liste;
+        });
+      });
+      this.listcat = list;
+      console.log("oooooooooooooooooooooooooo",list);
 
+
+    })
 
       });
 
-      this.categorieProvider.listCategorie().then(list => {
-      console.log("liste Catégories", list);
-      this.listcat = list;
-     
-    })
-
   }
-  sousCatByCategorie(id){
-    
-    this.sousCategorieProvider.listSousCategorie(id).then(list => {
-      this.listSousCat = list;
-      this.sousCatVisible = true;
-    })
-  }
+  
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
 ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider","sousCategorieProvider"];

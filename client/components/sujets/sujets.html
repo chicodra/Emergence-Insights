@@ -22,7 +22,7 @@
       </tr>
       <tr ui-sref="foruminfo({forumName:sujet.titre})" id="sujet" ng-repeat="sujet in vm.listeSujets | filter:query">
         <td>
-          <div style="padding: 6px;">
+          <div style="padding: 6px; ">
             <a class="simple-title" ui-sref="foruminfo({forumName:sujet.titre})"> {{sujet.titre}} </a>
             <!--<p style="font-family: 'Roboto Mono', monospace;">lremgj dolor sit amet, consectetur adipi fgkgf </p>-->
           </div>
@@ -33,7 +33,8 @@
         <td style="text-align: center">0</td>
         <td>
           <div class="tag" style="cursor: pointer;">
-            <i class="fa fa-tag" aria-hidden="true"></i> <span> {{sujet.id_cat.titre}} </span>
+
+            <i class="fa fa-tag" aria-hidden="true"></i> <span>{{sujet.id_cat.titre}}</span>
           </div>
         </td>
         <td>
