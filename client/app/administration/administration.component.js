@@ -10,111 +10,52 @@ export class AdministrationComponent {
   jsFunctionProvider;
   themeProvider;
   articleProvider;
-  listInterviews;
+
   listArticles;
-  alaune;
+  
+  listarticle;
   datetime;
   selected;
   currentdate = new Date();
-  reponseProvider;
-  questionProvider;
-  interviewsProvider;
-  listinterview;
-  listquestion;
-  listreponse;
   //id_theme;
   //image;
   //une;
 
+  constructor(jsFunctionProvider, themeProvider, articleProvider) {
 
-  constructor(jsFunctionProvider, themeProvider, articleProvider,interviewsProvider,reponseProvider, questionProvider) {
-
-    this.titre = '';
+     this.titre = '';
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
-    this.libelle = '';
-    this.contenuInterviews ='';
-    this.intervenant = '';
-    this.themeinterv = '';
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
-
-    this.reponseProvider=reponseProvider;
-    this.interviewsProvider=interviewsProvider;
-    this.questionProvider=questionProvider;
     console.log('this', this);
     this.datetime = this.currentdate.getDate() + "/" +
       (this.currentdate.getMonth() + 1) + "/" +
       this.currentdate.getFullYear();
   }
-  setTutorial(value) {
-    this.selected = value;
+  setTutorial (value) {
+  this.selected = value;
   }
   addArticle() {
     if (this.selected) {
-      if (this.une) {
-        this.alaune=true;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-          window.location.reload();
-          this.titre = '';
-          this.auteur = '';
-          this.contenu = '';
-          this.datetime = '';
-          this.selected = '';
-      } else {
-        this.alaune=false;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-          window.location.reload();
-          this.titre = '';
-          this.auteur = '';
-          this.contenu = '';
-          this.datetime = '';
-          this.selected = '';
-      }
-
+      this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected);
+      this.articleProvider.listArticles().then(list => {
+        this.listarticle = list;
+        console.log('Article You Bess', this.listarticle);
+      });
     } else {
-      if (this.une) {
-        this.selected = null;
-        this.alaune=true;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-          window.location.reload();
-          this.titre = '';
-          this.auteur = '';
-          this.contenu = '';
-          this.datetime = '';
-      } else {
-        this.selected = null;
-        this.alaune=false;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-        window.location.reload();
-          this.titre = '';
-          this.auteur = '';
-          this.contenu = '';
-          this.datetime = '';
-      }
-
+      this.theme = '';
+      this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime);
+      this.articleProvider.listArticles().then(list => {
+        this.listarticle = list;
+        console.log('Article You Bess', this.listarticle);
+      });
     }
 
-  }
-  getQuestionByInterview(id){
-     this.questionProvider.listQuestionsInterviews(id).then(list => {
-      this.listquestion = list;
-      console.log('Question yiiii', this.listquestion);
-      for (var i = 0; i < this.listquestion.length; i++) {
-        this.getReponseByQuestion(this.listquestion[i]._id);
-      }
-    });
-  }
-    getReponseByQuestion(id){
-     this.reponseProvider.getReponseByQuestion(id).then(list => {
-      this.listreponse = list;
-
-      console.log('Reponse yiiii', this.listreponse);
-    });
   }
   Init() {
     if (this.themeProvider.listTheme == null) {
@@ -129,34 +70,11 @@ export class AdministrationComponent {
       this.listTheme = this.themeProvider.listTheme
       console.log('themes non vide', this.listTheme)
     }
-    if (this.interviewsProvider.listeInt == null) {
-      this.interviewsProvider.listInterviews().then(list => {
-        this.listInterviews = list;
-        this.interviewsProvider.listeInt = list;
-        console.log('interviews vide', this.listInterviews)
-        console.log('nombre interviews', this.interviewsProvider.listInterviews.length);
-        // this.interview = list[0];
-        this.image = '../../assets/images/perfstock/experts/' + this.listInterviews.image;
 
-      });
-
-    } else {
-      this.listInterviews = this.interviewsProvider.listeInt;
-      console.log('interviews non vide', this.listInterviews)
-
-    }
     this.articleProvider.listArticles().then(list => {
       this.listArticles = list;
 
       console.log('article', this.listArticles)
-    });
-
-    this.interviewsProvider.listInterviews().then(list => {
-      this.listinterview=list;
-      console.log('Interviews yiii', this.listinterview);
-     /* for (var i = 0; i < this.listinterview.length; i++) {
-        this.getQuestionByInterview(this.listinterview[i]._id);
-      }*/
     });
     angular.element(document)
       .ready(() => {
@@ -229,24 +147,13 @@ export class AdministrationComponent {
     this.une = article.une;
 
   }
-  editInterv(interv) {
-    console.log('okkkkkk')
-    this.libelle = interv.libelle;
-    this.intervenant = interv.intervenant;
-    this.contenuInterviews = interv.contenu;
-    this.themeinterv = interv.id_theme;
-    // this.une = article.une;
-
-  }
 }
 
 
 
 
 
-
-AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider","interviewsProvider","reponseProvider","questionProvider"];
-
+AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider"];
 
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
   .config(routes)

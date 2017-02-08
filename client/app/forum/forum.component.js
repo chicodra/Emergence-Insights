@@ -378,14 +378,11 @@ export class CategorieComponent {
   titreSujet;
   currentdate = new Date();
   categorieProvider;
-  sousCategorieProvider;
   listcat;
-  listSousCat;
   listsujetscat;
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider, sousCategorieProvider) {
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.categorieProvider = categorieProvider;
-    this.sousCategorieProvider = sousCategorieProvider;
     this.sujetProvider = sujetProvider;
     this.userProvider = userProvider;
     this.commentaireProvider = commentaireProvider;
@@ -451,19 +448,6 @@ export class CategorieComponent {
 
       });
 
-      this.categorieProvider.listCategorie().then(list => {
-      console.log("liste Catégories", list);
-      this.listcat = list;
-     
-    })
-
-  }
-  sousCatByCategorie(id){
-    
-    this.sousCategorieProvider.listSousCategorie(id).then(list => {
-      this.listSousCat = list;
-      this.sousCatVisible = true;
-    })
   }
 }
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
@@ -471,7 +455,6 @@ ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider",
 
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
 
-CategorieComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider","sousCategorieProvider"];
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)
