@@ -15,11 +15,17 @@ export class AdministrationComponent {
   datetime;
   selected;
   currentdate = new Date();
+  reponseProvider;
+  questionProvider;
+  interviewsProvider;
+  listinterview;
+  listquestion;
+  listreponse;
   //id_theme;
   //image;
   //une;
 
-  constructor(jsFunctionProvider, themeProvider, articleProvider) {
+  constructor(jsFunctionProvider, themeProvider, articleProvider,interviewsProvider,reponseProvider, questionProvider) {
 
     this.titre = '';
     this.auteur = '';
@@ -30,6 +36,9 @@ export class AdministrationComponent {
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
+    this.reponseProvider=reponseProvider;
+    this.interviewsProvider=interviewsProvider;
+    this.questionProvider=questionProvider;
     console.log('this', this);
     this.datetime = this.currentdate.getDate() + "/" +
       (this.currentdate.getMonth() + 1) + "/" +
@@ -84,6 +93,22 @@ export class AdministrationComponent {
     }
 
   }
+  getQuestionByInterview(id){
+     this.questionProvider.listQuestionsInterviews(id).then(list => {
+      this.listquestion = list;
+      console.log('Question yiiii', this.listquestion);
+      for (var i = 0; i < this.listquestion.length; i++) {
+        this.getReponseByQuestion(this.listquestion[i]._id);
+      }
+    });
+  }
+    getReponseByQuestion(id){
+     this.reponseProvider.getReponseByQuestion(id).then(list => {
+      this.listreponse = list;
+
+      console.log('Reponse yiiii', this.listreponse);
+    });
+  }
   Init() {
     if (this.themeProvider.listTheme == null) {
       this.themeProvider.listThemes().then(list => {
@@ -102,6 +127,14 @@ export class AdministrationComponent {
       this.listArticles = list;
 
       console.log('article', this.listArticles)
+    });
+
+    this.interviewsProvider.listInterviews().then(list => {
+      this.listinterview=list;
+      console.log('Interviews yiii', this.listinterview);
+      for (var i = 0; i < this.listinterview.length; i++) {
+        this.getQuestionByInterview(this.listinterview[i]._id);
+      }
     });
     angular.element(document)
       .ready(() => {
@@ -180,7 +213,7 @@ export class AdministrationComponent {
 
 
 
-AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider"];
+AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider","interviewsProvider","reponseProvider","questionProvider"];
 
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
   .config(routes)
