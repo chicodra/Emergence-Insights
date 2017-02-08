@@ -10,31 +10,27 @@ export class AdministrationComponent {
   jsFunctionProvider;
   themeProvider;
   articleProvider;
-  listInterviews;
+
   listArticles;
-  alaune;
+  
+  listarticle;
   datetime;
   selected;
   currentdate = new Date();
-  reponseProvider;
-  questionProvider;
-  interviewsProvider;
-  listinterview;
-  listquestion;
-  listreponse;
   //id_theme;
   //image;
   //une;
-
 
   constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
 
     this._id = '';
     this.titre = '';
+
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
+
     this.libelle = '';
     this.contenuInterviews = '';
     this.intervenant = '';
@@ -45,22 +41,27 @@ export class AdministrationComponent {
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
+
     this.action = "Ajouter";
     this.reponseProvider = reponseProvider;
     this.interviewsProvider = interviewsProvider;
     this.questionProvider = questionProvider;
+
     console.log('this', this);
     this.datetime = this.currentdate.getDate() + "/" +
       (this.currentdate.getMonth() + 1) + "/" +
       this.currentdate.getFullYear();
   }
+
   setClick(value) {
     this.selected = value;
     this.vide="bon";
   }
    setClickValue() {
     this.vide="";
+
   }
+
   editionArticle(artic) {
     if (artic === "") {
       this.action = "Ajouter";
@@ -160,6 +161,7 @@ export class AdministrationComponent {
             window.location.reload();
         }
       }
+
     }
   }
 
@@ -176,6 +178,7 @@ export class AdministrationComponent {
     /*console.log('li lane la', this._id);*/
 
   }
+
    supprimerArticl(article) {
     console.log('okkkkkk');
     this.action = "Supprimer";
@@ -206,6 +209,7 @@ export class AdministrationComponent {
       console.log('Reponse yiiii', this.listreponse);
     });
   }
+
   Init() {
     if (this.themeProvider.listTheme == null) {
       this.themeProvider.listThemes().then(list => {
@@ -219,27 +223,13 @@ export class AdministrationComponent {
       this.listTheme = this.themeProvider.listTheme
       console.log('themes non vide', this.listTheme)
     }
-    if (this.interviewsProvider.listeInt == null) {
-      this.interviewsProvider.listInterviews().then(list => {
-        this.listInterviews = list;
-        this.interviewsProvider.listeInt = list;
-        console.log('interviews vide', this.listInterviews)
-        console.log('nombre interviews', this.interviewsProvider.listInterviews.length);
-        // this.interview = list[0];
-        this.image = '../../assets/images/perfstock/experts/' + this.listInterviews.image;
 
-      });
-
-    } else {
-      this.listInterviews = this.interviewsProvider.listeInt;
-      console.log('interviews non vide', this.listInterviews)
-
-    }
     this.articleProvider.listArticles().then(list => {
       this.listArticles = list;
 
       console.log('article', this.listArticles)
     });
+
 
     this.interviewsProvider.listInterviews().then(list => {
       this.listinterview = list;
@@ -248,6 +238,7 @@ export class AdministrationComponent {
          this.getQuestionByInterview(this.listinterview[i]._id);
        }*/
     });
+
     angular.element(document)
       .ready(() => {
 
@@ -311,6 +302,7 @@ export class AdministrationComponent {
   }
 
 
+
   editInterv(interv) {
     console.log('okkkkkk')
     this.libelle = interv.libelle;
@@ -319,16 +311,13 @@ export class AdministrationComponent {
     this.themeinterv = interv.id_theme;
     // this.une = article.une;
 
+
   }
 }
 
 
 
-
-
-
 AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider", "interviewsProvider", "reponseProvider", "questionProvider"];
-
 
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
   .config(routes)
