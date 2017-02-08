@@ -149,6 +149,11 @@ export class AdministrationComponent {
 
         }
 
+      }else{
+        if (artic === "supprimer") {
+          this.articleProvider.supprimer(this._id);
+            window.location.reload();
+        }
       }
     }
   }
@@ -163,6 +168,19 @@ export class AdministrationComponent {
     this.themearticl = article.id_theme;
     this.une = article.une;
     this.artic = "modifier";
+    /*console.log('li lane la', this._id);*/
+
+  }
+   supprimerArticl(article) {
+    console.log('okkkkkk');
+    this.action = "Supprimer";
+    this._id = article._id;
+    this.titre = article.titre;
+    this.auteur = article.auteur;
+    this.contenu = article.contenu;
+    this.themearticl = article.id_theme;
+    this.une = article.une;
+    this.artic = "supprimer";
     /*console.log('li lane la', this._id);*/
 
   }
