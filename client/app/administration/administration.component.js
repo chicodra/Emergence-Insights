@@ -31,7 +31,7 @@ export class AdministrationComponent {
 
 
   constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
-
+    this.status = false;
     this.titre = '';
     this.auteur = '';
     this.contenu = '';
@@ -45,7 +45,6 @@ export class AdministrationComponent {
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
-
     this.reponseProvider = reponseProvider;
     this.interviewsProvider = interviewsProvider;
     this.questionProvider = questionProvider;
@@ -263,6 +262,13 @@ export class AdministrationComponent {
     this.themeinterv = interv.id_theme;
     // this.une = article.une;
 
+  }
+  addquestion() {
+    // this.nbQ = this.nbQuestion;
+    this.nblist = [];
+    for(var i = 0; i < this.nbQuestion; i++){
+      this.nblist.push(i);
+    }
   }
 }
 
