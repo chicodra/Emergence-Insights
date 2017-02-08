@@ -10,8 +10,9 @@ export class AdministrationComponent {
   jsFunctionProvider;
   themeProvider;
   articleProvider;
-  alaune;
+  listInterviews;
   listArticles;
+  alaune;
   datetime;
   selected;
   currentdate = new Date();
@@ -25,6 +26,7 @@ export class AdministrationComponent {
   //image;
   //une;
 
+
   constructor(jsFunctionProvider, themeProvider, articleProvider,interviewsProvider,reponseProvider, questionProvider) {
 
     this.titre = '';
@@ -32,10 +34,15 @@ export class AdministrationComponent {
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
+    this.libelle = '';
+    this.contenuInterviews ='';
+    this.intervenant = '';
+    this.themeinterv = '';
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
+
     this.reponseProvider=reponseProvider;
     this.interviewsProvider=interviewsProvider;
     this.questionProvider=questionProvider;
@@ -122,7 +129,22 @@ export class AdministrationComponent {
       this.listTheme = this.themeProvider.listTheme
       console.log('themes non vide', this.listTheme)
     }
+    if (this.interviewsProvider.listeInt == null) {
+      this.interviewsProvider.listInterviews().then(list => {
+        this.listInterviews = list;
+        this.interviewsProvider.listeInt = list;
+        console.log('interviews vide', this.listInterviews)
+        console.log('nombre interviews', this.interviewsProvider.listInterviews.length);
+        // this.interview = list[0];
+        this.image = '../../assets/images/perfstock/experts/' + this.listInterviews.image;
 
+      });
+
+    } else {
+      this.listInterviews = this.interviewsProvider.listeInt;
+      console.log('interviews non vide', this.listInterviews)
+
+    }
     this.articleProvider.listArticles().then(list => {
       this.listArticles = list;
 
@@ -207,13 +229,24 @@ export class AdministrationComponent {
     this.une = article.une;
 
   }
+  editInterv(interv) {
+    console.log('okkkkkk')
+    this.libelle = interv.libelle;
+    this.intervenant = interv.intervenant;
+    this.contenuInterviews = interv.contenu;
+    this.themeinterv = interv.id_theme;
+    // this.une = article.une;
+
+  }
 }
 
 
 
 
 
+
 AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider","interviewsProvider","reponseProvider","questionProvider"];
+
 
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
   .config(routes)
