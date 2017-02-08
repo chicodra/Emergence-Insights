@@ -27,25 +27,27 @@ export class AdministrationComponent {
   //une;
 
 
-  constructor(jsFunctionProvider, themeProvider, articleProvider,interviewsProvider,reponseProvider, questionProvider) {
+  constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
 
+    this._id = '';
     this.titre = '';
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
     this.libelle = '';
-    this.contenuInterviews ='';
+    this.contenuInterviews = '';
     this.intervenant = '';
     this.themeinterv = '';
+    this.artic = "";
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
-
-    this.reponseProvider=reponseProvider;
-    this.interviewsProvider=interviewsProvider;
-    this.questionProvider=questionProvider;
+    this.action = "Ajouter";
+    this.reponseProvider = reponseProvider;
+    this.interviewsProvider = interviewsProvider;
+    this.questionProvider = questionProvider;
     console.log('this', this);
     this.datetime = this.currentdate.getDate() + "/" +
       (this.currentdate.getMonth() + 1) + "/" +
@@ -54,54 +56,119 @@ export class AdministrationComponent {
   setTutorial(value) {
     this.selected = value;
   }
-  addArticle() {
-    if (this.selected) {
-      if (this.une) {
-        this.alaune=true;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+  editionArticle(artic) {
+    if (artic === "") {
+      this.action = "Ajouter";
+      if (this.selected) {
+        if (this.une) {
+          this.alaune = true;
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
           this.contenu = '';
           this.datetime = '';
           this.selected = '';
+        } else {
+          this.alaune = false;
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+          this.selected = '';
+        }
+
       } else {
-        this.alaune=false;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+        if (this.une) {
+          this.selected = null;
+          this.alaune = true;
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
           this.contenu = '';
           this.datetime = '';
-          this.selected = '';
+        } else {
+          this.selected = null;
+          this.alaune = false;
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          window.location.reload();
+          this.titre = '';
+          this.auteur = '';
+          this.contenu = '';
+          this.datetime = '';
+        }
+
       }
 
     } else {
-      if (this.une) {
-        this.selected = null;
-        this.alaune=true;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-          window.location.reload();
-          this.titre = '';
-          this.auteur = '';
-          this.contenu = '';
-          this.datetime = '';
-      } else {
-        this.selected = null;
-        this.alaune=false;
-        this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
-        window.location.reload();
-          this.titre = '';
-          this.auteur = '';
-          this.contenu = '';
-          this.datetime = '';
-      }
+      if (artic === "modifier") {
+        if (this.selected) {
+          if (this.une) {
+            this.alaune = true;
+            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            window.location.reload();
+            this.titre = '';
+            this.auteur = '';
+            this.contenu = '';
+            this.datetime = '';
+            this.selected = '';
+          } else {
+            this.alaune = false;
+            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            window.location.reload();
+            this.titre = '';
+            this.auteur = '';
+            this.contenu = '';
+            this.datetime = '';
+            this.selected = '';
+          }
 
+        } else {
+          if (this.une) {
+            this.selected = null;
+            this.alaune = true;
+            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            window.location.reload();
+            this.titre = '';
+            this.auteur = '';
+            this.contenu = '';
+            this.datetime = '';
+          } else {
+            this.selected = null;
+            this.alaune = false;
+            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            window.location.reload();
+            this.titre = '';
+            this.auteur = '';
+            this.contenu = '';
+            this.datetime = '';
+          }
+
+        }
+
+      }
     }
+  }
+
+  editArticl(article) {
+    console.log('okkkkkk');
+    this.action = "Modifier";
+    this._id = article._id;
+    this.titre = article.titre;
+    this.auteur = article.auteur;
+    this.contenu = article.contenu;
+    this.themearticl = article.id_theme;
+    this.une = article.une;
+    this.artic = "modifier";
+    /*console.log('li lane la', this._id);*/
 
   }
-  getQuestionByInterview(id){
-     this.questionProvider.listQuestionsInterviews(id).then(list => {
+
+  getQuestionByInterview(id) {
+    this.questionProvider.listQuestionsInterviews(id).then(list => {
       this.listquestion = list;
       console.log('Question yiiii', this.listquestion);
       for (var i = 0; i < this.listquestion.length; i++) {
@@ -109,8 +176,8 @@ export class AdministrationComponent {
       }
     });
   }
-    getReponseByQuestion(id){
-     this.reponseProvider.getReponseByQuestion(id).then(list => {
+  getReponseByQuestion(id) {
+    this.reponseProvider.getReponseByQuestion(id).then(list => {
       this.listreponse = list;
 
       console.log('Reponse yiiii', this.listreponse);
@@ -152,11 +219,11 @@ export class AdministrationComponent {
     });
 
     this.interviewsProvider.listInterviews().then(list => {
-      this.listinterview=list;
+      this.listinterview = list;
       console.log('Interviews yiii', this.listinterview);
-     /* for (var i = 0; i < this.listinterview.length; i++) {
-        this.getQuestionByInterview(this.listinterview[i]._id);
-      }*/
+      /* for (var i = 0; i < this.listinterview.length; i++) {
+         this.getQuestionByInterview(this.listinterview[i]._id);
+       }*/
     });
     angular.element(document)
       .ready(() => {
@@ -220,15 +287,7 @@ export class AdministrationComponent {
     }, 100);
   }
 
-  editArticl(article) {
-    console.log('okkkkkk')
-    this.titre = article.titre;
-    this.auteur = article.auteur;
-    this.contenu = article.contenu;
-    this.themearticl = article.id_theme;
-    this.une = article.une;
 
-  }
   editInterv(interv) {
     console.log('okkkkkk')
     this.libelle = interv.libelle;
@@ -245,7 +304,7 @@ export class AdministrationComponent {
 
 
 
-AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider","interviewsProvider","reponseProvider","questionProvider"];
+AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider", "interviewsProvider", "reponseProvider", "questionProvider"];
 
 
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
