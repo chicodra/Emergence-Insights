@@ -1,28 +1,23 @@
-
 <div ng-init="vm.Init()" class="pilierEm" style="padding: 50px 50px 50px 50px;">
-
-
-    <div class="">
-        <h1 style="padding: 20px; font-size: x-large; height: 60px; background-color: #E9EBEE; box-shadow: 0 4px 8px 0 rgba(0.19, 0, 0, 0.2), 0 6px 20px 0 rgba(0.19, 0, 0, 0.19);">Liste des forums</h1>
-    </div>
-    <div class="col12 " ng-repeat="cat in vm.listcat">
-        <h2 style="font-size: larger; padding: 30px; font-family: Times New Roma; ">{{cat.nom}}</h2>
-        <div class="panel panel-default" style="width: 250px; border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color: #E9EBEE; ">
-            <div class="panel-heading" ng-repeat="scat in vm.">
-                <a href="">
-                    <h2 style="text-align: center;">{{vm.}}</h2>
-                </a>
-            </div>
-            <div class="" style="padding: 10px;">Une question sur la réalisation de sites web en HTML et CSS?</div>
-
-            <div class="panel-body">Dernier message :
-                <a href="">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </a>
-            </div>
+  <div class="">
+    <h1 style="padding: 20px; font-size: x-large; height: 60px; background-color: #E9EBEE; box-shadow: 0 4px 8px 0 rgba(0.19, 0, 0, 0.2), 0 6px 20px 0 rgba(0.19, 0, 0, 0.19);">Liste des forums</h1>
+  </div>
+  <div class="col12 " ng-repeat="cat in vm.listcat">
+    <h2 style="font-size: larger; padding: 30px; font-family: Times New Roma; ">{{cat.nom}}</h2>
+    <div class="row">
+      <div ng-repeat="scat in cat.q" class="col-md-2 panel panel-default" style="width: 250px; border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color: #E9EBEE; ">
+        <div class="panel-heading">
+          <a href="">
+            <h2 style="text-align: center;">{{scat.titre}}</h2>
+          </a>
         </div>
-        
+        <div class="" style="padding: 10px;">{{scat.description}}</div>
+        <div class="panel-body">Dernier message :
+          <a href="">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </a>
+        </div>
+      </div>
     </div>
-
-
+  </div>
 </div>
