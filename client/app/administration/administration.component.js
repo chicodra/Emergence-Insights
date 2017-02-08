@@ -12,7 +12,7 @@ export class AdministrationComponent {
   articleProvider;
 
   listArticles;
-  
+
   listarticle;
   datetime;
   selected;
@@ -36,7 +36,7 @@ export class AdministrationComponent {
     this.intervenant = '';
     this.themeinterv = '';
     this.artic = "";
-    this.vide="";
+    this.vide = "";
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
@@ -55,17 +55,17 @@ export class AdministrationComponent {
 
   setClick(value) {
     this.selected = value;
-    this.vide="bon";
+    this.vide = "bon";
   }
-   setClickValue() {
-    this.vide="";
+  setClickValue() {
+    this.vide = "";
 
   }
 
   editionArticle(artic) {
     if (artic === "") {
       this.action = "Ajouter";
-      if (this.selected && this.vide==="bon") {
+      if (this.selected && this.vide === "bon") {
         if (this.une) {
           this.alaune = true;
           this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
@@ -111,10 +111,10 @@ export class AdministrationComponent {
 
     } else {
       if (artic === "modifier") {
-        if (this.selected && this.vide==="bon") {
+        if (this.selected && this.vide === "bon") {
           if (this.une) {
             this.alaune = true;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -123,7 +123,7 @@ export class AdministrationComponent {
             this.selected = '';
           } else {
             this.alaune = false;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -136,7 +136,7 @@ export class AdministrationComponent {
           if (this.une) {
             this.selected = null;
             this.alaune = true;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -145,7 +145,7 @@ export class AdministrationComponent {
           } else {
             this.selected = null;
             this.alaune = false;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -155,16 +155,19 @@ export class AdministrationComponent {
 
         }
 
-      }else{
+      } else {
         if (artic === "supprimer") {
           this.articleProvider.supprimer(this._id);
-            window.location.reload();
+          window.location.reload();
         }
       }
 
     }
   }
 
+  editionInterview(inter) {
+
+  }
   editArticl(article) {
     console.log('okkkkkk');
     this.action = "Modifier";
@@ -179,7 +182,7 @@ export class AdministrationComponent {
 
   }
 
-   supprimerArticl(article) {
+  supprimerArticl(article) {
     console.log('okkkkkk');
     this.action = "Supprimer";
     this._id = article._id;
@@ -210,6 +213,16 @@ export class AdministrationComponent {
     });
   }
 
+  editInterv(interv) {
+    console.log('okkkkkk')
+    this.libelle = interv.libelle;
+    this.intervenant = interv.intervenant;
+    this.contenuInterviews = interv.contenu;
+    this.themeinterv = interv.id_theme;
+    // this.une = article.une;
+
+
+  }
   Init() {
     if (this.themeProvider.listTheme == null) {
       this.themeProvider.listThemes().then(list => {
@@ -299,19 +312,6 @@ export class AdministrationComponent {
     setTimeout(function () {
       document.querySelector('header').style.backgroundColor = '#222';
     }, 100);
-  }
-
-
-
-  editInterv(interv) {
-    console.log('okkkkkk')
-    this.libelle = interv.libelle;
-    this.intervenant = interv.intervenant;
-    this.contenuInterviews = interv.contenu;
-    this.themeinterv = interv.id_theme;
-    // this.une = article.une;
-
-
   }
 }
 
