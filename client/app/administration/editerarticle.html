@@ -16,10 +16,14 @@
           <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
           <textarea class="form-control" rows="10" style="resize: none;" ng-model="vm.contenu"></textarea>
         </div>
-        <div class="form-group">
-          <label for="image">Choisir une image</label>
-          <input type="file" id="image" ng-model="vm.image">
-          <!--<p class="help-block">Example block-level help text here.</p>-->
+        <div class="row">
+          <div class="form-group col-md-4" style="margin-top: 50px;">
+            <label for="imageArticle">Choisir une image</label>
+            <input type="file" id="imageArticle" ng-model="vm.image" style="display: none;">
+            <i style="color: cornflowerblue; cursor: pointer;" class="fa fa-upload fa-2x" aria-hidden="true" ng-click="vm.ouvreDialogue()"></i>
+            <!--<p class="help-block">Example block-level help text here.</p>-->
+          </div>
+          <div class="form-group col-md-4" id="imageSection" style="height: 150px; width: 300px; border: 3px dotted cornflowerblue;"></div>
         </div>
         <div class="checkbox">
           <label>
@@ -37,11 +41,7 @@
           <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-selected="vm.themearticl" ng-click="vm.setClick(theme._id)"> {{theme.libelle}} </option>
           </select>
         </div>
-
-
         <button type="submit" class="btn btn-default" ng-click="vm.editionArticle(vm.artic)">{{vm.action}}</button>
-
-
       </form>
     </div>
     <!--</div>-->
