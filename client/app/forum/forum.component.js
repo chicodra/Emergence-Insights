@@ -26,7 +26,7 @@ export class ForumComponent {
   sousCatVisible = false;
   sousCat;
   unSujet;
-  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider,sousCategorieProvider) {
+  constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider, sousCategorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.categorieProvider = categorieProvider;
     this.sujetProvider = sujetProvider;
@@ -118,13 +118,13 @@ export class ForumComponent {
         /*==================================================*/
         this.jsFunctionProvider.ajaxContactForm();
 
-        
+
 
 
       });
 
   }
- 
+
   getSubjects() {
     this.sujetProvider.listSujets().then(list => {
       console.log("liste sujets", list);
@@ -143,9 +143,9 @@ export class ForumComponent {
 
   ajoutSujet() {
 
-    var datetime = this.currentdate.getDate() + "/"
-      + (this.currentdate.getMonth() + 1) + "/"
-      + this.currentdate.getFullYear();
+    var datetime = this.currentdate.getDate() + "/" +
+      (this.currentdate.getMonth() + 1) + "/" +
+      this.currentdate.getFullYear();
 
     if (this.titreSujet) {
       this.$http.post('/api/sujets', {
@@ -156,16 +156,16 @@ export class ForumComponent {
         date_creation: datetime
       });
       this.titreSujet = '';
-   
-        window.location.reload();
-   
-      
+
+      window.location.reload();
+
+
     }
 
   }
 
-  clickCategorie(id){
-    
+  clickCategorie(id) {
+
     this.sousCategorieProvider.listSousCategorie(id).then(list => {
       this.listSousCat = list;
       this.sousCatVisible = true;
@@ -189,6 +189,7 @@ export class ForuminfoComponent {
   socket;
   $window;
   currentdate = new Date();
+  urlSujet;
   constructor(sujetProvider, $stateParams, jsFunctionProvider, commentaireProvider, userProvider, Auth, $http, socket, $window) {
 
     'ngInject';
@@ -204,8 +205,7 @@ export class ForuminfoComponent {
     this.$http = $http;
     this.socket = socket;
     this.$window = $window;
-
-
+    this.urlSujet = $stateParams.sujet;
     //this.getsujet(this.params.sujetName);
     console.log('get sujet by name 3', this);
 
@@ -261,8 +261,18 @@ export class ForuminfoComponent {
   Init() {
     var th = this;
     setTimeout(function () {
-      th.unSujet = th.sujetProvider.Lesujet;
-      th.getComsBySujet(th.unSujet._id);
+      if (th.sujetProvider.Lesujet == null) {
+        th.sujetProvider.getSujetById(th.urlSujet).then(list => {
+          console.log('djjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdddddddddddddddddddddt', list);
+          th.unSujet = list;
+          th.getComsBySujet(th.unSujet._id);
+        });
+
+      } else {
+        th.unSujet = th.sujetProvider.Lesujet;
+        th.getComsBySujet(th.unSujet._id);
+      }
+
       this.socket.syncUpdates('commentaires', this.listeComs);
     }, 100)
     // console.log('paysprovider',this.paysProvider);
@@ -341,24 +351,24 @@ export class ForuminfoComponent {
   create() {
 
     var local_http = this.$http;
-    var datetime = this.currentdate.getDate() + "/"
-      + (this.currentdate.getMonth() + 1) + "/"
-      + this.currentdate.getFullYear();
+    var datetime = this.currentdate.getDate() + "/" +
+      (this.currentdate.getMonth() + 1) + "/" +
+      this.currentdate.getFullYear();
     if (this.contenuCom) {
       this.$http.post('/api/messages', {
-        id_user: this.getCurrentUser()._id,
-        id_sujet: this.listSujets._id,
-        id_createur: this.listSujets.id_user._id,
-        contenu: this.contenuCom,
-        date_creation: this.datetime
-      })
-      .then(function(data){
-       local_http.post('/api/notifications', {
-        id_message: data.data._id,
-        date_Envoi: datetime,
-        seen : false
-       })
-      });
+          id_user: this.getCurrentUser()._id,
+          id_sujet: this.listSujets._id,
+          id_createur: this.listSujets.id_user._id,
+          contenu: this.contenuCom,
+          date_creation: this.datetime
+        })
+        .then(function (data) {
+          local_http.post('/api/notifications', {
+            id_message: data.data._id,
+            date_Envoi: datetime,
+            seen: false
+          })
+        });
 
       this.contenuCom = '';
 
@@ -369,7 +379,7 @@ export class ForuminfoComponent {
 
 }
 
-export class CategorieComponent { 
+export class CategorieComponent {
   /*@ngInject*/
   jsFunctionProvider;
   sujetProvider;
@@ -387,7 +397,7 @@ export class CategorieComponent {
   listcat;
   listsujetscat;
   listSousCat;
-  khol = 'liii';
+  urlSujet;
   constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider, sousCategorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.categorieProvider = categorieProvider;
@@ -454,35 +464,35 @@ export class CategorieComponent {
 
 
         this.categorieProvider.listCategorie().then(list => {
-          var l =  this.sousCategorieProvider;
-      list.forEach(function(element) {
-        l.listSousCategorie(element._id)
-        .then(liste => {
-          element.q = liste;
-        });
-      });
-      this.listcat = list;
-      console.log("oooooooooooooooooooooooooo",list);
+          var l = this.sousCategorieProvider;
+          list.forEach(function (element) {
+            l.listSousCategorie(element._id)
+              .then(liste => {
+                element.q = liste;
+              });
+          });
+          this.listcat = list;
+          console.log("oooooooooooooooooooooooooo", list);
 
 
-    })
+        })
 
       });
 
   }
-  partage(scat){
-   console.log("partage",scat);
-      this.sousCategorieProvider.SousCat = scat;
-}
+  partage(scat) {
+    console.log("partage", scat);
+    this.sousCategorieProvider.SousCat = scat;
+  }
 }
 
 
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
-ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider","sousCategorieProvider"];
+ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider", "sousCategorieProvider"];
 
 ForuminfoComponent.$inject = ["sujetProvider", "$stateParams", "jsFunctionProvider", "commentaireProvider", "userProvider", "Auth", "$http", "socket", "$window"];
 
-CategorieComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider","sousCategorieProvider"];
+CategorieComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider", "sousCategorieProvider"];
 
 export default angular.module('emergenceInsightsApp.forum', [uiRouter])
   .config(routes)
