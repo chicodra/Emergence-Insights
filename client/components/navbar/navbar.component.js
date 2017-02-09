@@ -160,8 +160,7 @@ export class NavbarComponent {
     console.log('okk');
     this.cl = "";
     this.styleAdmin = {
-      'display': 'none',
-      'opacity': '1'
+      'display': 'none'
     }
   }
 }

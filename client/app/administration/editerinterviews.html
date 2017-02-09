@@ -1,4 +1,3 @@
-
 <div ng-init="vm.Init()" class="pilierEm" style="margin-top: 250px;">
   <div class="row">
     <div class="col-md-1"></div>
@@ -18,11 +17,10 @@
           <textarea class="form-control" rows="5" style="resize: none;" ng-model="vm.contenuInterviews"></textarea>
         </div>
         <div class="form-group">
-          <label for="image">Choisir une image</label>
+          <label for="image">Choisir une image </label>
           <input type="file" id="image" ng-model="vm.imageInterviews">
           <!--<p class="help-block">Example block-level help text here.</p>-->
         </div>
-        <!-- Single button -->
         <div class="form-group">
           <label for="theme">Choisir un theme:</label>
           <select class="form-control" id="theme">
@@ -32,9 +30,17 @@
           </select>
         </div>
         <div>
-          <div ng-repeat="nb in vm.nblist" class="form-group">
+          <!--ngRepeat des questions et reponses pour la modification-->
+          <div ng-repeat="nb in vm.nbq" class="form-group">
             <label for="questio">Question</label>
-            <input type="text" class="form-control" id="questio" placeholder="questio">
+            <input type="text" class="form-control" id="questio" placeholder="question" ng-model="nb.titre">
+            <textarea ng-repeat="r in nb.a" class="form-control" rows="5" style="resize: none;" ng-model="r.libelle"> </textarea>
+            <button type="submit" class="btn btn-default">Supprimer cette question</button>
+          </div>
+          <!--ngRepeat des questions et reponses pour l'ajout-->
+          <div ng-repeat="nb in vm.nblist" class="form-group">
+            <label for="questio">Question </label>
+            <input type="text" class="form-control" id="questio" placeholder="question">
             <textarea class="form-control" rows="5" style="resize: none;"></textarea>
             <button type="submit" class="btn btn-default">Supprimer cette question</button>
           </div>
@@ -48,6 +54,7 @@
         </div>
       </form>
     </div>
+    <!--col-md-7 -->
     <!--</div>-->
     <div class="col-md-4">
       <!--<p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>-->
@@ -66,6 +73,6 @@
         </li>
       </ul>
     </div>
+    <!--col-md-7 -->
   </div>
 </div>
-

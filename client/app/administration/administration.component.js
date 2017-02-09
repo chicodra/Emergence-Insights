@@ -49,6 +49,7 @@ export class AdministrationComponent {
     this.contenuInterviews = '';
     this.intervenant = '';
     this.themeinterv = '';
+    this.nbq = '';
     this.artic = "";
     this.vide = "";
     this.themeProvider = themeProvider;
@@ -77,7 +78,6 @@ export class AdministrationComponent {
     this.vide = "";
 
   }
-
 
   editionArticle(artic) {
     if (artic === "") {
@@ -279,7 +279,7 @@ export class AdministrationComponent {
               this.listreponse = liste;
               elem.a = this.listreponse;
               console.log('liste yiii', this.listreponse)
-              
+
             });
           }, this);
 
@@ -292,7 +292,7 @@ export class AdministrationComponent {
 
       console.log('okktest', this.listinterview);
     });
-    
+
 
     angular.element(document)
       .ready(() => {
@@ -361,14 +361,14 @@ export class AdministrationComponent {
     this.intervenant = interv.intervenant;
     this.contenuInterviews = interv.contenu;
     this.themeinterv = interv.id_theme;
+    this.nbq = interv.q;
     // this.une = article.une;
-
-
   }
+
   addquestion() {
     // this.nbQ = this.nbQuestion;
     this.nblist = [];
-    for(var i = 0; i < this.nbQuestion; i++){
+    for (var i = 0; i < this.nbQuestion; i++) {
       this.nblist.push(i);
     }
   }
