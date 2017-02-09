@@ -14,5 +14,9 @@ export default function ($stateProvider) {
     .state('editerinterviews', {
       url: '/editerinterviews',
       template: '<editerinterviews></editerinterviews>'
-    });
+    })
+    .state('editeractualite', {
+      url: '/editeractualite',
+      template: '<editeractualite></editeractualite>'
+    });;
 }

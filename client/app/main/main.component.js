@@ -1,6 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import routing from './main.routes';
+import '../../../node_modules/angular-ui-swiper/dist/angular-ui-swiper.css';
+import '../../../node_modules/angular-ui-swiper/dist/angular-ui-swiper.js';
 
 
 export class MainController {

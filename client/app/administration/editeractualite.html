@@ -1,0 +1,56 @@
+<div ng-init="vm.Init()" class="pilierEm" style="margin-top: 250px;">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+      <form>
+        <div class="form-group">
+          <label for="sujets">Sujet</label>
+          <input type="text" class="form-control" id="sujets" placeholder="Sujet" ng-model="vm.sujet">
+        </div>
+        <div class="form-group">
+          <label for="contenuActu">Contenu</label>
+          <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+          <textarea class="form-control" rows="10" style="resize: none;" ng-model="vm.contenuActu"></textarea>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-3" style="margin-top: 50px;">
+            <label for="imageArticle">Choisir une image</label>
+            <input type="file" id="imageArticle" ng-model="vm.imageactu" style="display: none;">
+            <i style="color: cornflowerblue; cursor: pointer;" class="fa fa-upload fa-2x" aria-hidden="true" ng-click="vm.ouvreDialogue()"></i>
+            <!--<p class="help-block">Example block-level help text here.</p>-->
+          </div>
+          <div class="form-group col-md-4" id="imageSection" style="height: 150px; width: 300px; border: 3px dotted cornflowerblue;"></div>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="vm.actualaune">
+            <p style="margin: 5px;">A là une</p>
+            </label>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <fieldset style="border: 1px solid black;">
+              <legend><p style="font-family: Roboto; font-size: 20px; margin: 15px;"> Les pays concernés </p> </legend>
+            <div ng-repeat="pays in vm.listP" class="col-md-4"><label class="checkbox-inline"><input type="checkbox" value=""> <p style="margin: 5px;"> {{pays.nom}} </p> </label></div>
+            </fieldset>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="vm.editionActu(vm.artic)">{{vm.action}} ok</button>
+      </form>
+    </div>
+    <!--</div>-->
+    <div class="col-md-4">
+      <!--<p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>-->
+      <!--<ul class="list-group">
+        <li class="list-group-item" ng-repeat="pays in vm.listP">
+          <div class="">
+            <strong>{{pays.titre}}</strong><br>
+            <span class="text-muted">{{pays.auteur}}</span>
+          </div>
+          <a ng-click="vm.supprimerpays(pays)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+          <a ng-click="vm.editpays(pays)" class=""><span class="fa fa-pencil fa-2x"></span></a>
+        </li>
+      </ul>-->
+    </div>
+  </div>
+</div>

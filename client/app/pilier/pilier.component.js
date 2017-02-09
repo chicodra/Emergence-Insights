@@ -70,7 +70,7 @@ export class PiliersComponent {
 
         this.jsFunctionProvider.anchorsNav();
 
-        console.log('document pilier', document);
+        // console.log('document pilier', document);
         /* demo animated */
         this.jsFunctionProvider.demoAnimated();
         /* Document REady */
