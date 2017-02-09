@@ -13,11 +13,7 @@
  * Released on: February 11, 2015
 */
 /* ===============================================================
-<<<<<<< HEAD
-Basic Swiper Styles
-=======
 Basic Swiper Styles 
->>>>>>> origin/develop
 ================================================================*/
 .swiper-container {
 	margin:0 auto;
@@ -40,39 +36,23 @@ Basic Swiper Styles
 	-webkit-transition-duration:0s;
 	-webkit-transform:translate3d(0px,0,0);
 	-webkit-transition-timing-function:ease;
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> origin/develop
 	-moz-transition-property:-moz-transform, left, top;
 	-moz-transition-duration:0s;
 	-moz-transform:translate3d(0px,0,0);
 	-moz-transition-timing-function:ease;
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> origin/develop
 	-o-transition-property:-o-transform, left, top;
 	-o-transition-duration:0s;
 	-o-transform:translate3d(0px,0,0);
 	-o-transition-timing-function:ease;
 	-o-transform:translate(0px,0px);
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> origin/develop
 	-ms-transition-property:-ms-transform, left, top;
 	-ms-transition-duration:0s;
 	-ms-transform:translate3d(0px,0,0);
 	-ms-transition-timing-function:ease;
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> origin/develop
 	transition-property:transform, left, top;
 	transition-duration:0s;
 	transform:translate3d(0px,0,0);
@@ -82,11 +62,7 @@ Basic Swiper Styles
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
 
-<<<<<<< HEAD
-	cursor:url(../images/drag.png) 16 9, ew-resize!important;
-=======
 	cursor:url(../img/drag.png) 16 9, ew-resize!important;
->>>>>>> origin/develop
 	margin: 0 auto;
 	height: inherit!important;
 }
@@ -137,27 +113,16 @@ sizes, pagination, etc.
 }
 .swiper-slide {
 	/* Specify Slides's Size: */
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> origin/develop
 	/*width: 100%;
 	height: 100%;*/
 }
 .swiper-slide-active {
 	/* Specific active slide styling: */
-<<<<<<< HEAD
-
-}
-.swiper-slide-visible {
-	/* Specific visible slide styling: */
-=======
 	
 }
 .swiper-slide-visible {
 	/* Specific visible slide styling: */	
->>>>>>> origin/develop
 
 }
 /* ===============================================================
@@ -172,11 +137,7 @@ Pagination Styles
 	display: none!important;
 }
 .swiper-pagination-switch {
-<<<<<<< HEAD
-	/* Stylize pagination button: */
-=======
 	/* Stylize pagination button: */	
->>>>>>> origin/develop
 	width: 10px;
 	height: 10px;
 	border-radius: 10px;
@@ -189,21 +150,13 @@ Pagination Styles
 }
 
 .swiper-active-switch {
-<<<<<<< HEAD
-	/* Specific active button style: */
-=======
 	/* Specific active button style: */	
->>>>>>> origin/develop
 	background: #03b4ea;
 	border-color: #03b4ea;
 }
 
 .swiper-visible-switch {
-<<<<<<< HEAD
-	/* Specific visible button style: */
-=======
 	/* Specific visible button style: */	
->>>>>>> origin/develop
 
 }
 
@@ -239,8 +192,4 @@ Arrows Styles
 
 .swiper-container.pagination-hidden .swiper-arrow-left, .swiper-container.pagination-hidden .swiper-arrow-right{
 	display: none!important;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/develop

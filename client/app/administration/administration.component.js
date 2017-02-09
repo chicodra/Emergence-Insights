@@ -12,7 +12,7 @@ export class AdministrationComponent {
   articleProvider;
 
   listArticles;
-  
+
   listarticle;
   datetime;
   selected;
@@ -49,8 +49,9 @@ export class AdministrationComponent {
     this.contenuInterviews = '';
     this.intervenant = '';
     this.themeinterv = '';
+    this.nbq = '';
     this.artic = "";
-    this.vide="";
+    this.vide = "";
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
@@ -71,18 +72,17 @@ export class AdministrationComponent {
 
   setClick(value) {
     this.selected = value;
-    this.vide="bon";
+    this.vide = "bon";
   }
-   setClickValue() {
-    this.vide="";
+  setClickValue() {
+    this.vide = "";
 
   }
-
 
   editionArticle(artic) {
     if (artic === "") {
       this.action = "Ajouter";
-      if (this.selected && this.vide==="bon") {
+      if (this.selected && this.vide === "bon") {
         if (this.une) {
           this.alaune = true;
           this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
@@ -128,10 +128,10 @@ export class AdministrationComponent {
 
     } else {
       if (artic === "modifier") {
-        if (this.selected && this.vide==="bon") {
+        if (this.selected && this.vide === "bon") {
           if (this.une) {
             this.alaune = true;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -140,7 +140,7 @@ export class AdministrationComponent {
             this.selected = '';
           } else {
             this.alaune = false;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -153,7 +153,7 @@ export class AdministrationComponent {
           if (this.une) {
             this.selected = null;
             this.alaune = true;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -162,7 +162,7 @@ export class AdministrationComponent {
           } else {
             this.selected = null;
             this.alaune = false;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -172,10 +172,10 @@ export class AdministrationComponent {
 
         }
 
-      }else{
+      } else {
         if (artic === "supprimer") {
           this.articleProvider.supprimer(this._id);
-            window.location.reload();
+          window.location.reload();
         }
 
       }
@@ -197,7 +197,7 @@ export class AdministrationComponent {
 
   }
 
-   supprimerArticl(article) {
+  supprimerArticl(article) {
     console.log('okkkkkk');
     this.action = "Supprimer";
     this._id = article._id;
@@ -266,7 +266,7 @@ export class AdministrationComponent {
               this.listreponse = liste;
               elem.a = this.listreponse;
               console.log('liste yiii', this.listreponse)
-              
+
             });
           }, this);
 
@@ -279,7 +279,7 @@ export class AdministrationComponent {
 
       console.log('okktest', this.listinterview);
     });
-    
+
 
     angular.element(document)
       .ready(() => {
@@ -351,14 +351,14 @@ export class AdministrationComponent {
     this.intervenant = interv.intervenant;
     this.contenuInterviews = interv.contenu;
     this.themeinterv = interv.id_theme;
+    this.nbq = interv.q;
     // this.une = article.une;
-
-
   }
+
   addquestion() {
     // this.nbQ = this.nbQuestion;
     this.nblist = [];
-    for(var i = 0; i < this.nbQuestion; i++){
+    for (var i = 0; i < this.nbQuestion; i++) {
       this.nblist.push(i);
     }
   }
