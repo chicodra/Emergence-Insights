@@ -51,35 +51,27 @@ export function interviewsProvider($http, $q) {
     return liste;
 
   }
-
-  this.ajoutInterview = function (libelle, intervenant, contenu, theme) {
+  this.ajoutInterview = function (libelle, intervenant, contenu, theme,tab,taille) {
     var deferred = $q.defer();
     $http.post('/api/interviews', {
       libelle: libelle,
       intervenant: intervenant,
       contenu: contenu,
       id_theme: theme
-    }).then(function () {
-      console.log("Interview bi Dougeuna");
+    }).then(function (data) {
+      console.log("Interview bi Bakhna");
+      for(var i=0; i<taille;i++){
+        $http.post('/api/questions', {
+        titre : tab[i],
+        id_interview:data.data._id
+      }).then(function () {
+        console.log("Questions yi Bakhna");
+      })
+      }
+      window.location.reload();
     });
-  }
-  this.modifier = function (id, libelle, intervenant, contenu, theme) {
-    var deferred = $q.defer();
-    $http.put('/api/interviews/' + id, {
-      libelle: libelle,
-      intervenant: intervenant,
-      contenu: contenu,
-      id_theme: theme
-    }).then(function () {
-      console.log("Modifier bi Bakhna");
-    });
-  }
-  this.supprimer = function (id) {
-    var deferred = $q.defer();
-    $http.delete('/api/interviews/' + id, {}).then(function () {
-      console.log("Supprimer bi Bakhna");
-    });
-  }
+}
+
 }
 
 export default angular.module('emergenceInsightsApp.interviewprovider', [])

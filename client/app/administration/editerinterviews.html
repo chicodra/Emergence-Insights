@@ -24,16 +24,17 @@
         <div class="form-group">
           <label for="theme">Choisir un theme:</label>
           <select class="form-control" id="theme">
-          <option value="">...</option>
+          <option ng-click="vm.setClickValue()">...</option>
 
-          <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-selected="vm.themeinterv" ng-click=""> {{theme.libelle}} </option>
+          <option ng-repeat="theme in vm.listTheme" value="theme._id" ng-selected="vm.themeinterv" ng-click="vm.setClick(theme._id)"> {{theme.libelle}} </option>
           </select>
         </div>
         <div>
           <!--ngRepeat des questions et reponses pour la modification-->
           <div ng-repeat="nb in vm.nbq" class="form-group">
             <label for="questio">Question</label>
-            <input type="text" class="form-control" id="questio" placeholder="question" ng-model="nb.titre">
+
+            <input type="text" class="form-control" id="questio" placeholder="questio" ng-model="vm.qy[nb]">
             <textarea ng-repeat="r in nb.a" class="form-control" rows="5" style="resize: none;" ng-model="r.libelle"> </textarea>
             <button type="submit" class="btn btn-default">Supprimer cette question</button>
           </div>
@@ -41,6 +42,7 @@
           <div ng-repeat="nb in vm.nblist" class="form-group">
             <label for="questio">Question </label>
             <input type="text" class="form-control" id="questio" placeholder="question">
+
             <textarea class="form-control" rows="5" style="resize: none;"></textarea>
             <button type="submit" class="btn btn-default">Supprimer cette question</button>
           </div>
@@ -50,7 +52,7 @@
           </div>
         </div>
         <div>
-          <button type="submit" class="btn btn-primary" ng-click="">Envoyer</button>
+          <button type="submit" class="btn btn-primary" ng-click="vm.editionInterview(vm.intr)">{{vm.action}}</button>
         </div>
       </form>
     </div>

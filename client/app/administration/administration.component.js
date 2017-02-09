@@ -27,7 +27,8 @@ export class AdministrationComponent {
   scop;
   question;
   q;
-
+  qy = [];
+  taille;
   //id_theme;
   //image;
   //une;
@@ -37,27 +38,23 @@ export class AdministrationComponent {
   constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
     this.status = false;
     this._id = '';
-
     this.titre = '';
-
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
-
     this.libelle = '';
     this.contenuInterviews = '';
     this.intervenant = '';
     this.themeinterv = '';
     this.nbq = '';
     this.artic = "";
+    this.intr = "";
     this.vide = "";
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
-
-
     this.action = "Ajouter";
     this.reponseProvider = reponseProvider;
     this.interviewsProvider = interviewsProvider;
@@ -183,9 +180,6 @@ export class AdministrationComponent {
     }
   }
 
-  editionInterview(inter) {
-
-  }
   editArticl(article) {
     console.log('okkkkkk');
     this.action = "Modifier";
@@ -213,6 +207,30 @@ export class AdministrationComponent {
     /*console.log('li lane la', this._id);*/
 
   }
+  editionInterview(intr) {
+    if (intr === "") {
+      this.taille = this.qy.length;
+      this.action = "Ajouter";
+      if (this.selected && this.vide === "bon") {
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille);
+        this.libelle = '';
+        this.intervenant = '';
+        this.contenuInterviews = '';
+        this.selected = '';
+
+      } else {
+        this.selected = null;
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille);
+        this.libelle = '';
+        this.intervenant = '';
+        this.contenuInterviews = '';
+        this.selected = '';
+      }
+
+    }
+    console.log('Taille bi', this.taille);
+    console.log('question yi', this.qy);
+  }
 
   getQuestionByInterview(id) {
     this.questionProvider.listQuestionsInterviews(id).then(list => {
@@ -234,16 +252,6 @@ export class AdministrationComponent {
     });
   }
 
-  editInterv(interv) {
-    console.log('okkkkkk')
-    this.libelle = interv.libelle;
-    this.intervenant = interv.intervenant;
-    this.contenuInterviews = interv.contenu;
-    this.themeinterv = interv.id_theme;
-    // this.une = article.une;
-
-
-  }
   Init() {
     if (this.themeProvider.listTheme == null) {
       this.themeProvider.listThemes().then(list => {
