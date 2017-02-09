@@ -34,15 +34,14 @@
           <div ng-repeat="nb in vm.nbq" class="form-group">
             <label for="questio">Question</label>
 
-            <input type="text" class="form-control" id="questio" placeholder="questio" ng-model="vm.qy[nb]">
+            <input type="text" class="form-control" id="questio" placeholder="questio" ng-model="nb.titre" >
             <textarea ng-repeat="r in nb.a" class="form-control" rows="5" style="resize: none;" ng-model="r.libelle"> </textarea>
             <button type="submit" class="btn btn-default">Supprimer cette question</button>
           </div>
           <!--ngRepeat des questions et reponses pour l'ajout-->
           <div ng-repeat="nb in vm.nblist" class="form-group">
             <label for="questio">Question </label>
-            <input type="text" class="form-control" id="questio" placeholder="question">
-
+            <input type="text" class="form-control" id="questio" placeholder="question" ng-model="vm.qy[nb]">
             <textarea class="form-control" rows="5" style="resize: none;"></textarea>
             <button type="submit" class="btn btn-default">Supprimer cette question</button>
           </div>
