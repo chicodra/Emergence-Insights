@@ -253,6 +253,30 @@ export class AdministrationComponent {
   }
 
   Init() {
+    var fichier = document.querySelector('#imageArticle');
+    fichier.addEventListener('change', inputfiles, false);
+
+    function inputfiles(e) {
+      // console.log('target',e.target.files);
+      propfichier(e.target.files);
+    }
+
+    function propfichier(arg) {
+      var fichier = arg[0]
+      if (fichier.type.indexOf('image') > -1) {
+        var lecteur = new FileReader();
+        lecteur.onload = function (e) {
+          console.log('log', e);
+          var img = document.querySelector('#imageSection');
+          img.style.background = 'url(' + e.target.result + ') center center no-repeat';
+          img.style.backgroundSize = 'cover';
+        }
+        lecteur.readAsDataURL(fichier);
+      } else {
+        alert('Ce n\'est pas une image');
+      }
+    }
+
     if (this.themeProvider.listTheme == null) {
       this.themeProvider.listThemes().then(list => {
         this.listTheme = list;
@@ -379,6 +403,10 @@ export class AdministrationComponent {
     for (var i = 0; i < this.nbQuestion; i++) {
       this.nblist.push(i);
     }
+  }
+
+  ouvreDialogue() {
+    $('#imageArticle').click();
   }
 
 }
