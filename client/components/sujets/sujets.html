@@ -17,7 +17,7 @@
         <td style="width: 400px;">Liste des sujets</td>
         <td>Date</td>
         <td>Commentaire</td>
-        <td>Categories</td>
+       <!-- <td>Categories</td>-->
         <td>Utilisateur</td>
       </tr>
       <tr ui-sref="forumScatSujet({sscat:vm.urlScat,sujet:sujet._id})" id="sujet" ng-repeat="sujet in vm.listeScatSujets | filter:query">
@@ -30,13 +30,13 @@
         <td>
           {{sujet.date_creation | date:'dd/MM/yyyy'}}
         </td>
-        <td style="text-align: center">0</td>
-        <td>
+        <td style="text-align: center" >{{sujet.q.length}}</td>
+        <!--<td>
           <div class="tag" style="cursor: pointer;">
 
             <i class="fa fa-tag" aria-hidden="true"></i> <span>{{sujet.id_cat.titre}}</span>
           </div>
-        </td>
+        </td>-->
         <td>
           <div class="media">
             <div class="media-left">
