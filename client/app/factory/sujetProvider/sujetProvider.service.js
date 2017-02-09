@@ -39,10 +39,26 @@ export function sujetProviderService($http, $q) {
     return liste;
 
   }
+
   this.getSujetByCat = function (id){
     var deferred = $q.defer();
     var liste = [];
     $http.get('/api/sujets/categorie/' + id, {
+      cache: true
+    }).then(function (list) {
+      liste = list.data;
+      deferred.resolve(liste);
+
+    });
+    liste = deferred.promise;
+
+    return liste;
+  }
+
+  this.getSujetById = function (id){
+    var deferred = $q.defer();
+    var liste = [];
+    $http.get('/api/sujets/' + id, {
       cache: true
     }).then(function (list) {
       liste = list.data;
