@@ -7,11 +7,16 @@ export class sujetsComponent {
   sujetProvider;
   userProvider;
   listeSujets;
-  constructor(jsFunctionProvider,sujetProvider,userProvider) {
+  listeScatSujets;
+  sousCategorieProvider;
+  urlScat;
+  constructor(jsFunctionProvider,sujetProvider,userProvider,sousCategorieProvider,$stateParams) {
     this.jsFunctionProvider=jsFunctionProvider;
     this.sujetProvider=sujetProvider;
     this.userProvider=userProvider;
     this.message = 'Hello';
+    this.sousCategorieProvider = sousCategorieProvider;
+    this.urlScat = $stateParams.sscat;
     console.log('forum',this);
   }
   Init() {
@@ -19,7 +24,7 @@ export class sujetsComponent {
     var th=this;
     setTimeout(function () {
       th.getSubjects();
-
+      th.getScatSubjects()
     },50);
 
 
@@ -88,8 +93,36 @@ export class sujetsComponent {
 
   }
 
+ getScatSubjects(){
+   if(this.sujetProvider.SousCat == null){
+     this.sousCategorieProvider.getSousBynom(this.urlScat).then(list =>{
+      var suj = this.sujetProvider;
+      
+        suj.getSujetByCat(list[0]._id)
+        .then(liste => {
+          this.listeScatSujets = liste;
+          console.log("sanssssssssssssssssssssssssssssssssssssssss", this.listeScatSujets);
+        });
+      
+     // this.listeScatSujets=list;
+    })
+   }
+   else{
+    this.sujetProvider.getSujetByCat(this.sousCategorieProvider.SousCat._id).then(list =>{
+      console.log("sama yosssss",list);
+      
+      this.listeScatSujets=list;
+    })
+   }
+    
+
+  }
+  partageSujet(sujet){
+      this.sujetProvider.Lesujet = sujet;
+  }
+
 }
-sujetsComponent.$inject=["jsFunctionProvider","sujetProvider","userProvider"];
+sujetsComponent.$inject=["jsFunctionProvider","sujetProvider","userProvider","sousCategorieProvider","$stateParams"];
 export default angular.module('emergenceInsightsApp.sujets', [])
   .component('sujets', {
     // template: '<h1>Hello {{ $ctrl.message }}</h1>',

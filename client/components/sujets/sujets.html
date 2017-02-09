@@ -20,10 +20,10 @@
         <td>Categories</td>
         <td>Utilisateur</td>
       </tr>
-      <tr ui-sref="foruminfo({forumName:sujet.titre})" id="sujet" ng-repeat="sujet in vm.listeSujets | filter:query">
+      <tr ui-sref="forumScatSujet({sscat:vm.urlScat,sujet:sujet._id})" id="sujet" ng-repeat="sujet in vm.listeScatSujets | filter:query">
         <td>
           <div style="padding: 6px; ">
-            <a class="simple-title" ui-sref="foruminfo({forumName:sujet.titre})"> {{sujet.titre}} </a>
+            <a class="simple-title" ng-click="vm.partageSujet(sujet)" ui-sref="forumScatSujet({sscat:vm.urlScat,sujet:sujet._id})"> {{sujet.titre}} </a>
             <!--<p style="font-family: 'Roboto Mono', monospace;">lremgj dolor sit amet, consectetur adipi fgkgf </p>-->
           </div>
         </td>

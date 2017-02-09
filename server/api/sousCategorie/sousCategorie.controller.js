@@ -79,6 +79,15 @@ export function show(req, res) {
 }
 
 // Gets a single SousCategorie from the DB
+export function getSousByNom(req, res) {
+  return SousCategorie.find({titre : req.params.nom}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+
+// Gets a single SousCategorie from the DB
 export function getSousByCat(req, res) {
   return SousCategorie.find({id_categorie : req.params.cat}).exec()
     .then(handleEntityNotFound(res))
