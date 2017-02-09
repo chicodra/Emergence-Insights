@@ -7,20 +7,28 @@ export class sujetsComponent {
   sujetProvider;
   userProvider;
   listeSujets;
-  constructor(jsFunctionProvider,sujetProvider,userProvider) {
-    this.jsFunctionProvider=jsFunctionProvider;
-    this.sujetProvider=sujetProvider;
-    this.userProvider=userProvider;
+  listeScatSujets;
+  sousCategorieProvider;
+  commentaireProvider;
+  urlScat;
+  listcomms;
+  constructor(jsFunctionProvider, sujetProvider, userProvider, sousCategorieProvider, $stateParams, commentaireProvider) {
+    this.jsFunctionProvider = jsFunctionProvider;
+    this.sujetProvider = sujetProvider;
+    this.userProvider = userProvider;
+    this.commentaireProvider = commentaireProvider;
     this.message = 'Hello';
-    console.log('forum',this);
+    this.sousCategorieProvider = sousCategorieProvider;
+    this.urlScat = $stateParams.sscat;
+    console.log('forum', this);
   }
   Init() {
     //this.listTheme=[];
-    var th=this;
+    var th = this;
     setTimeout(function () {
       th.getSubjects();
-
-    },50);
+      th.getScatSubjects()
+    }, 50);
 
 
 
@@ -80,21 +88,59 @@ export class sujetsComponent {
       });
 
   }
-  getSubjects(){
-    this.sujetProvider.listSujets().then(list =>{
-      console.log("liste sujets",list);
-      this.listeSujets=list;
+  getSubjects() {
+    this.sujetProvider.listSujets().then(list => {
+      console.log("liste sujets", list);
+      this.listeSujets = list;
     })
 
   }
 
+  getScatSubjects() {
+    if (this.sujetProvider.SousCat == null) {
+      this.sousCategorieProvider.getSousBynom(this.urlScat).then(list => {
+        var suj = this.sujetProvider;
+
+        suj.getSujetByCat(list[0]._id)
+          .then(liste => {
+            this.listeScatSujets = liste;
+            console.log("sanssssssssssssssssssssssssssssssssssssssss", this.listeScatSujets);
+            this.listeScatSujets.forEach(function (element) {
+              this.commentaireProvider.getComsBySujet(element._id).then(lister => {
+                this.listcomms = lister;
+                element.q = this.listcomms;
+                console.log("Mom leu", this.listcomms);
+              });
+            }, this);
+            console.log("Mako Mom", this.listeScatSujets);
+          });
+
+        // this.listeScatSujets=list;
+      })
+    } else {
+      this.sujetProvider.getSujetByCat(this.sousCategorieProvider.SousCat._id).then(list => {
+        console.log("sama yosssss", list);
+
+        this.listeScatSujets = list;
+
+      });
+    }
+
+
+  }
+  partageSujet(sujet) {
+    this.sujetProvider.Lesujet = sujet;
+  }
+
 }
-sujetsComponent.$inject=["jsFunctionProvider","sujetProvider","userProvider"];
+sujetsComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "sousCategorieProvider", "$stateParams", "commentaireProvider"];
 export default angular.module('emergenceInsightsApp.sujets', [])
   .component('sujets', {
     // template: '<h1>Hello {{ $ctrl.message }}</h1>',
     template: require('./sujets.html'),
-    bindings: { message: '<' },
+    bindings: {
+      message: '<'
+    },
     controller: sujetsComponent,
     controllerAs: 'vm'
   })

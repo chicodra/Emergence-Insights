@@ -3,17 +3,17 @@
 export default function ($stateProvider) {
   'ngInject';
   $stateProvider
-    .state('forum', {
-      url: '/forum',
+    .state('forumScat', {
+      url: '/forum/:sscat',
       template: '<forum></forum>'
     })
-  .state('foruminfo', {
-    url: '/forum/:forumName',
+  .state('forumScatSujet', {
+    url: '/forum/:sscat/:sujet',
     template: '<foruminfo></foruminfo>',
 
   })
-    .state('categorie', {
-    url: '/categorie',
+    .state('forum', {
+    url: '/forum',
     template: '<categorie></categorie>',
 
   });
