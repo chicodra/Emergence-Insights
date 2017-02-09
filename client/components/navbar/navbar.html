@@ -40,10 +40,10 @@
           <li ng-show="nbCtrl.isAdmin()" ng-mouseenter="nbCtrl.classAdmin()" ng-mouseleave="nbCtrl.delclassAdmin()" ng-click="nbCtrl.delclassAdmin()"
             class="cl1"><a>Administration</a>
             <ul ng-style="nbCtrl.styleAdmin">
-              <li>
+              <li style="float: right";>
                 <a ui-sref="editerarticle"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Article </a>
               </li>
-              <li>
+              <li style="float: right";>
                 <a ui-sref="editerinterviews"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Interviews </a>
               </li>
             </ul>

@@ -47,6 +47,7 @@ export class AdministrationComponent {
     this.contenuInterviews = '';
     this.intervenant = '';
     this.themeinterv = '';
+    this.nbq = '';
     this.artic = "";
     this.intr = "";
     this.vide = "";
@@ -74,7 +75,6 @@ export class AdministrationComponent {
     this.vide = "";
 
   }
-
 
   editionArticle(artic) {
     if (artic === "") {
@@ -369,9 +369,8 @@ export class AdministrationComponent {
     this.intervenant = interv.intervenant;
     this.contenuInterviews = interv.contenu;
     this.themeinterv = interv.id_theme;
+    this.nbq = interv.q;
     // this.une = article.une;
-
-
   }
 
   addquestion() {
