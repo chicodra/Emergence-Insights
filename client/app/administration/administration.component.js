@@ -12,7 +12,7 @@ export class AdministrationComponent {
   articleProvider;
 
   listArticles;
-  
+
   listarticle;
   datetime;
   selected;
@@ -27,7 +27,8 @@ export class AdministrationComponent {
   scop;
   question;
   q;
-
+  qy = [];
+  taille;
   //id_theme;
   //image;
   //une;
@@ -37,26 +38,22 @@ export class AdministrationComponent {
   constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
     this.status = false;
     this._id = '';
-
     this.titre = '';
-
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
-
     this.libelle = '';
     this.contenuInterviews = '';
     this.intervenant = '';
     this.themeinterv = '';
     this.artic = "";
-    this.vide="";
+    this.intr = "";
+    this.vide = "";
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
-
-
     this.action = "Ajouter";
     this.reponseProvider = reponseProvider;
     this.interviewsProvider = interviewsProvider;
@@ -71,10 +68,10 @@ export class AdministrationComponent {
 
   setClick(value) {
     this.selected = value;
-    this.vide="bon";
+    this.vide = "bon";
   }
-   setClickValue() {
-    this.vide="";
+  setClickValue() {
+    this.vide = "";
 
   }
 
@@ -82,7 +79,7 @@ export class AdministrationComponent {
   editionArticle(artic) {
     if (artic === "") {
       this.action = "Ajouter";
-      if (this.selected && this.vide==="bon") {
+      if (this.selected && this.vide === "bon") {
         if (this.une) {
           this.alaune = true;
           this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
@@ -128,10 +125,10 @@ export class AdministrationComponent {
 
     } else {
       if (artic === "modifier") {
-        if (this.selected && this.vide==="bon") {
+        if (this.selected && this.vide === "bon") {
           if (this.une) {
             this.alaune = true;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -140,7 +137,7 @@ export class AdministrationComponent {
             this.selected = '';
           } else {
             this.alaune = false;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -153,7 +150,7 @@ export class AdministrationComponent {
           if (this.une) {
             this.selected = null;
             this.alaune = true;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -162,7 +159,7 @@ export class AdministrationComponent {
           } else {
             this.selected = null;
             this.alaune = false;
-            this.articleProvider.modifier(this._id,this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -172,10 +169,10 @@ export class AdministrationComponent {
 
         }
 
-      }else{
+      } else {
         if (artic === "supprimer") {
           this.articleProvider.supprimer(this._id);
-            window.location.reload();
+          window.location.reload();
         }
 
       }
@@ -197,7 +194,7 @@ export class AdministrationComponent {
 
   }
 
-   supprimerArticl(article) {
+  supprimerArticl(article) {
     console.log('okkkkkk');
     this.action = "Supprimer";
     this._id = article._id;
@@ -209,6 +206,30 @@ export class AdministrationComponent {
     this.artic = "supprimer";
     /*console.log('li lane la', this._id);*/
 
+  }
+  editionInterview(intr) {
+    if (intr === "") {
+      this.taille = this.qy.length;
+      this.action = "Ajouter";
+      if (this.selected && this.vide === "bon") {
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille);
+        this.libelle = '';
+        this.intervenant = '';
+        this.contenuInterviews = '';
+        this.selected = '';
+
+      } else {
+        this.selected = null;
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille);
+        this.libelle = '';
+        this.intervenant = '';
+        this.contenuInterviews = '';
+        this.selected = '';
+      }
+
+    }
+    console.log('Taille bi', this.taille);
+    console.log('question yi', this.qy);
   }
 
   getQuestionByInterview(id) {
@@ -266,7 +287,7 @@ export class AdministrationComponent {
               this.listreponse = liste;
               elem.a = this.listreponse;
               console.log('liste yiii', this.listreponse)
-              
+
             });
           }, this);
 
@@ -279,7 +300,7 @@ export class AdministrationComponent {
 
       console.log('okktest', this.listinterview);
     });
-    
+
 
     angular.element(document)
       .ready(() => {
@@ -356,7 +377,7 @@ export class AdministrationComponent {
   addquestion() {
     // this.nbQ = this.nbQuestion;
     this.nblist = [];
-    for(var i = 0; i < this.nbQuestion; i++){
+    for (var i = 0; i < this.nbQuestion; i++) {
       this.nblist.push(i);
     }
   }
