@@ -5,6 +5,7 @@ const angular = require('angular');
 export function sujetProviderService($http, $q) {
   // AngularJS will instantiate a singleton by calling "new" on this function
   //this.listSujets=null;
+  this.Lesujet = null;
   this.listSujets = function () {
     var deferred = $q.defer();
     var liste = [];
@@ -21,6 +22,7 @@ export function sujetProviderService($http, $q) {
     return liste;
 
   }
+
   this.getSujetByName = function (name) {
     var deferred = $q.defer();
     var liste = [];
@@ -36,6 +38,20 @@ export function sujetProviderService($http, $q) {
 
     return liste;
 
+  }
+  this.getSujetByCat = function (id){
+    var deferred = $q.defer();
+    var liste = [];
+    $http.get('/api/sujets/categorie/' + id, {
+      cache: true
+    }).then(function (list) {
+      liste = list.data;
+      deferred.resolve(liste);
+
+    });
+    liste = deferred.promise;
+
+    return liste;
   }
 }
 

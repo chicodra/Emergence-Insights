@@ -25,6 +25,7 @@ export class ForumComponent {
   listSousCat;
   sousCatVisible = false;
   sousCat;
+  unSujet;
   constructor(jsFunctionProvider, sujetProvider, userProvider, commentaireProvider, Auth, $http, categorieProvider,sousCategorieProvider) {
     this.jsFunctionProvider = jsFunctionProvider;
     this.categorieProvider = categorieProvider;
@@ -38,13 +39,13 @@ export class ForumComponent {
     this.getCurrentUser = Auth.getCurrentUserSync;
     console.log('forum', this);
   }
-  GetSujetByCategorie(id) {
-    this.categorieProvider.GetSujetByCategorie(id).then(list => {
-      this.listsujetscat = list;
-      console.log("liste sujets par catégories", list);
-    })
+  // GetSujetByCategorie(id) {
+  //   this.categorieProvider.GetSujetByCategorie(id).then(list => {
+  //     this.listsujetscat = list;
+  //     console.log("liste sujets par catégories", list);
+  //   })
 
-  }
+  // }
 
   Init() {
 
@@ -220,28 +221,28 @@ export class ForuminfoComponent {
 
   }
 
-  getsujet(sujetName) {
-    //console.log(paysName,list);
-    this.sujetProvider.getSujetByName(sujetName).then(list => {
-      console.log('get sujet by name', list);
-      // p = list;
-      this.listSujets = list[0];
-      console.log('get sujet by name 2', this.listSujets);
-      this.getComsBySujet(this.listSujets._id).then(response => {
-        this.listeComs = response.data;
-        this.socket.syncUpdates('commentaires', this.listeComs);
-      });
-      // console.log('get sujet by name 4', p);
-      this.getusersbysujet(this.listSujets._id, this.listSujets.id_user._id);
+  // getsujet(sujetName) {
+  //   //console.log(paysName,list);
+  //   this.sujetProvider.getSujetByName(sujetName).then(list => {
+  //     console.log('get sujet by name', list);
+  //     // p = list;
+  //     this.listSujets = list[0];
+  //     console.log('get sujet by name 2', this.listSujets);
+  //     this.getComsBySujet(this.listSujets._id).then(response => {
+  //       this.listeComs = response.data;
+  //       this.socket.syncUpdates('commentaires', this.listeComs);
+  //     });
+  //     // console.log('get sujet by name 4', p);
+  //     this.getusersbysujet(this.listSujets._id, this.listSujets.id_user._id);
 
-    });
-
-
+  //   });
 
 
 
 
-  }
+
+
+  // }
 
   getusersbysujet(idsujet, iduser) {
     console.log('debut', idsujet, iduser)
@@ -257,11 +258,11 @@ export class ForuminfoComponent {
 
 
   }
-
   Init() {
     var th = this;
     setTimeout(function () {
-      th.getsujet(th.params.forumName);
+      th.unSujet = th.sujetProvider.Lesujet;
+      th.getComsBySujet(th.unSujet._id);
       this.socket.syncUpdates('commentaires', this.listeComs);
     }, 100)
     // console.log('paysprovider',this.paysProvider);
@@ -469,8 +470,13 @@ export class CategorieComponent {
       });
 
   }
-  
+  partage(scat){
+   console.log("partage",scat);
+      this.sousCategorieProvider.SousCat = scat;
 }
+}
+
+
 // ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider"];
 ForumComponent.$inject = ["jsFunctionProvider", "sujetProvider", "userProvider", "commentaireProvider", "Auth", "$http", "categorieProvider","sousCategorieProvider"];
 
