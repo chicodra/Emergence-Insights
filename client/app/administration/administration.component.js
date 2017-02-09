@@ -28,7 +28,9 @@ export class AdministrationComponent {
   question;
   q;
   qy = [];
+  ry= [];
   taille;
+  ta;
   //id_theme;
   //image;
   //une;
@@ -212,7 +214,7 @@ export class AdministrationComponent {
       this.taille = this.qy.length;
       this.action = "Ajouter";
       if (this.selected && this.vide === "bon") {
-        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille);
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille,this.ry);
         this.libelle = '';
         this.intervenant = '';
         this.contenuInterviews = '';
@@ -220,7 +222,7 @@ export class AdministrationComponent {
 
       } else {
         this.selected = null;
-        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille);
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille,this.ry);
         this.libelle = '';
         this.intervenant = '';
         this.contenuInterviews = '';
@@ -228,8 +230,10 @@ export class AdministrationComponent {
       }
 
     }
-    console.log('Taille bi', this.taille);
+    console.log('Taille Question yi', this.taille);
     console.log('question yi', this.qy);
+    console.log('Taille Reponses yi', this.taille);
+    console.log('Reponses yi', this.ry);
   }
 
   getQuestionByInterview(id) {
