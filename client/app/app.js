@@ -65,6 +65,7 @@ import commentarieProvider from './factory/commentaireProvider/commentaireProvid
 import temoignageProvider from './factory/temoignageProvider/temoignageProvider.service';
 import articlealaune from '../components/articleune/articleune.component';
 import actualitealaune from '../components/actualiteune/actualiteune.component';
+import '../../node_modules/angular-ui-swiper/dist/angular-ui-swiper.js';
 
 //import './app.css';
 

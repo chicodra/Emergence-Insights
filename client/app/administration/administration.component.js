@@ -10,7 +10,7 @@ export class AdministrationComponent {
   jsFunctionProvider;
   themeProvider;
   articleProvider;
-
+  listPays;
   listArticles;
 
   listarticle;
@@ -28,16 +28,17 @@ export class AdministrationComponent {
   question;
   q;
 
+
   //id_theme;
   //image;
   //une;
 
 
 
-  constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider) {
+  constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider, paysProvider) {
     this.status = false;
     this._id = '';
-
+    this.i = 0;
     this.titre = '';
 
     this.auteur = '';
@@ -56,6 +57,7 @@ export class AdministrationComponent {
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
+    this.paysProvider = paysProvider;
 
 
     this.action = "Ajouter";
@@ -269,6 +271,18 @@ export class AdministrationComponent {
       }
     }
 
+    this.paysProvider.listPays().then(list => {
+      this.listP = list;
+      if (this.listP.length == 0) {
+        console.log('Liste Vide');
+        this.nbp = this.listP.length;
+      } else {
+        console.log('Raymond Pays ', this.listP.length);
+        this.nbp = this.listP.length;
+        console.log('Ray Pays kain', this.listP);
+      }
+    });
+
     if (this.themeProvider.listTheme == null) {
       this.themeProvider.listThemes().then(list => {
         this.listTheme = list;
@@ -406,7 +420,7 @@ export class AdministrationComponent {
 
 
 
-AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider", "interviewsProvider", "reponseProvider", "questionProvider"];
+AdministrationComponent.$inject = ["jsFunctionProvider", "themeProvider", "articleProvider", "interviewsProvider", "reponseProvider", "questionProvider", "paysProvider"];
 
 
 export default angular.module('emergenceInsightsApp.administration', [uiRouter])
@@ -423,6 +437,11 @@ export default angular.module('emergenceInsightsApp.administration', [uiRouter])
   })
   .component('editerinterviews', {
     template: require('./editerinterviews.html'),
+    controller: AdministrationComponent,
+    controllerAs: 'vm'
+  })
+  .component('editeractualite', {
+    template: require('./editeractualite.html'),
     controller: AdministrationComponent,
     controllerAs: 'vm'
   })

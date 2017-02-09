@@ -25,7 +25,7 @@
             <ul class="nbCtrl.cl2" ng-style="nbCtrl.myStyle">
               <li ng-repeat="pays in nbCtrl.listPays">
                 <a ui-sref="paysinfo({paysName: pays.nom})">
-                  <img class="img-circle" style="width: 15px;" src="assets/images/perfstock/drapeau/{{pays.drapeau}}" alt="">                  {{pays.nom}} </a>
+                  <img class="img-circle" style="width: 15px;" ng-src="assets/images/perfstock/drapeau/{{pays.drapeau}}" alt="">                  {{pays.nom}} </a>
               </li>
             </ul>
           </li>
@@ -41,10 +41,13 @@
             class="cl1"><a>Administration</a>
             <ul ng-style="nbCtrl.styleAdmin">
               <li style="float: right";>
-                <a ui-sref="editerarticle"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Article </a>
+                <a ui-sref="editerarticle"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Articles </a>
               </li>
               <li style="float: right";>
                 <a ui-sref="editerinterviews"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Interviews </a>
+              </li>
+               <li style="float: right";>
+                <a ui-sref="editeractualite"> <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; Editer Actualités </a>
               </li>
             </ul>
             </li>
