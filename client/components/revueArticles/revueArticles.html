@@ -32,13 +32,13 @@
         </div>
         <div class="pagination"></div>
     </div>-->
-    <swiper>
-      <slides>
-        <div ng-repeat="article in vm.listArticles">
-          <slide style="text-align: center;
-          min-height: 200px;
-        font-size: 20px;
+      <section class="swipe">
+        <swiper>
+          <slides>
+            <slide ng-repeat="article in vm.listArticles" style="     text-align: center;
+        font-size: 18px;
         background: #fff;
+        max-width: 400px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: -webkit-flex;
@@ -51,27 +51,25 @@
         -ms-flex-align: center;
         -webkit-align-items: center;
         align-items: center;">
-            <!--<div class="">-->
-            <div class="about-item">
-              <img class="img-responsive" ui-sref="article({libelle:article.titre})" style=" height: 200px;" ng-src="../../../assets/images/perfstock/article/{{article.image}}"
-                alt="">
-                <a class="about-title" ui-sref="article({libelle:article.titre})">{{article.titre|limitTo:75}}</a>
-                <div class="about-keywords">
-                  <a href="#" class="tags">publication </a>/
-                  <a href="#" class="tags">gouvernance </a>/
-                  <a href="#" class="tags">indice </a>/
-                  <a href="#" class="tags">rapport </a>/
-                  <a href="#" class="tags">initiative </a>
-                </div>
-                <div class="about-text">{{article.contenu|limitTo:100}}.</div>
-            </div>
-            </slide>
-        </div>
-      </slides>
-      <prev></prev>
-      <next></next>
-      <pagination></pagination>
-    </swiper>
+              <!--<div class="">-->
+              <div class="about-item">
+                <img class="img-responsive" ui-sref="article({libelle:article.titre})" style=" height: 200px;" ng-src="../../../assets/images/perfstock/article/{{article.image}}"
+                  alt="">
+                  <a class="about-title" ui-sref="article({libelle:article.titre})">{{article.titre|limitTo:75}}</a>
+                  <div class="about-keywords">
+                    <a href="#" class="tags">publication </a>/
+                    <a href="#" class="tags">gouvernance </a>/
+                    <a href="#" class="tags">indice </a>/
+                    <a href="#" class="tags">rapport </a>/
+                    <a href="#" class="tags">initiative </a>
+                  </div>
+                  <div class="about-text">{{article.contenu|limitTo:100}}.</div>
+              </div>
+              </slide>
+          </slides>
+          <!--<pagination></pagination>-->
+        </swiper>
+      </section>
+    </div>
   </div>
-</div>
 </div>

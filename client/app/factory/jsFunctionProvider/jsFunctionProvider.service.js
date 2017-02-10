@@ -116,7 +116,7 @@ export function jsFunctionProviderService() {
   /* 07 - SWIPER SLIDERS */
   /*=====================*/
   this.initSwiper = function () {
-    // initSwiper();
+    //  initSwiper();
   }
 
   function initSwiper() {
