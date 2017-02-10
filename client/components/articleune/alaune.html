@@ -11,35 +11,13 @@
       </div>
     </div>
     <div class="row">
-      <!--<div  class="swiper-container" data-autoplay="0" data-loop="0" data-speed="1000" data-slides-per-view="responsive" data-mob-slides="1"
-        data-xs-slides="2" data-sm-slides="3" data-md-slides="4" data-lg-slides="4" data-add-slides="4">
-        <div class="swiper-wrapper">
-          <div ng-repeat="article in vm.listArticles" class="swiper-slide" data-val="{{vm.nb+1}}"
-            style="width: 243px; height: 391px; ">
-            <div class="about-item">
-              <img class="img-responsive" ui-sref="article({libelle:article.titre})" style=" height: 200px;" ng-src="../../../assets/images/perfstock/article/{{article.image}}" alt="">
-              <a class="about-title" ui-sref="article({libelle:article.titre})">{{article.titre|limitTo:75}}</a>
-      
-              <div class="about-keywords">
-                <a href="#" class="tags">publication </a>/
-                <a href="#" class="tags">gouvernance </a>/
-                <a href="#" class="tags">indice </a>/
-                <a href="#" class="tags">rapport </a>/
-                <a href="#" class="tags">initiative </a>
-              </div>
-              <div class="about-text">{{article.contenu|limitTo:100}}.</div>
-            </div>
-        </div>
-    </div>
-    <div class="pagination"></div>
-  </div>-->
-      <swiper>
-        <slides>
-          <div ng-repeat="article in vm.listArticles">
-            <slide style="text-align: center;
-          min-height: 200px;
-        font-size: 20px;
+      <section class="swipe">
+        <swiper>
+          <slides>
+            <slide ng-repeat="article in vm.listArticles" style="text-align: center;
+        font-size: 18px;
         background: #fff;
+        max-width: 350px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: -webkit-flex;
@@ -67,12 +45,10 @@
                   <div class="about-text">{{article.contenu|limitTo:100}}.</div>
               </div>
               </slide>
-          </div>
-        </slides>
-        <prev></prev>
-        <next></next>
-        <pagination></pagination>
-      </swiper>
+          </slides>
+          <!--<pagination></pagination>-->
+        </swiper>
+      </section>
     </div>
   </div>
 </div>
