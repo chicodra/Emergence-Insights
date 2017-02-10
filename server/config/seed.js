@@ -21,6 +21,53 @@ import Question from '../api/question/question.model';
 import Reponse from '../api/reponse/reponse.model';
 import Documentation from '../api/documentation/documentation.model';
 import Agenda from '../api/agenda/agenda.model';
+import Presentation from '../api/presentation/presentation.model';
+import Slide from '../api/slide/slide.model';
+import Temoignage from '../api/temoignage/temoignage.model';
+import Categorie from '../api/categorie/categorie.model';
+import SousCategorie from '../api/sousCategorie/sousCategorie.model';
+
+import Notif from '../api/notification/notification.model';
+//Témoignages
+
+Temoignage.find({}).remove()
+  .then(() => {
+    Temoignage.create({
+      titre: 'Les 5 facteurs clés de succès de la transformation structurelle du Cap Vert',
+      contenu: ` Premier ministre du Cap Vert de 2001 à 2016, José Maria Neves a changé structurellement le pays. Né en 1960,
+              celui qui a décidé de ne plus se recandidater malgré une popularité incontestable pour`,
+      images: 'capvert.jpg'
+    }, {
+      titre: 'Local Global',
+      contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.`,
+      images: 'local_global.jpg'
+    }, {
+      titre: `Des mesures pour l’encadrement du secteur informel`,
+      contenu: `Depuis six mois, les acteurs du secteur informel sont incités à s’enregistrer auprès de la Caisse d’Assurance
+              Maladie...`,
+      images: 'power_pme.jpg'
+    }).then(() => {
+      console.log('finished populating Témoignages');
+    });
+  });
+
+  //Catégories
+
+Categorie.find({}).remove()
+  .then(() => {
+    Categorie.create({
+  _id: 1,
+  nom: "Langage C",
+  },{
+  _id: 2,
+  nom: "MEAN",
+  },{
+  _id: 3,
+  nom: "JAVA",
+  }).then(() => {
+      console.log('finished populating Témoignages');
+    });
+  });
 
 // <INFOS PAYS>
 FicheActualite.find({}).remove()
@@ -29,67 +76,67 @@ FicheActualite.find({}).remove()
       _id: 1,
       id_pays: 10,
       id_actualite: 1,
-      date: '2017-01-01'
+      date: '2017-05-08'
     }, {
       _id: 2,
       id_pays: 1,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-03-11'
     }, {
       _id: 3,
       id_pays: 2,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-08-21'
     }, {
       _id: 4,
       id_pays: 3,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-06-01'
     }, {
       _id: 5,
       id_pays: 4,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-02-01'
     }, {
       _id: 6,
       id_pays: 5,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-09-01'
     }, {
       _id: 7,
       id_pays: 6,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-08-08'
     }, {
       _id: 8,
       id_pays: 7,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-04-07'
     }, {
       _id: 9,
       id_pays: 8,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-04-03'
     }, {
       _id: 10,
       id_pays: 9,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-05-06'
     }, {
       _id: 11,
       id_pays: 11,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-06-05'
     }, {
       _id: 12,
       id_pays: 10,
       id_actualite: 2,
-      date: '2017-01-01'
+      date: '2017-02-04'
     }, {
       _id: 13,
       id_pays: 10,
       id_actualite: 3,
-      date: '2015-01-01'
+      date: '2015-03-08'
     }, {
       _id: 14,
       id_pays: 10,
@@ -103,84 +150,84 @@ Pays.find({}).remove()
       _id: 1,
       nom: 'BOTSWANA',
       image: 'Botswana_Gaborone.jpg',
-      drapeau: 'botswana.png',
+      drapeau: 'Botswana.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         `
     }, {
       _id: 2,
       nom: 'CAP-VERT',
       image: 'Cap-Vert_Praia.jpg',
-      drapeau:'cap-vert.jpeg',
+      drapeau: 'Cap-Vert.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 3,
       nom: 'CÔTE D\'IVOIRE',
       image: 'Abidjan.png',
-      drapeau: 'cote-divoire.jpeg',
+      drapeau: 'Cote_d_Ivoire.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 4,
       nom: 'ETHIOPIE',
       image: 'Ethiopia_Addis Ababa.jpg',
-      drapeau:'ethiopie.jpeg',
+      drapeau: 'Ethiopie.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 5,
       nom: 'GABON',
       image: 'Gabon_Libreville.jpg',
-      drapeau: 'gabon.png',
+      drapeau: 'Gabon.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 6,
       nom: 'GUINEE EQUATORIAL',
       image: 'Guinée Equatoriale.jpg',
-      drapeau: 'guinee-equatoriale.jpeg',
+      drapeau: 'Guinee_Equatoriale.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 7,
       nom: 'KENYA',
       image: 'Kenya_Kilimanjaro.jpg',
-      drapeau: 'kenya.jpeg',
+      drapeau: 'Kenya.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `
     }, {
       _id: 8,
       nom: 'MAURICE',
       image: 'Maurice_Port-Louis.jpg',
-      drapeau: 'maurice.jpeg',
+      drapeau: 'Maurice.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 9,
       nom: 'RWANDA',
       image: 'Rwanda_Kigali.jpg',
-      drapeau: 'rwanda.png',
+      drapeau: 'Rwanda.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 10,
       nom: 'SENEGAL',
       image: 'Sénégal_Dakar.jpg',
-      drapeau: 'senegal.jpeg',
+      drapeau: 'senegal.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 11,
       nom: 'SOUTH AFRICA',
       image: 'South Africa_Cape Town.jpg',
-      drapeau: 'south-africa.png',
+      drapeau: 'Afrique_du_Sud.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, {
       _id: 12,
       nom: 'TANZANIE',
       image: 'Tanzania_Dar es Salam.jpg',
-      drapeau: 'tanzanie.jpeg',
+      drapeau: 'Tanzanie.gif',
       description: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
     `
     }, );
@@ -197,7 +244,8 @@ Actualite.find({}).remove()
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `,
       sujet: 'Crise de Gambie',
-      image: 'crisis.jpg'
+      image: 'crisis.jpg',
+      une: true
     }, {
       _id: 2,
       contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -208,7 +256,8 @@ Actualite.find({}).remove()
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `,
       sujet: 'Crise de Mali',
-      image: 'boko-haram.jpg'
+      image: 'boko-haram.jpg',
+      une: true
     }, {
       _id: 3,
       contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -219,10 +268,11 @@ Actualite.find({}).remove()
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `,
       sujet: 'L\'immigration clandestine',
-      image: 'gal_gui.jpg'
+      image: 'gal_gui.jpg',
+      une: true
     }, {
       _id: 4,
-      contenu: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -230,7 +280,8 @@ Actualite.find({}).remove()
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
       `,
       sujet: 'La grève des transporteurs',
-      image: 'ddd.jpg'
+      image: 'ddd.jpg',
+      une: true
     });
   });
 Documentation.find({}).remove()
@@ -656,6 +707,35 @@ Theme.find({}).remove()
     });
   });
 
+Presentation.find({}).remove()
+  .then(() => {
+    Presentation.create({
+      titre: 'Bienvenue sur',
+      contenu: 'Emergence Insights',
+      info: 'Une Plateforme Collaborative pour une mise en oeuvre plus efficace des plans d\'émmergence .',
+      id_slide: 1
+    }, {
+      titre: 'Mars 2017 à Abidjan',
+      contenu: 'CIEA',
+      info: 'Enhancing Africa\'s transformation .',
+      id_slide: 2
+    }).then(() => {
+      console.log('finished populating Themes');
+    });
+  });
+
+Slide.find({}).remove()
+  .then(() => {
+    Slide.create({
+      _id: 1,
+      image: 'collaboration2.jpg',
+    }, {
+      _id: 2,
+      image: 'confroom2.jpg',
+    }).then(() => {
+      console.log('finished populating Slide');
+    });
+  });
 
 Partie.find({}).remove()
   .then(() => {
@@ -721,7 +801,7 @@ Fiche.find({}).remove()
 
 
 
-Article.find({}).remove() 
+Article.find({}).remove()
   .then(() => {
     Article.create({
       titre: 'le sommet africain',
@@ -760,6 +840,7 @@ Article.find({}).remove()
       id_theme: 1,
       image: 'confroom.jpg',
       auteur: 'Jeau paul Mendy',
+      une: true,
       date_publication: '2017-01-25'
     }, {
       titre: 'L\’innovation et la sécurité numérique au coeur du Sommet Afrique France',
@@ -795,14 +876,14 @@ Article.find({}).remove()
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
   `,
-        id_theme: 1,
-        image : 'gouv_mis.jpg',
-        auteur : 'Issa diakhoumpa',
-        date_publication : '2016-01-25'
-      },
-      {
-        titre : '\« La problématique de l’Internet au Sénégal \» au centre du panel de discussion de \« HOW TO GROW INTERNET IN SENEGAL \»',
-        contenu: `
+      id_theme: 1,
+      image: 'gouv_mis.jpg',
+      auteur: 'Issa diakhoumpa',
+      une: true,
+      date_publication: '2016-01-25'
+    }, {
+      titre: '\« La problématique de l’Internet au Sénégal \» au centre du panel de discussion de \« HOW TO GROW INTERNET IN SENEGAL \»',
+      contenu: `
 
         Dans le cadre du programme « HOW TO GROW INTERNET IN SENEGAL », un panel de discussion organisé par Jokkolabs et Google sur : « La problématique d’Internet au Sénégal » aura lieu mercredi 8 avril de 17 heures à 19 heures à Jokkolabs Dakar.
 
@@ -842,14 +923,14 @@ Article.find({}).remove()
 
      `,
 
-        id_theme: 1,
-        image : 'maxresdefault.jpg',
-        auteur : 'jean pierre ',
-        date_publication : '2017-01-25'
-      },
-      {
-        titre : 'les martiens',
-        contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      id_theme: 1,
+      image: 'maxresdefault.jpg',
+      auteur: 'jean pierre ',
+      une: true,
+      date_publication: '2017-01-25'
+    }, {
+      titre: 'les martiens',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -886,14 +967,14 @@ Article.find({}).remove()
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
   `,
-        id_theme: 1,
-        image : 'abidjan.jpg',
-        auteur : 'jean pierre ',
-        date_publication : '2017-01-25'
-      },
-      {
-        titre : 'le mali',
-        contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+      id_theme: 1,
+      image: 'abidjan.jpg',
+      auteur: 'jean pierre ',
+      une: false,
+      date_publication: '2017-01-25'
+    }, {
+      titre: 'le mali',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
@@ -929,11 +1010,142 @@ Article.find({}).remove()
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
   `,
-        id_theme: 1,
-        image : 'collaboration.jpg',
-        auteur : 'jean pierre ',
-        date_publication : '2017-01-25'
-      });});
+      id_theme: 1,
+      image: 'collaboration.jpg',
+      auteur: 'jean pierre ',
+      une: false,
+      date_publication: '2017-01-25'
+    }, {
+      titre: 'la stratégie',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+  `,
+      id_theme: 1,
+      image: 'strategie.jpg',
+      auteur: 'jean pierre ',
+      une: false,
+      date_publication: '2017-01-25'
+    }, {
+      titre: 'les voyages',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+  `,
+      id_theme: 1,
+      image: 'africa_travel.jpg',
+      auteur: 'jean pierre ',
+      une: true,
+      date_publication: '2017-01-25'
+    }, {
+      titre: 'le vieux',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto officiis tenetur ad quod, animi corporis eum explicabo. Eos, ullam aliquam saepe neque nemo dolorum minima deserunt. Modi reprehenderit magni qui.
+  `,
+      id_theme: 1,
+      image: 'mo_ibrahim.jpg',
+      auteur: 'jean pierre ',
+      une: true,
+      date_publication: '2017-01-25'
+    });
+  });
 
 
 
@@ -947,6 +1159,7 @@ User.find({}).remove()
         _id: '587f54a347ea262b686ecc5f',
         provider: 'local',
         name: 'Test User',
+        images: 'akon.jpg',
         email: 'test@example.com',
         password: 'test'
       }, {
@@ -954,14 +1167,30 @@ User.find({}).remove()
         provider: 'local',
         role: 'admin',
         name: 'Admin',
+        images: 'tony_elumelu.jpg',
         email: 'admin@example.com',
         password: 'admin'
+      }, {
+        _id: "589082cab9c05000f04c77d0",
+        provider: 'local',
+        role: 'user',
+        name: 'Raymond Sadio',
+        images: 'victor_gorom_ndiaye.jpg',
+        email: 'ray@example.com',
+        password: 'saphila'
       }, {
         _id: '587f5a2908c8482cf40bb351',
         provider: 'local',
         name: 'pach',
         email: 'adfmin@exmple.com',
         password: 'admin'
+      }, {
+        _id: "58907f18b9c05000f04c77cf",
+        provider: 'local',
+        name: 'Waly Ndiaye',
+        images: 'akon.jpg',
+        email: 'kain@exmple.com',
+        password: 'pass'
       })
       .then(() => {
         console.log('finished populating users');
@@ -973,15 +1202,66 @@ Sujet.find({}).remove()
     Sujet.create({
       _id: 1,
       titre: 'La fonte des glaciers',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
+      id_cat:1,
       date_creation: '2017-04-01'
-    }, {
+      }, {
       _id: 2,
       titre: 'La fonte des neiges',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
       id_user: '587f54a347ea262b686ecc5f',
+      id_cat:1,
       date_creation: '2017-04-01'
+      }, {
+      _id: 3,
+      titre: 'Le Muslim ban',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
+      id_user: '58907f18b9c05000f04c77cf',
+      id_cat:3,
+      date_creation: '2017-04-01'
+      }, {
+      _id: 4,
+      titre: 'up like donald trump',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
+      id_user: '58907f18b9c05000f04c77cf',
+      id_cat:1,
+      date_creation: '2017-05-01'
+      },{
+      _id: 5,
+      titre: 'Comment adherer emergence?',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
+      id_user: '587f54a347ea262b686ecc5f',
+      id_cat:2,
+      date_creation: '2017-01-01'
+    }, {
+      _id: 6,
+      titre: 'Qui est là?',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.`,
+      id_user: '589082cab9c05000f04c77d0',
+      id_cat:2,
+      date_creation: '2017-01-02'
     });
-  });
+  }); 
+ 
 
 
 Interview.find({}).remove()
@@ -1174,6 +1454,7 @@ Reponse.find({}).remove()
   });
 
 Message.find({}).remove()
+
   .then(() => {
     Message.create({
       _id: 1,
@@ -1262,6 +1543,159 @@ Message.find({}).remove()
       id_createur: '587f54a347ea262b686ecc5f',
       contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
   `,
-      date_creation: '2017-01-01'
+      date_creation: '2017-04-01'
+    }, {
+      _id: 12,
+      id_user: '589082cab9c05000f04c77d0',
+      id_sujet: 3,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+  `,
+      date_creation: '2017-04-08'
+    }, {
+      _id: 13,
+      id_user: '589082cab9c05000f04c77d0',
+      id_sujet: 3,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+  `,
+      date_creation: '2017-05-01'
+    }, {
+      _id: 14,
+      id_user: '58907f18b9c05000f04c77cf',
+      id_sujet: 3,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+    `,
+      date_creation: '2017-05-03'
+    }, {
+      _id: 15,
+      id_user: '589082cab9c05000f04c77d0',
+      id_sujet: 4,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+    `,
+      date_creation: '2017-05-03'
+    }, {
+      _id: 16,
+      id_user: '58907f18b9c05000f04c77cf',
+      id_sujet: 4,
+      id_createur: '58907f18b9c05000f04c77cf',
+      contenu: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate illum impedit, praesentium cumque, vitae est fugit odio explicabo iste consectetur sequi sunt quisquam numquam id commodi tempora quam accusantium officia.
+    `,
+      date_creation: '2017-05-03'
     });
   });
+
+SousCategorie.find({}).remove()
+  .then(() => {
+    SousCategorie.create({
+  _id: 1,
+  titre : 'les tableaux',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 1
+  },{
+  _id: 2,
+  titre : 'les fonctions',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 1
+  },{
+  _id: 3,
+  titre : 'NodeJS',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 2
+  },{
+  _id: 4,
+  titre : 'Expression langage',
+  description : 'lorem ipsum dolor sit amet',
+  id_categorie : 3
+  }).then(() => {
+      console.log('finished populating Sous Catégories');
+    });
+    });
+Notif.find({}).remove()
+  .then(() => {
+    Notif.create({
+  _id: 1,
+   id_message :1,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 2,
+   id_message :2,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 3,
+   id_message :3,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 4,
+   id_message :4,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 5,
+   id_message :5,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 6,
+   id_message :6,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 7,
+   id_message :7,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 8,
+   id_message :8,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 9,
+   id_message :9,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 10,
+   id_message :10,
+  date_Envoi: '2017-01-01',
+  seen: false
+},{
+  _id: 11,
+   id_message :11,
+  date_Envoi: '2017-04-01',
+  seen: false
+},{
+  _id: 12,
+   id_message :12,
+  date_Envoi: '2017-04-08',
+  seen: false
+},{
+  _id: 13,
+   id_message :13,
+  date_Envoi: '2017-05-01',
+  seen: false
+},{
+  _id: 14,
+   id_message :14,
+  date_Envoi: '2017-05-03',
+  seen: false
+},{
+  _id: 15,
+   id_message :15,
+  date_Envoi: '2017-05-03',
+  seen: false
+},{
+  _id: 16,
+   id_message :16,
+  date_Envoi: '2017-05-03',
+  seen: false
+}).then(() => {
+      console.log('finished populating notifications');
+});
+});

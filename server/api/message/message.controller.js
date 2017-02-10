@@ -95,7 +95,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Messages
 export function index(req, res) {
-  return Message.find().exec()
+  return Message.find().populate('id_sujet').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
@@ -110,11 +110,12 @@ export function show(req, res) {
 
 // Get messages by one subject
 export function getMessageBySujet(req, res) {
-  return Message.find({ id_sujet: req.params.id }).exec()
+  return Message.find({ id_sujet: req.params.id }).populate('id_createur').populate('id_user')
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+
 
 // Get messages by one user
 export function getMessageByUser(req, res) {

@@ -16,6 +16,11 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/sousCategorie/sousCategorie.socket').register(socket);
+  require('../api/categorie/categorie.socket').register(socket);
+  require('../api/temoignage/temoignage.socket').register(socket);
+  require('../api/slide/slide.socket').register(socket);
+  require('../api/presentation/presentation.socket').register(socket);
   require('../api/reponse/reponse.socket').register(socket);
   require('../api/question/question.socket').register(socket);
 

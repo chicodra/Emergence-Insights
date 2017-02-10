@@ -40,6 +40,7 @@ export class PaysComponent {
 
 
       }
+      console.log('nombre pays', this.listPays.length);
 
       console.log('paysssss vide', this.listPays)
 
@@ -154,24 +155,19 @@ export class InfoPaysController {
 
   getPays(paysName) {
     //console.log(paysName,list);
-    this.paysProvider.getPaysByName(paysName).then(list=>{
-    console.log('get pays by name',this);
-    p = list;
-    this.pays=list[0];
-        console.log('get pays by name 2',this.pays);
-    // this.getActualitesPays(this.pays._id);
-     this.getDocumentationsPays(this.pays._id);
+    this.paysProvider.getPaysByName(paysName).then(list => {
+      console.log('get pays by name', this);
+      p = list;
+      this.pays = list[0];
+      console.log('get pays by name 2', this.pays);
+      // this.getActualitesPays(this.pays._id);
+      this.getDocumentationsPays(this.pays._id);
       this.getAgendasPays(this.pays._id);
 
 
       console.log('get pays by name 4', p);
 
     });
-
-
-
-
-
 
   }
   getActualitesPays(id) {
@@ -192,11 +188,6 @@ export class InfoPaysController {
       this.documentationsPays = list;
 
       console.log('documentation vide', this.documentationsPays)
-
-
-
-
-
     });
 
   }
@@ -278,13 +269,13 @@ export class InfoPaysController {
 
 
       });
-  
+
 
     setTimeout(function () {
       document.querySelector('header').style.backgroundColor = '#222';
     }, 100);
 
-}
+  }
 
 }
 
@@ -304,4 +295,4 @@ export default angular.module('emergenceInsightsApp.pays', [uiRouter])
     controller: InfoPaysController,
     controllerAs: 'vm'
   })
-  .name;
+  .name; 

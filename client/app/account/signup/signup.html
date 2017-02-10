@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" style="background-color: #E9EBEE; margin-bottom: 30px; margin-top: 50px">
   <div class="row">
-    <div class="col-sm-12">
-      <h1>Sign up</h1>
+    <div class="col-sm-8">
+      <h1>S'inscrire</h1>
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-8">
       <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
-
+<!--NOM USER-->
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
           <label>Name</label>
@@ -16,7 +16,41 @@
             A name is required
           </p>
         </div>
+<!--ADRESSE USER-->
+        <div class="form-group" ng-class="{ 'has-success': form.adresse.$valid && vm.submitted,
+                                            'has-error': form.adresse.$invalid && vm.submitted }">
+          <label>Adresse</label>
 
+          <input type="text" name="adresse" class="form-control" ng-model="vm.user.adresse"
+                 required/>
+          <p class="help-block" ng-show="form.adresse.$error.required && vm.submitted">
+            A adresse is required
+          </p>
+        </div>
+<!--TELEPHONE USER-->
+        <div class="form-group" ng-class="{ 'has-success': form.tel.$valid && vm.submitted,
+                                            'has-error': form.tel.$invalid && vm.submitted }">
+          <label>Telephone</label>
+
+          <input type="text" name="tel" class="form-control" ng-model="vm.user.tel"
+                 required/>
+          <p class="help-block" ng-show="form.tel.$error.required && vm.submitted">
+            A tel is required
+          </p>
+        </div>
+<!--DATE DE NAISSANCE-->
+        <div class="form-group" ng-class="{ 'has-success': form.date.$valid && vm.submitted,
+                                            'has-error': form.date.$invalid && vm.submitted }">
+          <label>Date de naissance</label>
+
+          <input type="date" name="date" class="form-control" ng-model="vm.user.date_naiss"
+                 required/>
+          <p class="help-block" ng-show="form.tel.$error.required && vm.submitted">
+            A date is required
+          </p>
+        </div>
+
+<!--EMAIL USER-->
         <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
                                             'has-error': form.email.$invalid && vm.submitted }">
           <label>Email</label>
@@ -34,7 +68,7 @@
             {{ vm.errors.email }}
           </p>
         </div>
-
+<!--PASSWORD USER-->
         <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
                                             'has-error': form.password.$invalid && vm.submitted }">
           <label>Password</label>
@@ -51,7 +85,7 @@
             {{ vm.errors.password }}
           </p>
         </div>
-
+<!--CONFIRM PASSWORD-->
         <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
                                             'has-error': form.confirmPassword.$invalid && vm.submitted }">
           <label>Confirm Password</label>
@@ -63,13 +97,13 @@
             Passwords must match.
           </p>
         </div>
-
+<!--BUTTONS-->
         <div>
-          <button class="btn btn-inverse btn-lg btn-register" type="submit">
-            Sign up
+          <button class="btn btn-default btn-lg btn-login" type="submit">
+            S'inscrire
           </button>
           <a class="btn btn-default btn-lg btn-login" ui-sref="login">
-            Login
+            Connexion
           </a>
         </div>
 
@@ -79,6 +113,7 @@
             <oauth-buttons classes="btn-block"></oauth-buttons>
           </div>
         </div>
+        
       </form>
     </div>
   </div>

@@ -1,0 +1,54 @@
+<!-- ABOUT -->
+<div class="main-block clearfix" ng-init="vm.Init()">
+  <div class="container" >
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+        <div class="block-header">
+          <h4 class="block-category">A la Une</h4>
+          <h2 class="block-title">Nouveautés</h2>
+          <div class="block-text">Découvrez les derniers contenus partagés sur la plateforme</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <section class="swipe">
+        <swiper>
+          <slides>
+            <slide ng-repeat="article in vm.listArticles" style="text-align: center;
+        font-size: 18px;
+        background: #fff;
+        max-width: 350px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;">
+              <!--<div class="">-->
+              <div class="about-item">
+                <img class="img-responsive" ui-sref="article({libelle:article.titre})" style=" height: 200px;" ng-src="../../../assets/images/perfstock/article/{{article.image}}"
+                  alt="">
+                  <a class="about-title" ui-sref="article({libelle:article.titre})">{{article.titre|limitTo:75}}</a>
+                  <div class="about-keywords">
+                    <a href="#" class="tags">publication </a>/
+                    <a href="#" class="tags">gouvernance </a>/
+                    <a href="#" class="tags">indice </a>/
+                    <a href="#" class="tags">rapport </a>/
+                    <a href="#" class="tags">initiative </a>
+                  </div>
+                  <div class="about-text">{{article.contenu|limitTo:100}}.</div>
+              </div>
+              </slide>
+          </slides>
+          <!--<pagination></pagination>-->
+        </swiper>
+      </section>
+    </div>
+  </div>
+</div>

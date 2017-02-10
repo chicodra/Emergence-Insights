@@ -46,7 +46,9 @@
 /* inject:css */
 @import 'actualite/actualite.css';
 @import 'admin/admin.css';
+@import 'administration/administration.css';
 @import 'article/article.css';
+@import 'forum/forum.css';
 @import 'indice/indice.css';
 @import 'interview/interview.css';
 @import 'main/main.css';

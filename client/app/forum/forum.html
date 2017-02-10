@@ -1,0 +1,65 @@
+<div ng-init="vm.Init()" class="pilierEm" style="background-color: #E9EBEE">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-8" style="margin-left: -40px; margin-top: 40px;">
+      <sujets></sujets>
+    </div>
+    <!--fin col-md-10-->
+    <div class="col-md-2" style="width: 350px; margin-top: 40px;">
+      <div class="panel panel-default" style="border: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <!--<div class="panel-heading">Créer un sujet</div>-->
+        <div class="panel-body" ng-show="vm.isLoggedIn()">
+          <form class="form-horizontal">
+            <div class="form-group" style="padding: 4px;">
+              <!--<label for="inputEmail3" class="col-sm-2 control-label">Email</label>-->
+              <div style="margin-bottom: 0.5em;">
+                <input type="text" class="form-control" placeholder="Titre" ng-model="vm.titreSujet" required>
+                <input type="text" class="form-control" placeholder="Contenu" ng-model="vm.contenuSujet" required>
+                <!-- Single button -->
+                <!--<div class="btn-group" uib-dropdown is-open="status.isopen">
+                  <button id="single-button" type="button" class="btn btn-default" uib-dropdown-toggle ng-disabled="disabled">
+                    Categories
+                    <span class="caret"></span>
+                  </button>
+                  
+                </div>-->
+
+                <div>
+                  <select name="categorie" id="cat" ng-change="vm.clickCategorie(listcat)" ng-model="listcat">
+                    <option ng-repeat="catBi in vm.listcat" ng-selected="vm.test = catBi._id" value="{{catBi._id}}">
+                      {{ catBi.nom }}
+                      </option>
+                      
+                  </select>
+                </div>
+
+                <div ng-show="vm.sousCatVisible">
+                  <select name="sousCategorie" id="sousCat" ng-model="vm.sousCat">
+                    <option ng-repeat="sousCatBi in vm.listSousCat" value="{{sousCatBi._id}}">{{ sousCatBi.titre }}</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <a class="btn btn-primary" style="color: #ffffff; width: 100%;" ng-click="vm.ajoutSujet()">Ajouter</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default" style="border:0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="">
+          <h1 style="padding: 20px; font-size: large; height: 60px; background-color: #E9EBEE; box-shadow: 0 4px 8px 0 rgba(0.19, 0, 0, 0.2), 0 6px 20px 0 rgba(0.19, 0, 0, 0.19);">Liste des Categories</h1>
+        </div>
+        <!--<div class="panel-heading">Créer un sujet</div>-->
+        <div class="panel-body" style=" padding: 10px; margin-top: -50px; ">
+          <a href="#" > <h2 class="cat" style=" width: 100px; cursor: pointer; padding-top: 7px; font-family: Arial, Helvetica, sans-serif; ">  listSousCat </h2> </a>
+           
+          
+          
+
+        </div>
+        <!--fin panel-->
+        <div class="col-md-1"></div>
+        <!--fin col-md-2-->
+      </div>
+    </div>

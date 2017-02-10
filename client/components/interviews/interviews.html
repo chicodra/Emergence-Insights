@@ -1,5 +1,5 @@
 <div id="speakers" class="main-block clearfix" ng-init="vm.Init()">
-  <div ng-hide="vm.value">
+  <div>
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-    <div class="slider-wth-thumbs">
+    <!--<div class="slider-wth-thumbs">
       <div class="swiper-container thumbnails-preview" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1">
         <div class="swiper-wrapper">
           <div ng-repeat="interview in vm.listInterviews" class="swiper-slide active" data-val="{{vm.nb}}">
@@ -47,15 +47,67 @@
         </div>
         <div class="pagination hidden"></div>
     </div>
-  </div>
-</div>
-<div ng-show="vm.value" ng-repeat="interview in vm.listInterviews" class="swiper-slide current active" data-val="{{vm.nb}}">
-  <img class="img-responsive img-full" ng-src="../../../assets/images/perfstock/experts/thumbs/{{interview.image}}" alt="">
-  <div class="thumb-desc">
-    <div class="thumb-title"> <a ng-click="vm.scrol()" style="color: white;" ui-sref="interview({libelle:interview.libelle})">
+  </div>-->
+  <swiper>
+    <slides>
+      <slide ng-repeat="interview in vm.listInterviews" style="text-align: center;
+                  min-width: 1200px;
+                  min-height: 600px;
+                  font-size: 20px;
+                  background: #222;
+                  display: -webkit-box;
+                  display: -ms-flexbox;
+                  display: -webkit-flex;
+                  display: flex;
+                  -webkit-box-pack: center;
+                  -ms-flex-pack: center;
+                  -webkit-justify-content: center;
+                  justify-content: center;
+                  -webkit-box-align: center;
+                  -ms-flex-align: center;
+                  -webkit-align-items: center;
+                  align-items: center;">
+        <!--<div class="">-->
+        <div class="speaker-img">
+          <img class="img-responsive center-image" ng-src="../../assets/images/perfstock/experts/{{interview.image}}" alt="" style="margin-right: 200px; width: 800px;;"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <div class="speaker-block">
+                <div class="speaker-title"> <a style="color: white;" ui-sref="interview({libelle:interview.libelle})">{{interview.intervenant}}</a> </div>
+                <div class="speaker-category"> <a style="color: white;" ui-sref="interview({libelle:interview.libelle})"> {{interview.libelle}} </a> </div>
+                <div class="speaker-text">
+                  {{interview.contenu}}
+                </div>
+                <div class="speaker-social clearfix">
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                  <a href="#"><i class="fa fa-skype"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </slide>
+    </slides>
+    <prev></prev>
+    <next></next>
+    <pagination></pagination>
+  </swiper>
+  <!--<swiper>
+    <slides>
+      <slide ng-show="vm.value" ng-repeat="interview in vm.listInterviews">
+        <img class="img-responsive img-full" ng-src="../../../assets/images/perfstock/experts/thumbs/{{interview.image}}" alt="">
+        <div class="thumb-desc">
+          <div class="thumb-title"> <a ng-click="vm.scrol()" style="color: white;" ui-sref="interview({libelle:interview.libelle})">
 {{interview.intervenant}}  </a></div>
-    <div class="thumb-text"> <a ng-click="vm.scrol()" style="color: white;" ui-sref="interview({libelle:interview.libelle})"> {{interview.libelle}} </a> </div>
-  </div>
-  <div class="thumb-overlay"></div>
+          <div class="thumb-text"> <a ng-click="vm.scrol()" style="color: white;" ui-sref="interview({libelle:interview.libelle})"> {{interview.libelle}} </a>            </div>
+        </div>
+        <div class="thumb-overlay"></div>
+      </slide>
+    </slides>
+  </swiper>-->
 </div>
 </div>

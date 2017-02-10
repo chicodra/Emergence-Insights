@@ -31,6 +31,9 @@ import interviews from '../components/interviews/interviews.component';
 import etudedecas from '../components/etudeDeCas/etudeDeCas.component';
 import fichedebonnepratiques from '../components/ficheDeBonnePratiques/ficheDeBonnePratiques.component';
 import listactualites from '../components/listActualites/listActualites.component';
+import sujets from '../components/sujets/sujets.component';
+import sujet from '../components/sujet/sujet.component';
+import users from '../components/users/users.component';
 import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
@@ -39,18 +42,30 @@ import theme from './factory/themeProvider/themeProvider.service';
 import paysProvider from './factory/paysProvider/paysProvider.service';
 import articleComponent from './article/article.component';
 import articleProvider from './factory/articleProvider/articleProvider.service';
+import forumComponent from './forum/forum.component';
+import AdministrationComponent from './administration/administration.component';
 import jsFunctionSlider from './factory/jsFunctionProvider/jsFunctionProvider.service';
 import interviewsProvider from './factory/interviewsProvider/interviewsProvider.service';
+import etudecasProvider from './factory/etudecasProvider/etudecasProvider.service';
 import actualiteProvider from './factory/actualiteProvider/actualiteProvider.service';
 import documentationProvider from './factory/documentationProvider/documentationProvider.service';
 import agendaProvider from './factory/agendaProvider/agendaProvider.service';
 import InterviewComponent from './interview/interview.component';
 import questionProvider from './factory/questionProvider/questionProvider.service';
+import categorieProvider from './factory/categorieProvider/categorieProvider.service';
+import sousCategorieProvider from './factory/sousCategorieProvider/sousCategorieProvider.service';
+import notificationProvider from './factory/notificationProvider/notificationProvider.service';
 import reponseProvider from './factory/reponseProvider/reponseProvider.service';
 import ActualiteComponent from './actualite/actualite.component';
 import PartenairesComponent from './partenaires/partenaires.component';
-
-
+import presentationProvider from './factory/presentationProvider/presentationProvider.service';
+import sujetProvider from './factory/sujetProvider/sujetProvider.service';
+import userProvider from './factory/userProvider/userProvider.service';
+import commentarieProvider from './factory/commentaireProvider/commentaireProvider.service';
+import temoignageProvider from './factory/temoignageProvider/temoignageProvider.service';
+import articlealaune from '../components/articleune/articleune.component';
+import actualitealaune from '../components/actualiteune/actualiteune.component';
+import '../../node_modules/angular-ui-swiper/dist/angular-ui-swiper.js';
 
 //import './app.css';
 
@@ -58,8 +73,7 @@ angular.module('emergenceApp', [ngCookies, ngResource, ngSanitize, 'btford.socke
     uiBootstrap, _Auth, account, navbar, admin, pilier, pays, indice, articleComponent, footer,
     main, constants, socket, util, theme, paysProvider, articleProvider, si, revue, interviews, etudedecas,
     fichedebonnepratiques, jsFunctionSlider, actualiteProvider, documentationProvider, agendaProvider,
-    InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent, listactualites, PartenairesComponent
-
+    InterviewComponent, interviewsProvider, questionProvider, reponseProvider, ActualiteComponent, listactualites, PartenairesComponent,presentationProvider,sujetProvider,userProvider,forumComponent, sujets, users,sousCategorieProvider, commentarieProvider, sujet, etudecasProvider, articlealaune,actualitealaune,temoignageProvider,categorieProvider,notificationProvider, AdministrationComponent
 
   ])
   .config(routeConfig)

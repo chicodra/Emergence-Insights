@@ -8,6 +8,7 @@ var router = express.Router();
 router.get('/', controller.index);
 router.get('/theme/:id', controller.getInterviewByTheme);
 router.get('/themes/:id', controller.getInterviewByName);
+router.get('/nombre',controller.GetInterviewSize);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.upsert);
