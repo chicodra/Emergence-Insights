@@ -113,7 +113,7 @@ h1 {
 	background-color:rgba(73, 106, 181, 0.51);
   /*border-bottom: 1px solid black;*/
 }
-.col-md-8{
+.textcolumn{
 	 -webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
     column-count: 3;
