@@ -12,7 +12,7 @@ export class AdministrationComponent {
   articleProvider;
   listPays;
   listArticles;
-
+  image;
   listarticle;
   datetime;
   selected;
@@ -29,7 +29,7 @@ export class AdministrationComponent {
   q;
 
   qy = [];
-  ry= [];
+  ry = [];
   taille;
   ta;
   //id_theme;
@@ -42,7 +42,6 @@ export class AdministrationComponent {
     this.status = false;
     this._id = '';
     this.i = 0;
-
     this.titre = '';
     this.auteur = '';
     this.contenu = '';
@@ -91,7 +90,7 @@ export class AdministrationComponent {
       if (this.selected && this.vide === "bon") {
         if (this.une) {
           this.alaune = true;
-          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune,this.image);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
@@ -100,7 +99,7 @@ export class AdministrationComponent {
           this.selected = '';
         } else {
           this.alaune = false;
-          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune,this.image);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
@@ -113,7 +112,7 @@ export class AdministrationComponent {
         if (this.une) {
           this.selected = null;
           this.alaune = true;
-          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune,this.image);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
@@ -122,7 +121,7 @@ export class AdministrationComponent {
         } else {
           this.selected = null;
           this.alaune = false;
-          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune,this.image);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
@@ -221,7 +220,7 @@ export class AdministrationComponent {
       this.taille = this.qy.length;
       this.action = "Ajouter";
       if (this.selected && this.vide === "bon") {
-        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille,this.ry);
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille, this.ry);
         this.libelle = '';
         this.intervenant = '';
         this.contenuInterviews = '';
@@ -229,7 +228,7 @@ export class AdministrationComponent {
 
       } else {
         this.selected = null;
-        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille,this.ry);
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille, this.ry);
         this.libelle = '';
         this.intervenant = '';
         this.contenuInterviews = '';
@@ -265,11 +264,12 @@ export class AdministrationComponent {
 
   Init() {
     var fichier = document.querySelector('#imageArticle');
+    var thi=this;
     fichier.addEventListener('change', inputfiles, false);
 
     function inputfiles(e) {
-      // console.log('target',e.target.files);
       propfichier(e.target.files);
+      console.log('target',e.target.files);
     }
 
     function propfichier(arg) {
@@ -283,6 +283,9 @@ export class AdministrationComponent {
           img.style.backgroundSize = 'cover';
         }
         lecteur.readAsDataURL(fichier);
+        console.log('bandi bi',fichier);
+        thi.image=fichier.name;
+        console.log('bi laye séte', thi.image);
       } else {
         alert('Ce n\'est pas une image');
       }
