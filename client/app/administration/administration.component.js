@@ -28,7 +28,10 @@ export class AdministrationComponent {
   question;
   q;
 
-
+  qy = [];
+  ry= [];
+  taille;
+  ta;
   //id_theme;
   //image;
   //une;
@@ -39,25 +42,26 @@ export class AdministrationComponent {
     this.status = false;
     this._id = '';
     this.i = 0;
-    this.titre = '';
 
+    this.titre = '';
     this.auteur = '';
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
-
     this.libelle = '';
     this.contenuInterviews = '';
     this.intervenant = '';
     this.themeinterv = '';
     this.nbq = '';
     this.artic = "";
+    this.intr = "";
     this.vide = "";
     this.themeProvider = themeProvider;
     this.articleProvider = articleProvider;
     this.jsFunctionProvider = jsFunctionProvider;
     this.articleProvider = articleProvider;
     this.paysProvider = paysProvider;
+
 
 
     this.action = "Ajouter";
@@ -185,9 +189,6 @@ export class AdministrationComponent {
     }
   }
 
-  editionInterview(inter) {
-
-  }
   editArticl(article) {
     console.log('okkkkkk');
     this.action = "Modifier";
@@ -215,6 +216,32 @@ export class AdministrationComponent {
     /*console.log('li lane la', this._id);*/
 
   }
+  editionInterview(intr) {
+    if (intr === "") {
+      this.taille = this.qy.length;
+      this.action = "Ajouter";
+      if (this.selected && this.vide === "bon") {
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille,this.ry);
+        this.libelle = '';
+        this.intervenant = '';
+        this.contenuInterviews = '';
+        this.selected = '';
+
+      } else {
+        this.selected = null;
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille,this.ry);
+        this.libelle = '';
+        this.intervenant = '';
+        this.contenuInterviews = '';
+        this.selected = '';
+      }
+
+    }
+    console.log('Taille Question yi', this.taille);
+    console.log('question yi', this.qy);
+    console.log('Taille Reponses yi', this.taille);
+    console.log('Reponses yi', this.ry);
+  }
 
   getQuestionByInterview(id) {
     this.questionProvider.listQuestionsInterviews(id).then(list => {
@@ -236,16 +263,6 @@ export class AdministrationComponent {
     });
   }
 
-  editInterv(interv) {
-    console.log('okkkkkk')
-    this.libelle = interv.libelle;
-    this.intervenant = interv.intervenant;
-    this.contenuInterviews = interv.contenu;
-    this.themeinterv = interv.id_theme;
-    // this.une = article.une;
-
-
-  }
   Init() {
     var fichier = document.querySelector('#imageArticle');
     fichier.addEventListener('change', inputfiles, false);
