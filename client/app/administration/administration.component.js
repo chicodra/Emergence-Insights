@@ -281,11 +281,12 @@ export class AdministrationComponent {
           var img = document.querySelector('#imageSection');
           img.style.background = 'url(' + e.target.result + ') center center no-repeat';
           img.style.backgroundSize = 'cover';
+          thi.image=e.target.result;
+          console.log('ki kan la', e.target.result);
         }
         lecteur.readAsDataURL(fichier);
         console.log('bandi bi',fichier);
-        thi.image=fichier.name;
-        console.log('bi laye séte', thi.image);
+        
       } else {
         alert('Ce n\'est pas une image');
       }
