@@ -38,7 +38,7 @@
             <slide ng-repeat="article in vm.listArticles" style="     text-align: center;
         font-size: 18px;
         background: #fff;
-        max-width: 400px;
+        max-width: 300px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: -webkit-flex;
@@ -55,7 +55,7 @@
               <div class="about-item">
                 <img class="img-responsive" ui-sref="article({libelle:article.titre})" style=" height: 200px;" ng-src={{article.image}}
                   alt="">
-                  <a class="about-title" ui-sref="article({libelle:article.titre})">{{article.titre|limitTo:75}}</a>
+                  <a style="height: 40px;" class="about-title" ui-sref="article({libelle:article.titre})">{{article.titre|limitTo:50}}</a>
                   <div class="about-keywords">
                     <a href="#" class="tags">publication </a>/
                     <a href="#" class="tags">gouvernance </a>/
@@ -67,7 +67,7 @@
               </div>
               </slide>
           </slides>
-          <!--<pagination></pagination>-->
+          <pagination></pagination>
         </swiper>
       </section>
     </div>
