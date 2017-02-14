@@ -52,7 +52,7 @@ export function interviewsProvider($http, $q) {
     return liste;
 
   }
-  this.ajoutInterview = function (libelle, intervenant, contenu, theme, tab, taille, tabrep) {
+  this.ajoutInterview = function (libelle, intervenant, contenu, theme, tab, taille, tabrep, image) {
     var deferred = $q.defer();
     var t = [];
     var th = this;
@@ -60,10 +60,10 @@ export function interviewsProvider($http, $q) {
       libelle: libelle,
       intervenant: intervenant,
       contenu: contenu,
-      id_theme: theme
+      id_theme: theme,
+      image:image,
     }).then(function (data) {
       console.log("Interview bi Bakhna");
-
       var i;
       var j = 0;
       for (i = 0; i < taille; i++) {
