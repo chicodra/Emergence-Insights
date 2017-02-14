@@ -95,7 +95,6 @@ export class NavbarComponent {
   }
   //Init();
   classPays() {
-    console.log('okk');
     this.cl = "menu-dropdown-icon";
     this.myStyle = {
       'display': 'block',
@@ -104,7 +103,6 @@ export class NavbarComponent {
   }
 
   delclassPays() {
-    console.log('okk');
     this.cl = "";
     this.myStyle = {
       'display': 'none',
@@ -113,7 +111,6 @@ export class NavbarComponent {
   }
 
   classSecteur() {
-    console.log('okkgfjkggfj');
     this.dropSecteur = "menu-dropdown-icon";
     this.styleSecteur = {
       'display': 'block',
@@ -122,7 +119,6 @@ export class NavbarComponent {
   }
 
   delclassSecteur() {
-    console.log('okk');
     this.dropSecteur = "";
     this.styleSecteur = {
       'display': 'none',
@@ -130,7 +126,6 @@ export class NavbarComponent {
     }
   }
   classEmergence() {
-    console.log('okk');
     this.dropEmergence = "menu-dropdown-icon";
     this.styleEmergence = {
       'display': 'block',
@@ -139,7 +134,6 @@ export class NavbarComponent {
   }
 
   delclassEmergence() {
-    console.log('okk');
     this.dropEmergence = "";
     this.styleEmergence = {
       'display': 'none',
@@ -148,7 +142,6 @@ export class NavbarComponent {
   }
 
     classAdmin() {
-    console.log('okk');
     this.cl = "menu-dropdown-icon";
     this.styleAdmin = {
       'display': 'block',
@@ -157,7 +150,6 @@ export class NavbarComponent {
   }
 
   delclassAdmin() {
-    console.log('okk');
     this.cl = "";
     this.styleAdmin = {
       'display': 'none'
