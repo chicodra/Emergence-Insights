@@ -119,6 +119,16 @@ h1 {
     column-count: 3;
 }
 
+.notifBull {
+	padding: 1px;
+	float: top;
+	border-radius: 5px;
+	/*border: 1px solid red; */
+	color: red; 
+	font-size: 12px; 
+	margin-left: -3px;
+}
 
 /*swiper*/
+
  

@@ -36,7 +36,7 @@
       </div>-->
       <swiper>
         <slides>
-          <slide style="text-align: center;
+          <slide class="activeEvent activeEvent1" style="text-align: center;
 
           min-height: 600px;
         font-size: 20px;
@@ -55,20 +55,20 @@
         align-items: center;
         background-image:url(assets/images/perfstock/slider/collaboration2.jpg);
         background-size: cover">
-            <!--<div class="">-->
-            <!--<div class="vertical-align">-->
-              <div class="square-box">
-                  <h4 class="square-date">emergence insights</h4>
+            <div class="triheight">
+              <div class="vertical-align">
+                <div class="square-box">
+                  <h4 class="square-date">Bienvenue sur</h4>
                   <h2 class="square-title">emergence insights</h2>
                   <div class="square-text">Une plateforme collaborative pour une mise en oeuvre plus efficace des plans d'émergence. </div>
                 </div>
-            <!--</div>-->
-            <!--</div>-->
+              </div>
+            </div>
             <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt porro, libero illum pariatur. Illum nulla quam voluptatum,
             ex ullam, molestiae praesentium quidem, laudantium et non magni vel neque itaque, alias.
             <img class="center-image" src="/assets/images/perfstock/slider/collaboration2.jpg" alt="" style="height: 700px; width: 400px;">-->
             </slide>
-            <slide style="text-align: center;
+            <slide ng-swipe-right="$ctrl.nextActive()" class="activeEvent activeEvent2" style="text-align: center;
 
             min-height: 600px;
         font-size: 20px;
@@ -87,23 +87,22 @@
         align-items: center;
         background-image:url(assets/images/perfstock/slider/confroom2.jpg);
         background-size: cover">
-              <!--<div class="">-->
-              <!--<div class="vertical-align">-->
-              <div class="square-box">
-                <h4 class="square-date">Mars 2017 à Abidjan</h4>
-                <h2 class="square-title">CIEA</h2>
-                <div class="square-text">Enhancing Africa's transformation</div>
+              <div class="triheight">
+                <div class="vertical-align">
+                  <div class="square-box">
+                    <h4 class="square-date">Mars 2017 à Abidjan</h4>
+                    <h2 class="square-title">CIEA</h2>
+                    <div class="square-text">Enhancing Africa's transformation</div>
+                  </div>
+                </div>
               </div>
-              <!--</div>-->
-              <!--</div>-->
               <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla perspiciatis, itaque modi porro quos adipisci explicabo vitae
               reprehenderit obcaecati aliquam accusantium, rem dicta facere inventore natus, ab dolore fuga et.
               <img class="center-image" src="/assets/images/perfstock/slider/confroom2.jpg" alt="" style="height: 700px; width: 400px;">-->
               </slide>
         </slides>
-        <prev></prev>
-        <next></next>
-        <pagination></pagination>
+        <prev ng-click="$ctrl.prevActive()" class="swiper-arrow-left style-1" style="background-image:url(../../assets/images/arrow_left.png); height: 37px;"></prev>
+        <next ng-click="$ctrl.nextActive()" class="swiper-arrow-right style-1" style="background-image:url(../../assets/images/arrow_right.png); height: 37px;"></next>
       </swiper>
     </div>
     <!-- COUNTERS -->
@@ -135,23 +134,6 @@
     <div class="main-block clearfix" id="nouveautes">
       <div class="container">
         <articleune></articleune>
-        <!--<swiper>
-          <slides>
-            <slide>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt porro, libero illum pariatur. Illum nulla quam voluptatum,
-              ex ullam, molestiae praesentium quidem, laudantium et non magni vel neque itaque, alias.
-              <img class="center-image" src="/assets/images/perfstock/slider/collaboration2.jpg" alt="">
-            </slide>
-            <slide>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla perspiciatis, itaque modi porro quos adipisci explicabo vitae
-              reprehenderit obcaecati aliquam accusantium, rem dicta facere inventore natus, ab dolore fuga et.
-              <img class="center-image" src="/assets/images/perfstock/slider/collaboration2.jpg" alt="" style="max-width: 100%;">
-            </slide>
-          </slides>
-          <prev></prev>
-          <next></next>
-          <pagination></pagination>
-        </swiper>-->
       </div>
     </div>
     <!-- ABOUT -->
