@@ -40,6 +40,7 @@ export class AdministrationComponent {
 
   constructor(jsFunctionProvider, themeProvider, articleProvider, interviewsProvider, reponseProvider, questionProvider, paysProvider) {
     this.status = false;
+    this.sp;
     this._id = '';
     this.i = 0;
     this.titre = '';
@@ -47,6 +48,7 @@ export class AdministrationComponent {
     this.contenu = '';
     this.themearticl = '';
     this.une = '';
+    this.ima = '';
     this.libelle = '';
     this.contenuInterviews = '';
     this.intervenant = '';
@@ -90,7 +92,7 @@ export class AdministrationComponent {
       if (this.selected && this.vide === "bon") {
         if (this.une) {
           this.alaune = true;
-          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune,this.image);
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune, this.image);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
@@ -99,7 +101,7 @@ export class AdministrationComponent {
           this.selected = '';
         } else {
           this.alaune = false;
-          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune,this.image);
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune, this.image);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
@@ -112,7 +114,7 @@ export class AdministrationComponent {
         if (this.une) {
           this.selected = null;
           this.alaune = true;
-          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune,this.image);
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune, this.image);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
@@ -121,7 +123,7 @@ export class AdministrationComponent {
         } else {
           this.selected = null;
           this.alaune = false;
-          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune,this.image);
+          this.articleProvider.ajoutSujet(this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune, this.image);
           window.location.reload();
           this.titre = '';
           this.auteur = '';
@@ -136,7 +138,7 @@ export class AdministrationComponent {
         if (this.selected && this.vide === "bon") {
           if (this.une) {
             this.alaune = true;
-            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune, this.image);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -145,7 +147,7 @@ export class AdministrationComponent {
             this.selected = '';
           } else {
             this.alaune = false;
-            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune, this.image);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -158,7 +160,7 @@ export class AdministrationComponent {
           if (this.une) {
             this.selected = null;
             this.alaune = true;
-            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune, this.image);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -167,7 +169,7 @@ export class AdministrationComponent {
           } else {
             this.selected = null;
             this.alaune = false;
-            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune);
+            this.articleProvider.modifier(this._id, this.titre, this.auteur, this.contenu, this.datetime, this.selected, this.alaune, this.image);
             window.location.reload();
             this.titre = '';
             this.auteur = '';
@@ -180,7 +182,7 @@ export class AdministrationComponent {
       } else {
         if (artic === "supprimer") {
           this.articleProvider.supprimer(this._id);
-          window.location.reload();
+          //window.location.reload();
         }
 
       }
@@ -197,21 +199,25 @@ export class AdministrationComponent {
     this.contenu = article.contenu;
     this.themearticl = article.id_theme;
     this.une = article.une;
+    this.ima = article.image;
+    var im=document.querySelector('#imageSection');
+    im.style.background = 'url(' + this.ima + ') center center no-repeat';
+    im.style.backgroundSize = 'cover';
     this.artic = "modifier";
+    console.log('Mom meu', this.ima);
     /*console.log('li lane la', this._id);*/
 
   }
 
   supprimerArticl(article) {
     console.log('okkkkkk');
-    this.action = "Supprimer";
     this._id = article._id;
-    this.titre = article.titre;
-    this.auteur = article.auteur;
-    this.contenu = article.contenu;
-    this.themearticl = article.id_theme;
-    this.une = article.une;
     this.artic = "supprimer";
+    // this.concat = this._id + "";
+    // alert('Etes Vous sûr de vouloir supprimer cet Article');
+    // $("#" + this._id).backgroundColor= "red";
+    $("#" + this._id).fadeOut('slow');
+    this.editionArticle(this.artic);
     /*console.log('li lane la', this._id);*/
 
   }
@@ -220,7 +226,7 @@ export class AdministrationComponent {
       this.taille = this.qy.length;
       this.action = "Ajouter";
       if (this.selected && this.vide === "bon") {
-        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille, this.ry);
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille, this.ry, this.image);
         this.libelle = '';
         this.intervenant = '';
         this.contenuInterviews = '';
@@ -228,7 +234,7 @@ export class AdministrationComponent {
 
       } else {
         this.selected = null;
-        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille, this.ry);
+        this.interviewsProvider.ajoutInterview(this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.qy, this.taille, this.ry, this.image);
         this.libelle = '';
         this.intervenant = '';
         this.contenuInterviews = '';
@@ -264,12 +270,12 @@ export class AdministrationComponent {
 
   Init() {
     var fichier = document.querySelector('#imageArticle');
-    var thi=this;
+    var thi = this;
     fichier.addEventListener('change', inputfiles, false);
 
     function inputfiles(e) {
       propfichier(e.target.files);
-      console.log('target',e.target.files);
+      console.log('target', e.target.files);
     }
 
     function propfichier(arg) {
@@ -281,12 +287,14 @@ export class AdministrationComponent {
           var img = document.querySelector('#imageSection');
           img.style.background = 'url(' + e.target.result + ') center center no-repeat';
           img.style.backgroundSize = 'cover';
-          thi.image=e.target.result;
+          thi.image = e.target.result;
+
           console.log('ki kan la', e.target.result);
         }
         lecteur.readAsDataURL(fichier);
-        console.log('bandi bi',fichier);
-        
+        console.log('bandi bi', fichier);
+
+
       } else {
         alert('Ce n\'est pas une image');
       }
