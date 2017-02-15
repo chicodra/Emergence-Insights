@@ -425,7 +425,7 @@ export class CategorieComponent {
         /* on Page Load */
         this.jsFunctionProvider.onPageLoad();
         this.jsFunctionProvider.onPageResize();
-        this.jsFunctionProvider.onSliderArrowClick();
+      //  this.jsFunctionProvider.onSliderArrowClick();
         this.jsFunctionProvider.onPageScroll();
         /*==============================*/
         /* 08 - BUTTONS, CLICKS, HOVERS */
