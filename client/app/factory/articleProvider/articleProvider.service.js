@@ -67,12 +67,13 @@ export function articleProviderService($http, $q) {
       console.log("Bakhna");
     });
   }
-this.modifier = function (id,titre, auteur, contenu, datetime, theme,alaune) {
+this.modifier = function (id,titre, auteur, contenu, datetime, theme,alaune,image) {
     var deferred = $q.defer();
     $http.put('/api/articles/'+id, {
         titre: titre,
         contenu: contenu,
         id_theme:theme,
+        image:image,
         auteur: auteur,
         une:alaune,
         date_publication: datetime
