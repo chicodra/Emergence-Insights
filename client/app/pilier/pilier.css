@@ -121,13 +121,25 @@ h1 {
   /*border-bottom: 1px solid black;*/
 }
 
-.textcolumn {
-  -webkit-column-count: 3;
-  /* Chrome, Safari, Opera */
-  -moz-column-count: 3;
-  /* Firefox */
-  column-count: 3;
-}
+.textcolumn{
+	 -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+		-webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+		-webkit-column-rule-style: solid; /* Chrome, Safari, Opera */
+    -moz-column-rule-style: solid; /* Firefox */
+    column-rule-style: solid;
+		-webkit-column-rule-color: dodgerblue; /* Chrome, Safari, Opera */
+    -moz-column-rule-color: dodgerblue; /* Firefox */
+    column-rule-color: dodgerblue;
+		 -webkit-column-rule: 1px solid dodgerblue; /* Chrome, Safari, Opera */
+    -moz-column-rule: 1px solid dodgerblue; /* Firefox */
+    column-rule: 1px solid dodgerblue;
+
+
+
 
 .notifBull {
   padding: 1px;
@@ -137,6 +149,7 @@ h1 {
   color: red;
   font-size: 12px;
   margin-left: -3px;
+
 }
 
 
