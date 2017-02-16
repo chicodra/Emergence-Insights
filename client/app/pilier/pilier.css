@@ -11,21 +11,24 @@ h1 {
   margin-bottom: 50px;
 }
 
-.img-texte{
-    float: left;
-    width: 30%;
-    margin-right:15px;
-    
+.img-texte {
+  float: left;
+  width: 30%;
+  margin-right: 15px;
 }
+
 .hover01 figure:hover img {
-	-webkit-transform: scale(0.9);
-	transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
+
 .imageflottante img {
-/*animation: bounce 0.7s ease infinite;*/
-  width: 200px; /* largeur de l'image */
-  height: auto; /* hauteur de l'image */
-  -webkit-transition: .1s ease-in-out !important; 
+  /*animation: bounce 0.7s ease infinite;*/
+  width: 200px;
+  /* largeur de l'image */
+  height: auto;
+  /* hauteur de l'image */
+  -webkit-transition: .1s ease-in-out !important;
   transition: .1s ease-in-out !important;
 }
 
@@ -40,85 +43,121 @@ h1 {
 }
 
 .imageflottante img:hover {
-  width: 150px; /* on affiche l'image au carré */
+  width: 150px;
+  /* on affiche l'image au carré */
   height: 150px;
   border-radius: 50%;
-
 }
 
-
 .tag:hover span {
-  text-decoration:underline;
+  text-decoration: underline;
   /*border-bottom: 1px solid black;*/
 }
 
 .cuadro_intro_hover {
-    	padding: 0px;
-		position: relative;
-		overflow: hidden;
-		height: 200px;
-    
-	}
-	.cuadro_intro_hover:hover .caption{
-		opacity: 1;
-		transform: translateY(-100px);
-		-webkit-transform:translateY(-100px);
-		-moz-transform:translateY(-100px);
-		-ms-transform:translateY(-100px);
-		-o-transform:translateY(-100px);
-	}
-	.cuadro_intro_hover img{
-		z-index: 4;
-	}
-	.cuadro_intro_hover .caption{
-		position: absolute;
-		top:150px;
-		-webkit-transition:all 0.3s ease-in-out;
-		-moz-transition:all 0.3s ease-in-out;
-		-o-transition:all 0.3s ease-in-out;
-		-ms-transition:all 0.3s ease-in-out;
-		transition:all 0.3s ease-in-out;
-		width: 100%;
-	}
-	.cuadro_intro_hover .blur{
-		background-color: rgba(0,0,0,0.7);
-		height: 300px;
-		z-index: 5;
-		position: absolute;
-		width: 100%;
-	}
-	.cuadro_intro_hover .caption-text{
-		z-index: 10;
-		color: #fff;
-		position: absolute;
-		height: 200px;
-		text-align: center;
-		top:-20px;
-		width: 100%;
-	}
+  padding: 0px;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
 
-.panel-heading {
+.cuadro_intro_hover:hover .caption {
+  opacity: 1;
+  transform: translateY(-100px);
+  -webkit-transform: translateY(-100px);
+  -moz-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  -o-transform: translateY(-100px);
+}
+
+.cuadro_intro_hover img {
+  z-index: 4;
+}
+
+.cuadro_intro_hover .caption {
+  position: absolute;
+  top: 150px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.cuadro_intro_hover .blur {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 300px;
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+}
+
+.cuadro_intro_hover .caption-text {
+  z-index: 10;
+  color: #fff;
+  position: absolute;
+  height: 200px;
+  text-align: center;
+  top: -20px;
+  width: 100%;
+}
+
+.souscat {
   transition: 0.1s ease-in-out;
 }
 
-.panel-heading:hover {
-	font-size:large;
-	font-family: 'Times New Roman', Times, serif;
+.souscat:hover {
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
   background-color: rgba(73, 106, 181, 0.51);
 }
-.cat:hover  {
-  text-decoration:underline;
-	font-size: large;
-	color: #fff;
-	background-color:rgba(73, 106, 181, 0.51);
+
+.cat:hover {
+  text-decoration: underline;
+  font-size: large;
+  color: #4169E1;
+  font-family: 'Times New Roman', Times, serif;
   /*border-bottom: 1px solid black;*/
 }
+
 .textcolumn{
 	 -webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
     column-count: 3;
+		-webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+		-webkit-column-rule-style: solid; /* Chrome, Safari, Opera */
+    -moz-column-rule-style: solid; /* Firefox */
+    column-rule-style: solid;
+		-webkit-column-rule-color: dodgerblue; /* Chrome, Safari, Opera */
+    -moz-column-rule-color: dodgerblue; /* Firefox */
+    column-rule-color: dodgerblue;
+		 -webkit-column-rule: 1px solid dodgerblue; /* Chrome, Safari, Opera */
+    -moz-column-rule: 1px solid dodgerblue; /* Firefox */
+    column-rule: 1px solid dodgerblue;
+
+
 }
 
+.notifBull {
+  padding: 1px;
+  float: top;
+  border-radius: 5px;
+  /*border: 1px solid red; */
+  color: red;
+  font-size: 12px;
+  margin-left: -3px;
 
-/*swiper*/
- 
+}
+
+.si {
+background-image:linear-gradient(#DCDCDC, #fff);
+}
+
+/*les checkbox sur chrome*/
+
+input[type=checkbox] {
+  -webkit-appearance: checkbox;
+}

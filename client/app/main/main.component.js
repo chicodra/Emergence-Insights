@@ -62,65 +62,65 @@ export class MainController {
 
     this.interviewsProvider.listInterviews().then(list => {
       this.ListInterv = list;
-       if (this.ListInterv.length==0) {
+      if (this.ListInterv.length == 0) {
         console.log('Liste Vide');
-       this.nbinterviews = this.ListInterv.length;
-      }else{
-      console.log('Raymond Interviews', this.ListInterv.length);
-      this.nbinterviews = this.ListInterv.length;
-      console.log('Ray Interviews', this.nbinterviews);
+        this.nbinterviews = this.ListInterv.length;
+      } else {
+        console.log('Raymond Interviews', this.ListInterv.length);
+        this.nbinterviews = this.ListInterv.length;
+        console.log('Ray Interviews', this.nbinterviews);
       }
     });
 
     this.etudecasProvider.listEtudedeCas().then(list => {
       this.ListEtud = list;
-       if (this.listP.length==0) {
+      if (this.listP.length == 0) {
         console.log('Liste Vide');
         this.nbetud = this.ListEtud.length;
-      }else{
-      console.log('Raymond Etude ', this.ListEtud.length);
-      this.nbetud = this.ListEtud.length;
-      console.log('Ray Etude', this.nbetud);
+      } else {
+        console.log('Raymond Etude ', this.ListEtud.length);
+        this.nbetud = this.ListEtud.length;
+        console.log('Ray Etude', this.nbetud);
       }
     });
     this.paysProvider.listPays().then(list => {
       this.listP = list;
-      if (this.listP.length==0) {
+      if (this.listP.length == 0) {
         console.log('Liste Vide');
         this.nbp = this.listP.length;
-      }else{
-      console.log('Raymond Pays ', this.listP.length);
-      this.nbp = this.listP.length;
-      console.log('Ray Pays', this.nbp);
+      } else {
+        console.log('Raymond Pays ', this.listP.length);
+        this.nbp = this.listP.length;
+        console.log('Ray Pays', this.nbp);
       }
     });
 
     this.articleProvider.listArticles().then(list => {
       this.ListArt = list;
-      if (this.ListArt.length==0) {
+      if (this.ListArt.length == 0) {
         console.log('Liste Vide');
         this.nbarticle = this.ListArt.length;
-      }else{
-      console.log('Raymond Article ', this.ListArt.length);
-      this.nbarticle = this.ListArt.length;
-      console.log('Ray Article', this.nbarticle);
+      } else {
+        console.log('Raymond Article ', this.ListArt.length);
+        this.nbarticle = this.ListArt.length;
+        console.log('Ray Article', this.nbarticle);
       }
-      
+
     });
     this.presentationProvider.listPresentations().then(list => {
       this.listslide = list;
-      if (this.listslide.length==0) {
+      if (this.listslide.length == 0) {
         console.log('Liste Vide');
-      }else{
-      console.log('slide', this.listslide);
+      } else {
+        console.log('slide', this.listslide);
       }
     });
     this.temoignageProvider.listTemoignages().then(list => {
-       this.listtemoignage = list;
-       if (this.listtemoignage.length==0) {
+      this.listtemoignage = list;
+      if (this.listtemoignage.length == 0) {
         console.log('Liste Vide');
-      }else{
-      console.log('Ray temoignages', this.listtemoignage);
+      } else {
+        console.log('Ray temoignages', this.listtemoignage);
       }
     });
     var th = this;
@@ -133,6 +133,9 @@ export class MainController {
     }, 50)
     angular.element(document)
       .ready(() => {
+        setTimeout(function () {
+          $('.activeEvent').addClass('active');
+        }, 1000);
         document.querySelector('header').style.backgroundColor = '';
         console.log('document main', document);
         /* demo animated */
@@ -143,9 +146,9 @@ export class MainController {
 
         /* on Page Load */
         this.jsFunctionProvider.onPageLoad();
-        this.jsFunctionProvider.initSwiper();
+        // this.jsFunctionProvider.initSwiper();
         this.jsFunctionProvider.onPageResize();
-        this.jsFunctionProvider.onSliderArrowClick();
+        // this.jsFunctionProvider.onSliderArrowClick();
         this.jsFunctionProvider.onPageScroll();
         /*==============================*/
         /* 08 - BUTTONS, CLICKS, HOVERS */
@@ -182,16 +185,35 @@ export class MainController {
         /*==================================================*/
         this.jsFunctionProvider.ajaxContactForm();
 
-        setTimeout(function () {
+        // setTimeout(function () {
 
 
-          this.jsFunctionProvider.globals();
+        this.jsFunctionProvider.globals();
 
-          this.jsFunctionProvider.anchorsNav();
-        }, 100);
+        this.jsFunctionProvider.anchorsNav();
+        // }, 100);
 
 
       });
+  }
+
+
+  nextActive() {
+    $('.activeEvent1').removeClass('active');
+    $('.activeEvent2').removeClass('active');
+    setTimeout(function () {
+      $('.activeEvent2').addClass('active');
+    }, 300);
+    console.log('next');
+  }
+
+  prevActive() {
+    $('.activeEvent2').removeClass('active');
+    $('.activeEvent1').removeClass('active');
+    setTimeout(function () {
+      $('.activeEvent1').addClass('active');
+    }, 300);
+    console.log('prev');
   }
 
 

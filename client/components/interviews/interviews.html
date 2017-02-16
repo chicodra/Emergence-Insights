@@ -48,9 +48,9 @@
         <div class="pagination hidden"></div>
     </div>
   </div>-->
-  <swiper>
-    <slides>
-      <slide ng-repeat="interview in vm.listInterviews" style="text-align: center;
+    <swiper>
+      <slides>
+        <slide ng-repeat="interview in vm.listInterviews" style="text-align: center;
                   min-width: 1200px;
                   min-height: 600px;
                   font-size: 20px;
@@ -85,18 +85,17 @@
                   <a href="#"><i class="fa fa-twitter"></i></a>
                   <a href="#"><i class="fa fa-linkedin"></i></a>
                   <a href="#"><i class="fa fa-skype"></i></a>
+
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        </slide>
-    </slides>
-    <prev></prev>
-    <next></next>
-    <pagination></pagination>
-  </swiper>
-  <!--<swiper>
+          </slide>
+      </slides>
+      <prev class="swiper-arrow-left style-1" style="background-image:url(../../assets/images/arrow_left.png); height: 37px;"></prev>
+      <next class="swiper-arrow-right style-1" style="background-image:url(../../assets/images/arrow_right.png); height: 37px;"></next>
+    </swiper>
+    <!--<swiper>
     <slides>
       <slide ng-show="vm.value" ng-repeat="interview in vm.listInterviews">
         <img class="img-responsive img-full" ng-src="../../../assets/images/perfstock/experts/thumbs/{{interview.image}}" alt="">
@@ -109,5 +108,5 @@
       </slide>
     </slides>
   </swiper>-->
-</div>
+  </div>
 </div>
