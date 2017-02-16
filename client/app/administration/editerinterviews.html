@@ -37,9 +37,9 @@
           <!--ngRepeat des questions et reponses pour la modification-->
           <div ng-repeat="nb in vm.nbq" class="form-group">
             <label for="questio"> <i class="fa fa-check" aria-hidden="true" style="color: cornflowerblue;"></i> &nbsp; Question</label>
-            <input type="text" class="form-control" id="questio" placeholder="question" ng-model="nb.titre">
-
-            <textarea ng-repeat="r in nb.a" class="form-control" rows="5" style="resize: none;" ng-model="r.libelle"> </textarea>
+            <input type="text" class="form-control" id="questio" placeholder="question" ng-model="vm.mqy[nb]">
+            <textarea  class="form-control" rows="5" style="resize: none;" ng-model="vm.mry[nb]"> 
+            </textarea> 
             <button type="submit" class="btn btn-default">Supprimer cette question</button>
           </div>
           <!--ngRepeat des questions et reponses pour l'ajout-->
@@ -73,7 +73,7 @@
           <div>
             <strong style="color: red;"> {{interv.q.length}} &nbsp; Question (s) et reponse (s) </strong><br>
           </div>
-          <a ng-click="" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+          <a ng-click="vm.suppInterv(interv)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
           <a ng-click="vm.editInterv(interv)" class=""><span class="fa fa-pencil fa-2x"></span></a>
         </li>
       </ul>
