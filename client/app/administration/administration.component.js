@@ -27,10 +27,16 @@ export class AdministrationComponent {
   scop;
   question;
   q;
-
+  mqy = [];
+  mry = [];
+  mqys = [];
+  mrys = [];
   qy = [];
   ry = [];
+  sqy = [];
+  srpy = [];
   taille;
+  taillebi;
   ta;
   //id_theme;
   //image;
@@ -200,7 +206,7 @@ export class AdministrationComponent {
     this.themearticl = article.id_theme;
     this.une = article.une;
     this.ima = article.image;
-    var im=document.querySelector('#imageSection');
+    var im = document.querySelector('#imageSection');
     im.style.background = 'url(' + this.ima + ') center center no-repeat';
     im.style.backgroundSize = 'cover';
     this.artic = "modifier";
@@ -220,6 +226,24 @@ export class AdministrationComponent {
     this.editionArticle(this.artic);
     /*console.log('li lane la', this._id);*/
 
+  }
+  suppInterv(interv) {
+    this._id = interv._id;
+    this.intr = "supprimer";
+    // this.concat = this._id + "";
+    // alert('Etes Vous sûr de vouloir supprimer cet Article');
+    // $("#" + this._id).backgroundColor= "red";
+    // $("#" + this._id).fadeOut('slow');
+    interv.q.forEach(function (element) {
+      this.sqy.push(element._id);
+      element.a.forEach(function (elem) {
+        this.srpy.push(elem._id);
+      }, this);
+    }, this);
+    console.log('Mom', this._id);
+    console.log('quest', this.sqy);
+    console.log('rep', this.srpy);
+    this.editionInterview(this.intr);
   }
   editionInterview(intr) {
     if (intr === "") {
@@ -241,11 +265,36 @@ export class AdministrationComponent {
         this.selected = '';
       }
 
+    } else {
+      if (intr === "modifier") {
+        if (this.selected && this.vide === "bon") {
+          console.log('questions a modifier', this.mqy);
+          this.taillebi=this.mqy.length;
+          console.log('reponses  a modifier', this.mry);
+          console.log('Taille bi', this.taillebi);
+          this.interviewsProvider.modifierInterview(this._id, this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.image);
+          this.questionProvider.modifierQuestion(this.mqy, this.mqys, this.taillebi);
+          this.interviewsProvider.modifierReponse(this.mry, this.mrys, this.taillebi);
+          window.location.reload();
+
+        } else {
+          this.selected = null;
+          console.log('questions a modifier', this.mqy);
+          console.log('reponses  a modifier', this.mry);
+          this.taillebi=this.mqy.length;
+          console.log('Taille bi', this.taillebi);
+          this.interviewsProvider.modifierInterview(this._id, this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.image);
+          this.questionProvider.modifierQuestion(this.mqy, this.mqys, this.taillebi);
+          this.interviewsProvider.modifierReponse(this.mry, this.mrys, this.taillebi);
+          window.location.reload();
+        }
+
+      } else {
+        if (intr === "supprimer") {
+          this.interviewsProvider.supprimer(this._id, this.sqy, this.sqy.length, this.srpy);
+        }
+      }
     }
-    console.log('Taille Question yi', this.taille);
-    console.log('question yi', this.qy);
-    console.log('Taille Reponses yi', this.taille);
-    console.log('Reponses yi', this.ry);
   }
 
   getQuestionByInterview(id) {
@@ -423,12 +472,35 @@ export class AdministrationComponent {
     }, 100);
   }
   editInterv(interv) {
-    console.log('okkkkkk')
+    console.log('okkkkkk');
+    this.action = "Modifier";
     this.libelle = interv.libelle;
+    this._id = interv._id;
     this.intervenant = interv.intervenant;
     this.contenuInterviews = interv.contenu;
     this.themeinterv = interv.id_theme;
-    this.nbq = interv.q;
+    this.ima = interv.image;
+    var im = document.querySelector('#imageSection');
+    im.style.background = 'url(' + this.ima + ') center center no-repeat';
+    im.style.backgroundSize = 'cover';
+    this.intr = "modifier";
+    var i = 0;
+    this.nbq = [];
+    interv.q.forEach(function (element) {
+      this.mqy.push(element.titre);
+      this.mqys.push(element._id);
+      this.nbq.push(i);
+      element.a.forEach(function (elem) {
+        this.mry.push(elem.libelle);
+        this.mrys.push(elem._id);
+      }, this);
+      i = i + 1;
+    }, this);
+    console.log('waw', this.nbq);
+    console.log('questions a modifier', this.mqy);
+    console.log('reponses  a modifier', this.mry);
+    console.log('id questions a modifier', this.mqys);
+    console.log('id reponses  a modifier', this.mrys);
     // this.une = article.une;
   }
 

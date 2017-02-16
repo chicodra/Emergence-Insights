@@ -21,6 +21,19 @@ export function questionProviderService($http,$q) {
     return liste;
 
   }
+   this.modifierQuestion = function (tab, tabs, taille) {
+    var deferred = $q.defer();
+    var i;
+    for (i = 0; i < taille; i++) {
+      console.log('lou khew fi', tabs[i]);
+      console.log('lou khew fi', tab[i]);
+      $http.put('/api/questions/' + tabs[i], {
+        titre: tab[i]
+      }).then(function () {
+        console.log("Questions yi Bakhna");
+      });
+    }
+  }
 }
 
 export default angular.module('emergenceInsightsApp.questionProvider', [])
