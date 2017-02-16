@@ -103,11 +103,11 @@ h1 {
   width: 100%;
 }
 
-.panel-heading {
+.souscat {
   transition: 0.1s ease-in-out;
 }
 
-.panel-heading:hover {
+.souscat:hover {
   font-size: large;
   font-family: 'Times New Roman', Times, serif;
   background-color: rgba(73, 106, 181, 0.51);
@@ -116,8 +116,8 @@ h1 {
 .cat:hover {
   text-decoration: underline;
   font-size: large;
-  color: #fff;
-  background-color: rgba(73, 106, 181, 0.51);
+  color: #4169E1;
+  font-family: 'Times New Roman', Times, serif;
   /*border-bottom: 1px solid black;*/
 }
 
