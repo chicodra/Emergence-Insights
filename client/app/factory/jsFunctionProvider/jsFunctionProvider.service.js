@@ -643,7 +643,7 @@ export function jsFunctionProviderService() {
           initialize('map-canvas');
         }
 
-        initSwiper();
+        //initSwiper();
         $('.isotope-container').isotope({
           itemSelector: '.item',
           masonry: {

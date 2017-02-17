@@ -203,8 +203,8 @@ export class MainController {
     $('.activeEvent2').removeClass('active');
     setTimeout(function () {
       $('.activeEvent2').addClass('active');
+      $('.activeEvent1').addClass('active');
     }, 300);
-    console.log('next');
   }
 
   prevActive() {
@@ -212,8 +212,12 @@ export class MainController {
     $('.activeEvent1').removeClass('active');
     setTimeout(function () {
       $('.activeEvent1').addClass('active');
+      $('.activeEvent2').addClass('active');
     }, 300);
-    console.log('prev');
+  }
+
+  test() {
+    console.log('inss')
   }
 
 
@@ -223,7 +227,7 @@ export class MainController {
 
 }
 
-export default angular.module('emergenceApp.main', [uiRouter])
+export default angular.module('emergenceApp.main', [uiRouter, 'ui.swiper'])
   .config(routing)
   .component('main', {
     template: require('./main.html'),

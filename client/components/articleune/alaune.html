@@ -12,24 +12,9 @@
     </div>
     <div class="row">
       <section class="swipe">
-        <swiper>
+        <swiper slides-per-view="4">
           <slides>
-            <slide ng-repeat="article in vm.listArticles" style="text-align: center;
-        font-size: 18px;
-        background: #fff;
-        max-width: 300px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;">
+            <slide ng-repeat="article in vm.listArticles">
               <!--<div class="">-->
               <div class="about-item">
                 <img class="img-responsive" ui-sref="article({libelle:article.titre})" style=" height: 200px;" ng-src="{{article.image}}"
