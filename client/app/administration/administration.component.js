@@ -216,15 +216,13 @@ export class AdministrationComponent {
   }
 
   supprimerArticl(article) {
-    console.log('okkkkkk');
+    if(confirm('Etes Vous sûr de vouloir supprimer cet Article?')){
     this._id = article._id;
     this.artic = "supprimer";
-    // this.concat = this._id + "";
-    // alert('Etes Vous sûr de vouloir supprimer cet Article');
     // $("#" + this._id).backgroundColor= "red";
     $("#" + this._id).fadeOut('slow');
     this.editionArticle(this.artic);
-    /*console.log('li lane la', this._id);*/
+    }
 
   }
   suppInterv(interv) {
@@ -372,7 +370,7 @@ export class AdministrationComponent {
           img.style.backgroundSize = 'cover';
           thi.image = e.target.result;
 
-          console.log('ki kan la', e.target.result);
+          // console.log('ki kan la', e.target.result);
         }
         lecteur.readAsDataURL(fichier);
         console.log('bandi bi', fichier);

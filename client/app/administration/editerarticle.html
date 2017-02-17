@@ -19,8 +19,8 @@
         <div class="row">
           <div class="form-group col-md-4" style="margin-top: 50px;">
             <label for="imageArticle">Choisir une image</label>
-            <input type="file" id="imageArticle" style="display: none;" >
-            <i style="color: cornflowerblue; cursor: pointer;" class="fa fa-upload fa-2x" aria-hidden="true" ng-click="vm.ouvreDialogue()" ></i>
+            <input type="file" id="imageArticle" style="display: none;">
+            <i style="color: cornflowerblue; cursor: pointer;" class="fa fa-upload fa-2x" aria-hidden="true" ng-click="vm.ouvreDialogue()"></i>
             <!--<p class="help-block">Example block-level help text here.</p>-->
           </div>
           <div class="form-group col-md-4" id="imageSection" style="height: 150px; width: 300px; border: 3px dotted cornflowerblue;"></div>
@@ -53,7 +53,7 @@
           <div>
             <strong>{{articl.titre}}</strong><br>
             <span class="text-muted">{{articl.auteur}}</span>
-           <img class="img-responsive" style=" height: 100px;" ng-src={{articl.image}} />
+            <img class="img-responsive" style=" height: 100px;" ng-src={{articl.image}} />
           </div>
           <a ng-click="vm.supprimerArticl(articl)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
           <a ng-click="vm.editArticl(articl)" class=""><span class="fa fa-pencil fa-2x"></span></a>

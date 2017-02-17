@@ -6,3 +6,4 @@
 [0131/111729:ERROR:file_io.cc(41)] write: Le canal de communication est sur le point d’être fermé. (0xE8)
 [0131/114054:ERROR:file_io.cc(41)] write: Le canal de communication est sur le point d’être fermé. (0xE8)
 [0131/133023:ERROR:file_io.cc(41)] write: Le canal de communication est sur le point d’être fermé. (0xE8)
+[0215/165258.907:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: Le canal de communication est sur le point d’être fermé. (0xE8)
