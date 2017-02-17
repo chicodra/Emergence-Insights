@@ -266,25 +266,59 @@ export class AdministrationComponent {
     } else {
       if (intr === "modifier") {
         if (this.selected && this.vide === "bon") {
-          console.log('questions a modifier', this.mqy);
-          this.taillebi=this.mqy.length;
-          console.log('reponses  a modifier', this.mry);
-          console.log('Taille bi', this.taillebi);
-          this.interviewsProvider.modifierInterview(this._id, this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.image);
-          this.questionProvider.modifierQuestion(this.mqy, this.mqys, this.taillebi);
-          this.interviewsProvider.modifierReponse(this.mry, this.mrys, this.taillebi);
-          window.location.reload();
+          if (this.qy.length > 0 && this.ry.length > 0) {
+            console.log('questions a modifier', this.mqy);
+            this.taillebi = this.mqy.length;
+            console.log('reponses  a modifier', this.mry);
+            console.log('Taille bi', this.taillebi);
+            console.log('you bess yi', this.qy);
+            console.log('you bess yi fi', this.ry);
+            this.interviewsProvider.modifierInterview(this._id, this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.image);
+            this.questionProvider.modifierQuestion(this.mqy, this.mqys, this.taillebi);
+            this.interviewsProvider.modifierReponse(this.mry, this.mrys, this.taillebi);
+            this.taille = this.qy.length;
+            this.interviewsProvider.ajoutModif(this._id, this.qy, this.taille, this.ry);
+          } else {
+            console.log('questions a modifier', this.mqy);
+            this.taillebi = this.mqy.length;
+            console.log('reponses  a modifier', this.mry);
+            console.log('Taille bi', this.taillebi);
+            console.log('you bess yi', this.qy);
+            console.log('you bess yi fi', this.ry);
+            this.interviewsProvider.modifierInterview(this._id, this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.image);
+            this.questionProvider.modifierQuestion(this.mqy, this.mqys, this.taillebi);
+            this.interviewsProvider.modifierReponse(this.mry, this.mrys, this.taillebi);
+            window.location.reload();
+          }
 
         } else {
-          this.selected = null;
-          console.log('questions a modifier', this.mqy);
-          console.log('reponses  a modifier', this.mry);
-          this.taillebi=this.mqy.length;
-          console.log('Taille bi', this.taillebi);
-          this.interviewsProvider.modifierInterview(this._id, this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.image);
-          this.questionProvider.modifierQuestion(this.mqy, this.mqys, this.taillebi);
-          this.interviewsProvider.modifierReponse(this.mry, this.mrys, this.taillebi);
-          window.location.reload();
+
+          if (this.qy.length > 0 && this.ry.length > 0) {
+            this.selected = null;
+            console.log('questions a modifier', this.mqy);
+            console.log('reponses  a modifier', this.mry);
+            this.taillebi = this.mqy.length;
+            console.log('you bess yi', this.qy);
+            console.log('you bess yi fi', this.ry);
+            console.log('Taille bi', this.taillebi);
+            this.interviewsProvider.modifierInterview(this._id, this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.image);
+            this.questionProvider.modifierQuestion(this.mqy, this.mqys, this.taillebi);
+            this.interviewsProvider.modifierReponse(this.mry, this.mrys, this.taillebi);
+            this.taille = this.qy.length;
+            this.interviewsProvider.ajoutModif(this._id, this.qy, this.taille, this.ry);
+          } else {
+            this.selected = null;
+            console.log('questions a modifier', this.mqy);
+            console.log('reponses  a modifier', this.mry);
+            this.taillebi = this.mqy.length;
+            console.log('you bess yi', this.qy);
+            console.log('you bess yi fi', this.ry);
+            console.log('Taille bi', this.taillebi);
+            this.interviewsProvider.modifierInterview(this._id, this.libelle, this.intervenant, this.contenuInterviews, this.selected, this.image);
+            this.questionProvider.modifierQuestion(this.mqy, this.mqys, this.taillebi);
+            this.interviewsProvider.modifierReponse(this.mry, this.mrys, this.taillebi);
+            window.location.reload();
+          }
         }
 
       } else {
@@ -499,7 +533,6 @@ export class AdministrationComponent {
     console.log('reponses  a modifier', this.mry);
     console.log('id questions a modifier', this.mqys);
     console.log('id reponses  a modifier', this.mrys);
-    // this.une = article.une;
   }
 
   addquestion() {
