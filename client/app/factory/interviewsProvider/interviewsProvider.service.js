@@ -96,6 +96,40 @@ export function interviewsProvider($http, $q) {
 
     });
   }
+
+  this.ajoutModif = function (id, tab, taille, tabrep) {
+    var deferred = $q.defer();
+    var t = [];
+    var i;
+    var j = 0;
+    for (i = 0; i < taille; i++) {
+      //j=i;
+      console.log('Question yi', tab[i]);
+      $http.post('/api/questions', {
+          titre: tab[i],
+          id_interview: id
+        },
+        t.push(i),
+
+      ).then(function (datas) {
+        console.log("datass", datas.data._id)
+        console.log("Questions yi Bakhna");
+        console.log('Réponse yi', tabrep[t[j]]);
+        $http.post('/api/reponses', {
+            libelle: tabrep[t[j]],
+            id_question: datas.data._id
+          },
+          j = j + 1,
+        ).then(function () {
+          console.log("Réponses yi Bakhna");
+        });
+      });
+       window.location.reload();
+    }
+    
+  }
+
+
   this.supprimer = function (id, tabquest, taille, tabrep) {
     var deferred = $q.defer();
     var t = [];
