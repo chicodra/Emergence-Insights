@@ -34,27 +34,10 @@
         <div class="swiper-arrow-left style-1"><img src="/assets/images/arrow_left.png" alt=""></div>
         <div class="swiper-arrow-right style-1"><img src="/assets/images/arrow_right.png" alt=""></div>
       </div>-->
-      <swiper>
+      <swiper loop="true">
         <slides>
-          <slide class="activeEvent activeEvent1" style="text-align: center;
-
-          min-height: 600px;
-        font-size: 20px;
-        background: #fff;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-        background-image:url(assets/images/perfstock/slider/collaboration2.jpg);
-        background-size: cover">
+          <slide class="activeEvent activeEvent1" style="min-height: 550px; font-size: 20px;
+        background-image:url(assets/images/perfstock/slider/collaboration2.jpg); background-size: cover">
               <div class="vertical-align">
                 <div class="square-box">
                   <h4 class="square-date">Bienvenue sur</h4>
@@ -66,23 +49,7 @@
             ex ullam, molestiae praesentium quidem, laudantium et non magni vel neque itaque, alias.
             <img class="center-image" src="/assets/images/perfstock/slider/collaboration2.jpg" alt="" style="height: 700px; width: 400px;">-->
             </slide>
-            <slide ng-swipe-right="$ctrl.nextActive()" class="activeEvent activeEvent2" style="text-align: center;
-
-            min-height: 600px;
-        font-size: 20px;
-        background: #fff;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
+            <slide ng-swipe-right="$ctrl.nextActive()" class="activeEvent activeEvent2" style="min-height: 550px; font-size: 20px;
         background-image:url(assets/images/perfstock/slider/confroom2.jpg);
         background-size: cover">
               
@@ -246,7 +213,7 @@
       <div class="small-block">
         <div class="container">
           <section class="swipe">
-            <swiper instance="instance">
+            <swiper instance="instance" loop="true">
               <slides>
                 <slide>
                   <div class="row">
@@ -433,7 +400,7 @@
       </div>
     </div>
     <!-- SLIDER WITH THUMBS -->
-    <interviews></interviews>
+    <interviews great="true" small="true"></interviews>
     <!-- MESSAGE LINE -->
     <div id="sing" class="message-line">
       <div class="container">

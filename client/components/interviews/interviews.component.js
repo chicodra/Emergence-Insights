@@ -102,7 +102,8 @@ export default angular.module('emergenceInsightsApp.interviews', [])
     template: require('./interviews.html'),
     bindings: {
       message: '<',
-      value: '<'
+      great: '<',
+      small: '<'
     },
     controller: interviewsComponent,
     controllerAs: 'vm'

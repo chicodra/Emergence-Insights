@@ -1,6 +1,7 @@
 'use strict';
 const angular = require('angular');
 
+
 export class articleuneComponent {
   /*@ngInject*/
   constructor(articleProvider, jsFunctionProvider) {
